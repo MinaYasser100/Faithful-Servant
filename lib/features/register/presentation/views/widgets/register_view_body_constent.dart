@@ -38,7 +38,7 @@ class ReisterViewBodyContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          NavigationBackButton(),
+          const NavigationBackButton(),
           const SizedBox(height: 50),
           const Padding(
             padding: EdgeInsets.only(left: 20),
