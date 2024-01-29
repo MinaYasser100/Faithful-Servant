@@ -10,7 +10,7 @@ class BackgroundScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: 0.2,
+      opacity: 0.25,
       child: Column(
         children: [
           SizedBox(
