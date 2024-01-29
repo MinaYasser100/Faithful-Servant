@@ -8,7 +8,6 @@ import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:flutter/material.dart';
-
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 

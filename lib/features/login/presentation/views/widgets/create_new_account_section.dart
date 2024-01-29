@@ -1,6 +1,8 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CreateNewAccountSection extends StatelessWidget {
   const CreateNewAccountSection({
@@ -17,7 +19,9 @@ class CreateNewAccountSection extends StatelessWidget {
           color: kDarkSecondColor,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(GetPages.kRegisterView);
+          },
           child: const Text(
             'Create New Acount',
             style: Styles.textStyle18,
