@@ -1,9 +1,11 @@
 import 'package:faithful_servant/core/helper/assets.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
@@ -18,7 +20,7 @@ class SplashViewBody extends StatelessWidget {
             const SizedBox(height: 40),
             CircleAvatar(
               radius: MediaQuery.of(context).size.width * 0.4,
-              backgroundImage: AssetImage(Assets.crossOfJesusImage),
+              backgroundImage: AssetImage(Assets.jesusAndYourSon),
             )
                 .animate()
                 .fadeIn(duration: const Duration(milliseconds: 300))
@@ -33,7 +35,11 @@ class SplashViewBody extends StatelessWidget {
             ).animate().tint(color: kPrimaryColor).then().shake(),
             const Spacer(),
             CustomTextButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(
+                  GetPages.kWelcomeView,
+                );
+              },
               textButton: "Get Start",
               isArrowIcon: true,
             ),
