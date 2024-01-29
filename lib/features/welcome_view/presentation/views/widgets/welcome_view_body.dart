@@ -1,6 +1,8 @@
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/background_screen.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomeViewBody extends StatelessWidget {
   const WelcomeViewBody({super.key});
@@ -20,15 +22,19 @@ class WelcomeViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   CustomTextButton(
-                    textButton: 'Register',
-                    onPressed: () {},
+                    textButton: "Login",
+                    onPressed: () {
+                      Get.toNamed(GetPages.kLoginView);
+                    },
                   ),
                   const SizedBox(
                     height: 30,
                   ),
                   CustomTextButton(
-                    textButton: "Login",
-                    onPressed: () {},
+                    textButton: 'Register',
+                    onPressed: () {
+                      Get.toNamed(GetPages.kRegisterView);
+                    },
                   ),
                 ],
               ),
