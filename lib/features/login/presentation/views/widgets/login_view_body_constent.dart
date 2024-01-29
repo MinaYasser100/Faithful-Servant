@@ -79,7 +79,7 @@ class LoginViewBodyContent extends StatelessWidget {
                 'Forgotten Password',
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.black,
+                  color: kPrimaryLightColor,
                   decoration: TextDecoration.underline,
                 ),
               ),

@@ -14,7 +14,7 @@ class CreateNewAccountSection extends StatelessWidget {
       children: [
         const Icon(
           Icons.arrow_forward_ios_outlined,
-          color: kSecondColor,
+          color: kDarkSecondColor,
         ),
         TextButton(
           onPressed: () {},
@@ -25,7 +25,7 @@ class CreateNewAccountSection extends StatelessWidget {
         ),
         const Icon(
           Icons.arrow_back_ios_outlined,
-          color: kSecondColor,
+          color: kDarkSecondColor,
         ),
       ],
     );

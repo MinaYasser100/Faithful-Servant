@@ -39,7 +39,7 @@ class _ChoosePrivilageState extends State<ChoosePrivilage> {
               iconSize: 24,
               elevation: 16,
               style: const TextStyle(
-                color: kTextGreyColor,
+                color: kPrimaryLightColor,
                 fontSize: 20,
               ),
               borderRadius: BorderRadius.circular(30),
