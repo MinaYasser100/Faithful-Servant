@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/splash_view/views/presentation/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const SplashView(),
     );
   }

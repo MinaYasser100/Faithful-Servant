@@ -1,5 +1,7 @@
 import 'package:faithful_servant/core/helper/assets.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/styles.dart';
+import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -13,7 +15,7 @@ class SplashViewBody extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             CircleAvatar(
               radius: MediaQuery.of(context).size.width * 0.4,
               backgroundImage: AssetImage(Assets.crossOfJesusImage),
@@ -26,12 +28,18 @@ class SplashViewBody extends StatelessWidget {
             ),
             const Text(
               "عَبْدُ الرَّبِّ لاَ يَجِبُ أَنْ يُخَاصِمَ، بَلْ يَكُونُ مُتَرَفِّقًا بِالْجَمِيعِ، صَالِحًا لِلتَّعْلِيمِ، صَبُورًا عَلَى الْمَشَقَّاتِ، مُؤَدِّبًا بِالْوَدَاعَةِ الْمُقَاوِمِينَ، عَسَى أَنْ يُعْطِيَهُمُ اللهُ تَوْبَةً لِمَعْرِفَةِ الْحَقِّ، فَيَسْتَفِيقُوا مِنْ فَخِّ إِبْلِيسَ إِذْ قَدِ اقْتَنَصَهُمْ لإِرَادَتِهِ",
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Styles.textStyle20,
               textAlign: TextAlign.center,
             ).animate().tint(color: kPrimaryColor).then().shake(),
+            const Spacer(),
+            CustomTextButton(
+              onPressed: () {},
+              textButton: "Get Start",
+              isArrowIcon: true,
+            ),
+            const SizedBox(
+              height: 60,
+            ),
           ],
         ),
       ),
