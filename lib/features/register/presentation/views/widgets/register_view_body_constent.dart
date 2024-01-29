@@ -7,7 +7,9 @@ import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
+import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
@@ -34,92 +36,112 @@ class ReisterViewBodyContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const NavigationBackButton(),
-          const SizedBox(height: 50),
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Text(
-              'Create Account',
-              style: Styles.textStyle30,
-            ),
-          ),
-          const SizedBox(height: 30),
-          const Center(
-            child: ProfileImageWidget(),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Form(
-              key: fromKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20),
-                  CustomTextFromField(
-                    textEditingController: nameController,
-                    labelText: 'Name',
-                    keyboardType: TextInputType.name,
-                    validator: nameValidator,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextFromField(
-                    textEditingController: emailController,
-                    labelText: 'Email',
-                    keyboardType: TextInputType.emailAddress,
-                    validator: emailValidator,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextFromField(
-                    textEditingController: phoneController,
-                    labelText: 'Phone',
-                    validator: phoneValidator,
-                    keyboardType: TextInputType.phone,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextFromField(
-                    textEditingController: nationalIDController,
-                    labelText: 'National ID',
-                    keyboardType: TextInputType.number,
-                    validator: nationalIdValidator,
-                  ),
-                  const SizedBox(height: 15),
-                  const ChoosePrivilage(),
-                  const SizedBox(height: 15),
-                  CustomTextFromField(
-                    textEditingController: passwordController,
-                    labelText: 'Password',
-                    iconData: Icons.visibility_off_outlined,
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                    suffixOnPressed: () {},
-                    validator: passwordVaildator,
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextFromField(
-                    textEditingController: confirmPasswordController,
-                    labelText: 'Confirm Password',
-                    iconData: Icons.visibility_off_outlined,
-                    suffixOnPressed: () {},
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                    validator: comfirmPasswordValidator,
-                  ),
-                  const SizedBox(height: 50),
-                  CustomTextButton(
-                    textButton: "Create Account",
-                    onPressed: () {
-                      if (fromKey.currentState!.validate()) {}
-                    },
-                  ),
-                  const SizedBox(height: 50),
-                ],
+      child: BlocBuilder<RegisterCubit, RegisterState>(
+        builder: (context, state) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const NavigationBackButton(),
+              const SizedBox(height: 50),
+              const Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Text(
+                  'Create Account',
+                  style: Styles.textStyle30,
+                ),
               ),
-            ),
-          )
-        ],
+              const SizedBox(height: 30),
+              const Center(
+                child: ProfileImageWidget(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Form(
+                  key: fromKey,
+                  autovalidateMode:
+                      BlocProvider.of<RegisterCubit>(context).autovalidateMode,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 20),
+                      CustomTextFromField(
+                        textEditingController: nameController,
+                        labelText: 'Name',
+                        keyboardType: TextInputType.name,
+                        validator: nameValidator,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: emailController,
+                        labelText: 'Email',
+                        keyboardType: TextInputType.emailAddress,
+                        validator: emailValidator,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: phoneController,
+                        labelText: 'Phone',
+                        validator: phoneValidator,
+                        keyboardType: TextInputType.phone,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: nationalIDController,
+                        labelText: 'National ID',
+                        keyboardType: TextInputType.number,
+                        validator: nationalIdValidator,
+                      ),
+                      const SizedBox(height: 15),
+                      const ChoosePrivilage(),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: passwordController,
+                        labelText: 'Password',
+                        iconData:
+                            BlocProvider.of<RegisterCubit>(context).suffixIcon,
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: BlocProvider.of<RegisterCubit>(context)
+                            .obscurePassword,
+                        suffixOnPressed: () {
+                          BlocProvider.of<RegisterCubit>(context)
+                              .changeShowPassword();
+                        },
+                        validator: passwordVaildator,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: confirmPasswordController,
+                        labelText: 'Confirm Password',
+                        iconData: BlocProvider.of<RegisterCubit>(context)
+                            .confirmSuffixIcon,
+                        suffixOnPressed: () {
+                          BlocProvider.of<RegisterCubit>(context)
+                              .changeShowConfirmPassword();
+                        },
+                        keyboardType: TextInputType.visiblePassword,
+                        obscureText: BlocProvider.of<RegisterCubit>(context)
+                            .obscureConfirmPassword,
+                        validator: comfirmPasswordValidator,
+                      ),
+                      const SizedBox(height: 50),
+                      CustomTextButton(
+                        textButton: "Create Account",
+                        onPressed: () {
+                          if (fromKey.currentState!.validate()) {
+                          } else {
+                            BlocProvider.of<RegisterCubit>(context)
+                                .changeAutovalidateMode();
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 50),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }

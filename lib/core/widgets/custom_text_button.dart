@@ -84,7 +84,7 @@ class _CustomTextButtonState extends State<CustomTextButton>
 
     _colorAnimation = ColorTween(
       begin: kSecondColor,
-      end: kDarkSecondColor,
+      end: kPrimaryLightColor,
     ).animate(_controller);
 
     _controller.forward();
