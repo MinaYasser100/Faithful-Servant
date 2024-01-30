@@ -1,4 +1,8 @@
+import 'package:faithful_servant/core/function/address_validator.dart';
+import 'package:faithful_servant/core/function/current_service_validator.dart';
+import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
+import 'package:faithful_servant/core/function/father_of_conession_validator.dart';
 import 'package:faithful_servant/core/function/name_validator.dart';
 import 'package:faithful_servant/core/function/national_id_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
@@ -23,6 +27,10 @@ class ReisterViewBodyContent extends StatelessWidget {
     required this.nationalIDController,
     required this.passwordController,
     required this.confirmPasswordController,
+    required this.qualificationController,
+    required this.addressController,
+    required this.fatherOfConfessionController,
+    required this.currentServiceController,
   });
 
   final GlobalKey<FormState> fromKey;
@@ -32,7 +40,10 @@ class ReisterViewBodyContent extends StatelessWidget {
   final TextEditingController nationalIDController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
-
+  final TextEditingController qualificationController;
+  final TextEditingController addressController;
+  final TextEditingController fatherOfConfessionController;
+  final TextEditingController currentServiceController;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -122,6 +133,34 @@ class ReisterViewBodyContent extends StatelessWidget {
                         obscureText: BlocProvider.of<RegisterCubit>(context)
                             .obscureConfirmPassword,
                         validator: comfirmPasswordValidator,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: addressController,
+                        labelText: 'Address',
+                        validator: addressValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: qualificationController,
+                        labelText: 'Educational qualification',
+                        validator: educationalQualificationValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: fatherOfConfessionController,
+                        labelText: 'Father of confession',
+                        validator: fatherOfConessionValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: currentServiceController,
+                        labelText: 'Current service in 2023/2024',
+                        validator: currentServiceValidator,
+                        keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 50),
                       CustomTextButton(
