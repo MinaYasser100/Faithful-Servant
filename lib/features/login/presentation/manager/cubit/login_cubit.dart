@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,5 +21,17 @@ class LoginCubit extends Cubit<LoginState> {
   void changeAutovalidateMode() {
     autovalidateMode = AutovalidateMode.always;
     emit(LoginCubitChangeAutovalidateMode());
+  }
+
+  Future<void> loginUser(
+      {required String email, required String password}) async {
+    emit(LoginCubitLoginUserLoading());
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      emit(LoginCubitLoginUserSuccess(userId: userCredential.user!.uid));
+    } catch (e) {
+      emit(LoginCubitLoginUserfailure(errorMessage: e.toString()));
+    }
   }
 }

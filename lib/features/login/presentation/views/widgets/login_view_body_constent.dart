@@ -80,6 +80,12 @@ class LoginViewBodyContent extends StatelessWidget {
                   textButton: 'LOGIN',
                   onPressed: () {
                     if (fromkey.currentState!.validate()) {
+                      BlocProvider.of<LoginCubit>(context).loginUser(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      emailController.clear();
+                      passwordController.clear();
                     } else {
                       BlocProvider.of<LoginCubit>(context)
                           .changeAutovalidateMode();
