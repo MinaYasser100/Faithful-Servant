@@ -24,3 +24,13 @@ final class RegisterCubitPutUserInformationInFirebaseFailure
 
 final class RegisterCubitPutUserInformationInFirebaseSuccess
     extends RegisterState {}
+
+final class RegisterCubitUserRgistrationLoading extends RegisterState {}
+
+final class RegisterCubitUserRgistrationFailure extends RegisterState {
+  final String errorMessage;
+
+  RegisterCubitUserRgistrationFailure({required this.errorMessage});
+}
+
+final class RegisterCubitUserRgistrationSuccess extends RegisterState {}
