@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "381573379357",
+    "project_id": "faithful-servant-759bd",
+    "storage_bucket": "faithful-servant-759bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381573379357:android:8ad468819b72f84b715df4",
+        "android_client_info": {
+          "package_name": "com.example.faithful_servant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfRJ6YeL5CGpzYrfrxXVaIx3G5jeKcJT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
