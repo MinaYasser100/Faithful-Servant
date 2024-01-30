@@ -2,15 +2,22 @@ import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:flutter/material.dart';
 
 class ChoosePrivilage extends StatefulWidget {
-  const ChoosePrivilage({super.key});
+  const ChoosePrivilage(
+      {super.key,
+      required this.items,
+      this.onChanged,
+      required this.selectedItem});
+  final List<String> items;
+  final String selectedItem;
+  final void Function(String?)? onChanged;
   @override
   State<ChoosePrivilage> createState() => _ChoosePrivilageState();
 }
 
 class _ChoosePrivilageState extends State<ChoosePrivilage> {
-  final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
+  // final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
 
-  String selectedItem = 'المشرف العام';
+  // String selectedItem = 'المشرف العام';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +38,7 @@ class _ChoosePrivilageState extends State<ChoosePrivilage> {
             child: DropdownButton<String>(
               underline: Container(),
               isExpanded: true,
-              value: selectedItem,
+              value: widget.selectedItem,
               icon: const Icon(
                 Icons.arrow_drop_down_circle_outlined,
                 color: kPrimaryColor,
@@ -43,12 +50,8 @@ class _ChoosePrivilageState extends State<ChoosePrivilage> {
                 fontSize: 20,
               ),
               borderRadius: BorderRadius.circular(30),
-              onChanged: (newValue) {
-                setState(() {
-                  selectedItem = newValue!;
-                });
-              },
-              items: items.map<DropdownMenuItem<String>>((String value) {
+              onChanged: widget.onChanged,
+              items: widget.items.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -61,3 +64,9 @@ class _ChoosePrivilageState extends State<ChoosePrivilage> {
     );
   }
 }
+
+// (newValue) {
+//                 setState(() {
+//                   selectedItem = newValue!;
+//                 });
+//               }

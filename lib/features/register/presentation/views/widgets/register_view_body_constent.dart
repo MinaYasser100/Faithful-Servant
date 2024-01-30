@@ -7,6 +7,7 @@ import 'package:faithful_servant/core/function/name_validator.dart';
 import 'package:faithful_servant/core/function/national_id_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
 import 'package:faithful_servant/core/function/phone_validator.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -18,7 +19,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
-class ReisterViewBodyContent extends StatelessWidget {
+class ReisterViewBodyContent extends StatefulWidget {
   const ReisterViewBodyContent({
     super.key,
     required this.fromKey,
@@ -45,6 +46,21 @@ class ReisterViewBodyContent extends StatelessWidget {
   final TextEditingController addressController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController currentServiceController;
+
+  @override
+  State<ReisterViewBodyContent> createState() => _ReisterViewBodyContentState();
+}
+
+class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
+  final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
+  String selectedItem = 'المشرف العام';
+  final List<String> churchItems = [
+    saintGeorge,
+    virginMary,
+    saintMark,
+    saintMain
+  ];
+  String churchSelectedItem = saintGeorge;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -69,7 +85,7 @@ class ReisterViewBodyContent extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Form(
-                  key: fromKey,
+                  key: widget.fromKey,
                   autovalidateMode:
                       BlocProvider.of<RegisterCubit>(context).autovalidateMode,
                   child: Column(
@@ -77,39 +93,57 @@ class ReisterViewBodyContent extends StatelessWidget {
                     children: [
                       const SizedBox(height: 20),
                       CustomTextFromField(
-                        textEditingController: nameController,
+                        textEditingController: widget.nameController,
                         labelText: 'Name',
                         keyboardType: TextInputType.name,
                         validator: nameValidator,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: emailController,
+                        textEditingController: widget.emailController,
                         labelText: 'Email',
                         keyboardType: TextInputType.emailAddress,
                         validator: emailValidator,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: phoneController,
+                        textEditingController: widget.phoneController,
                         labelText: 'Phone',
                         validator: phoneValidator,
                         keyboardType: TextInputType.phone,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: nationalIDController,
+                        textEditingController: widget.nationalIDController,
                         labelText: 'National ID',
                         keyboardType: TextInputType.number,
                         validator: nationalIdValidator,
                       ),
                       const SizedBox(height: 15),
-                      const ChoosePrivilage(),
+                      ChoosePrivilage(
+                        items: items,
+                        selectedItem: selectedItem,
+                        onChanged: (newValue) {
+                          setState(() {
+                            selectedItem = newValue!;
+                          });
+                          print(selectedItem);
+                        },
+                      ),
                       const SizedBox(height: 15),
-                      const ChooseYourChurch(),
+                      ChooseYourChurch(
+                        items: churchItems,
+                        selectedItem: churchSelectedItem,
+                        onChanged: (newValue) {
+                          setState(() {
+                            churchSelectedItem = newValue!;
+                          });
+                          print(churchSelectedItem);
+                        },
+                      ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: passwordController,
+                        textEditingController: widget.passwordController,
                         labelText: 'Password',
                         iconData:
                             BlocProvider.of<RegisterCubit>(context).suffixIcon,
@@ -124,7 +158,7 @@ class ReisterViewBodyContent extends StatelessWidget {
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: confirmPasswordController,
+                        textEditingController: widget.confirmPasswordController,
                         labelText: 'Confirm Password',
                         iconData: BlocProvider.of<RegisterCubit>(context)
                             .confirmSuffixIcon,
@@ -139,28 +173,29 @@ class ReisterViewBodyContent extends StatelessWidget {
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: addressController,
+                        textEditingController: widget.addressController,
                         labelText: 'Address',
                         validator: addressValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: qualificationController,
+                        textEditingController: widget.qualificationController,
                         labelText: 'Educational qualification',
                         validator: educationalQualificationValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: fatherOfConfessionController,
+                        textEditingController:
+                            widget.fatherOfConfessionController,
                         labelText: 'Father of confession',
                         validator: fatherOfConessionValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: currentServiceController,
+                        textEditingController: widget.currentServiceController,
                         labelText: 'Current service in 2023/2024',
                         validator: currentServiceValidator,
                         keyboardType: TextInputType.text,
@@ -169,7 +204,7 @@ class ReisterViewBodyContent extends StatelessWidget {
                       CustomTextButton(
                         textButton: "Create Account",
                         onPressed: () {
-                          if (fromKey.currentState!.validate()) {
+                          if (widget.fromKey.currentState!.validate()) {
                           } else {
                             BlocProvider.of<RegisterCubit>(context)
                                 .changeAutovalidateMode();
@@ -192,7 +227,7 @@ class ReisterViewBodyContent extends StatelessWidget {
     if (value!.isEmpty) {
       return 'Please enter the password to comfirm from it';
     }
-    if (confirmPasswordController != passwordController) {
+    if (widget.confirmPasswordController != widget.passwordController) {
       return 'This wrong password';
     }
     return null;

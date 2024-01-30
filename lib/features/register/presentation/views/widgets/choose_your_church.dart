@@ -2,14 +2,21 @@ import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:flutter/material.dart';
 
 class ChooseYourChurch extends StatefulWidget {
-  const ChooseYourChurch({super.key});
+  const ChooseYourChurch(
+      {super.key,
+      required this.items,
+      required this.selectedItem,
+      this.onChanged});
+  final List<String> items;
+  final String selectedItem;
+  final void Function(String?)? onChanged;
   @override
   State<ChooseYourChurch> createState() => _ChooseYourChurchState();
 }
 
 class _ChooseYourChurchState extends State<ChooseYourChurch> {
-  final List<String> items = [saintGeorge, virginMary, saintMark, saintMain];
-  String selectedItem = saintGeorge;
+  // final List<String> items = [saintGeorge, virginMary, saintMark, saintMain];
+  // String selectedItem = saintGeorge;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class _ChooseYourChurchState extends State<ChooseYourChurch> {
             child: DropdownButton<String>(
               underline: Container(),
               isExpanded: true,
-              value: selectedItem,
+              value: widget.selectedItem,
               icon: const Icon(
                 Icons.arrow_drop_down_circle_outlined,
                 color: kPrimaryColor,
@@ -42,12 +49,8 @@ class _ChooseYourChurchState extends State<ChooseYourChurch> {
                 fontSize: 20,
               ),
               borderRadius: BorderRadius.circular(30),
-              onChanged: (newValue) {
-                setState(() {
-                  selectedItem = newValue!;
-                });
-              },
-              items: items.map<DropdownMenuItem<String>>((String value) {
+              onChanged: widget.onChanged,
+              items: widget.items.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
