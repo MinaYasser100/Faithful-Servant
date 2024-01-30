@@ -12,6 +12,7 @@ import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
+import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'choose_privilage.dart';
@@ -104,6 +105,8 @@ class ReisterViewBodyContent extends StatelessWidget {
                       ),
                       const SizedBox(height: 15),
                       const ChoosePrivilage(),
+                      const SizedBox(height: 15),
+                      const ChooseYourChurch(),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: passwordController,
