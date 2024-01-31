@@ -1,3 +1,4 @@
+import 'package:faithful_servant/features/register/data/register_repo/register_repo_implemente.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ class RegisterView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => RegisterCubit(),
+        create: (context) => RegisterCubit(RegisterRepoImplemente()),
         child: const RegisterViewBody(),
       ),
     );

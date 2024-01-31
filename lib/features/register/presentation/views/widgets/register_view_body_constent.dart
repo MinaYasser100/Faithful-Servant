@@ -10,12 +10,14 @@ import 'package:faithful_servant/core/function/number_of_home_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
 import 'package:faithful_servant/core/function/phone_validator.dart';
 import 'package:faithful_servant/core/function/street_name_validator.dart';
+import 'package:faithful_servant/core/helper/assets.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
+import 'package:faithful_servant/features/register/presentation/views/function/determind_church.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -234,6 +236,29 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         textButton: "Create Account",
                         onPressed: () {
                           if (widget.fromKey.currentState!.validate()) {
+                            BlocProvider.of<RegisterCubit>(context)
+                                .userRegistration(
+                              name: widget.nameController.text,
+                              email: widget.emailController.text,
+                              password: widget.passwordController.text,
+                              phoneNum1: widget.phoneNum1Controller.text,
+                              phoneNum2: widget.phoneNum2Controller.text,
+                              image: Assets.jesusAndYourSon,
+                              nationalId: widget.nationalIDController.text,
+                              privilage: selectedItem,
+                              church: determindChurch(
+                                churchSelectedItem: churchSelectedItem,
+                              ),
+                              numberOfnumber:
+                                  widget.numberOfHomeController.text,
+                              qualification:
+                                  widget.qualificationController.text,
+                              streetName: widget.streetNameController.text,
+                              addressOfArea:
+                                  widget.addressOfAreaController.text,
+                              currentService:
+                                  widget.currentServiceController.text,
+                            );
                           } else {
                             BlocProvider.of<RegisterCubit>(context)
                                 .changeAutovalidateMode();
