@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/function/address_of_area_validator.dart';
+import 'package:faithful_servant/core/function/confirm_password_validator.dart';
 import 'package:faithful_servant/core/function/current_service_validator.dart';
 import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
@@ -182,7 +183,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: BlocProvider.of<RegisterCubit>(context)
                             .obscureConfirmPassword,
-                        validator: comfirmPasswordValidator,
+                        validator: (value) => confirmPasswordValidator(
+                            value, widget.passwordController.text),
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
@@ -248,15 +250,5 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
         },
       ),
     );
-  }
-
-  String? comfirmPasswordValidator(value) {
-    if (value!.isEmpty) {
-      return 'Please enter the password to comfirm from it';
-    }
-    if (widget.confirmPasswordController != widget.passwordController) {
-      return 'This wrong password';
-    }
-    return null;
   }
 }
