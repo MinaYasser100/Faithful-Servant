@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: GetPages.kSplashView,
+      initialRoute: GetPages.generalManager,
       getPages: GetPages.getPages,
       builder: EasyLoading.init(),
     );

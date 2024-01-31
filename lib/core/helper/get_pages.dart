@@ -1,3 +1,4 @@
+import 'package:faithful_servant/features/general_manager/presentation/views/general_manager_screen.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/register/presentation/views/register_view.dart';
 import 'package:faithful_servant/features/splash_view/views/presentation/splash_view.dart';
@@ -9,6 +10,7 @@ abstract class GetPages {
   static String kWelcomeView = '/WelcomeView';
   static String kLoginView = '/LoginView';
   static String kRegisterView = '/RegisterView';
+  static String generalManager = '/generalManager';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -28,6 +30,11 @@ abstract class GetPages {
     GetPage(
       name: kRegisterView,
       page: () => const RegisterView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: generalManager,
+      page: () => const GeneralManager(),
       transition: Transition.circularReveal,
     ),
   ];
