@@ -1,12 +1,14 @@
-import 'package:faithful_servant/core/function/address_validator.dart';
+import 'package:faithful_servant/core/function/address_of_area_validator.dart';
 import 'package:faithful_servant/core/function/current_service_validator.dart';
 import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
 import 'package:faithful_servant/core/function/father_of_conession_validator.dart';
 import 'package:faithful_servant/core/function/name_validator.dart';
 import 'package:faithful_servant/core/function/national_id_validator.dart';
+import 'package:faithful_servant/core/function/number_of_home_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
 import 'package:faithful_servant/core/function/phone_validator.dart';
+import 'package:faithful_servant/core/function/street_name_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
@@ -25,25 +27,31 @@ class ReisterViewBodyContent extends StatefulWidget {
     required this.fromKey,
     required this.nameController,
     required this.emailController,
-    required this.phoneController,
+    required this.phoneNum1Controller,
     required this.nationalIDController,
     required this.passwordController,
     required this.confirmPasswordController,
     required this.qualificationController,
-    required this.addressController,
+    required this.numberOfHomeController,
     required this.fatherOfConfessionController,
     required this.currentServiceController,
+    required this.streetNameController,
+    required this.addressOfAreaController,
+    required this.phoneNum2Controller,
   });
 
   final GlobalKey<FormState> fromKey;
   final TextEditingController nameController;
   final TextEditingController emailController;
-  final TextEditingController phoneController;
+  final TextEditingController phoneNum1Controller;
+  final TextEditingController phoneNum2Controller;
   final TextEditingController nationalIDController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
   final TextEditingController qualificationController;
-  final TextEditingController addressController;
+  final TextEditingController numberOfHomeController;
+  final TextEditingController streetNameController;
+  final TextEditingController addressOfAreaController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController currentServiceController;
 
@@ -107,8 +115,15 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: widget.phoneController,
-                        labelText: 'Phone',
+                        textEditingController: widget.phoneNum1Controller,
+                        labelText: 'Phone number 1',
+                        validator: phoneValidator,
+                        keyboardType: TextInputType.phone,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.phoneNum2Controller,
+                        labelText: 'Phone number 2',
                         validator: phoneValidator,
                         keyboardType: TextInputType.phone,
                       ),
@@ -127,7 +142,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                           setState(() {
                             selectedItem = newValue!;
                           });
-                          print(selectedItem);
                         },
                       ),
                       const SizedBox(height: 15),
@@ -138,7 +152,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                           setState(() {
                             churchSelectedItem = newValue!;
                           });
-                          print(churchSelectedItem);
                         },
                       ),
                       const SizedBox(height: 15),
@@ -173,9 +186,23 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: widget.addressController,
-                        labelText: 'Address',
-                        validator: addressValidator,
+                        textEditingController: widget.numberOfHomeController,
+                        labelText: 'Number of home',
+                        validator: numberOfHomeValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.streetNameController,
+                        labelText: 'Street name',
+                        validator: streetNameValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.addressOfAreaController,
+                        labelText: 'Address of area',
+                        validator: addressOfAreaValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),

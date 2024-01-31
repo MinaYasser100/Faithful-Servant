@@ -11,12 +11,15 @@ class RegisterViewBody extends StatefulWidget {
 class _RegisterViewBodyState extends State<RegisterViewBody> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  TextEditingController phoneNum1Controller = TextEditingController();
+  TextEditingController phoneNum2Controller = TextEditingController();
   TextEditingController nationalIDController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController qualificationController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
+  TextEditingController numberOfHomeController = TextEditingController();
+  TextEditingController streetNameController = TextEditingController();
+  TextEditingController addressOfAreaController = TextEditingController();
   TextEditingController fatherOfConfessionController = TextEditingController();
   TextEditingController currentServiceController = TextEditingController();
   GlobalKey<FormState> fromKey = GlobalKey();
@@ -29,14 +32,17 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           fromKey: fromKey,
           nameController: nameController,
           emailController: emailController,
-          phoneController: phoneController,
+          phoneNum1Controller: phoneNum1Controller,
+          phoneNum2Controller: phoneNum2Controller,
           nationalIDController: nationalIDController,
           passwordController: passwordController,
           confirmPasswordController: confirmPasswordController,
-          addressController: addressController,
+          numberOfHomeController: numberOfHomeController,
           currentServiceController: currentServiceController,
           fatherOfConfessionController: fatherOfConfessionController,
           qualificationController: qualificationController,
+          streetNameController: streetNameController,
+          addressOfAreaController: addressOfAreaController,
         ),
       ),
     );
