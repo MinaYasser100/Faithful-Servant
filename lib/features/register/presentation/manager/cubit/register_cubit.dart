@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/features/register/data/register_repo/register_reop.dart';
 import 'package:faithful_servant/features/register/data/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -121,6 +124,20 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterCubitUserRgistrationSuccess());
     } catch (e) {
       emit(RegisterCubitUserRgistrationFailure(errorMessage: e.toString()));
+    }
+  }
+
+  File? profileImage;
+  var picker = ImagePicker();
+  Future<void> getProfileImage() async {
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      profileImage = File(pickedFile.path);
+      emit(RegisterCubitPickProfileImageSuccess());
+      print(profileImage);
+    } else {
+      emit(RegisterCubitPickProfileImageFailure());
     }
   }
 }

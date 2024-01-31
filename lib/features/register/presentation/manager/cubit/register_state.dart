@@ -34,3 +34,7 @@ final class RegisterCubitUserRgistrationFailure extends RegisterState {
 }
 
 final class RegisterCubitUserRgistrationSuccess extends RegisterState {}
+
+final class RegisterCubitPickProfileImageSuccess extends RegisterState {}
+
+final class RegisterCubitPickProfileImageFailure extends RegisterState {}

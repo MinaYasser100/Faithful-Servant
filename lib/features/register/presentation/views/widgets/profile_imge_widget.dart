@@ -1,5 +1,7 @@
 import 'package:faithful_servant/core/helper/assets.dart';
+import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileImageWidget extends StatelessWidget {
   const ProfileImageWidget({
@@ -17,7 +19,9 @@ class ProfileImageWidget extends StatelessWidget {
         ),
         CircleAvatar(
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              BlocProvider.of<RegisterCubit>(context).getProfileImage();
+            },
             icon: const Icon(
               Icons.edit,
             ),
