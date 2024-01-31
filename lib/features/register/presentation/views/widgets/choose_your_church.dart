@@ -1,23 +1,22 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:flutter/material.dart';
 
-class ChoosePrivilage extends StatefulWidget {
-  const ChoosePrivilage(
+class ChooseYourChurch extends StatefulWidget {
+  const ChooseYourChurch(
       {super.key,
       required this.items,
-      this.onChanged,
-      required this.selectedItem});
+      required this.selectedItem,
+      this.onChanged});
   final List<String> items;
   final String selectedItem;
   final void Function(String?)? onChanged;
   @override
-  State<ChoosePrivilage> createState() => _ChoosePrivilageState();
+  State<ChooseYourChurch> createState() => _ChooseYourChurchState();
 }
 
-class _ChoosePrivilageState extends State<ChoosePrivilage> {
-  // final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
-
-  // String selectedItem = 'المشرف العام';
+class _ChooseYourChurchState extends State<ChooseYourChurch> {
+  // final List<String> items = [saintGeorge, virginMary, saintMark, saintMain];
+  // String selectedItem = saintGeorge;
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +63,3 @@ class _ChoosePrivilageState extends State<ChoosePrivilage> {
     );
   }
 }
-
-// (newValue) {
-//                 setState(() {
-//                   selectedItem = newValue!;
-//                 });
-//               }

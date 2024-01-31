@@ -8,6 +8,7 @@ import 'package:faithful_servant/features/login/presentation/manager/cubit/login
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'create_new_account_section.dart';
 
 class LoginViewBodyContent extends StatelessWidget {
@@ -22,7 +23,22 @@ class LoginViewBodyContent extends StatelessWidget {
   final GlobalKey<FormState> fromkey;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginCubitLoginUserLoading) {
+          EasyLoading.show(
+            status: 'Loading...',
+          );
+        }
+        if (state is LoginCubitLoginUserSuccess) {
+          EasyLoading.dismiss();
+        }
+        if (state is LoginCubitLoginUserfailure) {
+          EasyLoading.showError('من فضلك تاكد من معلوماتك');
+          Future.delayed(const Duration(seconds: 5));
+          EasyLoading.dismiss();
+        }
+      },
       builder: (context, state) {
         return Form(
           key: fromkey,
@@ -80,6 +96,12 @@ class LoginViewBodyContent extends StatelessWidget {
                   textButton: 'LOGIN',
                   onPressed: () {
                     if (fromkey.currentState!.validate()) {
+                      BlocProvider.of<LoginCubit>(context).loginUser(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      emailController.clear();
+                      passwordController.clear();
                     } else {
                       BlocProvider.of<LoginCubit>(context)
                           .changeAutovalidateMode();
