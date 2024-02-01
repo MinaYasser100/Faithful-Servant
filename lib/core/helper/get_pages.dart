@@ -1,3 +1,4 @@
+import 'package:faithful_servant/features/forgotten_password/presentation/views/forgotten_password.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/general_manager_screen.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/mine_servant/presentation/views/mine_servant_screen.dart';
@@ -12,6 +13,7 @@ abstract class GetPages {
   static String kWelcomeView = '/WelcomeView';
   static String kLoginView = '/LoginView';
   static String kRegisterView = '/RegisterView';
+  static String kforgottenPasswordView = '/forgottenPasswordView';
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';

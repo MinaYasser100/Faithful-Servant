@@ -18,10 +18,12 @@ import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:faithful_servant/features/register/presentation/views/function/determind_church.dart';
+import 'package:faithful_servant/features/register/presentation/views/function/register_failure_show_dialog.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import '../function/register_successfully_show_dialog.dart';
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
@@ -78,16 +80,38 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
     return SingleChildScrollView(
       child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
-          if (state is RegisterCubitImageUploadingLoading) {
+          if (state is RegisterCubitImageUploadingLoading ||
+              state is RegisterCubitUserRgistrationLoading) {
             EasyLoading.show(
               status: 'Loading...',
             );
           }
           if (state is RegisterCubitImageUploadingSuccess) {
             EasyLoading.dismiss();
-          }
-          if (state is RegisterCubitImageUploadingSuccess) {
             customSnackBar(context, "successfully uploading image");
+          }
+          if (state is RegisterCubitPutUserInformationInFirebaseSuccess) {
+            EasyLoading.dismiss();
+            registerSuccessfullyShowDialog(context);
+            widget.nameController.clear();
+            widget.emailController.clear();
+            widget.phoneNum1Controller.clear();
+            widget.phoneNum2Controller.clear();
+            widget.nationalIDController.clear();
+            widget.passwordController.clear();
+            widget.confirmPasswordController.clear();
+            widget.qualificationController.clear();
+            widget.numberOfHomeController.clear();
+            widget.streetNameController.clear();
+            widget.addressOfAreaController.clear();
+            widget.fatherOfConfessionController.clear();
+            widget.currentServiceController.clear();
+            BlocProvider.of<RegisterCubit>(context).imageSelected == null;
+          }
+          if (state is RegisterCubitUserRgistrationFailure ||
+              state is RegisterCubitPutUserInformationInFirebaseFailure) {
+            EasyLoading.dismiss();
+            registerFailureShowDialog(context);
           }
         },
         builder: (context, state) {

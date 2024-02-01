@@ -143,21 +143,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
-  // void uploadProfileImage() {
-  //   emit(RegisterCubitImageUploadingLoading());
-  //   try {
-  //     dynamic value = firebase_storage.FirebaseStorage.instance
-  //         .ref()
-  //         .child('users/${Uri.file(profileImage!.path).pathSegments.last}')
-  //         .putFile(profileImage!);
-  //     String getDownloadURL = value.ref.getDownloadURL();
-  //     image = getDownloadURL;
-  //     emit(RegisterCubitImageUploadingSuccess());
-  //   } catch (e) {
-  //     emit(RegisterCubitImageUploadingFailure());
-  //     print(e.toString());
-  //   }
-  // }
   final FirebaseStorage _storage = FirebaseStorage.instance;
   Future<void> uploadImage(File? image) async {
     if (image == null) {
