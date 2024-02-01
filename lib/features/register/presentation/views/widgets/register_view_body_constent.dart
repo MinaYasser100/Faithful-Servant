@@ -1,18 +1,22 @@
-import 'package:faithful_servant/core/function/address_validator.dart';
+import 'package:faithful_servant/core/function/address_of_area_validator.dart';
+import 'package:faithful_servant/core/function/confirm_password_validator.dart';
 import 'package:faithful_servant/core/function/current_service_validator.dart';
 import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
 import 'package:faithful_servant/core/function/father_of_conession_validator.dart';
 import 'package:faithful_servant/core/function/name_validator.dart';
 import 'package:faithful_servant/core/function/national_id_validator.dart';
+import 'package:faithful_servant/core/function/number_of_home_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
 import 'package:faithful_servant/core/function/phone_validator.dart';
+import 'package:faithful_servant/core/function/street_name_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
+import 'package:faithful_servant/features/register/presentation/views/function/determind_church.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,25 +29,31 @@ class ReisterViewBodyContent extends StatefulWidget {
     required this.fromKey,
     required this.nameController,
     required this.emailController,
-    required this.phoneController,
+    required this.phoneNum1Controller,
     required this.nationalIDController,
     required this.passwordController,
     required this.confirmPasswordController,
     required this.qualificationController,
-    required this.addressController,
+    required this.numberOfHomeController,
     required this.fatherOfConfessionController,
     required this.currentServiceController,
+    required this.streetNameController,
+    required this.addressOfAreaController,
+    required this.phoneNum2Controller,
   });
 
   final GlobalKey<FormState> fromKey;
   final TextEditingController nameController;
   final TextEditingController emailController;
-  final TextEditingController phoneController;
+  final TextEditingController phoneNum1Controller;
+  final TextEditingController phoneNum2Controller;
   final TextEditingController nationalIDController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
   final TextEditingController qualificationController;
-  final TextEditingController addressController;
+  final TextEditingController numberOfHomeController;
+  final TextEditingController streetNameController;
+  final TextEditingController addressOfAreaController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController currentServiceController;
 
@@ -64,7 +74,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: BlocBuilder<RegisterCubit, RegisterState>(
+      child: BlocConsumer<RegisterCubit, RegisterState>(
+        listener: (context, state) {},
         builder: (context, state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,8 +90,13 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                 ),
               ),
               const SizedBox(height: 30),
-              const Center(
-                child: ProfileImageWidget(),
+              Center(
+                child: ProfileImageWidget(
+                  backgroundImage: NetworkImage(BlocProvider.of<RegisterCubit>(
+                              context)
+                          .imageSelected ??
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -107,8 +123,15 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: widget.phoneController,
-                        labelText: 'Phone',
+                        textEditingController: widget.phoneNum1Controller,
+                        labelText: 'Phone number 1',
+                        validator: phoneValidator,
+                        keyboardType: TextInputType.phone,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.phoneNum2Controller,
+                        labelText: 'Phone number 2',
                         validator: phoneValidator,
                         keyboardType: TextInputType.phone,
                       ),
@@ -127,7 +150,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                           setState(() {
                             selectedItem = newValue!;
                           });
-                          print(selectedItem);
                         },
                       ),
                       const SizedBox(height: 15),
@@ -138,7 +160,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                           setState(() {
                             churchSelectedItem = newValue!;
                           });
-                          print(churchSelectedItem);
                         },
                       ),
                       const SizedBox(height: 15),
@@ -169,13 +190,28 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: BlocProvider.of<RegisterCubit>(context)
                             .obscureConfirmPassword,
-                        validator: comfirmPasswordValidator,
+                        validator: (value) => confirmPasswordValidator(
+                            value, widget.passwordController.text),
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
-                        textEditingController: widget.addressController,
-                        labelText: 'Address',
-                        validator: addressValidator,
+                        textEditingController: widget.numberOfHomeController,
+                        labelText: 'Number of home',
+                        validator: numberOfHomeValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.streetNameController,
+                        labelText: 'Street name',
+                        validator: streetNameValidator,
+                        keyboardType: TextInputType.text,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomTextFromField(
+                        textEditingController: widget.addressOfAreaController,
+                        labelText: 'Address of area',
+                        validator: addressOfAreaValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
@@ -205,6 +241,31 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         textButton: "Create Account",
                         onPressed: () {
                           if (widget.fromKey.currentState!.validate()) {
+                            BlocProvider.of<RegisterCubit>(context)
+                                .userRegistration(
+                              name: widget.nameController.text,
+                              email: widget.emailController.text,
+                              password: widget.passwordController.text,
+                              phoneNum1: widget.phoneNum1Controller.text,
+                              phoneNum2: widget.phoneNum2Controller.text,
+                              image: BlocProvider.of<RegisterCubit>(context)
+                                      .imageSelected ??
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU',
+                              nationalId: widget.nationalIDController.text,
+                              privilage: selectedItem,
+                              church: determindChurch(
+                                churchSelectedItem: churchSelectedItem,
+                              ),
+                              numberOfnumber:
+                                  widget.numberOfHomeController.text,
+                              qualification:
+                                  widget.qualificationController.text,
+                              streetName: widget.streetNameController.text,
+                              addressOfArea:
+                                  widget.addressOfAreaController.text,
+                              currentService:
+                                  widget.currentServiceController.text,
+                            );
                           } else {
                             BlocProvider.of<RegisterCubit>(context)
                                 .changeAutovalidateMode();
@@ -221,15 +282,5 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
         },
       ),
     );
-  }
-
-  String? comfirmPasswordValidator(value) {
-    if (value!.isEmpty) {
-      return 'Please enter the password to comfirm from it';
-    }
-    if (widget.confirmPasswordController != widget.passwordController) {
-      return 'This wrong password';
-    }
-    return null;
   }
 }
