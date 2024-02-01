@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'forgotten_password_app_bar.dart';
 
 class ForgottenPasswordViewBody extends StatelessWidget {
   const ForgottenPasswordViewBody({super.key});
@@ -6,7 +7,10 @@ class ForgottenPasswordViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      children: [],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ForgottenPasswordAppBar(),
+      ],
     );
   }
 }
