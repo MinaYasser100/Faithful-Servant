@@ -1,6 +1,7 @@
 import 'package:faithful_servant/core/function/address_of_area_validator.dart';
 import 'package:faithful_servant/core/function/confirm_password_validator.dart';
 import 'package:faithful_servant/core/function/current_service_validator.dart';
+import 'package:faithful_servant/core/function/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
 import 'package:faithful_servant/core/function/father_of_conession_validator.dart';
@@ -20,6 +21,7 @@ import 'package:faithful_servant/features/register/presentation/views/function/d
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
@@ -75,7 +77,19 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: BlocConsumer<RegisterCubit, RegisterState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is RegisterCubitImageUploadingLoading) {
+            EasyLoading.show(
+              status: 'Loading...',
+            );
+          }
+          if (state is RegisterCubitImageUploadingSuccess) {
+            EasyLoading.dismiss();
+          }
+          if (state is RegisterCubitImageUploadingSuccess) {
+            customSnackBar(context, "successfully uploading image");
+          }
+        },
         builder: (context, state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
