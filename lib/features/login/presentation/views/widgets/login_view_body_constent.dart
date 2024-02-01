@@ -34,6 +34,11 @@ class LoginViewBodyContent extends StatelessWidget {
         }
         if (state is LoginCubitLoginUserSuccess) {
           EasyLoading.dismiss();
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            GetPages.generalManager,
+            (route) => false,
+          );
         }
         if (state is LoginCubitLoginUserfailure) {
           EasyLoading.showError('من فضلك تاكد من معلوماتك');
