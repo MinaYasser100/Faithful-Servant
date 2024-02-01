@@ -1,6 +1,6 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/appbar.dart';
-import 'package:faithful_servant/core/widgets/drawer.dart';
+import 'package:faithful_servant/core/widgets/Drawer/drawer.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/widgets/general_manager_body.dart';
 import 'package:flutter/material.dart';
 
