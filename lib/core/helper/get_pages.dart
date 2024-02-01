@@ -11,6 +11,7 @@ abstract class GetPages {
   static String kLoginView = '/LoginView';
   static String kRegisterView = '/RegisterView';
   static String generalManager = '/generalManager';
+  static String MineServant = '/MineServant';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
