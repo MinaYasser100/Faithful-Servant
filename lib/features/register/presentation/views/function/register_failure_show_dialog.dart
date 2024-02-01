@@ -15,7 +15,7 @@ Future<dynamic> registerFailureShowDialog(BuildContext context) {
           style: Styles.textStyle20.copyWith(color: kPrimaryColor),
         ),
         content: Text(
-          ' حدث خطاء اثناء التسجيل يرجي التاكد ان هدا الايميل الحقيقي الخاص بك ثم اعد المحاوله',
+          ' حدث خطاء اثناء التسجيل يرجي التاكد ان هذا الايميل الحقيقي الخاص بك ثم اعد المحاوله',
           style: Styles.textStyle16.copyWith(
             color: Colors.red,
             fontWeight: FontWeight.w600,

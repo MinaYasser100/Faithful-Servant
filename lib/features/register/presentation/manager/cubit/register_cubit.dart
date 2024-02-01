@@ -163,7 +163,6 @@ class RegisterCubit extends Cubit<RegisterState> {
       });
 
       String downloadURL = await storageReference.getDownloadURL();
-      print(downloadURL);
       imageSelected = downloadURL;
       emit(RegisterCubitImageUploadingSuccess());
     } catch (error) {

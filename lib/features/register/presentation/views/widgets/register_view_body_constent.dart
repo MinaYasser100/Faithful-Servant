@@ -23,7 +23,7 @@ import 'package:faithful_servant/features/register/presentation/views/widgets/ch
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import '../function/register_successfully_show_dialog.dart';
+import '../../../../../core/function/successfully_show_dialog.dart';
 import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
@@ -92,7 +92,13 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
           }
           if (state is RegisterCubitPutUserInformationInFirebaseSuccess) {
             EasyLoading.dismiss();
-            registerSuccessfullyShowDialog(context);
+            successfullyShowDialog(
+              context: context,
+              titleText: 'Successfully Registration',
+              contentText:
+                  'لقد نجحت عملية التسجيل يمكنك الان الذهاب الي صفحة تسجيل الدخول',
+              buttonText: 'Go To Login',
+            );
             widget.nameController.clear();
             widget.emailController.clear();
             widget.phoneNum1Controller.clear();
