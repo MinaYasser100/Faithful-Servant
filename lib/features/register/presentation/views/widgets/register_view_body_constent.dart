@@ -10,7 +10,6 @@ import 'package:faithful_servant/core/function/number_of_home_validator.dart';
 import 'package:faithful_servant/core/function/password_validator.dart';
 import 'package:faithful_servant/core/function/phone_validator.dart';
 import 'package:faithful_servant/core/function/street_name_validator.dart';
-import 'package:faithful_servant/core/helper/assets.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
@@ -75,7 +74,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: BlocBuilder<RegisterCubit, RegisterState>(
+      child: BlocConsumer<RegisterCubit, RegisterState>(
+        listener: (context, state) {},
         builder: (context, state) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,8 +90,13 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                 ),
               ),
               const SizedBox(height: 30),
-              const Center(
-                child: ProfileImageWidget(),
+              Center(
+                child: ProfileImageWidget(
+                  backgroundImage: NetworkImage(BlocProvider.of<RegisterCubit>(
+                              context)
+                          .imageSelected ??
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -243,7 +248,9 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               password: widget.passwordController.text,
                               phoneNum1: widget.phoneNum1Controller.text,
                               phoneNum2: widget.phoneNum2Controller.text,
-                              image: Assets.jesusAndYourSon,
+                              image: BlocProvider.of<RegisterCubit>(context)
+                                      .imageSelected ??
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU',
                               nationalId: widget.nationalIDController.text,
                               privilage: selectedItem,
                               church: determindChurch(

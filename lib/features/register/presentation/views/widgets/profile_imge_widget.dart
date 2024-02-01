@@ -1,4 +1,3 @@
-import 'package:faithful_servant/core/helper/assets.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,8 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProfileImageWidget extends StatelessWidget {
   const ProfileImageWidget({
     super.key,
+    required this.backgroundImage,
   });
-
+  final ImageProvider<Object> backgroundImage;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -15,7 +15,7 @@ class ProfileImageWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 55,
-          backgroundImage: AssetImage(Assets.jesusAndYourSon),
+          backgroundImage: backgroundImage,
         ),
         CircleAvatar(
           child: IconButton(

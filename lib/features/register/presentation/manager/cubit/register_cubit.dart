@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/features/register/data/register_repo/register_reop.dart';
 import 'package:faithful_servant/features/register/data/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -127,6 +128,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
+  String? imageSelected;
   File? profileImage;
   var picker = ImagePicker();
   Future<void> getProfileImage() async {
@@ -134,10 +136,53 @@ class RegisterCubit extends Cubit<RegisterState> {
         await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       profileImage = File(pickedFile.path);
+      uploadImage(profileImage);
       emit(RegisterCubitPickProfileImageSuccess());
-      print(profileImage);
     } else {
       emit(RegisterCubitPickProfileImageFailure());
+    }
+  }
+
+  // void uploadProfileImage() {
+  //   emit(RegisterCubitImageUploadingLoading());
+  //   try {
+  //     dynamic value = firebase_storage.FirebaseStorage.instance
+  //         .ref()
+  //         .child('users/${Uri.file(profileImage!.path).pathSegments.last}')
+  //         .putFile(profileImage!);
+  //     String getDownloadURL = value.ref.getDownloadURL();
+  //     image = getDownloadURL;
+  //     emit(RegisterCubitImageUploadingSuccess());
+  //   } catch (e) {
+  //     emit(RegisterCubitImageUploadingFailure());
+  //     print(e.toString());
+  //   }
+  // }
+  final FirebaseStorage _storage = FirebaseStorage.instance;
+  Future<void> uploadImage(File? image) async {
+    if (image == null) {
+      // No image selected
+      return;
+    }
+    emit(RegisterCubitImageUploadingLoading());
+
+    try {
+      Reference storageReference = _storage
+          .ref()
+          .child('profile_images/${DateTime.now().millisecondsSinceEpoch}.jpg');
+
+      UploadTask uploadTask = storageReference.putFile(image);
+
+      await uploadTask.whenComplete(() {
+        print('Image uploaded successfully!');
+      });
+
+      String downloadURL = await storageReference.getDownloadURL();
+      print(downloadURL);
+      imageSelected = downloadURL;
+      emit(RegisterCubitImageUploadingSuccess());
+    } catch (error) {
+      emit(RegisterCubitImageUploadingFailure());
     }
   }
 }
