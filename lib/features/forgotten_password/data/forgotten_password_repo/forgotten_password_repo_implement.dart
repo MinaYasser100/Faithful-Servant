@@ -5,6 +5,10 @@ class ForgottenPasswordRepoImplement implements ForgottenPasswordRepo {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Future<void> changePasswordInFirebase({required String email}) async {
-    await auth.sendPasswordResetEmail(email: email);
+    try {
+      await auth.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      print('the email is not format');
+    }
   }
 }
