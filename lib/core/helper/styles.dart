@@ -15,8 +15,17 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: kPrimaryColor,
   );
+  static const TextStyle textStyle30SecondColor = TextStyle(
+    fontSize: 30.0,
+    fontWeight: FontWeight.bold,
+    color: kSecondColor,
+  );
   static const TextStyle textStyle16 = TextStyle(
     fontSize: 16.0,
+  );
+  static const TextStyle textStyle16SecondColor = TextStyle(
+    fontSize: 16.0,
+    color: kSecondColor,
   );
   static const TextStyle textStyle18 = TextStyle(
     fontSize: 18.0,
