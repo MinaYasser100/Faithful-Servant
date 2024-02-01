@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/function/email_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import 'create_new_account_section.dart';
 
 class LoginViewBodyContent extends StatelessWidget {
@@ -109,7 +111,9 @@ class LoginViewBodyContent extends StatelessWidget {
                   },
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(GetPages.kforgottenPasswordView);
+                  },
                   child: const Text(
                     'Forgotten Password',
                     style: TextStyle(
