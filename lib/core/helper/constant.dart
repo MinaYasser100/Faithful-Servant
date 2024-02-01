@@ -1,3 +1,4 @@
+import "package:faithful_servant/core/helper/get_pages.dart";
 import "package:flutter/material.dart";
 
 const kPrimaryColor = Color(0xff042c5c);
@@ -15,3 +16,41 @@ Map<String, dynamic> selectChurch = {
   saintMark: 'M&F677marg',
   saintMain: 'M&K&K234mo',
 };
+
+//Privileges is
+//  1:abona + الامين العام للخدمة
+//  2:امين الخدمة
+//  3:خادم
+
+List<Map> pages = [
+  {
+    'Privileges': '2',
+    'text': 'خدام المرحلة',
+    "btntext": 'Open',
+    'routeto': GetPages.MineServant,
+    'icon': Icons.abc_outlined,
+  },
+  {
+    'Privileges': '3',
+    'text': 'خدام المرحلة',
+    "btntext": 'Open',
+    'routeto': GetPages.MineServant,
+    'icon': Icons.abc_outlined,
+  },
+  {
+    'Privileges': '2',
+    'text': 'احصائيات',
+    "btntext": 'Open',
+    'routeto': GetPages.MineServant,
+    'icon': Icons.line_axis,
+  },
+  {
+    'Privileges': '3',
+    'text': 'احصائيات',
+    "btntext": 'Open',
+    'routeto': GetPages.MineServant,
+    'icon': Icons.line_axis,
+  },
+];
+
+List pagesafterfilter = pages.where((i) => i['Privileges'] == '3').toList();

@@ -1,6 +1,3 @@
-import 'package:faithful_servant/core/helper/get_pages.dart';
-import 'package:flutter/material.dart';
-
 class Testdb {
   List<Map> db = [
     {
@@ -14,7 +11,7 @@ class Testdb {
       'church_code': 1256,
       'current_service': "اولي ابتدائي",
       'current_role': 'خادم',
-      'privilege': 3, // 1 : abona, 2 : امين الخدمة
+      'privilege': '3',
     },
     {
       'name': "abanob adel boctor",
@@ -27,7 +24,7 @@ class Testdb {
       'church_code': 1256,
       'current_service': "ثانوي بنين",
       'current_role': 'خادم',
-      'privilege': 1, // 1 : abona, 2 : امين الخدمة
+      'privilege': '1', // 1 : abona, 2 : امين الخدمة
     },
     {
       'name': "Ebram adel boctor",
@@ -40,22 +37,7 @@ class Testdb {
       'church_code': 1256,
       'current_service': "اعدادي بنين",
       'current_role': 'خادم',
-      'privilege': 2, // 1 : abona, 2 : امين الخدمة
-    },
-  ];
-
-  List<Map> pages = [
-    {
-      'text': 'خدام المرحلة',
-      "btntext": 'Open',
-      'routeto': GetPages.MineServant,
-      'icon': Icons.abc_outlined,
-    },
-    {
-      'text': 'احصائيات',
-      "btntext": 'Open',
-      'routeto': GetPages.MineServant,
-      'icon': Icons.line_axis,
+      'privilege': '2', // 1 : abona, 2 : امين الخدمة
     },
   ];
 }
