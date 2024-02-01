@@ -13,7 +13,7 @@ class PartOfCurve extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 85,
       width: width,
       decoration: const BoxDecoration(
         color: kPrimaryColor,
