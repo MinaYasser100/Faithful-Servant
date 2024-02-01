@@ -10,6 +10,10 @@ abstract class Styles {
     fontSize: 25.0,
     color: kSecondColor,
   );
+  static const TextStyle textStyle13SecondColor = TextStyle(
+    fontSize: 13.0,
+    color: kSecondColor,
+  );
   static const TextStyle textStyle30 = TextStyle(
     fontSize: 30.0,
     fontWeight: FontWeight.bold,

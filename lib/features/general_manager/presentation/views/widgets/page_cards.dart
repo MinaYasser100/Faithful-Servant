@@ -10,10 +10,10 @@ class PageCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30.0),
-                topRight: Radius.circular(30.0)),
+                topLeft: Radius.circular(bodyRadious),
+                topRight: Radius.circular(bodyRadious)),
             color: kSecondColor),
         child: GridView.builder(
           itemCount: pagesafterfilter.length,
