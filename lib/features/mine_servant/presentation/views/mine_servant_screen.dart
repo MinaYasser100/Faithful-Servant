@@ -1,3 +1,7 @@
+import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/widgets/Drawer/drawer.dart';
+import 'package:faithful_servant/core/widgets/appbar.dart';
+import 'package:faithful_servant/features/mine_servant/presentation/views/widgets/mine_servant_body.dart';
 import 'package:flutter/material.dart';
 
 class MineServant extends StatelessWidget {
@@ -5,8 +9,16 @@ class MineServant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('خدام المرحلة'),
+    return Scaffold(
+      backgroundColor: kPrimaryColor,
+      drawer: const GeneralDrawer(
+        privilege: 2,
+      ),
+      appBar: GeneralAppBar(
+        title: 'خدام المراحل',
+        appBar: AppBar(),
+      ),
+      body: const MineServantBody(),
     );
   }
 }

@@ -15,17 +15,14 @@ class GeneralAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 15),
-      child: AppBar(
-        iconTheme: const IconThemeData(color: kSecondColor),
-        title: Text(
-          title,
-          style: Styles.textStyle25SecondColor,
-        ),
-        backgroundColor: backgroundColor,
-        actions: widgets,
+    return AppBar(
+      iconTheme: const IconThemeData(color: kSecondColor),
+      title: Text(
+        title,
+        style: Styles.textStyle25SecondColor,
       ),
+      backgroundColor: backgroundColor,
+      actions: widgets,
     );
   }
 

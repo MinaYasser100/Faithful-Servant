@@ -15,7 +15,12 @@ class GeneralManager extends StatelessWidget {
       appBar: GeneralAppBar(
         title: 'امين الخدمة',
         appBar: AppBar(),
-        widgets: const [Icon(Icons.notifications_on, size: 30)],
+        widgets: const [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(Icons.notifications_on, size: 30),
+          )
+        ],
       ),
       drawer: const GeneralDrawer(privilege: 2),
     );

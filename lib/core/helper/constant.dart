@@ -16,11 +16,7 @@ Map<String, dynamic> selectChurch = {
   saintMark: 'M&F677marg',
   saintMain: 'M&K&K234mo',
 };
-
-//Privileges is
-//  1:abona + الامين العام للخدمة
-//  2:امين الخدمة
-//  3:خادم
+double bodyRadious = 30.0;
 
 List<Map> pages = [
   {
@@ -41,14 +37,14 @@ List<Map> pages = [
     'Privileges': '2',
     'text': 'احصائيات',
     "btntext": 'Open',
-    'routeto': GetPages.mineServant,
+    'routeto': GetPages.statistics,
     'icon': Icons.line_axis,
   },
   {
     'Privileges': '3',
     'text': 'احصائيات',
     "btntext": 'Open',
-    'routeto': GetPages.mineServant,
+    'routeto': GetPages.statistics,
     'icon': Icons.line_axis,
   },
 ];

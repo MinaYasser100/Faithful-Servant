@@ -18,6 +18,7 @@ class DrawerPagesOptions extends StatelessWidget {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
+                Get.back();
                 Get.toNamed(pagesafterfilter[index]['routeto']);
               },
               title: Text(pagesafterfilter[index]['text']),
