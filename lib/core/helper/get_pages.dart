@@ -53,5 +53,10 @@ abstract class GetPages {
       page: () => const Statistics(),
       transition: Transition.circularReveal,
     ),
+    GetPage(
+      name: kforgottenPasswordView,
+      page: () => const ForgottenPasswordView(),
+      transition: Transition.circularReveal,
+    ),
   ];
 }
