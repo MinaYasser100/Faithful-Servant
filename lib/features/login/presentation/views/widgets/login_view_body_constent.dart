@@ -61,23 +61,24 @@ class LoginViewBodyContent extends StatelessWidget {
               children: [
                 const NavigationBackButton(),
                 const SizedBox(height: 70),
-                const Text(
-                  'Welcome Back',
+                Text(
+                  'welcome back'.tr,
                   style: Styles.textStyle30,
                 ).animate().then().shake(),
                 const SizedBox(height: 60),
                 Text(
-                  'Enter your eamil & password',
+                  'Enter your email and password'.tr,
                   style: Styles.textStyle16.copyWith(
                     color: kTextGreyColor,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
                 CustomTextFromField(
                   textEditingController: emailController,
-                  labelText: 'Email',
+                  labelText: 'email'.tr,
                   validator: emailValidator,
                   keyboardType: TextInputType.emailAddress,
                 ),
@@ -86,10 +87,10 @@ class LoginViewBodyContent extends StatelessWidget {
                 ),
                 CustomTextFromField(
                   textEditingController: passwordController,
-                  labelText: "Password",
+                  labelText: "password".tr,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please enter your password';
+                      return 'Please, enter your password'.tr;
                     }
                     return null;
                   },
@@ -105,7 +106,7 @@ class LoginViewBodyContent extends StatelessWidget {
                   height: 30,
                 ),
                 CustomTextButton(
-                  textButton: 'LOGIN',
+                  textButton: 'login'.tr,
                   onPressed: () {
                     if (fromkey.currentState!.validate()) {
                       BlocProvider.of<LoginCubit>(context).loginUser(
@@ -122,12 +123,11 @@ class LoginViewBodyContent extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(GetPages.kforgottenPasswordView);
                   },
-                  child: const Text(
-                    'Forgotten Password',
-                    style: TextStyle(
+                  child: Text(
+                    'forgotten password'.tr,
+                    style: const TextStyle(
                       fontSize: 15,
                       color: kPrimaryLightColor,
-                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),

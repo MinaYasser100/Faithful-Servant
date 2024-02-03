@@ -22,8 +22,8 @@ class CreateNewAccountSection extends StatelessWidget {
           onPressed: () {
             Get.toNamed(GetPages.kRegisterView);
           },
-          child: const Text(
-            'Create New Acount',
+          child: Text(
+            'Create New Acount'.tr,
             style: Styles.textStyle18,
           ),
         ),
