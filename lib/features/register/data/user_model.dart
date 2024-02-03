@@ -8,6 +8,7 @@ class UserModel {
   final String nationalId;
   final String privilage;
   final String church;
+  final String gender;
   final String numberOfnumber;
   final String streetName;
   final String addressOfArea;
@@ -24,6 +25,7 @@ class UserModel {
     required this.nationalId,
     required this.privilage,
     required this.church,
+    required this.gender,
     required this.numberOfnumber,
     required this.streetName,
     required this.addressOfArea,
@@ -42,6 +44,7 @@ class UserModel {
       nationalId: json['nationalId'] as String,
       privilage: json['privilage'] as String,
       church: json['church'] as String,
+      gender: json['gender'] as String,
       numberOfnumber: json['numberOfnumber'] as String,
       streetName: json['streetName'] as String,
       addressOfArea: json['addressOfArea'] as String,
@@ -61,6 +64,7 @@ class UserModel {
       'nationalId': nationalId,
       'privilage': privilage,
       'church': church,
+      'gender': gender,
       'numberOfnumber': numberOfnumber,
       'streetName': streetName,
       'addressOfArea': addressOfArea,

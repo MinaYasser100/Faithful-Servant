@@ -66,8 +66,8 @@ class ReisterViewBodyContent extends StatefulWidget {
 }
 
 class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
-  final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
-  String selectedItem = 'المشرف العام';
+  final List<String> items = ['خادم', 'امين الخدمة', 'المشرف العام'];
+  String selectedItem = 'خادم';
   final List<String> churchItems = [
     saintGeorge,
     virginMary,
@@ -75,6 +75,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
     saintMain
   ];
   String churchSelectedItem = saintGeorge;
+  final List<String> genderItems = ['ذكر', 'انثي'];
+  String selectGenderItem = 'ذكر';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -207,6 +209,16 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         },
                       ),
                       const SizedBox(height: 15),
+                      ChooseYourChurch(
+                        items: genderItems,
+                        selectedItem: selectGenderItem,
+                        onChanged: (newValue) {
+                          setState(() {
+                            selectGenderItem = newValue!;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.passwordController,
                         labelText: 'Password',
@@ -300,6 +312,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               church: determindChurch(
                                 churchSelectedItem: churchSelectedItem,
                               ),
+                              gender: selectGenderItem,
                               numberOfnumber:
                                   widget.numberOfHomeController.text,
                               qualification:
