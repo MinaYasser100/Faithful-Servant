@@ -31,7 +31,9 @@ class _ForgottenPasswordViewBodyState extends State<ForgottenPasswordViewBody> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: ForgottenPasswordBodyContent(
-                emailController: emailController, formKey: formkey),
+              emailController: emailController,
+              formKey: formkey,
+            ),
           ),
         ],
       ),

@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/features/register/data/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,6 +35,59 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginCubitLoginUserSuccess(userId: userCredential.user!.uid));
     } catch (e) {
       emit(LoginCubitLoginUserfailure(errorMessage: e.toString()));
+    }
+  }
+
+  UserModel? userModel;
+  void findUserInformationWhenLogin({required String userID}) async {
+    emit(LoginCubitGetUserInforamtionLoading());
+    try {
+      DocumentSnapshot<Map<String, dynamic>> value = await FirebaseFirestore
+          .instance
+          .collection(saintGeorge)
+          .doc(selectChurch[saintGeorge])
+          .collection('users')
+          .doc(userID)
+          .get();
+      if (value.exists) {
+        userModel = UserModel.fromJson(value.data()!);
+      } else {
+        value = await FirebaseFirestore.instance
+            .collection(virginMary)
+            .doc(selectChurch[virginMary])
+            .collection('users')
+            .doc(userID)
+            .get();
+        if (value.exists) {
+          userModel = UserModel.fromJson(value.data()!);
+        } else {
+          value = await FirebaseFirestore.instance
+              .collection(saintMark)
+              .doc(selectChurch[saintMark])
+              .collection('users')
+              .doc(userID)
+              .get();
+          if (value.exists) {
+            userModel = UserModel.fromJson(value.data()!);
+          } else {
+            value = await FirebaseFirestore.instance
+                .collection(saintMain)
+                .doc(selectChurch[saintMain])
+                .collection('users')
+                .doc(userID)
+                .get();
+            if (value.exists) {
+              userModel = UserModel.fromJson(value.data()!);
+            } else {
+              print("this user is not found");
+            }
+          }
+        }
+      }
+      print(userModel?.name ?? 'no data');
+      emit(LoginCubitGetUserInformationSuccess());
+    } catch (e) {
+      print('Error fetching user data: $e');
     }
   }
 }

@@ -22,3 +22,11 @@ final class LoginCubitLoginUserfailure extends LoginState {
 
   LoginCubitLoginUserfailure({required this.errorMessage});
 }
+
+final class LoginCubitGetUserInforamtionLoading extends LoginState {}
+
+final class LoginCubitGetUserInformationSuccess extends LoginState {}
+
+final class LoginCubitGetUserInformationFailure extends LoginState {}
+
+final class LoginCubitFailure extends LoginState {}

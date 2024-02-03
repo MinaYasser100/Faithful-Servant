@@ -16,3 +16,6 @@ final class ForgetPasswordCheckUserEmailFailure extends ForgottenPasswordState {
 
   ForgetPasswordCheckUserEmailFailure({required this.errorMessage});
 }
+
+final class ForgottenPasswordChangeAutovalidateMode
+    extends ForgottenPasswordState {}
