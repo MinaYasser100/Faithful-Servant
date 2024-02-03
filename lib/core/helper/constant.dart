@@ -16,6 +16,9 @@ Map<String, dynamic> selectChurch = {
   saintMark: 'M&F677marg',
   saintMain: 'M&K&K234mo',
 };
+
+const kUserId = 'userId';
+String? userToken;
 double bodyRadious = 30.0;
 
 List<Map> pages = [

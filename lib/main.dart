@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/bloc_observer.dart';
@@ -14,6 +15,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Bloc.observer = SimpleBlocObserver();
+  await CacheHelper.init();
   runApp(const MyApp());
 }
 

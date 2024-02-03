@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/function/email_validator.dart';
+import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
@@ -26,7 +27,7 @@ class LoginViewBodyContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is LoginCubitLoginUserLoading) {
           EasyLoading.show(
             status: 'Loading...',
@@ -39,6 +40,10 @@ class LoginViewBodyContent extends StatelessWidget {
             GetPages.generalManager,
             (route) => false,
           );
+          BlocProvider.of<LoginCubit>(context)
+              .findUserInformationWhenLogin(userID: state.userId);
+          await CacheHelper.saveData(key: kUserId, value: state.userId);
+          userToken = state.userId;
         }
         if (state is LoginCubitLoginUserfailure) {
           EasyLoading.showError('من فضلك تاكد من معلوماتك');
@@ -107,8 +112,6 @@ class LoginViewBodyContent extends StatelessWidget {
                         email: emailController.text,
                         password: passwordController.text,
                       );
-                      emailController.clear();
-                      passwordController.clear();
                     } else {
                       BlocProvider.of<LoginCubit>(context)
                           .changeAutovalidateMode();
