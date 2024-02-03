@@ -22,6 +22,7 @@ import 'package:faithful_servant/features/register/presentation/views/widgets/ch
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
 import '../../../../../core/function/successfully_show_dialog.dart';
 import 'profile_imge_widget.dart';
 
@@ -82,21 +83,21 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
           if (state is RegisterCubitImageUploadingLoading ||
               state is RegisterCubitUserRgistrationLoading) {
             EasyLoading.show(
-              status: 'Loading...',
+              status: 'Loading...'.tr,
             );
           }
           if (state is RegisterCubitImageUploadingSuccess) {
             EasyLoading.dismiss();
-            customSnackBar(context, "successfully uploading image");
+            customSnackBar(context, "successfully uploading image".tr);
           }
           if (state is RegisterCubitPutUserInformationInFirebaseSuccess) {
             EasyLoading.dismiss();
             successfullyShowDialog(
               context: context,
-              titleText: 'Successfully Registration',
+              titleText: 'Successfully Registration'.tr,
               contentText:
-                  'لقد نجحت عملية التسجيل يمكنك الان الذهاب الي صفحة تسجيل الدخول',
-              buttonText: 'Go To Login',
+                  'The registration is successful, now go to the login'.tr,
+              buttonText: 'Go To Login'.tr,
             );
             widget.nameController.clear();
             widget.emailController.clear();
@@ -124,10 +125,10 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
             children: [
               const NavigationBackButton(),
               const SizedBox(height: 50),
-              const Padding(
-                padding: EdgeInsets.only(left: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
                 child: Text(
-                  'Create Account',
+                  'Create Account'.tr,
                   style: Styles.textStyle30,
                 ),
               ),
@@ -152,35 +153,35 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       const SizedBox(height: 20),
                       CustomTextFromField(
                         textEditingController: widget.nameController,
-                        labelText: 'Name',
+                        labelText: 'Name'.tr,
                         keyboardType: TextInputType.name,
                         validator: nameValidator,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.emailController,
-                        labelText: 'Email',
+                        labelText: 'email'.tr,
                         keyboardType: TextInputType.emailAddress,
                         validator: emailValidator,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.phoneNum1Controller,
-                        labelText: 'Phone number 1',
+                        labelText: 'Phone number 1'.tr,
                         validator: phoneValidator,
                         keyboardType: TextInputType.phone,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.phoneNum2Controller,
-                        labelText: 'Phone number 2',
+                        labelText: 'Phone number 2'.tr,
                         validator: phoneValidator,
                         keyboardType: TextInputType.phone,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.nationalIDController,
-                        labelText: 'National ID',
+                        labelText: 'National ID'.tr,
                         keyboardType: TextInputType.number,
                         validator: nationalIdValidator,
                       ),
@@ -227,7 +228,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.passwordController,
-                        labelText: 'Password',
+                        labelText: 'password'.tr,
                         iconData:
                             BlocProvider.of<RegisterCubit>(context).suffixIcon,
                         keyboardType: TextInputType.visiblePassword,
@@ -242,7 +243,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.confirmPasswordController,
-                        labelText: 'Confirm Password',
+                        labelText: 'Confirm Password'.tr,
                         iconData: BlocProvider.of<RegisterCubit>(context)
                             .confirmSuffixIcon,
                         suffixOnPressed: () {
@@ -258,28 +259,28 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.numberOfHomeController,
-                        labelText: 'Number of home',
+                        labelText: 'Number of home'.tr,
                         validator: numberOfHomeValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.streetNameController,
-                        labelText: 'Street name',
+                        labelText: 'Street name'.tr,
                         validator: streetNameValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.addressOfAreaController,
-                        labelText: 'Address of area',
+                        labelText: 'Address of area'.tr,
                         validator: addressOfAreaValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 15),
                       CustomTextFromField(
                         textEditingController: widget.qualificationController,
-                        labelText: 'Educational qualification',
+                        labelText: 'Educational qualification'.tr,
                         validator: educationalQualificationValidator,
                         keyboardType: TextInputType.text,
                       ),
@@ -287,13 +288,13 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                       CustomTextFromField(
                         textEditingController:
                             widget.fatherOfConfessionController,
-                        labelText: 'Father of confession',
+                        labelText: 'Father of confession'.tr,
                         validator: fatherOfConessionValidator,
                         keyboardType: TextInputType.text,
                       ),
                       const SizedBox(height: 50),
                       CustomTextButton(
-                        textButton: "Create Account",
+                        textButton: 'Create Account'.tr,
                         onPressed: () {
                           if (widget.fromKey.currentState!.validate()) {
                             BlocProvider.of<RegisterCubit>(context)
