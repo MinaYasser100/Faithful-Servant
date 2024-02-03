@@ -1,5 +1,7 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/local/locale_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomTextButton extends StatefulWidget {
   const CustomTextButton({
@@ -29,6 +31,7 @@ class _CustomTextButtonState extends State<CustomTextButton>
 
   @override
   Widget build(BuildContext context) {
+    AppLocalController appLocalController = Get.find();
     return Container(
       height: 60,
       width: MediaQuery.of(context).size.width * 0.7,
@@ -60,7 +63,9 @@ class _CustomTextButtonState extends State<CustomTextButton>
               AnimatedBuilder(
                 animation: _colorAnimation,
                 builder: (context, child) => Icon(
-                  Icons.arrow_forward_ios_outlined,
+                  appLocalController.initilalLanguage == const Locale('en')
+                      ? Icons.arrow_forward_ios_outlined
+                      : Icons.arrow_back_ios_new_sharp,
                   color: _colorAnimation.value,
                 ),
               ),
