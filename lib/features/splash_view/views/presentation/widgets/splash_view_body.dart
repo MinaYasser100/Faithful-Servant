@@ -40,7 +40,7 @@ class SplashViewBody extends StatelessWidget {
                   GetPages.kWelcomeView,
                 );
               },
-              textButton: "Get Start",
+              textButton: "Get Start".tr,
               isArrowIcon: true,
             ),
             const SizedBox(

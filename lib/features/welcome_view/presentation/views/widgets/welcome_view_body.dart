@@ -22,7 +22,7 @@ class WelcomeViewBody extends StatelessWidget {
               child: Column(
                 children: [
                   CustomTextButton(
-                    textButton: "Login",
+                    textButton: "Login".tr,
                     onPressed: () {
                       Get.toNamed(GetPages.kLoginView);
                     },
@@ -31,7 +31,7 @@ class WelcomeViewBody extends StatelessWidget {
                     height: 30,
                   ),
                   CustomTextButton(
-                    textButton: 'Register',
+                    textButton: 'Register'.tr,
                     onPressed: () {
                       Get.toNamed(GetPages.kRegisterView);
                     },

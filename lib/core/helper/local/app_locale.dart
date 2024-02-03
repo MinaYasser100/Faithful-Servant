@@ -17,6 +17,9 @@ class Applocal implements Translations {
           'Arabic': 'اللغة العربية',
           'English': 'اللغة الانجليزية',
           'Change Language': 'تغيير اللغة',
+          "Get Start": 'هيا نبدا',
+          "Login": 'تسجيل الدخول',
+          'Register': 'انشاء حساب جديد',
         },
         "en": {
           'email': 'Email',
@@ -31,6 +34,9 @@ class Applocal implements Translations {
           'Arabic': 'Arabic',
           'English': 'English',
           'Change Language': 'Change Language',
+          "Get Start": "Get Start",
+          "Login": "Login",
+          'Register': 'Register',
         },
       };
 }
