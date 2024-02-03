@@ -13,7 +13,10 @@ class Applocal implements Translations {
           'forgotten password': 'نسيت كلمة المرور',
           'Please, enter your password': 'من فضلك ادخل كلمة المرور الخاصه بك',
           'Please, enter your email !': 'من فضلك ادخل الايميل الخاص بك',
-          'Create New Acount': 'انشاء حساب جديد'
+          'Create New Acount': 'انشاء حساب جديد',
+          'Arabic': 'اللغة العربية',
+          'English': 'اللغة الانجليزية',
+          'Change Language': 'تغيير اللغة',
         },
         "en": {
           'email': 'Email',
@@ -25,6 +28,9 @@ class Applocal implements Translations {
           'Please, enter your password': 'Please, enter your password',
           'Please, enter your email !': 'Please, enter your email !',
           'Create New Acount': 'Create New Acount',
+          'Arabic': 'Arabic',
+          'English': 'English',
+          'Change Language': 'Change Language',
         },
       };
 }

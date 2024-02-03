@@ -1,7 +1,8 @@
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
-import 'package:faithful_servant/core/helper/local/app_local.dart';
+import 'package:faithful_servant/core/helper/local/app_locale.dart';
+import 'package:faithful_servant/core/helper/local/locale_controller.dart';
 import 'package:faithful_servant/core/widgets/bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalController appLocalController = Get.put(AppLocalController());
     return GetMaterialApp(
-      locale: const Locale('ar'),
+      locale: appLocalController.initilalLanguage,
       translations: Applocal(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),

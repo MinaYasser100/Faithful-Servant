@@ -52,6 +52,8 @@ final List<String> currentServiceItems = [
 const kUserId = 'userId';
 String? userToken;
 
+const languageKey = 'language';
+
 double bodyRadious = 30.0;
 
 List<Map> pages = [

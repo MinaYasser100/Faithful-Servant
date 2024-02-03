@@ -1,6 +1,8 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/Drawer/widgets/drawer_pages_options.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class GeneralDrawer extends StatelessWidget {
   final int privilege;
@@ -22,6 +24,13 @@ class GeneralDrawer extends StatelessWidget {
             decoration: BoxDecoration(color: kPrimaryColor),
           ),
           const DrawerPagesOptions(),
+          ListTile(
+            onTap: () {
+              Get.toNamed(GetPages.kSettingLanguageView);
+            },
+            title: Text('Change Language'.tr),
+            trailing: const Icon(Icons.language),
+          ),
           ListTile(
             onTap: () {
               // put log out code here ............
