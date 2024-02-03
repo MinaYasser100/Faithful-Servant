@@ -1,6 +1,5 @@
 import 'package:faithful_servant/core/function/address_of_area_validator.dart';
 import 'package:faithful_servant/core/function/confirm_password_validator.dart';
-import 'package:faithful_servant/core/function/current_service_validator.dart';
 import 'package:faithful_servant/core/function/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
@@ -19,12 +18,11 @@ import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:faithful_servant/features/register/presentation/views/function/determind_church.dart';
 import 'package:faithful_servant/features/register/presentation/views/function/register_failure_show_dialog.dart';
-import 'package:faithful_servant/features/register/presentation/views/widgets/choose_your_church.dart';
+import 'package:faithful_servant/features/register/presentation/views/widgets/choose_form_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import '../../../../../core/function/successfully_show_dialog.dart';
-import 'choose_privilage.dart';
 import 'profile_imge_widget.dart';
 
 class ReisterViewBodyContent extends StatefulWidget {
@@ -40,7 +38,6 @@ class ReisterViewBodyContent extends StatefulWidget {
     required this.qualificationController,
     required this.numberOfHomeController,
     required this.fatherOfConfessionController,
-    required this.currentServiceController,
     required this.streetNameController,
     required this.addressOfAreaController,
     required this.phoneNum2Controller,
@@ -59,7 +56,6 @@ class ReisterViewBodyContent extends StatefulWidget {
   final TextEditingController streetNameController;
   final TextEditingController addressOfAreaController;
   final TextEditingController fatherOfConfessionController;
-  final TextEditingController currentServiceController;
 
   @override
   State<ReisterViewBodyContent> createState() => _ReisterViewBodyContentState();
@@ -77,6 +73,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
   String churchSelectedItem = saintGeorge;
   final List<String> genderItems = ['ذكر', 'انثي'];
   String selectGenderItem = 'ذكر';
+  String selectCurrentService = 'حضانة كيجي 1';
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -113,7 +110,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
             widget.streetNameController.clear();
             widget.addressOfAreaController.clear();
             widget.fatherOfConfessionController.clear();
-            widget.currentServiceController.clear();
             BlocProvider.of<RegisterCubit>(context).imageSelected == null;
           }
           if (state is RegisterCubitUserRgistrationFailure ||
@@ -189,7 +185,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         validator: nationalIdValidator,
                       ),
                       const SizedBox(height: 15),
-                      ChoosePrivilage(
+                      ChooseFromItems(
                         items: items,
                         selectedItem: selectedItem,
                         onChanged: (newValue) {
@@ -199,7 +195,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         },
                       ),
                       const SizedBox(height: 15),
-                      ChooseYourChurch(
+                      ChooseFromItems(
                         items: churchItems,
                         selectedItem: churchSelectedItem,
                         onChanged: (newValue) {
@@ -209,12 +205,22 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         },
                       ),
                       const SizedBox(height: 15),
-                      ChooseYourChurch(
+                      ChooseFromItems(
                         items: genderItems,
                         selectedItem: selectGenderItem,
                         onChanged: (newValue) {
                           setState(() {
                             selectGenderItem = newValue!;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: 15),
+                      ChooseFromItems(
+                        items: currentServiceItems,
+                        selectedItem: selectCurrentService,
+                        onChanged: (newValue) {
+                          setState(() {
+                            selectCurrentService = newValue!;
                           });
                         },
                       ),
@@ -285,13 +291,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                         validator: fatherOfConessionValidator,
                         keyboardType: TextInputType.text,
                       ),
-                      const SizedBox(height: 15),
-                      CustomTextFromField(
-                        textEditingController: widget.currentServiceController,
-                        labelText: 'Current service in 2023/2024',
-                        validator: currentServiceValidator,
-                        keyboardType: TextInputType.text,
-                      ),
                       const SizedBox(height: 50),
                       CustomTextButton(
                         textButton: "Create Account",
@@ -320,8 +319,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               streetName: widget.streetNameController.text,
                               addressOfArea:
                                   widget.addressOfAreaController.text,
-                              currentService:
-                                  widget.currentServiceController.text,
+                              currentService: selectCurrentService,
                             );
                           } else {
                             BlocProvider.of<RegisterCubit>(context)
