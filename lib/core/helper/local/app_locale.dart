@@ -53,6 +53,14 @@ class Applocal implements Translations {
           'Please, enter your educational qualification': 'ادخل مؤهلك التعليمي',
           'Father of confession': 'اب الاعتراف',
           'Please, enter your father of confession': 'ادخل اب اعترافك',
+          "Forgotten Password": 'نسيت كلمة المرور',
+          'The message is sended to this email to change password':
+              'سوف يرسل لك رسالة علي هذا الايميل تستطيع من خلالها ان تغيير كلمة المرور',
+          'Successfully': 'نجحت العملية',
+          "Mail Adrress Here": 'الايميل هنا',
+          'Enter your eamil address here to can change your password':
+              'ادخل الايميل الخاص بيك هنا لتستطيع تغيير كلمة المرور',
+          "Change Password": 'تغيير كلمة المرور',
         },
         "en": {
           'email': 'Email',
@@ -106,6 +114,14 @@ class Applocal implements Translations {
           'Father of confession': 'Father of confession',
           'Please, enter your father of confession':
               'Please, enter your father of confession',
+          "Forgotten Password": "Forgotten Password",
+          'The message is sended to this email to change password':
+              'The message is sended to this email to change password',
+          'Successfully': 'Successfully',
+          "Mail Adrress Here": "Mail Adrress Here",
+          'Enter your eamil address here to can change your password':
+              'Enter your eamil address here to can change your password',
+          "Change Password": "Change Password",
         },
       };
 }

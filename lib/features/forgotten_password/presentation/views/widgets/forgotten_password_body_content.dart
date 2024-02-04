@@ -7,6 +7,7 @@ import 'package:faithful_servant/features/forgotten_password/presentation/manage
 import 'package:faithful_servant/core/function/successfully_show_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class ForgottenPasswordBodyContent extends StatelessWidget {
   const ForgottenPasswordBodyContent({
@@ -26,9 +27,9 @@ class ForgottenPasswordBodyContent extends StatelessWidget {
           successfullyShowDialog(
             context: context,
             contentText:
-                'سوف يرسل لك رسالة علي هذا الايميل تستطيع من خلالها ان تغيير كلمة المرور',
-            titleText: 'Successfully',
-            buttonText: 'Go To Login',
+                'The message is sended to this email to change password'.tr,
+            titleText: 'Successfully'.tr,
+            buttonText: 'Go To Login'.tr,
           );
           emailController.clear();
         }
@@ -40,15 +41,15 @@ class ForgottenPasswordBodyContent extends StatelessWidget {
               BlocProvider.of<ForgottenPasswordCubit>(context).autovalidateMode,
           child: Column(
             children: [
-              const Text(
-                "Mail Adrress Here",
+              Text(
+                "Mail Adrress Here".tr,
                 style: Styles.textStyle30,
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                'Enter your eamil address here to can change your password',
+                'Enter your eamil address here to can change your password'.tr,
                 style: Styles.textStyle16.copyWith(color: kDarkSecondColor),
                 textAlign: TextAlign.center,
               ),
@@ -56,7 +57,7 @@ class ForgottenPasswordBodyContent extends StatelessWidget {
                 height: 30,
               ),
               CustomTextFromField(
-                labelText: 'Email',
+                labelText: 'email'.tr,
                 textEditingController: emailController,
                 validator: emailValidator,
                 keyboardType: TextInputType.emailAddress,
@@ -65,7 +66,7 @@ class ForgottenPasswordBodyContent extends StatelessWidget {
                 height: 50,
               ),
               CustomTextButton(
-                textButton: "Recover Password",
+                textButton: "Change Password".tr,
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     BlocProvider.of<ForgottenPasswordCubit>(context)
