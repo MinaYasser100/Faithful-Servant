@@ -33,6 +33,7 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      await findUserInformationWhenLogin(userID: userCredential.user!.uid);
       emit(LoginCubitLoginUserSuccess(userId: userCredential.user!.uid));
     } catch (e) {
       emit(LoginCubitLoginUserfailure(errorMessage: e.toString()));
@@ -40,7 +41,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   UserModel? userModel;
-  void findUserInformationWhenLogin({required String userID}) async {
+  Future<void> findUserInformationWhenLogin({required String userID}) async {
     emit(LoginCubitGetUserInforamtionLoading());
     try {
       DocumentSnapshot<Map<String, dynamic>> value = await FirebaseFirestore
@@ -85,9 +86,9 @@ class LoginCubit extends Cubit<LoginState> {
           }
         }
       }
-      print(userModel?.name ?? 'no data');
       saveUserData(value);
       emit(LoginCubitGetUserInformationSuccess());
+      print(userModel?.name ?? 'no data');
     } catch (e) {
       print('Error fetching user data: $e');
     }

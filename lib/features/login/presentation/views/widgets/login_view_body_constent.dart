@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/function/determine_screen_from_privilage.dart';
 import 'package:faithful_servant/core/function/email_validator.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
@@ -7,6 +8,7 @@ import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,16 +36,12 @@ class LoginViewBodyContent extends StatelessWidget {
           );
         }
         if (state is LoginCubitLoginUserSuccess) {
+          Future.delayed(Duration(milliseconds: 400));
           EasyLoading.dismiss();
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            GetPages.generalManager,
-            (route) => false,
-          );
-          BlocProvider.of<LoginCubit>(context)
-              .findUserInformationWhenLogin(userID: state.userId);
+          UserModel? userModel = BlocProvider.of<LoginCubit>(context).userModel;
           await CacheHelper.saveData(key: kUserId, value: state.userId);
           userToken = state.userId;
+          determineScreenFromPrivilage(userModel, context);
         }
         if (state is LoginCubitLoginUserfailure) {
           EasyLoading.showError('من فضلك تاكد من معلوماتك');
