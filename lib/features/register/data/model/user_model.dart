@@ -1,18 +1,37 @@
-class UserModel {
+import 'package:hive/hive.dart';
+part 'user_model.g.dart';
+
+@HiveType(typeId: 0)
+class UserModel extends HiveObject {
+  @HiveField(0)
   final String userID;
+  @HiveField(1)
   final String name;
+  @HiveField(2)
   final String email;
+  @HiveField(3)
   final String phoneNum1;
+  @HiveField(4)
   final String phoneNum2;
+  @HiveField(5)
   final String image;
+  @HiveField(6)
   final String nationalId;
+  @HiveField(7)
   final String privilage;
+  @HiveField(8)
   final String church;
+  @HiveField(9)
   final String gender;
+  @HiveField(10)
   final String numberOfnumber;
+  @HiveField(11)
   final String streetName;
+  @HiveField(12)
   final String addressOfArea;
+  @HiveField(13)
   final String qualification;
+  @HiveField(14)
   final String currentService;
 
   UserModel({
