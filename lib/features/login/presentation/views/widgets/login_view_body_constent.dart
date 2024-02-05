@@ -1,5 +1,5 @@
 import 'package:faithful_servant/core/function/determine_screen_from_privilage.dart';
-import 'package:faithful_servant/core/function/email_validator.dart';
+import 'package:faithful_servant/core/function/validator/email_validator.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';

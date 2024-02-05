@@ -1,4 +1,4 @@
-import 'package:faithful_servant/core/function/email_validator.dart';
+import 'package:faithful_servant/core/function/validator/email_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
