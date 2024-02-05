@@ -1,4 +1,4 @@
-import 'package:faithful_servant/features/register/data/user_model.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class RegisterRepo {

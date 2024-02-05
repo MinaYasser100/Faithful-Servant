@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/features/register/data/register_repo/register_reop.dart';
-import 'package:faithful_servant/features/register/data/user_model.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';

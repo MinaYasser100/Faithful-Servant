@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
-import 'package:faithful_servant/features/register/data/user_model.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
