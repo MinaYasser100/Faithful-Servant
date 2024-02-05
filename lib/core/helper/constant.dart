@@ -10,6 +10,7 @@ const saintGeorge = 'مار جرجس و الانباء بيشوي';
 const virginMary = 'العدراء و مار مينا العجايبي';
 const saintMark = 'مار مرقس و ابو سيفين';
 const saintMain = 'مار مينا و البابا كيرلس';
+const kUserBox = 'user_box';
 Map<String, dynamic> selectChurch = {
   saintGeorge: 'G&B123marg',
   virginMary: 'M&M455marg',

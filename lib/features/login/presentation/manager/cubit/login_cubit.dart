@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faithful_servant/core/function/save_user_data.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -85,6 +86,7 @@ class LoginCubit extends Cubit<LoginState> {
         }
       }
       print(userModel?.name ?? 'no data');
+      saveUserData(value);
       emit(LoginCubitGetUserInformationSuccess());
     } catch (e) {
       print('Error fetching user data: $e');

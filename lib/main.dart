@@ -4,12 +4,14 @@ import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/local/app_locale.dart';
 import 'package:faithful_servant/core/helper/local/locale_controller.dart';
 import 'package:faithful_servant/core/widgets/bloc_observer.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -19,6 +21,9 @@ void main() async {
   );
   Bloc.observer = SimpleBlocObserver();
   await CacheHelper.init();
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserModelAdapter());
+  await Hive.openBox<UserModel>(kUserBox);
   runApp(const MyApp());
 }
 
