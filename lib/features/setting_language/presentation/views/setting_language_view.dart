@@ -6,9 +6,8 @@ class SettinLanguagegView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const SettingLanguageViewBody(),
+    return const Scaffold(
+      body: SettingLanguageViewBody(),
     );
   }
 }

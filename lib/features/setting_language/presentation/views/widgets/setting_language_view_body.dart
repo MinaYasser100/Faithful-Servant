@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/local/locale_controller.dart';
+import 'package:faithful_servant/core/widgets/app_bar/specific_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,36 +19,43 @@ class _SettingLanguageViewBodyState extends State<SettingLanguageViewBody> {
   bool isEngishValue = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          SelectYourLanguage(
-              text: 'Arabic'.tr,
-              isValue: appLocalController.initilalLanguage == const Locale('ar')
-                  ? isArabicValue
-                  : false,
-              onChanged: (value) {
-                appLocalController.changeLocalLanguage(codeLanguage: 'ar');
-                setState(() {
-                  isArabicValue = value;
-                  isEngishValue = false;
-                });
-              }),
-          SelectYourLanguage(
-              text: 'English'.tr,
-              isValue: appLocalController.initilalLanguage == const Locale('en')
-                  ? true
-                  : isEngishValue,
-              onChanged: (value) {
-                appLocalController.changeLocalLanguage(codeLanguage: 'en');
-                setState(() {
-                  isEngishValue = value;
-                  isArabicValue = false;
-                });
-              }),
-        ],
-      ),
+    return Column(
+      children: [
+        SpecificAppBar(appBarText: 'Change Language'.tr),
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              SelectYourLanguage(
+                  text: 'Arabic'.tr,
+                  isValue:
+                      appLocalController.initilalLanguage == const Locale('ar')
+                          ? isArabicValue
+                          : false,
+                  onChanged: (value) {
+                    appLocalController.changeLocalLanguage(codeLanguage: 'ar');
+                    setState(() {
+                      isArabicValue = value;
+                      isEngishValue = false;
+                    });
+                  }),
+              SelectYourLanguage(
+                  text: 'English'.tr,
+                  isValue:
+                      appLocalController.initilalLanguage == const Locale('en')
+                          ? true
+                          : isEngishValue,
+                  onChanged: (value) {
+                    appLocalController.changeLocalLanguage(codeLanguage: 'en');
+                    setState(() {
+                      isEngishValue = value;
+                      isArabicValue = false;
+                    });
+                  }),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
