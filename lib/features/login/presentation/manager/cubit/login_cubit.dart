@@ -99,6 +99,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void logoutMethod(BuildContext context) async {
     CacheHelper.removeData(key: kUserId).then((value) async {
+      CacheHelper.removeData(key: kHomeView);
       Get.offAllNamed(GetPages.kWelcomeView);
       emit(LoginCubitLogoutThisAccount());
     });

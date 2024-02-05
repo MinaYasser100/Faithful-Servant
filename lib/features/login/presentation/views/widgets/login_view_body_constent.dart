@@ -36,12 +36,12 @@ class LoginViewBodyContent extends StatelessWidget {
           );
         }
         if (state is LoginCubitLoginUserSuccess) {
-          Future.delayed(Duration(milliseconds: 400));
+          Future.delayed(const Duration(milliseconds: 400));
           EasyLoading.dismiss();
           UserModel? userModel = BlocProvider.of<LoginCubit>(context).userModel;
+          determineScreenFromPrivilage(userModel, context);
           await CacheHelper.saveData(key: kUserId, value: state.userId);
           userToken = state.userId;
-          determineScreenFromPrivilage(userModel, context);
         }
         if (state is LoginCubitLoginUserfailure) {
           EasyLoading.showError('من فضلك تاكد من معلوماتك');

@@ -55,6 +55,8 @@ String? userToken;
 
 const languageKey = 'language';
 
+const kHomeView = 'homeView';
+
 double bodyRadious = 30.0;
 
 List<Map> pages = [

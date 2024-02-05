@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/function/determined_initial_route.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.cairoTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: GetPages.kSplashView,
+      initialRoute: determinedInitialRoute(),
       getPages: GetPages.getPages,
       builder: EasyLoading.init(),
     );
