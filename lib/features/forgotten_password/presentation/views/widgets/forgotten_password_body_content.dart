@@ -4,7 +4,7 @@ import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/features/forgotten_password/presentation/manager/cubit/forgotten_password_cubit.dart';
-import 'package:faithful_servant/core/function/successfully_show_dialog.dart';
+import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

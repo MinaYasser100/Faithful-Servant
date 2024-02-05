@@ -1,4 +1,4 @@
-import 'package:faithful_servant/core/function/determined_initial_route.dart';
+import 'package:faithful_servant/core/function/screen_action/determined_initial_route.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';

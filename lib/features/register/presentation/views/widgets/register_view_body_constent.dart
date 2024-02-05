@@ -1,5 +1,5 @@
-import 'package:faithful_servant/core/function/custom_sanck_bar.dart';
-import 'package:faithful_servant/core/function/educational_qualification_validator.dart';
+import 'package:faithful_servant/core/function/screen_action/custom_sanck_bar.dart';
+import 'package:faithful_servant/core/function/validator/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/validator/address_of_area_validator.dart';
 import 'package:faithful_servant/core/function/validator/confirm_password_validator.dart';
 import 'package:faithful_servant/core/function/validator/email_validator.dart';
@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import '../../../../../core/function/successfully_show_dialog.dart';
+import '../../../../../core/function/screen_action/successfully_show_dialog.dart';
 import 'profile_imge_widget.dart';
 
 class ReisterViewBodyContent extends StatefulWidget {
