@@ -30,3 +30,5 @@ final class LoginCubitGetUserInformationSuccess extends LoginState {}
 final class LoginCubitGetUserInformationFailure extends LoginState {}
 
 final class LoginCubitFailure extends LoginState {}
+
+final class LoginCubitLogoutThisAccount extends LoginState {}

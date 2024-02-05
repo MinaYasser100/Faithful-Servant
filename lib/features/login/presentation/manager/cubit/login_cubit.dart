@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/core/function/save_user_data.dart';
+import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 part 'login_state.dart';
 
@@ -92,5 +95,12 @@ class LoginCubit extends Cubit<LoginState> {
     } catch (e) {
       print('Error fetching user data: $e');
     }
+  }
+
+  void logoutMethod(BuildContext context) async {
+    CacheHelper.removeData(key: kUserId).then((value) async {
+      Get.offAllNamed(GetPages.kWelcomeView);
+      emit(LoginCubitLogoutThisAccount());
+    });
   }
 }
