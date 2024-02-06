@@ -1,6 +1,7 @@
 import 'package:faithful_servant/features/forgotten_password/presentation/views/forgotten_password.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/general_manager_screen.dart';
 import 'package:faithful_servant/features/general_supervisor/presentation/views/general_supervisor.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/supervisor_statistics_view.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/mine_servant/presentation/views/mine_servant_screen.dart';
 import 'package:faithful_servant/features/register/presentation/views/register_view.dart';
@@ -20,6 +21,7 @@ abstract class GetPages {
   static String kSettingLanguageView = '/SettingLanguageView';
   static String kGeneralSupervisor = '/generalSupervisor';
   static String kServantView = '/servantview';
+  static String kSupervisorStatisticsView = '/supervisorStatisticsView';
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
@@ -77,6 +79,11 @@ abstract class GetPages {
     GetPage(
       name: kServantView,
       page: () => const ServantView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kSupervisorStatisticsView,
+      page: () => const SupervisorStatisticsView(),
       transition: Transition.circularReveal,
     ),
   ];
