@@ -4,8 +4,7 @@ import 'package:hive/hive.dart';
 
 Future<UserModel?> getUserData() async {
   var userBox = await Hive.openBox<UserModel>(kUserBox);
-  UserModel? user = userBox.values.isNotEmpty ? userBox.values.first : null;
-  await userBox.close();
-
+  UserModel? user = userBox.values.first;
+  print(user);
   return user;
 }

@@ -1,10 +1,11 @@
-import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/Drawer/widgets/drawer_pages_options.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+
+import 'widgets/user_accounts_drawer_future_builder.dart';
 
 class GeneralDrawer extends StatelessWidget {
   final int privilege;
@@ -23,15 +24,7 @@ class GeneralDrawer extends StatelessWidget {
             backgroundColor: Colors.white,
             child: Column(
               children: [
-                const UserAccountsDrawerHeader(
-                  accountName: Text('كيرلس عادل بقطر'),
-                  accountEmail: Text('kirolosadel34@gmail.com'),
-                  currentAccountPicture: CircleAvatar(
-                    radius: 20,
-                    backgroundImage: AssetImage('assets/images/jesus.jpeg'),
-                  ),
-                  decoration: BoxDecoration(color: kPrimaryColor),
-                ),
+                const UserAccountDrawerHeaderFutureBuilder(),
                 const DrawerPagesOptions(),
                 ListTile(
                   onTap: () {

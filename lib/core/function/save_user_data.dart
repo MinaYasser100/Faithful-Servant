@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:hive/hive.dart';
 
-void saveUserData(DocumentSnapshot<Map<String, dynamic>> value) {
-  var box = Hive.box(kUserBox);
-  box.add(value);
+void saveUserData(UserModel userModel) {
+  var box = Hive.box<UserModel>(kUserBox);
+  box.add(userModel);
 }

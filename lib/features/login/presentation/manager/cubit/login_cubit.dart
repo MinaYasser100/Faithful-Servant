@@ -8,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 
 part 'login_state.dart';
 
@@ -89,7 +90,7 @@ class LoginCubit extends Cubit<LoginState> {
           }
         }
       }
-      saveUserData(value);
+      saveUserData(UserModel.fromJson(value.data()!));
       emit(LoginCubitGetUserInformationSuccess());
       print(userModel?.name ?? 'no data');
     } catch (e) {
@@ -100,6 +101,9 @@ class LoginCubit extends Cubit<LoginState> {
   void logoutMethod(BuildContext context) async {
     CacheHelper.removeData(key: kUserId).then((value) async {
       CacheHelper.removeData(key: kHomeView);
+      var box = await Hive.openBox<UserModel>(kUserBox);
+      await box.clear();
+      await box.close();
       Get.offAllNamed(GetPages.kWelcomeView);
       emit(LoginCubitLogoutThisAccount());
     });
