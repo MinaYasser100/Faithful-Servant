@@ -35,4 +35,9 @@ abstract class Styles {
     fontSize: 18.0,
     fontWeight: FontWeight.w600,
   );
+  static const TextStyle textStyleStatistics = TextStyle(
+    color: kDarkSecondColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 10.0,
+  );
 }
