@@ -1,6 +1,8 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import 'bar_graph_for_kg.dart';
 import 'bar_graph_kg_statistics.dart';
 
 class SupervisorStatisticsViewBody extends StatelessWidget {
@@ -15,12 +17,15 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
           )),
-      child: const Padding(
-        padding: EdgeInsets.all(20.0),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BarGraphKGStatistics(),
+            BarGraphStatistics(
+              text: 'KG sarvent Statistics : '.tr,
+              child: const BarGraphKG(kGList: [8, 20]),
+            ),
           ],
         ),
       ),

@@ -1,22 +1,22 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'bar_graph_for_kg.dart';
-
-class BarGraphKGStatistics extends StatelessWidget {
-  const BarGraphKGStatistics({
+class BarGraphStatistics extends StatelessWidget {
+  const BarGraphStatistics({
     super.key,
+    required this.text,
+    required this.child,
   });
-
+  final String text;
+  final Widget child;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'KG sarvent Statistics : '.tr,
+          text,
           style: Styles.textStyle20.copyWith(
             color: kPrimaryColor,
           ),
@@ -24,9 +24,9 @@ class BarGraphKGStatistics extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        const SizedBox(
-          height: 220,
-          child: BarGraphKG(kGList: [8, 20]),
+        SizedBox(
+          height: 180,
+          child: child,
         ),
       ],
     );

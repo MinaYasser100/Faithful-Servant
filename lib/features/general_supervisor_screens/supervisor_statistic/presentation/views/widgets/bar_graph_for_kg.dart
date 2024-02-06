@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/bar_data_kg.dart';
+import '../../../data/kg_statistics/bar_data_kg.dart';
 
 class BarGraphKG extends StatelessWidget {
   const BarGraphKG({super.key, required this.kGList});
