@@ -17,6 +17,12 @@ Map<String, dynamic> selectChurch = {
   saintMark: 'M&F677marg',
   saintMain: 'M&K&K234mo',
 };
+Map<String, dynamic> churchNamesBasedOnCode = {
+  'G&B123marg': saintGeorge,
+  'M&M455marg': virginMary,
+  'M&F677marg': saintMark,
+  'M&K&K234mo': saintMain,
+};
 
 final List<String> currentServiceItems = [
   'حضانة كيجي 1',
