@@ -66,6 +66,13 @@ class Applocal implements Translations {
           'KG sarvent Statistics : ': 'احصائيات خدام حضانة : ',
           'kg1': 'كيجي1',
           'kg2': 'كيجي2',
+          'first': 'اولي',
+          'second': 'ثانية',
+          'third': 'ثالثة',
+          'fourth': 'رابعة',
+          'fifth': 'خامسة',
+          'sixth': 'سادسة',
+          'primary sarvent statistics : ': 'احصائيات خدام ابتدائي  : ',
         },
         "en": {
           'email': 'Email',
@@ -132,6 +139,13 @@ class Applocal implements Translations {
           'KG sarvent Statistics : ': 'KG sarvent Statistics : ',
           'kg1': 'kg1',
           'kg2': 'kg2',
+          'first': 'first',
+          'second': 'second',
+          'third': 'third',
+          'fourth': 'fourth',
+          'fifth': 'fifth',
+          'sixth': 'sixth',
+          'primary sarvent statistics : ': 'primary sarvent statistics : ',
         },
       };
 }

@@ -22,11 +22,11 @@ class BarDataPrimary {
   void initialzeBarData() {
     barDataPrimary = [
       IndiviualBar(x: 0, y: primary1),
-      IndiviualBar(x: 0, y: primary2),
-      IndiviualBar(x: 0, y: primary3),
-      IndiviualBar(x: 0, y: primary4),
-      IndiviualBar(x: 0, y: primary5),
-      IndiviualBar(x: 0, y: primary6),
+      IndiviualBar(x: 1, y: primary2),
+      IndiviualBar(x: 2, y: primary3),
+      IndiviualBar(x: 3, y: primary4),
+      IndiviualBar(x: 4, y: primary5),
+      IndiviualBar(x: 5, y: primary6),
     ];
   }
 }
