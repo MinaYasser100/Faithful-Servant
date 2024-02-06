@@ -87,12 +87,6 @@ List<Map> genetalSuperVisorPages = [
     'routeto': GetPages.kSupervisorStatisticsView,
     'icon': Icons.line_axis,
   },
-  {
-    'text': 'خدام المرحلة',
-    "btntext": 'Open',
-    'routeto': GetPages.mineServant,
-    'icon': Icons.abc_outlined,
-  },
 ];
 
 List<Map> servantPages = [];
