@@ -12,7 +12,7 @@ class GeneralManagerBody extends StatelessWidget {
       child: Column(
         children: [
           const QuickSummarySpace(),
-          PageCards(screensList: pages),
+          PageCards(screensList: generalServantPage),
         ],
       ),
     );

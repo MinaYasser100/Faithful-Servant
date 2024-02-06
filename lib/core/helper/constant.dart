@@ -20,6 +20,7 @@ Map<String, dynamic> selectChurch = {
 
 final List<String> currentServiceItems = [
   'حضانة كيجي 1',
+  'حضانة كيجي 2',
   'اولي ابتدائي',
   'ثانية ابتدائي',
   'ثالثة ابتدائي',
@@ -47,7 +48,6 @@ final List<String> currentServiceItems = [
   'الكشافة',
   'مركز المشورة',
   'مدرسة الشمامسة',
-  'حضانة كيجي 2',
 ];
 
 const kUserId = 'userId';
@@ -59,38 +59,20 @@ const kHomeView = 'homeView';
 
 double bodyRadious = 30.0;
 
-List<Map> pages = [
+List<Map> generalServantPage = [
   {
-    'Privileges': '2',
     'text': 'خدام المرحلة',
     "btntext": 'Open',
     'routeto': GetPages.mineServant,
     'icon': Icons.abc_outlined,
   },
   {
-    'Privileges': '3',
-    'text': 'خدام المرحلة',
-    "btntext": 'Open',
-    'routeto': GetPages.mineServant,
-    'icon': Icons.abc_outlined,
-  },
-  {
-    'Privileges': '2',
-    'text': 'احصائيات',
-    "btntext": 'Open',
-    'routeto': GetPages.statistics,
-    'icon': Icons.line_axis,
-  },
-  {
-    'Privileges': '3',
     'text': 'احصائيات',
     "btntext": 'Open',
     'routeto': GetPages.statistics,
     'icon': Icons.line_axis,
   },
 ];
-
-List pagesafterfilter = pages.where((i) => i['Privileges'] == '3').toList();
 
 List<Map> genetalSuperVisorPages = [
   {

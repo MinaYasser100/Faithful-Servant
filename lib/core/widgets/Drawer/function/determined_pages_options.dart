@@ -6,7 +6,7 @@ List<Map<dynamic, dynamic>> determinedPagesOptions(
   if (userModel.privilage == 'المشرف العام') {
     return genetalSuperVisorPages;
   } else if (userModel.privilage == 'امين الخدمة') {
-    return pages;
+    return generalServantPage;
   } else {
     return servantPages;
   }
