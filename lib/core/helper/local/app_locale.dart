@@ -62,6 +62,7 @@ class Applocal implements Translations {
               'ادخل الايميل الخاص بيك هنا لتستطيع تغيير كلمة المرور',
           "Change Password": 'تغيير كلمة المرور',
           'General Supervisor': 'المشرف العام',
+          "Statistics": 'إحصائيات'
         },
         "en": {
           'email': 'Email',
@@ -124,6 +125,7 @@ class Applocal implements Translations {
               'Enter your eamil address here to can change your password',
           "Change Password": "Change Password",
           'General Supervisor': 'General Supervisor',
+          "Statistics": "Statistics"
         },
       };
 }
