@@ -91,3 +91,18 @@ List<Map> pages = [
 ];
 
 List pagesafterfilter = pages.where((i) => i['Privileges'] == '3').toList();
+
+List<Map> genetalSuperVisorPages = [
+  {
+    'text': 'خدام المرحلة',
+    "btntext": 'Open',
+    'routeto': GetPages.mineServant,
+    'icon': Icons.abc_outlined,
+  },
+  {
+    'text': 'احصائيات',
+    "btntext": 'Open',
+    'routeto': GetPages.statistics,
+    'icon': Icons.line_axis,
+  },
+];
