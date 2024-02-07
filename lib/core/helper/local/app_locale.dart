@@ -73,7 +73,17 @@ class Applocal implements Translations {
           'fifth': 'خامسة',
           'sixth': 'سادسة',
           'primary sarvent statistics : ': 'احصائيات خدام ابتدائي  : ',
-          'Attendance & other': 'المتابعة'
+          'sec girls': 'ث بنات',
+          'sec boys': 'ث بنين',
+          'pre girls': 'ع بنات',
+          'pre boys': 'ع بنين',
+          'proparatory and secondary statistics : ':
+              'احصائيات اعدادي و ثانوي : ',
+          'students': 'جامعيين',
+          'graduates': 'خرجيين',
+          'people': 'الشعب',
+          'men': 'الرجال',
+          'adults statistics : ': 'احصائيات الكبار : ',
         },
         "en": {
           'email': 'Email',
@@ -147,7 +157,17 @@ class Applocal implements Translations {
           'fifth': 'fifth',
           'sixth': 'sixth',
           'primary sarvent statistics : ': 'primary sarvent statistics : ',
-          'Attendance & other': 'Follow Up'
+          'sec girls': 'sec girls',
+          'sec boys': 'sec boys',
+          'pre girls': 'pre girls',
+          'pre boys': 'pre boys',
+          'proparatory and secondary statistics : ':
+              'proparatory and secondary statistics : ',
+          'students': 'University',
+          'graduates': 'graduates',
+          'people': 'people',
+          'men': 'men',
+          'adults statistics : ': 'adults statistics : ',
         },
       };
 }
