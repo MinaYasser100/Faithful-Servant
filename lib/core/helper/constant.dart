@@ -104,3 +104,17 @@ List<Map> genetalSuperVisorPages = [
 ];
 
 List<Map> servantPages = [];
+
+List<Map> personalPages = [
+  {
+    "title": 'البيانات الشخصية',
+    "icon": const Icon(Icons.abc),
+    'routto': GetPages.personaldata
+  },
+  {
+    "title": 'تاريخي الخدمي',
+    "icon": const Icon(Icons.ac_unit_outlined),
+    'routto': GetPages.history
+  },
+  {"title": 'تسجيل الخروج', "icon": const Icon(Icons.logout), 'routto': ''},
+];

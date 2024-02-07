@@ -5,6 +5,8 @@ import 'package:faithful_servant/features/general_supervisor/presentation/views/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/helper/get_pages.dart';
+
 class GeneralSuperVisor extends StatelessWidget {
   const GeneralSuperVisor({super.key});
 
@@ -13,14 +15,21 @@ class GeneralSuperVisor extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: GeneralAppBar(
-          title: 'General Supervisor'.tr,
-          appBar: AppBar(),
-          widgets: const [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(Icons.notifications_on, size: 30),
-            )
-          ]),
+        title: 'General Supervisor'.tr,
+        appBar: AppBar(),
+        widgets: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_on, size: 30.0),
+          ),
+          IconButton(
+            onPressed: () {
+              Get.toNamed(GetPages.personalview);
+            },
+            icon: const Icon(Icons.person_pin, size: 30.0),
+          ),
+        ],
+      ),
       body: const GeneralSupervisorBody(),
       drawer: const GeneralDrawer(),
     );
