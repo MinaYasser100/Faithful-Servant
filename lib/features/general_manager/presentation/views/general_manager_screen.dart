@@ -19,7 +19,9 @@ class GeneralManager extends StatelessWidget {
         appBar: AppBar(),
         widgets: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(GetPages.notification);
+              },
               icon: const Icon(Icons.notifications_on, size: 30.0)),
           IconButton(
             onPressed: () {

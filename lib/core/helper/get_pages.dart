@@ -5,6 +5,7 @@ import 'package:faithful_servant/features/general_supervisor/presentation/views/
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/supervisor_statistics_view.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/mine_servant/presentation/views/mine_servant_screen.dart';
+import 'package:faithful_servant/features/notification/presentaion/views/notifications_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/history_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/personal_data_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/personal_view.dart';
@@ -33,6 +34,7 @@ abstract class GetPages {
   static String personalview = '/personalview';
   static String history = '/history';
   static String personaldata = '/personaldata';
+  static String notification = '/notification';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -112,6 +114,11 @@ abstract class GetPages {
     GetPage(
       name: personaldata,
       page: () => const PersonalData(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: notification,
+      page: () => const NotificationView(),
       transition: Transition.circularReveal,
     ),
   ];
