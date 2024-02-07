@@ -84,7 +84,17 @@ class Applocal implements Translations {
           'people': 'الشعب',
           'men': 'الرجال',
           'adults statistics : ': 'احصائيات الكبار : ',
-          'Attendance & other': 'المتابعة'
+          'Attendance & other': 'المتابعة',
+          'Mothoer Dulaji': 'الام دولاجي',
+          'Wisdoms': 'الحكيمات',
+          'Stage': 'المسرح',
+          'Demonstration Tools': 'وسائل الايضاح',
+          'Brothers Of Lord': 'اخوة الرب',
+          'Some services statistics : ': 'احصائيات بعض الخدمات : ',
+          'Servants': 'اجتماع الخدام',
+          'Sunday Servants': 'خدام الاحد',
+          'Prepare Servants': 'اعداد خدام',
+          'Servant statistics : ': 'احصائيات تخص الخدام',
         },
         "en": {
           'email': 'Email',
@@ -169,7 +179,17 @@ class Applocal implements Translations {
           'people': 'people',
           'men': 'men',
           'adults statistics : ': 'adults statistics : ',
-          'Attendance & other': 'Follow Up'
+          'Attendance & other': 'Follow Up',
+          'Mothoer Dulaji': 'Mothoer Dulaji',
+          'Wisdoms': 'Wisdoms',
+          'Stage': 'Stage',
+          'Demonstration Tools': 'Demonstration Tools',
+          'Brothers Of Lord': 'Brothers Of Lord',
+          'Some services statistics : ': 'Some services statistics : ',
+          'Servants': 'Servants',
+          'Sunday Servants': 'Sunday Servants',
+          'Prepare Servants': 'Prepare Servants',
+          'Servant statistics : ': 'Servant statistics : ',
         },
       };
 }
