@@ -13,10 +13,10 @@ class BarGraphForPerpAndSec extends StatelessWidget {
   Widget build(BuildContext context) {
     BarDataPreparatoryAndSecondary barDataPreparatoryAndSecondary =
         BarDataPreparatoryAndSecondary(
-      sec1: perpAndSecList[0],
-      sec2: perpAndSecList[1],
-      pro1: perpAndSecList[2],
-      pro2: perpAndSecList[3],
+      proGirls: perpAndSecList[0],
+      proBoys: perpAndSecList[1],
+      secGirls: perpAndSecList[2],
+      secBoys: perpAndSecList[3],
     );
     barDataPreparatoryAndSecondary.initialzeBarData();
     return BarChart(

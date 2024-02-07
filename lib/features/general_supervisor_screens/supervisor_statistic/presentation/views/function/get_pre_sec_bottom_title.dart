@@ -8,25 +8,25 @@ Widget getPreSecBottomTitle(double value, TitleMeta titleMeta) {
   switch (value.toInt()) {
     case 0:
       text = Text(
-        'sec 1'.tr,
+        'pre girls'.tr,
         style: Styles.textStyleStatistics,
       );
       break;
     case 1:
       text = Text(
-        'sec 2'.tr,
+        'pre boys'.tr,
         style: Styles.textStyleStatistics,
       );
       break;
     case 2:
       text = Text(
-        'pre 1'.tr,
+        'sec girls'.tr,
         style: Styles.textStyleStatistics,
       );
       break;
     case 3:
       text = Text(
-        'pre 2'.tr,
+        'sec boys'.tr,
         style: Styles.textStyleStatistics,
       );
       break;

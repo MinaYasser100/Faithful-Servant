@@ -1,24 +1,24 @@
 import '../individual_bar.dart';
 
 class BarDataPreparatoryAndSecondary {
-  final int pro1;
-  final int pro2;
-  final int sec1;
-  final int sec2;
+  final int proGirls;
+  final int proBoys;
+  final int secGirls;
+  final int secBoys;
 
   BarDataPreparatoryAndSecondary({
-    required this.sec1,
-    required this.sec2,
-    required this.pro1,
-    required this.pro2,
+    required this.proGirls,
+    required this.proBoys,
+    required this.secGirls,
+    required this.secBoys,
   });
   List<IndiviualBar> barDataKG = [];
   void initialzeBarData() {
     barDataKG = [
-      IndiviualBar(x: 0, y: sec1),
-      IndiviualBar(x: 1, y: sec2),
-      IndiviualBar(x: 2, y: pro1),
-      IndiviualBar(x: 3, y: pro2),
+      IndiviualBar(x: 0, y: proGirls),
+      IndiviualBar(x: 1, y: proBoys),
+      IndiviualBar(x: 2, y: secGirls),
+      IndiviualBar(x: 3, y: secBoys),
     ];
   }
 }
