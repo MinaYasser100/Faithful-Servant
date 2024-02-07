@@ -1,3 +1,4 @@
+import 'package:faithful_servant/features/Attendance&others/presentaion/views/attendance_other_view.dart';
 import 'package:faithful_servant/features/forgotten_password/presentation/views/forgotten_password.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/general_manager_screen.dart';
 import 'package:faithful_servant/features/general_supervisor/presentation/views/general_supervisor.dart';
@@ -25,6 +26,7 @@ abstract class GetPages {
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
+  static String attendaceAndOthers = '/attendanceAndOthers';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -84,6 +86,11 @@ abstract class GetPages {
     GetPage(
       name: kSupervisorStatisticsView,
       page: () => const SupervisorStatisticsView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: attendaceAndOthers,
+      page: () => const AttendanceAndOther(),
       transition: Transition.circularReveal,
     ),
   ];

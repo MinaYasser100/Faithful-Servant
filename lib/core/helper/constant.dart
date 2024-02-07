@@ -80,6 +80,12 @@ List<Map> generalServantPage = [
     'routeto': GetPages.statistics,
     'icon': Icons.line_axis,
   },
+  {
+    'text': 'المتابعة',
+    "btntext": 'Open',
+    'routeto': GetPages.attendaceAndOthers,
+    'icon': Icons.edit_document,
+  },
 ];
 
 List<Map> genetalSuperVisorPages = [

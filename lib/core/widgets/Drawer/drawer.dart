@@ -8,8 +8,7 @@ import 'widgets/drawer_pages_options_future_builder.dart';
 import 'widgets/user_accounts_drawer_future_builder.dart';
 
 class GeneralDrawer extends StatelessWidget {
-  final int privilege;
-  const GeneralDrawer({super.key, required this.privilege});
+  const GeneralDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

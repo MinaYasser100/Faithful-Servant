@@ -22,7 +22,7 @@ class GeneralManager extends StatelessWidget {
           )
         ],
       ),
-      drawer: const GeneralDrawer(privilege: 2),
+      drawer: const GeneralDrawer(),
     );
   }
 }

@@ -20,7 +20,7 @@ class ServantView extends StatelessWidget {
         )
       ]),
       body: const ServantViewBody(),
-      drawer: const GeneralDrawer(privilege: 3),
+      drawer: const GeneralDrawer(),
     );
   }
 }

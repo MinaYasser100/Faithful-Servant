@@ -22,7 +22,7 @@ class GeneralSuperVisor extends StatelessWidget {
             )
           ]),
       body: const GeneralSupervisorBody(),
-      drawer: const GeneralDrawer(privilege: 1),
+      drawer: const GeneralDrawer(),
     );
   }
 }

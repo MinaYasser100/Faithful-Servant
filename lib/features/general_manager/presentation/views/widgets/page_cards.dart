@@ -15,20 +15,23 @@ class PageCards extends StatelessWidget {
                 topLeft: Radius.circular(bodyRadious),
                 topRight: Radius.circular(bodyRadious)),
             color: kSecondColor),
-        child: GridView.builder(
-          itemCount: screensList.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2),
-          itemBuilder: (context, index) {
-            return EachCard(
-              text: screensList[index]['text'],
-              btnText: screensList[index]['btntext'],
-              icon: screensList[index]['icon'],
-              onPressed: () {
-                Get.toNamed(screensList[index]["routeto"]);
-              },
-            );
-          },
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10.0),
+          child: GridView.builder(
+            itemCount: screensList.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+            itemBuilder: (context, index) {
+              return EachCard(
+                text: screensList[index]['text'],
+                btnText: screensList[index]['btntext'],
+                icon: screensList[index]['icon'],
+                onPressed: () {
+                  Get.toNamed(screensList[index]["routeto"]);
+                },
+              );
+            },
+          ),
         ),
       ),
     );

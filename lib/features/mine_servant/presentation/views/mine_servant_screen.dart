@@ -11,9 +11,7 @@ class MineServant extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
-      drawer: const GeneralDrawer(
-        privilege: 2,
-      ),
+      drawer: const GeneralDrawer(),
       appBar: GeneralAppBar(
         title: 'خدام المراحل',
         appBar: AppBar(),
