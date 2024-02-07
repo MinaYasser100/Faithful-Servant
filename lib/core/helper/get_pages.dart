@@ -5,6 +5,9 @@ import 'package:faithful_servant/features/general_supervisor/presentation/views/
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/supervisor_statistics_view.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/mine_servant/presentation/views/mine_servant_screen.dart';
+import 'package:faithful_servant/features/personal/presentation/views/history_view.dart';
+import 'package:faithful_servant/features/personal/presentation/views/personal_data_view.dart';
+import 'package:faithful_servant/features/personal/presentation/views/personal_view.dart';
 import 'package:faithful_servant/features/register/presentation/views/register_view.dart';
 import 'package:faithful_servant/features/servant/presentation/views/servant_view.dart';
 import 'package:faithful_servant/features/setting_language/presentation/views/setting_language_view.dart';
@@ -27,6 +30,9 @@ abstract class GetPages {
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
   static String attendaceAndOthers = '/attendanceAndOthers';
+  static String personalview = '/personalview';
+  static String history = '/history';
+  static String personaldata = '/personaldata';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -91,6 +97,21 @@ abstract class GetPages {
     GetPage(
       name: attendaceAndOthers,
       page: () => const AttendanceAndOther(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: personalview,
+      page: () => const PersonalView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: history,
+      page: () => const HistoryView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: personaldata,
+      page: () => const PersonalData(),
       transition: Transition.circularReveal,
     ),
   ];
