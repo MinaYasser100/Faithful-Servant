@@ -1,7 +1,9 @@
 import "package:faithful_servant/core/helper/get_pages.dart";
 import "package:flutter/material.dart";
+import "package:pdf/pdf.dart";
 
 const kPrimaryColor = Color(0xff042c5c);
+PdfColor kPdfPrimaryColor = PdfColor.fromHex('042c5c');
 const kSecondColor = Color(0xffebeff6);
 const kTextGreyColor = Color.fromARGB(255, 135, 137, 137);
 const kPrimaryLightColor = Color(0xff2879fe);

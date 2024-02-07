@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/statistics/presentation/views/widgets/pie_gender_chart.dart';
+import 'package:faithful_servant/features/statistics/presentation/views/widgets/printing_feature/print_piechart_count.dart';
 import 'package:flutter/material.dart';
 
 class GeneralManagerViewBody extends StatelessWidget {
@@ -17,6 +18,7 @@ class GeneralManagerViewBody extends StatelessWidget {
             style: Styles.textStyle20,
           ),
           SizedBox(width: 300, height: 300, child: PieGenderChart()),
+          PrintingPieCountChart()
         ],
       ),
     );
