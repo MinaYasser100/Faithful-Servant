@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/widgets/bar_graph_for_prop_and_sec.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/widgets/bar_graph_primary.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,23 +21,34 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
           )),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BarGraphStatistics(
-              text: 'KG sarvent Statistics : '.tr,
-              child: const BarGraphKG(kGList: [8, 20]),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            BarGraphStatistics(
-              text: 'primary sarvent statistics : '.tr,
-              child: const BarGraphPrimary(
-                primaryList: [20, 34, 15, 0, 28, 30],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              BarGraphStatistics(
+                text: 'KG sarvent Statistics : '.tr,
+                child: const BarGraphKG(kGList: [8, 20]),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 40,
+              ),
+              BarGraphStatistics(
+                text: 'primary sarvent statistics : '.tr,
+                child: const BarGraphPrimary(
+                  primaryList: [20, 34, 15, 0, 28, 30],
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              BarGraphStatistics(
+                text: 'proparatory and secondary statistics : '.tr,
+                child: const BarGraphForPerpAndSec(
+                  perpAndSecList: [40, 30, 15, 5],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

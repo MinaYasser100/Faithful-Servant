@@ -22,7 +22,7 @@ class BarGraphStatistics extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 30,
+          height: 50,
         ),
         SizedBox(
           height: 180,
