@@ -73,6 +73,7 @@ class Applocal implements Translations {
           'fifth': 'خامسة',
           'sixth': 'سادسة',
           'primary sarvent statistics : ': 'احصائيات خدام ابتدائي  : ',
+          'Attendance & other': 'المتابعة'
         },
         "en": {
           'email': 'Email',
@@ -146,6 +147,7 @@ class Applocal implements Translations {
           'fifth': 'fifth',
           'sixth': 'sixth',
           'primary sarvent statistics : ': 'primary sarvent statistics : ',
+          'Attendance & other': 'Follow Up'
         },
       };
 }
