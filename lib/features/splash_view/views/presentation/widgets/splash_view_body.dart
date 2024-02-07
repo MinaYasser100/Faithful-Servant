@@ -17,14 +17,14 @@ class SplashViewBody extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 40),
-            CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.4,
-              backgroundImage: AssetImage(Assets.jesusAndYourSon),
-            )
-                .animate()
-                .fadeIn(duration: const Duration(milliseconds: 300))
-                .slide(),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.49,
+              child: Image(image: AssetImage(Assets.jesusAndYourSon))
+                  .animate()
+                  .fadeIn(duration: const Duration(milliseconds: 300))
+                  .slide(),
+            ),
             const SizedBox(
               height: 40,
             ),

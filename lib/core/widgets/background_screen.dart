@@ -9,26 +9,25 @@ class BackgroundScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: 0.25,
-      child: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.75,
-            width: double.infinity,
-            child: Image(
-              image: AssetImage(Assets.crossOfJesusImage),
-              fit: BoxFit.fill,
-            ),
+    return Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.65,
+          width: double.infinity,
+          child: Image(
+            image: AssetImage(Assets.crossOfJesusImage),
           ),
-          const SizedBox(height: 20),
-          const Text(
+        ),
+        const SizedBox(height: 130),
+        const Opacity(
+          opacity: 0.25,
+          child: Text(
             'أَخْدِمُ الرَّبَّ بِكُلِّ تَوَاضُعٍ وَدُمُوعٍ كَثِيرَةٍ ( أعمال الرسل 20: 19)',
             style: Styles.textStyle20,
             textAlign: TextAlign.center,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
