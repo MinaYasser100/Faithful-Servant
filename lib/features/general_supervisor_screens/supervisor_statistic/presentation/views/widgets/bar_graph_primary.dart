@@ -1,8 +1,10 @@
-import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/primary_statistics/bar_data_primary.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/function/get_primary_bottom_title.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
+import '../function/custom_bar_chart_group_data.dart';
+import '../function/custom_bar_touch_tool_tip_data.dart';
 
 class BarGraphPrimary extends StatelessWidget {
   const BarGraphPrimary({super.key, required this.primaryList});
@@ -22,6 +24,13 @@ class BarGraphPrimary extends StatelessWidget {
       BarChartData(
         maxY: 40,
         minY: 0,
+        alignment: BarChartAlignment.spaceAround,
+        barTouchData: BarTouchData(
+          enabled: false,
+          touchTooltipData: customBarTouchToolTipData(),
+        ),
+        gridData: const FlGridData(show: false),
+        borderData: FlBorderData(show: false),
         titlesData: FlTitlesData(
           show: true,
           rightTitles: const AxisTitles(
@@ -40,19 +49,7 @@ class BarGraphPrimary extends StatelessWidget {
         ),
         barGroups: barDataPrimary.barDataPrimary
             .map(
-              (data) => BarChartGroupData(x: data.x, barRods: [
-                BarChartRodData(
-                  toY: data.y.toDouble(),
-                  color: kPrimaryColor,
-                  width: 12,
-                  borderRadius: BorderRadius.circular(3),
-                  backDrawRodData: BackgroundBarChartRodData(
-                    show: true,
-                    color: Colors.grey[400],
-                    toY: 40,
-                  ),
-                ),
-              ]),
+              (data) => customBarChartGroupData(data),
             )
             .toList(),
       ),

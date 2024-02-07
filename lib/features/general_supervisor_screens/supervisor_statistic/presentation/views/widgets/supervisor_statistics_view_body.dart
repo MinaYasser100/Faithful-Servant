@@ -33,7 +33,7 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
             BarGraphStatistics(
               text: 'primary sarvent statistics : '.tr,
               child: const BarGraphPrimary(
-                primaryList: [20, 34, 15, 10, 28, 30],
+                primaryList: [20, 34, 15, 0, 28, 30],
               ),
             ),
           ],

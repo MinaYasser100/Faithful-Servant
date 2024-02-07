@@ -66,7 +66,7 @@ class Applocal implements Translations {
           'KG sarvent Statistics : ': 'احصائيات خدام حضانة : ',
           'kg1': 'كيجي1',
           'kg2': 'كيجي2',
-          'first': 'اولي',
+          'first': 'اولة',
           'second': 'ثانية',
           'third': 'ثالثة',
           'fourth': 'رابعة',
