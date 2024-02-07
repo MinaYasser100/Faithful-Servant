@@ -12,9 +12,9 @@ class BarDataPreparatoryAndSecondary {
     required this.secGirls,
     required this.secBoys,
   });
-  List<IndiviualBar> barDataKG = [];
+  List<IndiviualBar> barDataPreparatoryAndSecondary = [];
   void initialzeBarData() {
-    barDataKG = [
+    barDataPreparatoryAndSecondary = [
       IndiviualBar(x: 0, y: proGirls),
       IndiviualBar(x: 1, y: proBoys),
       IndiviualBar(x: 2, y: secGirls),

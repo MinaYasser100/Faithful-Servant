@@ -79,6 +79,11 @@ class Applocal implements Translations {
           'pre boys': 'ع بنين',
           'proparatory and secondary statistics : ':
               'احصائيات اعدادي و ثانوي : ',
+          'students': 'جامعيين',
+          'graduates': 'خرجيين',
+          'people': 'الشعب',
+          'men': 'الرجال',
+          'adults statistics : ': 'احصائيات الكبار : ',
         },
         "en": {
           'email': 'Email',
@@ -158,6 +163,11 @@ class Applocal implements Translations {
           'pre boys': 'pre boys',
           'proparatory and secondary statistics : ':
               'proparatory and secondary statistics : ',
+          'students': 'University',
+          'graduates': 'graduates',
+          'people': 'people',
+          'men': 'men',
+          'adults statistics : ': 'adults statistics : ',
         },
       };
 }

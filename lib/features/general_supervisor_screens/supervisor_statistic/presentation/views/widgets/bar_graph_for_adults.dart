@@ -1,24 +1,23 @@
-import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/preparatory_and_secondary_statistics/bar_data_prop_and_sec_statistics.dart';
-import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/function/get_pre_sec_bottom_title.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/adults_statistics/bar_data_adults.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/function/get_adults_bottom_title.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../function/custom_bar_chart_group_data.dart';
 import '../function/custom_bar_touch_tool_tip_data.dart';
 
-class BarGraphForPerpAndSec extends StatelessWidget {
-  const BarGraphForPerpAndSec({super.key, required this.perpAndSecList});
-  final List perpAndSecList;
+class BarGraphAdults extends StatelessWidget {
+  const BarGraphAdults({super.key, required this.adultsList});
+  final List adultsList;
   @override
   Widget build(BuildContext context) {
-    BarDataPreparatoryAndSecondary barDataPreparatoryAndSecondary =
-        BarDataPreparatoryAndSecondary(
-      proGirls: perpAndSecList[0],
-      proBoys: perpAndSecList[1],
-      secGirls: perpAndSecList[2],
-      secBoys: perpAndSecList[3],
+    BarDataAdults barDataAdults = BarDataAdults(
+      students: adultsList[0],
+      graduates: adultsList[1],
+      people: adultsList[2],
+      men: adultsList[3],
     );
-    barDataPreparatoryAndSecondary.initialzeBarData();
+    barDataAdults.initialzeBarData();
     return BarChart(
       BarChartData(
         maxY: 40,
@@ -42,11 +41,11 @@ class BarGraphForPerpAndSec extends StatelessWidget {
             sideTitles: SideTitles(
               showTitles: true,
               getTitlesWidget: (value, meta) =>
-                  getPreSecBottomTitle(value, meta),
+                  getAdultsBottomTitle(value, meta),
             ),
           ),
         ),
-        barGroups: barDataPreparatoryAndSecondary.barDataPreparatoryAndSecondary
+        barGroups: barDataAdults.barDataAdults
             .map(
               (data) => customBarChartGroupData(data),
             )

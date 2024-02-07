@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/widgets/bar_graph_for_adults.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/widgets/bar_graph_for_prop_and_sec.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/widgets/bar_graph_primary.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,15 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                 text: 'proparatory and secondary statistics : '.tr,
                 child: const BarGraphForPerpAndSec(
                   perpAndSecList: [40, 30, 15, 5],
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              BarGraphStatistics(
+                text: 'adults statistics : '.tr,
+                child: const BarGraphAdults(
+                  adultsList: [16, 27, 11, 10],
                 ),
               ),
             ],
