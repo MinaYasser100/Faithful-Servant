@@ -62,7 +62,17 @@ class Applocal implements Translations {
               'ادخل الايميل الخاص بيك هنا لتستطيع تغيير كلمة المرور',
           "Change Password": 'تغيير كلمة المرور',
           'General Supervisor': 'المشرف العام',
-          "Statistics": 'إحصائيات'
+          "Statistics": 'إحصائيات',
+          'KG sarvent Statistics : ': 'احصائيات خدام حضانة : ',
+          'kg1': 'كيجي1',
+          'kg2': 'كيجي2',
+          'first': 'اولة',
+          'second': 'ثانية',
+          'third': 'ثالثة',
+          'fourth': 'رابعة',
+          'fifth': 'خامسة',
+          'sixth': 'سادسة',
+          'primary sarvent statistics : ': 'احصائيات خدام ابتدائي  : ',
         },
         "en": {
           'email': 'Email',
@@ -125,7 +135,17 @@ class Applocal implements Translations {
               'Enter your eamil address here to can change your password',
           "Change Password": "Change Password",
           'General Supervisor': 'General Supervisor',
-          "Statistics": "Statistics"
+          "Statistics": "Statistics",
+          'KG sarvent Statistics : ': 'KG sarvent Statistics : ',
+          'kg1': 'kg1',
+          'kg2': 'kg2',
+          'first': 'first',
+          'second': 'second',
+          'third': 'third',
+          'fourth': 'fourth',
+          'fifth': 'fifth',
+          'sixth': 'sixth',
+          'primary sarvent statistics : ': 'primary sarvent statistics : ',
         },
       };
 }
