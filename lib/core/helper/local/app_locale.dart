@@ -84,6 +84,7 @@ class Applocal implements Translations {
           'people': 'الشعب',
           'men': 'الرجال',
           'adults statistics : ': 'احصائيات الكبار : ',
+          'Attendance & other': 'المتابعة'
         },
         "en": {
           'email': 'Email',
@@ -168,6 +169,7 @@ class Applocal implements Translations {
           'people': 'people',
           'men': 'men',
           'adults statistics : ': 'adults statistics : ',
+          'Attendance & other': 'Follow Up'
         },
       };
 }
