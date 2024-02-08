@@ -1,8 +1,7 @@
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/personal/data/repos/services_history_repo_implementation.dart';
-import 'package:faithful_servant/features/personal/presentation/manager/card_cubit/card_edit_or_show_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/history_of_service_cubit/history_of_service_cubit.dart';
-import 'package:faithful_servant/features/personal/presentation/views/widgets/edit_mode_history_card.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/show_mode_history_card.dart';
 import 'package:faithful_servant/features/statistics/presentation/views/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +17,14 @@ class HistoryBody extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 HistoryOfServiceCubit(ServiceHistoryImplementaion())..init()),
-        BlocProvider(create: (context) => CardEditOrShowCubit()),
       ],
       child: Column(
         children: [
-          const Text(
+          const SizedBox(height: 10),
+          Text(
             'تاريخي في الخدمة الكنسية',
-            style: Styles.textStyle20,
+            style: Styles.textStyle25SecondColor
+                .copyWith(color: kPrimaryColor, fontWeight: FontWeight.bold),
           ),
           const Divider(indent: 100, endIndent: 100),
           BlocBuilder<HistoryOfServiceCubit, HistoryOfServiceState>(
@@ -39,17 +39,7 @@ class HistoryBody extends StatelessWidget {
                     itemCount:
                         HistoryOfServiceCubit.dataListHistoryCards.length,
                     itemBuilder: (context, index) {
-                      return BlocBuilder<CardEditOrShowCubit,
-                          CardEditOrShowState>(builder: (context, state) {
-                        if (state is CardEdit && index == state.index) {
-                          return EditModeHistoryCard(
-                              index: index,
-                              data: HistoryOfServiceCubit
-                                  .dataListHistoryCards[index]);
-                        } else {
-                          return ShowModeHistoryCard(index: index);
-                        }
-                      });
+                      return HistoryCard(index: index);
                     },
                   ),
                 );

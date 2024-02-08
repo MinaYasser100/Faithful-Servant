@@ -1,7 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
-import 'package:faithful_servant/features/personal/presentation/manager/card_cubit/card_edit_or_show_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ButtonsOfEditModeHistoryCard extends StatelessWidget {
   const ButtonsOfEditModeHistoryCard({super.key});
@@ -17,9 +15,7 @@ class ButtonsOfEditModeHistoryCard extends StatelessWidget {
             backgroundColor: kPrimaryColor,
             child: IconButton(
                 color: kSecondColor,
-                onPressed: () {
-                  BlocProvider.of<CardEditOrShowCubit>(context).emitShowMode();
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.close)),
           ),
         ),
