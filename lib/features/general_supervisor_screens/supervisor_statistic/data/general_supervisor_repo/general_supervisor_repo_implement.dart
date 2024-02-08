@@ -211,4 +211,43 @@ class GeneralSupervisorRepoImpelment implements GeneralSupervisorRepo {
         .get();
     return value;
   }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrepareServantsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'عداد خدام')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getServantStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'اجتماع الخدام')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getSundayServantsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'مدارس احد يوم الاحد')
+        .get();
+    return value;
+  }
 }

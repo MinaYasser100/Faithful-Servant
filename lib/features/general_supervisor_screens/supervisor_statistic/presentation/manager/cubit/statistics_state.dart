@@ -46,3 +46,9 @@ final class StatisticsGraduatesSuccess extends StatisticsState {}
 final class StatisticsPeopleSuccess extends StatisticsState {}
 
 final class StatisticsMenSuccess extends StatisticsState {}
+
+final class StatisticsServantsSuccess extends StatisticsState {}
+
+final class StatisticsSundayServantsSuccess extends StatisticsState {}
+
+final class StatisticsPrepareServantsSuccess extends StatisticsState {}

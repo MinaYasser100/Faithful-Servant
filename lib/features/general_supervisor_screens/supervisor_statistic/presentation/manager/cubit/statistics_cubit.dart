@@ -14,6 +14,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   List<int> primaryList = [];
   List<int> perAndSecList = [];
   List<int> adultsList = [];
+  List<int> servantList = [];
   Future<void> getKgStatistics() async {
     emit(StatisticsKgLoading());
     UserModel? userModel = await getUserData();
@@ -212,6 +213,45 @@ class StatisticsCubit extends Cubit<StatisticsState> {
             adultsList.add(0);
           }
           emit(StatisticsMenSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getServantStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            servantList.add(value.docs.length);
+          } else {
+            servantList.add(0);
+          }
+          emit(StatisticsServantsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getSundayServantsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            servantList.add(value.docs.length);
+          } else {
+            servantList.add(0);
+          }
+          emit(StatisticsSundayServantsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getPrepareServantsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            servantList.add(value.docs.length);
+          } else {
+            servantList.add(0);
+          }
+          emit(StatisticsPrepareServantsSuccess());
         });
       }
     } catch (e) {
