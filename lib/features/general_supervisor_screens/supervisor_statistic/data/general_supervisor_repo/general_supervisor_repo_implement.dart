@@ -107,4 +107,56 @@ class GeneralSupervisorRepoImpelment implements GeneralSupervisorRepo {
         .get();
     return value;
   }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getPerparatoryBoysStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'اعدادي بنين')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getPerparatoryGirlsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'اعدادي بنات')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getSecondaryBoysStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'ثانوي بنين')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getSecondaryGirlsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'ثانوي بنات')
+        .get();
+    return value;
+  }
 }

@@ -12,6 +12,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   final GeneralSupervisorRepo generalSupervisorRepo;
   List<int> kgList = [];
   List<int> primaryList = [];
+  List<int> perAndSecList = [];
   Future<void> getKgStatistics() async {
     emit(StatisticsKgLoading());
     UserModel? userModel = await getUserData();
@@ -109,6 +110,58 @@ class StatisticsCubit extends Cubit<StatisticsState> {
             primaryList.add(0);
           }
           emit(StatisticsPrimary6Success());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getPerparatoryGirlsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            perAndSecList.add(value.docs.length);
+          } else {
+            perAndSecList.add(0);
+          }
+          emit(StatisticsPerparatoryGirlsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getPerparatoryBoysStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            perAndSecList.add(value.docs.length);
+          } else {
+            perAndSecList.add(0);
+          }
+          emit(StatisticsPerparatoryBoysSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getSecondaryGirlsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            perAndSecList.add(value.docs.length);
+          } else {
+            perAndSecList.add(0);
+          }
+          emit(StatisticsSecondaryGirlsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getSecondaryBoysStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            perAndSecList.add(value.docs.length);
+          } else {
+            perAndSecList.add(0);
+          }
+          emit(StatisticsSecondaryBoysSuccess());
         });
       }
     } catch (e) {

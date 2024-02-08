@@ -26,7 +26,7 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
               child: CircularProgressIndicator(
             color: kSecondColor,
           ));
-        } else if (state is StatisticsPrimary6Success) {
+        } else if (state is StatisticsSecondaryBoysSuccess) {
           return Container(
             decoration: const BoxDecoration(
                 color: kSecondColor,
@@ -61,8 +61,10 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                     ),
                     BarGraphStatistics(
                       text: 'proparatory and secondary statistics : '.tr,
-                      child: const BarGraphForPerpAndSec(
-                        perpAndSecList: [40, 30, 15, 5],
+                      child: BarGraphForPerpAndSec(
+                        perpAndSecList:
+                            BlocProvider.of<StatisticsCubit>(context)
+                                .perAndSecList,
                       ),
                     ),
                     const SizedBox(

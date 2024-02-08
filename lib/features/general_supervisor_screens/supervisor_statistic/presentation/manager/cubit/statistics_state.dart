@@ -30,3 +30,11 @@ final class StatisticsPrimary4Success extends StatisticsState {}
 final class StatisticsPrimary5Success extends StatisticsState {}
 
 final class StatisticsPrimary6Success extends StatisticsState {}
+
+final class StatisticsPerparatoryGirlsSuccess extends StatisticsState {}
+
+final class StatisticsPerparatoryBoysSuccess extends StatisticsState {}
+
+final class StatisticsSecondaryGirlsSuccess extends StatisticsState {}
+
+final class StatisticsSecondaryBoysSuccess extends StatisticsState {}
