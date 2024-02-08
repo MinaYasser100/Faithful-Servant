@@ -126,3 +126,11 @@ List<String> placesItems = [
 
 String selectedservice = 'جامعيين';
 String selectedplace = 'كنيسة مارجرجس';
+
+List<String> currentrolesItems = ['المشرف العام', 'امين الخدمة', 'خادم'];
+
+late String initialservice;
+late String initialrole;
+late String initialduration;
+late String initialplace;
+late String initialplaceelse;

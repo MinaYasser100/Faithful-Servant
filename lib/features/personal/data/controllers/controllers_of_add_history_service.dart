@@ -7,4 +7,6 @@ class AddServiceHistoryControllers {
       TextEditingController();
   static final TextEditingController historyplacecontroller =
       TextEditingController();
+  static final TextEditingController historyrolecontroller =
+      TextEditingController();
 }

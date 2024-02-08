@@ -1,6 +1,7 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/Drawer/drawer.dart';
 import 'package:faithful_servant/core/widgets/appbar.dart';
+import 'package:faithful_servant/features/personal/data/repos/services_history_repo_implementation.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/history_of_service_cubit/history_of_service_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/bottom_sheet_of_adding_service_history.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/history_body.dart';
@@ -16,16 +17,13 @@ class HistoryView extends StatelessWidget {
       backgroundColor: kPrimaryColor,
       appBar: GeneralAppBar(title: 'تاريخي الخدمي', appBar: AppBar()),
       drawer: const GeneralDrawer(),
-      body: BlocProvider(
-        create: (context) => HistoryOfServiceCubit(),
-        child: Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              color: kSecondColor,
-              borderRadius: BorderRadius.circular(bodyRadious),
-            ),
-            child: const HistoryBody()),
-      ),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: kSecondColor,
+            borderRadius: BorderRadius.circular(bodyRadious),
+          ),
+          child: const HistoryBody()),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         onPressed: () {
@@ -33,7 +31,8 @@ class HistoryView extends StatelessWidget {
             context: context,
             builder: (context) {
               return BlocProvider(
-                create: (context) => HistoryOfServiceCubit(),
+                create: (context) =>
+                    HistoryOfServiceCubit(ServiceHistoryImplementaion()),
                 child: const BottomSheetOfAddingServiceHistory(),
               );
             },

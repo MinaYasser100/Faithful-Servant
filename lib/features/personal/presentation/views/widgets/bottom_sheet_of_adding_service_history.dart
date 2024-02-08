@@ -10,8 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
-import '../../functions/submet_new_history.dart';
-
 class BottomSheetOfAddingServiceHistory extends StatefulWidget {
   const BottomSheetOfAddingServiceHistory({super.key});
 
@@ -109,7 +107,7 @@ class _BottomSheetOfAddingServiceHistoryState
                             .emitelesplace();
                       } else {
                         BlocProvider.of<HistoryOfServiceCubit>(context)
-                            .emitini();
+                            .emitEditModeCard();
                       }
                     },
                   ),
@@ -149,7 +147,7 @@ class _BottomSheetOfAddingServiceHistoryState
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor)),
             onPressed: () async {
               EasyLoading.show(status: 'تحميل ...');
-              await submetNewHistory();
+
               EasyLoading.dismiss();
               Get.back();
             },
