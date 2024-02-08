@@ -21,12 +21,12 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StatisticsCubit, StatisticsState>(
       builder: (context, state) {
-        if (state is StatisticsLoading) {
+        if (state is StatisticsKgLoading) {
           return const Center(
               child: CircularProgressIndicator(
             color: kSecondColor,
           ));
-        } else if (state is StatisticsKG2Success) {
+        } else if (state is StatisticsPrimary6Success) {
           return Container(
             decoration: const BoxDecoration(
                 color: kSecondColor,
@@ -51,8 +51,9 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                     ),
                     BarGraphStatistics(
                       text: 'primary sarvent statistics : '.tr,
-                      child: const BarGraphPrimary(
-                        primaryList: [20, 34, 15, 0, 28, 30],
+                      child: BarGraphPrimary(
+                        primaryList: BlocProvider.of<StatisticsCubit>(context)
+                            .primaryList,
                       ),
                     ),
                     const SizedBox(

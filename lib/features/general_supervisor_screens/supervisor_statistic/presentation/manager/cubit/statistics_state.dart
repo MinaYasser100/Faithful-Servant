@@ -5,8 +5,28 @@ sealed class StatisticsState {}
 
 final class StatisticsInitial extends StatisticsState {}
 
+final class StatisticsKgLoading extends StatisticsState {}
+
 final class StatisticsLoading extends StatisticsState {}
 
-final class StatisticsKG1Success extends StatisticsState {}
+final class StatisticsSuccess extends StatisticsState {}
+
+final class StatisticsPrimarySuccess extends StatisticsState {}
 
 final class StatisticsKG2Success extends StatisticsState {}
+
+final class StatisticsPrimary1Loading extends StatisticsState {}
+
+final class StatisticsPrimary1Success extends StatisticsState {}
+
+final class StatisticsPrimary1Failure extends StatisticsState {}
+
+final class StatisticsPrimary2Success extends StatisticsState {}
+
+final class StatisticsPrimary3Success extends StatisticsState {}
+
+final class StatisticsPrimary4Success extends StatisticsState {}
+
+final class StatisticsPrimary5Success extends StatisticsState {}
+
+final class StatisticsPrimary6Success extends StatisticsState {}

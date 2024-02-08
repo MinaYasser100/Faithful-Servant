@@ -6,4 +6,16 @@ abstract class GeneralSupervisorRepo {
       UserModel userModel);
   Future<QuerySnapshot<Map<String, dynamic>>> getKG2Statistics(
       UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary1Statistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary2Statistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary3Statistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary4Statistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary5Statistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getPrimary6Statistics(
+      UserModel userModel);
 }

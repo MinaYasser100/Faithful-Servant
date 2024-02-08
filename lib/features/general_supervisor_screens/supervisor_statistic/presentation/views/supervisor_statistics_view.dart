@@ -17,7 +17,7 @@ class SupervisorStatisticsView extends StatelessWidget {
       appBar: GeneralAppBar(title: "Statistics".tr, appBar: AppBar()),
       body: BlocProvider(
         create: (context) => StatisticsCubit(GeneralSupervisorRepoImpelment())
-          ..getAllStatistics(),
+          ..getKgStatistics(),
         child: const SupervisorStatisticsViewBody(),
       ),
     );

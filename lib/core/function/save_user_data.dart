@@ -5,4 +5,5 @@ import 'package:hive/hive.dart';
 void saveUserData(UserModel userModel) {
   var box = Hive.box<UserModel>(kUserBox);
   box.add(userModel);
+  box.close();
 }

@@ -15,7 +15,7 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
     try {
       emit(GeneralSupervisorGetNumberOfServantLoading());
       if (userModel != null) {
-        FirebaseFirestore.instance
+        await FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
             .doc(userModel.church)
             .collection('users')
@@ -30,7 +30,7 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
           }
           emit(GeneralSupervisorGetNumberOfServantSuccess());
         });
-        FirebaseFirestore.instance
+        await FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
             .doc(userModel.church)
             .collection('users')
