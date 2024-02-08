@@ -95,6 +95,12 @@ class Applocal implements Translations {
           'Sunday Servants': 'خدام الاحد',
           'Prepare Servants': 'اعداد خدام',
           'Servant statistics : ': 'احصائيات تخص الخدام',
+          'Corals': 'الكورالات',
+          'Festival': 'المهرجان',
+          'Scouts': 'كشافة',
+          'Counseling': 'المشورة',
+          'Deacon': 'الشمامسة',
+          'Some other services statistics : ': 'احصائيات بعض الخدمات الاخري : ',
         },
         "en": {
           'email': 'Email',
@@ -190,6 +196,13 @@ class Applocal implements Translations {
           'Sunday Servants': 'Sunday Servants',
           'Prepare Servants': 'Prepare Servants',
           'Servant statistics : ': 'Servant statistics : ',
+          'Corals': 'Corals',
+          'Festival Coordinators': 'Festival',
+          'Scouts': 'Scouts',
+          'Counseling': 'Counseling',
+          'Deacon': 'Deacon',
+          'Some other services statistics : ':
+              'Some other services statistics : ',
         },
       };
 }
