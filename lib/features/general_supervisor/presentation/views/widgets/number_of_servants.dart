@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/general_supervisor/presentation/manager/general_supervisor_cubit/general_supervisor_cubit.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,10 @@ class NumberOfServants extends StatelessWidget {
                 BlocBuilder<GeneralSupervisorCubit, GeneralSupervisorState>(
                   builder: (context, state) {
                     if (state is GeneralSupervisorGetNumberOfServantLoading) {
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                          child: CircularProgressIndicator(
+                        color: kSecondColor,
+                      ));
                     } else if (state
                         is GeneralSupervisorGetNumberOfGeneralServantSuccess) {
                       return Text(

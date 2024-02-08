@@ -56,6 +56,7 @@ final List<String> currentServiceItems = [
   'الكشافة',
   'مركز المشورة',
   'مدرسة الشمامسة',
+  'كاهن',
 ];
 
 const kUserId = 'userId';

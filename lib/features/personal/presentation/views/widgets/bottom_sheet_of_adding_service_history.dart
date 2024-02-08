@@ -148,6 +148,7 @@ class _BottomSheetOfAddingServiceHistoryState
             onPressed: () async {
               EasyLoading.show(status: 'تحميل ...');
 
+              await submetNewHistory();
               EasyLoading.dismiss();
               Get.back();
             },
