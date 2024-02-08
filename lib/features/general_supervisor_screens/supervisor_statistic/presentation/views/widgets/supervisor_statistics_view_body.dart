@@ -26,7 +26,7 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
               child: CircularProgressIndicator(
             color: kSecondColor,
           ));
-        } else if (state is StatisticsSecondaryBoysSuccess) {
+        } else if (state is StatisticsMenSuccess) {
           return Container(
             decoration: const BoxDecoration(
                 color: kSecondColor,
@@ -72,8 +72,9 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                     ),
                     BarGraphStatistics(
                       text: 'adults statistics : '.tr,
-                      child: const BarGraphAdults(
-                        adultsList: [16, 27, 11, 10],
+                      child: BarGraphAdults(
+                        adultsList: BlocProvider.of<StatisticsCubit>(context)
+                            .adultsList,
                       ),
                     ),
                     const SizedBox(

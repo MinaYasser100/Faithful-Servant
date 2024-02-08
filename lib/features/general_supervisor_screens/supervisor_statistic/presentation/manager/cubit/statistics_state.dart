@@ -38,3 +38,11 @@ final class StatisticsPerparatoryBoysSuccess extends StatisticsState {}
 final class StatisticsSecondaryGirlsSuccess extends StatisticsState {}
 
 final class StatisticsSecondaryBoysSuccess extends StatisticsState {}
+
+final class StatisticsStudentsSuccess extends StatisticsState {}
+
+final class StatisticsGraduatesSuccess extends StatisticsState {}
+
+final class StatisticsPeopleSuccess extends StatisticsState {}
+
+final class StatisticsMenSuccess extends StatisticsState {}

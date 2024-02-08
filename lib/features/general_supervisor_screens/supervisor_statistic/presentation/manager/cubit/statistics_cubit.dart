@@ -13,6 +13,7 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   List<int> kgList = [];
   List<int> primaryList = [];
   List<int> perAndSecList = [];
+  List<int> adultsList = [];
   Future<void> getKgStatistics() async {
     emit(StatisticsKgLoading());
     UserModel? userModel = await getUserData();
@@ -162,6 +163,55 @@ class StatisticsCubit extends Cubit<StatisticsState> {
             perAndSecList.add(0);
           }
           emit(StatisticsSecondaryBoysSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getStudentsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            adultsList.add(value.docs.length);
+          } else {
+            adultsList.add(0);
+          }
+          emit(StatisticsStudentsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getGraduatesStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            adultsList.add(value.docs.length);
+          } else {
+            adultsList.add(0);
+          }
+          emit(StatisticsGraduatesSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getPeopleStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            adultsList.add(value.docs.length);
+          } else {
+            adultsList.add(0);
+          }
+          emit(StatisticsPeopleSuccess());
+        });
+      }
+      if (userModel != null) {
+        await generalSupervisorRepo.getMenStatistics(userModel).then((value) {
+          if (value.docs.isNotEmpty) {
+            adultsList.add(value.docs.length);
+          } else {
+            adultsList.add(0);
+          }
+          emit(StatisticsMenSuccess());
         });
       }
     } catch (e) {
