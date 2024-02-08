@@ -19,7 +19,7 @@ final class StatisticsPrimary1Loading extends StatisticsState {}
 
 final class StatisticsPrimary1Success extends StatisticsState {}
 
-final class StatisticsPrimary1Failure extends StatisticsState {}
+final class StatisticsFailure extends StatisticsState {}
 
 final class StatisticsPrimary2Success extends StatisticsState {}
 
@@ -52,3 +52,23 @@ final class StatisticsServantsSuccess extends StatisticsState {}
 final class StatisticsSundayServantsSuccess extends StatisticsState {}
 
 final class StatisticsPrepareServantsSuccess extends StatisticsState {}
+
+final class StatisticsMothoerDulajiSuccess extends StatisticsState {}
+
+final class StatisticsWisdomsSuccess extends StatisticsState {}
+
+final class StatisticsStageSuccess extends StatisticsState {}
+
+final class StatisticsDemonstrationToolsSuccess extends StatisticsState {}
+
+final class StatisticsBrothersOfLordSuccess extends StatisticsState {}
+
+final class StatistiCscoralsSuccess extends StatisticsState {}
+
+final class StatisticsFestivalCoordinatorsSuccess extends StatisticsState {}
+
+final class StatisticsScoutsSuccess extends StatisticsState {}
+
+final class StatisticsCounselingCentreSuccess extends StatisticsState {}
+
+final class StatisticsDeaconsSchoolSuccess extends StatisticsState {}

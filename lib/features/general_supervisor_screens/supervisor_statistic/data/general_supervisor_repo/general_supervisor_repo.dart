@@ -40,4 +40,24 @@ abstract class GeneralSupervisorRepo {
       UserModel userModel);
   Future<QuerySnapshot<Map<String, dynamic>>> getPrepareServantsStatistics(
       UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getMothoerDulajiStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getWisdomsStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getStageStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getDemonstrationToolsStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getBrothersOfLordStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getCoralsStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getFestivalCoordinatorsStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getScoutsStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getCounselingCentreStatistics(
+      UserModel userModel);
+  Future<QuerySnapshot<Map<String, dynamic>>> getDeaconsSchooltatistics(
+      UserModel userModel);
 }

@@ -250,4 +250,134 @@ class GeneralSupervisorRepoImpelment implements GeneralSupervisorRepo {
         .get();
     return value;
   }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getBrothersOfLordStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'اخوة الرب')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getDemonstrationToolsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'وسائل الايضاح')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getMothoerDulajiStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'الام دولاجي')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getStageStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'المسرح')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getWisdomsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'الحكيمات')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getCoralsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'الكورالات')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getCounselingCentreStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'مركز المشورة')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getDeaconsSchooltatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'مدرسة الشمامسة')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getFestivalCoordinatorsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'منسقين المهرجان')
+        .get();
+    return value;
+  }
+
+  @override
+  Future<QuerySnapshot<Map<String, dynamic>>> getScoutsStatistics(
+      UserModel userModel) {
+    Future<QuerySnapshot<Map<String, dynamic>>> value = FirebaseFirestore
+        .instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .where('currentService', isEqualTo: 'الكشافة')
+        .get();
+    return value;
+  }
 }

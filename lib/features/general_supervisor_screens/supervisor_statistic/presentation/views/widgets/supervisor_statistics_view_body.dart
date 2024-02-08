@@ -21,12 +21,12 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<StatisticsCubit, StatisticsState>(
       builder: (context, state) {
-        if (state is StatisticsKgLoading) {
+        if (state is StatisticsLoading) {
           return const Center(
               child: CircularProgressIndicator(
             color: kSecondColor,
           ));
-        } else if (state is StatisticsPrepareServantsSuccess) {
+        } else if (state is StatisticsDeaconsSchoolSuccess) {
           return Container(
             decoration: const BoxDecoration(
                 color: kSecondColor,
@@ -92,8 +92,10 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                     ),
                     BarGraphStatistics(
                       text: 'Some services statistics : '.tr,
-                      child: const BarGraphForSomeServices(
-                        someServicesList: [27, 10, 35, 7, 19],
+                      child: BarGraphForSomeServices(
+                        someServicesList:
+                            BlocProvider.of<StatisticsCubit>(context)
+                                .someServicesList,
                       ),
                     ),
                     const SizedBox(
@@ -101,8 +103,10 @@ class SupervisorStatisticsViewBody extends StatelessWidget {
                     ),
                     BarGraphStatistics(
                       text: 'Some other services statistics : '.tr,
-                      child: const BarGraphForSomeOtherServiecs(
-                        someOtherServiecsList: [27, 10, 35, 7, 19],
+                      child: BarGraphForSomeOtherServiecs(
+                        someOtherServiecsList:
+                            BlocProvider.of<StatisticsCubit>(context)
+                                .someOtherServicesList,
                       ),
                     ),
                     const SizedBox(

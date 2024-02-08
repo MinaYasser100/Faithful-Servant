@@ -15,8 +15,10 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   List<int> perAndSecList = [];
   List<int> adultsList = [];
   List<int> servantList = [];
+  List<int> someServicesList = [];
+  List<int> someOtherServicesList = [];
   Future<void> getKgStatistics() async {
-    emit(StatisticsKgLoading());
+    emit(StatisticsLoading());
     UserModel? userModel = await getUserData();
     try {
       if (userModel != null) {
@@ -33,7 +35,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             kgList.add(0);
           }
-          emit(StatisticsKG2Success());
         });
       }
 
@@ -46,7 +47,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary1Success());
         });
       }
 
@@ -59,7 +59,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary2Success());
         });
       }
 
@@ -72,7 +71,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary3Success());
         });
       }
 
@@ -85,7 +83,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary4Success());
         });
       }
 
@@ -98,7 +95,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary5Success());
         });
       }
 
@@ -111,7 +107,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             primaryList.add(0);
           }
-          emit(StatisticsPrimary6Success());
         });
       }
 
@@ -124,7 +119,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             perAndSecList.add(0);
           }
-          emit(StatisticsPerparatoryGirlsSuccess());
         });
       }
 
@@ -137,7 +131,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             perAndSecList.add(0);
           }
-          emit(StatisticsPerparatoryBoysSuccess());
         });
       }
 
@@ -150,7 +143,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             perAndSecList.add(0);
           }
-          emit(StatisticsSecondaryGirlsSuccess());
         });
       }
 
@@ -163,7 +155,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             perAndSecList.add(0);
           }
-          emit(StatisticsSecondaryBoysSuccess());
         });
       }
 
@@ -176,7 +167,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             adultsList.add(0);
           }
-          emit(StatisticsStudentsSuccess());
         });
       }
 
@@ -189,7 +179,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             adultsList.add(0);
           }
-          emit(StatisticsGraduatesSuccess());
         });
       }
 
@@ -202,7 +191,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             adultsList.add(0);
           }
-          emit(StatisticsPeopleSuccess());
         });
       }
       if (userModel != null) {
@@ -212,7 +200,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             adultsList.add(0);
           }
-          emit(StatisticsMenSuccess());
         });
       }
 
@@ -225,7 +212,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             servantList.add(0);
           }
-          emit(StatisticsServantsSuccess());
         });
       }
 
@@ -238,7 +224,6 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             servantList.add(0);
           }
-          emit(StatisticsSundayServantsSuccess());
         });
       }
 
@@ -251,11 +236,129 @@ class StatisticsCubit extends Cubit<StatisticsState> {
           } else {
             servantList.add(0);
           }
-          emit(StatisticsPrepareServantsSuccess());
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getMothoerDulajiStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someServicesList.add(value.docs.length);
+          } else {
+            someServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getWisdomsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someServicesList.add(value.docs.length);
+          } else {
+            someServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo.getStageStatistics(userModel).then((value) {
+          if (value.docs.isNotEmpty) {
+            someServicesList.add(value.docs.length);
+          } else {
+            someServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getDemonstrationToolsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someServicesList.add(value.docs.length);
+          } else {
+            someServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getBrothersOfLordStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someServicesList.add(value.docs.length);
+          } else {
+            someServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getCoralsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someOtherServicesList.add(value.docs.length);
+          } else {
+            someOtherServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getFestivalCoordinatorsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someOtherServicesList.add(value.docs.length);
+          } else {
+            someOtherServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getScoutsStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someOtherServicesList.add(value.docs.length);
+          } else {
+            someOtherServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getCounselingCentreStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someOtherServicesList.add(value.docs.length);
+          } else {
+            someOtherServicesList.add(0);
+          }
+        });
+      }
+
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getDeaconsSchooltatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            someOtherServicesList.add(value.docs.length);
+          } else {
+            someOtherServicesList.add(0);
+          }
+          emit(StatisticsDeaconsSchoolSuccess());
         });
       }
     } catch (e) {
-      // TODO
+      emit(StatisticsFailure());
     }
   }
 }
