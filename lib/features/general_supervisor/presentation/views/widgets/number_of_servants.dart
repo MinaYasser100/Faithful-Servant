@@ -1,5 +1,7 @@
 import 'package:faithful_servant/core/helper/styles.dart';
+import 'package:faithful_servant/features/general_supervisor/presentation/manager/general_supervisor_cubit/general_supervisor_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NumberOfServants extends StatelessWidget {
   const NumberOfServants({
@@ -8,17 +10,33 @@ class NumberOfServants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Stack(
         alignment: Alignment.topRight,
         children: [
           Center(
             child: Column(
               children: [
-                Text('عدد الخدام بالخدمة',
+                const Text('عدد الخدام بالخدمة',
                     style: Styles.textStyle16SecondColor),
-                Text('30', style: Styles.textStyle30SecondColor),
+                BlocBuilder<GeneralSupervisorCubit, GeneralSupervisorState>(
+                  builder: (context, state) {
+                    if (state is GeneralSupervisorGetNumberOfServantLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else if (state
+                        is GeneralSupervisorGetNumberOfGeneralServantSuccess) {
+                      return Text(
+                          BlocProvider.of<GeneralSupervisorCubit>(context)
+                              .total
+                              .toString(),
+                          style: Styles.textStyle30SecondColor);
+                    } else {
+                      return const Text('No Number',
+                          style: Styles.textStyle30SecondColor);
+                    }
+                  },
+                ),
               ],
             ),
           ),
