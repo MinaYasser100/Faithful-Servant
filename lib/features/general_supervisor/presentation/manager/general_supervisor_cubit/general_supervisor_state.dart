@@ -8,7 +8,10 @@ final class GeneralSupervisorInitial extends GeneralSupervisorState {}
 final class GeneralSupervisorGetNumberOfServantLoading
     extends GeneralSupervisorState {}
 
-final class GeneralSupervisorGetNumberOfServantsuccess
+final class GeneralSupervisorGetNumberOfServantSuccess
+    extends GeneralSupervisorState {}
+
+final class GeneralSupervisorGetNumberOfGeneralServantSuccess
     extends GeneralSupervisorState {}
 
 final class GeneralSupervisorGetNumberOfServantfailure

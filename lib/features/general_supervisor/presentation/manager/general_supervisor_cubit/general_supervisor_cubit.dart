@@ -10,10 +10,10 @@ part 'general_supervisor_state.dart';
 class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
   GeneralSupervisorCubit() : super(GeneralSupervisorInitial());
   int total = 0;
-  Future<void> getNumberOfServant() async {
-    emit(GeneralSupervisorGetNumberOfServantLoading());
+  void getNumberOfServant() async {
     UserModel? userModel = await getUserData();
     try {
+      emit(GeneralSupervisorGetNumberOfServantLoading());
       if (userModel != null) {
         FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
@@ -24,9 +24,11 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
             .then((value) {
           if (value.docs.isNotEmpty) {
             total = value.docs.length;
+            print(value.docs.length);
           } else {
             total = 0;
           }
+          emit(GeneralSupervisorGetNumberOfServantSuccess());
         });
         FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
@@ -37,10 +39,11 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
             .then((value) {
           if (value.docs.isNotEmpty) {
             total = total + value.docs.length;
+            print(value.docs.length);
           }
+          emit(GeneralSupervisorGetNumberOfGeneralServantSuccess());
         });
       }
-      emit(GeneralSupervisorGetNumberOfServantsuccess());
     } catch (e) {
       emit(GeneralSupervisorGetNumberOfServantfailure(
           errorMessage: e.toString()));
