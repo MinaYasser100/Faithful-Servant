@@ -30,6 +30,11 @@ class Pdfbody {
         ]),
         SizedBox(height: 8),
         buildTable(data),
+        SizedBox(height: 40),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 170),
+          child: buildTable2(data),
+        ),
       ],
     );
   }
@@ -43,9 +48,9 @@ class Pdfbody {
 
   static Widget buildTable(DataPathsToPdf data) {
     List heardersList = [
-      'الخدمات',
       'ذكر',
       'انثي',
+      'الخدمات',
     ];
 
     return Table.fromTextArray(
@@ -60,8 +65,28 @@ class Pdfbody {
         ),
       ),
       data: [
-        [data.service, data.malecount, data.femalecount]
+        [data.malecount, data.femalecount, data.service]
       ],
+    );
+  }
+
+  static Widget buildTable2(DataPathsToPdf data) {
+    List heardersList = [
+      data.malecount + data.femalecount,
+      'المجموع الكلي : ',
+    ];
+
+    return Table.fromTextArray(
+      headers: heardersList,
+      cellAlignment: Alignment.center,
+      border: null,
+      headerDecoration: const BoxDecoration(
+        color: PdfColors.grey300,
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      data: [],
     );
   }
 }
