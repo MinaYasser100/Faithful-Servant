@@ -99,8 +99,10 @@ class _BottomSheetOfAddingServiceHistoryState
                     items: placesItems,
                     selectedItem: selectedplace,
                     onChanged: (value) {
+                      AddServiceHistoryControllers.historyplacecontroller.text =
+                          value!;
                       setState(() {
-                        selectedplace = value!;
+                        selectedplace = value;
                       });
                       if (value == 'اخري') {
                         BlocProvider.of<HistoryOfServiceCubit>(context)
@@ -127,9 +129,9 @@ class _BottomSheetOfAddingServiceHistoryState
                         width: MediaQuery.of(context).size.width * 0.88,
                         child: CustomTextFromField(
                           textEditingController: AddServiceHistoryControllers
-                              .historydurationcontroller,
+                              .historyplacecontroller,
                           labelText: 'مكان اخر',
-                          validator: durationvalidator,
+                          validator: elseplacevalidator,
                           keyboardType: TextInputType.number,
                         ),
                       ),
