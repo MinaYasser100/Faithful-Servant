@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/core/function/getting_day_date.dart';
+import 'package:faithful_servant/core/function/getting_total_count_of_users.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/error_aleart_dialog.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
@@ -15,12 +16,16 @@ void piechartCountPrint() async {
   UserModel? userModel = await getUserData();
   if (userModel != null) {
     try {
+      int malecount = await gettingcountOfUsersBasedOnFilter(
+          filterKey: "gender", filtetrValue: "ذكر", user: userModel);
+      int femalecount = await gettingcountOfUsersBasedOnFilter(
+          filterKey: "gender", filtetrValue: "انثي", user: userModel);
       DataPathsToPdf invoice = DataPathsToPdf(
           date: gettingDayDate(),
           role: 'امين خدمة',
           statisticTitle: 'اعداد خدام الخدمة',
-          femalecount: 50,
-          malecount: 20,
+          femalecount: femalecount,
+          malecount: malecount,
           name: userModel.name,
           service: userModel.currentService,
           churchName: churchNamesBasedOnCode[userModel.church]);

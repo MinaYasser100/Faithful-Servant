@@ -25,7 +25,8 @@ Future<int> gettingcountOfUsersBasedOnFilter(
       .collection(churchNamesBasedOnCode[user.church])
       .doc(user.church)
       .collection('users')
-      .where(user.currentService)
+      .where('privilage', isEqualTo: 'خادم')
+      .where('currentService', isEqualTo: user.currentService)
       .where(filterKey, isEqualTo: filtetrValue)
       .get()
       .then((value) {

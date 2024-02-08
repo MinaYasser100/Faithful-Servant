@@ -12,19 +12,18 @@ class PieChartCubit extends Cubit<PieChartState> {
   PieChartCubit() : super(PieChartFetshDataLoading());
 
   late List<PieChartSectionData> piechartdata;
-
+  late int totalcount;
+  late int malecount;
+  late int femalecount;
   getingDataFromFirebase() async {
-    late int totalcount;
-    late int malecount;
-    late int femalecount;
     UserModel? usermodel = await getUserData();
     if (usermodel != null) {
       try {
-        totalcount = await gettingTotalcountOfUsers(user: usermodel);
         malecount = await gettingcountOfUsersBasedOnFilter(
             filterKey: "gender", filtetrValue: "ذكر", user: usermodel);
         femalecount = await gettingcountOfUsersBasedOnFilter(
             filterKey: "gender", filtetrValue: "انثي", user: usermodel);
+        totalcount = malecount + femalecount;
         piechartdata = [
           PieChartSectionData(
             color: Colors.amber,
