@@ -1,6 +1,6 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
-import 'package:faithful_servant/features/personal/presentation/manager/cubit/personal_cubit.dart';
+import 'package:faithful_servant/features/personal/presentation/manager/my_account_cubit/personal_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/personal_image_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

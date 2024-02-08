@@ -118,3 +118,11 @@ List<Map> personalPages = [
   },
   {"title": 'تسجيل الخروج', "icon": const Icon(Icons.logout), 'routto': ''},
 ];
+
+List<String> placesItems = [
+  'كنيسة مارجرجس',
+  'اخري',
+];
+
+String selectedservice = 'جامعيين';
+String selectedplace = 'كنيسة مارجرجس';
