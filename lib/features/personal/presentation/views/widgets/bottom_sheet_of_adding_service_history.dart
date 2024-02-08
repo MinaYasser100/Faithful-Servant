@@ -147,8 +147,7 @@ class _BottomSheetOfAddingServiceHistoryState
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor)),
             onPressed: () async {
               EasyLoading.show(status: 'تحميل ...');
-
-              await submetNewHistory();
+              // add here function of sending data to firebase
               EasyLoading.dismiss();
               Get.back();
             },
