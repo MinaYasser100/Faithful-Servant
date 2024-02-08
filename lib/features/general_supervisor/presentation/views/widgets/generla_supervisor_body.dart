@@ -1,6 +1,6 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/widgets/page_cards.dart';
-import 'package:faithful_servant/features/general_manager/presentation/views/widgets/quick_summary_space.dart';
+import 'package:faithful_servant/features/general_supervisor/presentation/views/widgets/number_of_servants.dart';
 import 'package:flutter/material.dart';
 
 class GeneralSupervisorBody extends StatelessWidget {
@@ -10,7 +10,7 @@ class GeneralSupervisorBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const QuickSummarySpace(),
+        const NumberOfServants(),
         PageCards(screensList: genetalSuperVisorPages),
       ],
     );
