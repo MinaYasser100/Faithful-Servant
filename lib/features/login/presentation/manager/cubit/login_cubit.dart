@@ -48,6 +48,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> findUserInformationWhenLogin({required String userID}) async {
     emit(LoginCubitGetUserInforamtionLoading());
     try {
+      await Hive.openBox<UserModel>(kUserBox);
       DocumentSnapshot<Map<String, dynamic>> value = await FirebaseFirestore
           .instance
           .collection(saintGeorge)
