@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import 'pie_graph_for_servants.dart';
+import 'said_the_color_mean.dart';
 
 class SupervisorStatisticsByGender extends StatelessWidget {
   const SupervisorStatisticsByGender({
@@ -15,6 +16,7 @@ class SupervisorStatisticsByGender extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
           height: 30,
@@ -36,6 +38,20 @@ class SupervisorStatisticsByGender extends StatelessWidget {
             femaleNumber:
                 BlocProvider.of<StatisticsCubit>(context).male.toDouble(),
           ),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        SaidTheColorMean(
+          color: kDarkSecondColor,
+          text: 'male'.tr,
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        SaidTheColorMean(
+          color: kPrimaryLightColor,
+          text: 'female'.tr,
         ),
         const SizedBox(
           height: 30,
