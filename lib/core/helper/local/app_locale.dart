@@ -101,6 +101,7 @@ class Applocal implements Translations {
           'Counseling': 'المشورة',
           'Deacon': 'الشمامسة',
           'Some other services statistics : ': 'احصائيات بعض الخدمات الاخري : ',
+          'statistics by gender : ': 'احصائيات حسب النوع : ',
         },
         "en": {
           'email': 'Email',
@@ -203,6 +204,7 @@ class Applocal implements Translations {
           'Deacon': 'Deacon',
           'Some other services statistics : ':
               'Some other services statistics : ',
+          'statistics by gender : ': 'statistics by gender : ',
         },
       };
 }

@@ -1,5 +1,5 @@
 import 'package:faithful_servant/core/function/get_user_data.dart';
-import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/general_supervisor_repo/general_supervisor_repo.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/general_supervisor_statistics_repo/general_supervisor_statistics_repo.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +17,8 @@ class StatisticsCubit extends Cubit<StatisticsState> {
   List<int> servantList = [];
   List<int> someServicesList = [];
   List<int> someOtherServicesList = [];
+  int female = 0;
+  int male = 0;
   Future<void> getKgStatistics() async {
     emit(StatisticsLoading());
     UserModel? userModel = await getUserData();
@@ -348,17 +350,57 @@ class StatisticsCubit extends Cubit<StatisticsState> {
       if (userModel != null) {
         await generalSupervisorRepo
             .getDeaconsSchooltatistics(userModel)
-            .then((value) {
+            .then((value) async {
           if (value.docs.isNotEmpty) {
             someOtherServicesList.add(value.docs.length);
           } else {
             someOtherServicesList.add(0);
           }
           emit(StatisticsDeaconsSchoolSuccess());
+          await getNumberOfGender();
         });
       }
     } catch (e) {
       emit(StatisticsFailure());
+    }
+  }
+
+  Future<void> getNumberOfGender() async {
+    emit(StatisticsNumberByGenderLoading());
+    UserModel? userModel = await getUserData();
+    try {
+      if (userModel != null) {
+        await generalSupervisorRepo
+            .getFemalestatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            female = value.docs.length;
+          } else {
+            female = 0;
+          }
+        });
+
+        await generalSupervisorRepo
+            .getMaleNumberStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            male = value.docs.length;
+          } else {
+            male = 0;
+          }
+        });
+
+        await generalSupervisorRepo
+            .getOurFatherStatistics(userModel)
+            .then((value) {
+          if (value.docs.isNotEmpty) {
+            male = male - value.docs.length;
+          }
+          emit(StatisticsNumberByGendersuccess());
+        });
+      }
+    } catch (e) {
+      emit(StatisticsNumberByGenderFailure());
     }
   }
 }
