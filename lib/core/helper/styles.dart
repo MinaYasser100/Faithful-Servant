@@ -40,4 +40,10 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     fontSize: 10.0,
   );
+
+  static const TextStyle textStyle20PrimaryColor = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: kPrimaryColor,
+  );
 }

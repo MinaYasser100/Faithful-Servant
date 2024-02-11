@@ -116,7 +116,14 @@ List<Map> genetalSuperVisorPages = [
   },
 ];
 
-List<Map> servantPages = [];
+List<Map> servantPages = [
+  {
+    'text': 'بياناتك',
+    "btntext": 'Open',
+    'routeto': GetPages.kUserInformaionsView,
+    'icon': Icons.article_outlined,
+  },
+];
 
 List<Map> personalPages = [
   {
