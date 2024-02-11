@@ -116,6 +116,8 @@ class Applocal implements Translations {
           'Name of area : ': 'اسم المنطقة : ',
           'Church : ': 'كنيسة : ',
           'Service : ': 'الخدمة : ',
+          'Modifie Informaion': 'تعديل البيانات',
+          'Editing Informations': 'تعديل البيانات',
         },
         "en": {
           'email': 'Email',
@@ -233,6 +235,8 @@ class Applocal implements Translations {
           'Name of area : ': 'Name of area : ',
           'Church : ': 'Church : ',
           'Service : ': 'Service : ',
+          'Modifie Informaion': 'Modifie Informaion',
+          'Editing Informations': 'Editing Informations',
         },
       };
 }

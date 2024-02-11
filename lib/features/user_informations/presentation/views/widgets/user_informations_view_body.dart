@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
@@ -78,8 +79,10 @@ class UserInformationsViewBody extends StatelessWidget {
             ),
             Center(
               child: CustomTextButton(
-                textButton: 'Modifie Informaion',
-                onPressed: () {},
+                textButton: 'Modifie Informaion'.tr,
+                onPressed: () {
+                  Get.toNamed(GetPages.kModifieInformationsView);
+                },
               ),
             ),
             const SizedBox(

@@ -90,7 +90,7 @@ List<Map> generalServantPage = [
   {
     'text': 'بياناتك',
     "btntext": 'Open',
-    'routeto': GetPages.kUserInformaionsView,
+    'routeto': GetPages.kUserInformationsView,
     'icon': Icons.article_outlined,
   },
 ];
@@ -111,7 +111,7 @@ List<Map> genetalSuperVisorPages = [
   {
     'text': 'بياناتك',
     "btntext": 'Open',
-    'routeto': GetPages.kUserInformaionsView,
+    'routeto': GetPages.kUserInformationsView,
     'icon': Icons.article_outlined,
   },
 ];
@@ -120,7 +120,7 @@ List<Map> servantPages = [
   {
     'text': 'بياناتك',
     "btntext": 'Open',
-    'routeto': GetPages.kUserInformaionsView,
+    'routeto': GetPages.kUserInformationsView,
     'icon': Icons.article_outlined,
   },
 ];
