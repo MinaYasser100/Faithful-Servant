@@ -32,6 +32,7 @@ class UserModelAdapter extends TypeAdapter<UserModel> {
       addressOfArea: fields[12] as String,
       qualification: fields[13] as String,
       currentService: fields[14] as String,
+      fatherOfConfession: fields[14] as String,
     );
   }
 
@@ -68,7 +69,9 @@ class UserModelAdapter extends TypeAdapter<UserModel> {
       ..writeByte(13)
       ..write(obj.qualification)
       ..writeByte(14)
-      ..write(obj.currentService);
+      ..write(obj.currentService)
+      ..writeByte(15)
+      ..write(obj.fatherOfConfession);
   }
 
   @override

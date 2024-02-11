@@ -81,7 +81,8 @@ class UserInformationsViewBody extends StatelessWidget {
               child: CustomTextButton(
                 textButton: 'Modifie Informaion'.tr,
                 onPressed: () {
-                  Get.toNamed(GetPages.kModifieInformationsView);
+                  Get.toNamed(GetPages.kModifieInformationsView,
+                      arguments: userModel);
                 },
               ),
             ),

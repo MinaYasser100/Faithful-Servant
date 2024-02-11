@@ -132,7 +132,7 @@ abstract class GetPages {
     ),
     GetPage(
       name: kModifieInformationsView,
-      page: () => const ModifieInformationsView(),
+      page: () => ModifieInformationsView(),
       transition: Transition.circularReveal,
     ),
   ];

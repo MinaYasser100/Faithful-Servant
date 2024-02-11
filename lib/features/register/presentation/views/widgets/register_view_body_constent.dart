@@ -321,6 +321,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               addressOfArea:
                                   widget.addressOfAreaController.text,
                               currentService: selectCurrentService,
+                              fatherOfConfession:
+                                  widget.fatherOfConfessionController.text,
                             );
                           } else {
                             BlocProvider.of<RegisterCubit>(context)
