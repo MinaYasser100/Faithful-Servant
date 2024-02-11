@@ -1,6 +1,6 @@
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/general_manager/presentation/manager/general_manager_cubit/general_manager_cubit.dart';
-import 'package:faithful_servant/features/statistics/presentation/views/widgets/loading_indicator.dart';
+import 'package:faithful_servant/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,9 +1,17 @@
 import 'package:faithful_servant/core/function/get_user_data.dart';
+import 'package:faithful_servant/core/function/getting_day_date.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/widgets/error_aleart_dialog.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/general_supervisor_statistics_repo/general_supervisor_statistics_repo.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/data/pdf/api_pdf_for_supervisor.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+
+import '../../../data/model/pdf_data_model.dart';
 
 part 'statistics_state.dart';
 
@@ -401,6 +409,68 @@ class StatisticsCubit extends Cubit<StatisticsState> {
       }
     } catch (e) {
       emit(StatisticsNumberByGenderFailure());
+    }
+  }
+
+  void openPdfToPrintData() async {
+    EasyLoading.show(
+      status: 'Loading...'.tr,
+    );
+    UserModel? userModel = await getUserData();
+    if (userModel != null) {
+      try {
+        PdfDataModel invoice = PdfDataModel(
+          date: gettingDayDate(),
+          role: 'اشراف',
+          statisticTitle: 'اعداد خدام الخدمة',
+          femalecount: female,
+          malecount: male,
+          name: userModel.name,
+          service: userModel.currentService,
+          churchName: churchNamesBasedOnCode[userModel.church],
+          kg1Number: kgList[0],
+          kg2Number: kgList[1],
+          primary1Number: primaryList[0],
+          primary2Number: primaryList[1],
+          primary3Number: primaryList[2],
+          primary4Number: primaryList[3],
+          primary5Number: primaryList[4],
+          primary6Number: primaryList[5],
+          perGirlsNumber: perAndSecList[0],
+          perBoysNumber: perAndSecList[1],
+          secGirlsNumber: perAndSecList[2],
+          secBoysNumber: perAndSecList[3],
+          studentsNumber: adultsList[0],
+          graduatesNumber: adultsList[1],
+          peopleNumber: adultsList[2],
+          menNumber: adultsList[3],
+          servantNubmer: servantList[0],
+          sundayServantsNumber: servantList[1],
+          prepareServantsNumber: servantList[2],
+          mothoerDulajiNumber: someServicesList[0],
+          wisdomsNumber: someServicesList[1],
+          stageNumber: someServicesList[2],
+          demonstrationToolsNumber: someServicesList[3],
+          brothersOfLordNumber: someServicesList[4],
+          coralsNumber: someOtherServicesList[0],
+          festivalCoordinatorsNumber: someOtherServicesList[1],
+          scoutsNumber: someOtherServicesList[2],
+          counselingCentreNumber: someOtherServicesList[3],
+          deaconsSchoolNumber: someOtherServicesList[4],
+        );
+        //generating pdf methode
+        final pdfFile = await ApiPdfForSupervisor.generate(invoice);
+        //open file methode
+        ApiPdfForSupervisor.openfile(pdfFile);
+        EasyLoading.dismiss();
+      } catch (e) {
+        errorOnCreatingFile(
+            message: ' حدث خطاء اثناء انشاء الفايل رجاء اعادة المحاولة ');
+      }
+    } else {
+      errorOnCreatingFile(
+          message:
+              'حدث خطأ اثناء جلب بياناتك الشخصية رجاء محبة المحاولة مرة اخري');
     }
   }
 }
