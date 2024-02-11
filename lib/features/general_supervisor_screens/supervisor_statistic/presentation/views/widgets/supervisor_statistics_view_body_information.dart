@@ -5,6 +5,7 @@ import 'package:faithful_servant/features/general_supervisor_screens/supervisor_
 import 'package:faithful_servant/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 import 'supervisor_statistics_by_gender.dart';
 import 'supervisor_statistics_for_all_serviecs.dart';
@@ -38,12 +39,21 @@ class SupervisorStatisticsViewBodyInformation extends StatelessWidget {
                   children: [
                     const SupervisorStatisticsForAllServices(),
                     const SupervisorStatisticsByGender(),
+                    Text(
+                      'Print this information'.tr,
+                      style: Styles.textStyle20.copyWith(
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Align(
                       alignment: Alignment.center,
                       child: CustomTextButton(
                         onPressed: BlocProvider.of<StatisticsCubit>(context)
                             .openPdfToPrintData,
-                        textButton: 'Print',
+                        textButton: 'Print'.tr,
                       ),
                     ),
                     const SizedBox(

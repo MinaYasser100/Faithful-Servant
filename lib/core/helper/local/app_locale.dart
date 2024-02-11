@@ -104,6 +104,8 @@ class Applocal implements Translations {
           'statistics by gender : ': 'احصائيات حسب النوع : ',
           'male': 'ذكر',
           'female': 'انثي',
+          'Print this information': 'طباعة هذة البيانات',
+          'Print': 'طباعة',
         },
         "en": {
           'email': 'Email',
@@ -209,6 +211,8 @@ class Applocal implements Translations {
           'statistics by gender : ': 'statistics by gender : ',
           'male': 'male',
           'female': 'female',
+          'Print this information': 'Print this information',
+          'Print': 'Print',
         },
       };
 }

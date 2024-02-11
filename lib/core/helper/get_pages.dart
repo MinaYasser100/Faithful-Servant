@@ -14,6 +14,7 @@ import 'package:faithful_servant/features/servant/presentation/views/servant_vie
 import 'package:faithful_servant/features/setting_language/presentation/views/setting_language_view.dart';
 import 'package:faithful_servant/features/splash_view/views/presentation/splash_view.dart';
 import 'package:faithful_servant/features/statistics/presentation/views/statistics_screen.dart';
+import 'package:faithful_servant/features/user_informations/presentation/views/user_informations_view.dart';
 import 'package:faithful_servant/features/welcome_view/presentation/views/welcome_view.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +28,7 @@ abstract class GetPages {
   static String kGeneralSupervisor = '/generalSupervisor';
   static String kServantView = '/servantview';
   static String kSupervisorStatisticsView = '/supervisorStatisticsView';
+  static String kUserInformaionsView = '/userInformationsView';
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
@@ -119,6 +121,11 @@ abstract class GetPages {
     GetPage(
       name: notification,
       page: () => const NotificationView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kUserInformaionsView,
+      page: () => const UserInformationsView(),
       transition: Transition.circularReveal,
     ),
   ];
