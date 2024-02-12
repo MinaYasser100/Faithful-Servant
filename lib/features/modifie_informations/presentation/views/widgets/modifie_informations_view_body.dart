@@ -13,6 +13,7 @@ import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:faithful_servant/core/widgets/profile_imge_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../../../../../core/widgets/custom_text_button.dart';
@@ -59,10 +60,24 @@ class _ModifieInformationsViewBodyState
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: BlocBuilder<EditingInformationsCubit, EditingInformatinosStates>(
+      child: BlocConsumer<EditingInformationsCubit, EditingInformatinosStates>(
+        listener: (context, state) {
+          if (state is EditingInformatinosUpdateInforamtionsUserLoading ||
+              state is EditingInformatinosImageUploadingLoading) {
+            EasyLoading.show(
+              status: 'Loading',
+            );
+          }
+          if (state is EditingInformatinosUpdateInforamtionsUserSuccess ||
+              state is EditingInformatinosImageUploadingSuccess) {
+            EasyLoading.dismiss();
+          }
+        },
         builder: (context, state) {
           return Form(
             key: fromKey,
+            autovalidateMode: BlocProvider.of<EditingInformationsCubit>(context)
+                .autovalidateMode,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -154,7 +169,27 @@ class _ModifieInformationsViewBodyState
                     textButton: 'Update'.tr,
                     onPressed: () {
                       if (fromKey.currentState!.validate()) {
-                      } else {}
+                        BlocProvider.of<EditingInformationsCubit>(context)
+                            .updateInformationUser(
+                          image:
+                              BlocProvider.of<EditingInformationsCubit>(context)
+                                      .imageSelected ??
+                                  imageUrl!,
+                          name: nameController.text,
+                          email: emailController.text,
+                          phoneNum1: phoneNum1Controller.text,
+                          phoneNum2: phoneNum2Controller.text,
+                          nationalId: nationalIDController.text,
+                          homeOfNumber: numberOfHomeController.text,
+                          streetName: streetNameController.text,
+                          nameArea: addressOfAreaController.text,
+                          qualification: qualificationController.text,
+                          father: fatherOfConfessionController.text,
+                        );
+                      } else {
+                        BlocProvider.of<EditingInformationsCubit>(context)
+                            .changeAutovalidateMode();
+                      }
                     },
                   ),
                   const SizedBox(height: 50),

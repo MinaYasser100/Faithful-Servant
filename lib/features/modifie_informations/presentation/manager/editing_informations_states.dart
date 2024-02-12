@@ -19,3 +19,15 @@ final class EditingInformatinosImageUploadingSuccess
 
 final class EditingInformatinosImageUploadingFailure
     extends EditingInformatinosStates {}
+
+final class EditingInformatinosUpdateInforamtionsUserLoading
+    extends EditingInformatinosStates {}
+
+final class EditingInformatinosUpdateInforamtionsUserSuccess
+    extends EditingInformatinosStates {}
+
+final class EditingInformatinosUpdateInforamtionsUserFailure
+    extends EditingInformatinosStates {}
+
+final class EditingInformationsChangeAutovalidateMode
+    extends EditingInformatinosStates {}
