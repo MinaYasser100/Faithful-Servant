@@ -118,6 +118,7 @@ class Applocal implements Translations {
           'Service : ': 'الخدمة : ',
           'Modifie Informaion': 'تعديل البيانات',
           'Editing Informations': 'تعديل البيانات',
+          'Father: ': 'اب الاعتراف : ',
         },
         "en": {
           'email': 'Email',
@@ -237,6 +238,7 @@ class Applocal implements Translations {
           'Service : ': 'Service : ',
           'Modifie Informaion': 'Modifie Informaion',
           'Editing Informations': 'Editing Informations',
+          'Father: ': 'Father: ',
         },
       };
 }

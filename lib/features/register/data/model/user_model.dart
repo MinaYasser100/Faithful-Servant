@@ -35,6 +35,7 @@ class UserModel extends HiveObject {
   final String currentService;
   @HiveField(15)
   final String fatherOfConfession;
+
   UserModel({
     required this.userID,
     required this.name,

@@ -71,6 +71,10 @@ class UserInformationsViewBody extends StatelessWidget {
               itemValue: churchNamesBasedOnCode[userModel.church],
             ),
             InformationItem(
+              itemName: 'Father: '.tr,
+              itemValue: userModel.fatherOfConfession,
+            ),
+            InformationItem(
               itemName: 'Service : '.tr,
               itemValue: userModel.currentService,
             ),
