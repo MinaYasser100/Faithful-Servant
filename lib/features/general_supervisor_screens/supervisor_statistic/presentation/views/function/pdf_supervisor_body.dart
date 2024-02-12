@@ -152,7 +152,7 @@ class PdfSupervisorBody {
 
   static Widget buildMaleTable(PdfDataModel dataModel) {
     List headersList = [
-      dataModel.femalecount,
+      dataModel.malecount,
       'عدد الخدام الذكور : ',
     ];
     return TableHelper.fromTextArray(

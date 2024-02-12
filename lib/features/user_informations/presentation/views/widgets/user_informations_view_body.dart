@@ -51,7 +51,7 @@ class UserInformationsViewBody extends StatelessWidget {
               itemValue: userModel.phoneNum2,
             ),
             InformationItem(
-              itemName: 'Qualification : '.tr,
+              itemName: 'Qualified : '.tr,
               itemValue: userModel.qualification,
             ),
             InformationItem(

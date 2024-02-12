@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../../../core/widgets/app_bar/specific_app_bar.dart';
 import 'forgotten_password_body_content.dart';
 
 class ForgottenPasswordViewBody extends StatefulWidget {
@@ -25,7 +23,6 @@ class _ForgottenPasswordViewBodyState extends State<ForgottenPasswordViewBody> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SpecificAppBar(appBarText: "Forgotten Password".tr),
           const SizedBox(
             height: 30,
           ),
@@ -35,6 +32,9 @@ class _ForgottenPasswordViewBodyState extends State<ForgottenPasswordViewBody> {
               emailController: emailController,
               formKey: formkey,
             ),
+          ),
+          const SizedBox(
+            height: 30,
           ),
         ],
       ),

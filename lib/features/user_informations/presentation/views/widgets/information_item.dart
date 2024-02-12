@@ -16,7 +16,6 @@ class InformationItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 7, bottom: 7),
       child: Container(
-        height: 50,
         decoration: BoxDecoration(
           color: Colors.grey[300],
           borderRadius: BorderRadius.circular(20),
@@ -33,6 +32,7 @@ class InformationItem extends StatelessWidget {
               Text(
                 itemValue,
                 style: Styles.textStyle16,
+                overflow: TextOverflow.ellipsis,
               )
             ],
           ),

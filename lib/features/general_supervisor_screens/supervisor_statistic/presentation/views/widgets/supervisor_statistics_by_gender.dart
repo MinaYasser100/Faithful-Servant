@@ -36,7 +36,7 @@ class SupervisorStatisticsByGender extends StatelessWidget {
             maleNumber:
                 BlocProvider.of<StatisticsCubit>(context).male.toDouble(),
             femaleNumber:
-                BlocProvider.of<StatisticsCubit>(context).male.toDouble(),
+                BlocProvider.of<StatisticsCubit>(context).female.toDouble(),
           ),
         ),
         const SizedBox(

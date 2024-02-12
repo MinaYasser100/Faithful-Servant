@@ -129,7 +129,7 @@ List<Map> personalPages = [
   {
     "title": 'البيانات الشخصية',
     "icon": const Icon(Icons.abc),
-    'routto': GetPages.personaldata
+    'routto': GetPages.kUserInformationsView
   },
   {
     "title": 'تاريخي الخدمي',
