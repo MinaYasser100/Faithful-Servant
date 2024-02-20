@@ -57,6 +57,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String qualification,
     required String currentService,
     required String fatherOfConfession,
+    required String brithDate,
   }) async {
     emit(RegisterCubitPutUserInformationInFirebaseLoading());
     try {
@@ -77,6 +78,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         qualification: qualification,
         currentService: currentService,
         fatherOfConfession: fatherOfConfession,
+        brithDate: brithDate,
       );
       registerRepo.putUserInformationInFirebase(
           userModel: userModel, userId: userID, church: church);
@@ -105,6 +107,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String addressOfArea,
     required String currentService,
     required String fatherOfConfession,
+    required String brithDate,
   }) async {
     emit(RegisterCubitUserRgistrationLoading());
     try {
@@ -113,23 +116,23 @@ class RegisterCubit extends Cubit<RegisterState> {
       // await FirebaseAuth.instance
       //     .createUserWithEmailAndPassword(email: email, password: password);
       putUserInformationInFirebase(
-        userID: userCredential.user!.uid,
-        name: name,
-        email: email,
-        phoneNum1: phoneNum1,
-        phoneNum2: phoneNum2,
-        image: image,
-        nationalId: nationalId,
-        privilage: privilage,
-        church: church,
-        gender: gender,
-        numberOfnumber: numberOfnumber,
-        streetName: streetName,
-        addressOfArea: addressOfArea,
-        qualification: qualification,
-        currentService: currentService,
-        fatherOfConfession: fatherOfConfession,
-      );
+          userID: userCredential.user!.uid,
+          name: name,
+          email: email,
+          phoneNum1: phoneNum1,
+          phoneNum2: phoneNum2,
+          image: image,
+          nationalId: nationalId,
+          privilage: privilage,
+          church: church,
+          gender: gender,
+          numberOfnumber: numberOfnumber,
+          streetName: streetName,
+          addressOfArea: addressOfArea,
+          qualification: qualification,
+          currentService: currentService,
+          fatherOfConfession: fatherOfConfession,
+          brithDate: brithDate);
       emit(RegisterCubitUserRgistrationSuccess());
     } catch (e) {
       emit(RegisterCubitUserRgistrationFailure(errorMessage: e.toString()));

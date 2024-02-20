@@ -35,25 +35,27 @@ class UserModel extends HiveObject {
   final String currentService;
   @HiveField(15)
   final String fatherOfConfession;
+  @HiveField(16)
+  final String brithDate;
 
-  UserModel({
-    required this.userID,
-    required this.name,
-    required this.email,
-    required this.phoneNum1,
-    required this.phoneNum2,
-    required this.image,
-    required this.nationalId,
-    required this.privilage,
-    required this.church,
-    required this.gender,
-    required this.numberOfnumber,
-    required this.streetName,
-    required this.addressOfArea,
-    required this.qualification,
-    required this.currentService,
-    required this.fatherOfConfession,
-  });
+  UserModel(
+      {required this.userID,
+      required this.name,
+      required this.email,
+      required this.phoneNum1,
+      required this.phoneNum2,
+      required this.image,
+      required this.nationalId,
+      required this.privilage,
+      required this.church,
+      required this.gender,
+      required this.numberOfnumber,
+      required this.streetName,
+      required this.addressOfArea,
+      required this.qualification,
+      required this.currentService,
+      required this.fatherOfConfession,
+      required this.brithDate});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
@@ -73,6 +75,7 @@ class UserModel extends HiveObject {
       qualification: json['qualification'] as String,
       currentService: json['currentService'] as String,
       fatherOfConfession: json['fatherOfConfession'] as String,
+      brithDate: json['brithDate'] as String,
     );
   }
 
@@ -94,6 +97,7 @@ class UserModel extends HiveObject {
       'qualification': qualification,
       'currentService': currentService,
       'fatherOfConfession': fatherOfConfession,
+      'brithDate': brithDate,
     };
   }
 }
