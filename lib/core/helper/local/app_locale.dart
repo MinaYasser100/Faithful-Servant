@@ -120,6 +120,8 @@ class Applocal implements Translations {
           'Editing Informations': 'تعديل البيانات',
           'Father: ': 'اب الاعتراف : ',
           'birth date : ': 'تاريخ الميلاد : ',
+          'Birth date': 'تاريخ الميلاد',
+          'Please, enter your brith date': 'ادخل تاريك ميلادك',
         },
         "en": {
           'email': 'Email',
@@ -241,6 +243,8 @@ class Applocal implements Translations {
           'Editing Informations': 'Editing Informations',
           'Father: ': 'Father: ',
           'birth date : ': 'birth date : ',
+          'Birth date': 'Birth date',
+          'Please, enter your brith date': 'Please, enter your brith date',
         },
       };
 }
