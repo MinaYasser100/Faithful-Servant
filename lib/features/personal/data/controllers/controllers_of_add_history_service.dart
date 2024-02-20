@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AddServiceHistoryControllers {
-  static final TextEditingController historydurationcontroller =
+  static TextEditingController historydurationcontroller =
       TextEditingController();
-  static final TextEditingController historyservicecontroller =
+  static TextEditingController historyservicecontroller =
       TextEditingController();
-  static final TextEditingController historyplacecontroller =
-      TextEditingController();
-  static final TextEditingController historyrolecontroller =
-      TextEditingController();
+  static TextEditingController historyplacecontroller = TextEditingController();
+  static TextEditingController historyrolecontroller = TextEditingController();
 }

@@ -106,6 +106,8 @@ class HistoryCard extends StatelessWidget {
             IconButton(
                 color: kPrimaryColor,
                 onPressed: () {
+                  BlocProvider.of<HistoryOfServiceCubit>(context).editinitdata(
+                      data: HistoryOfServiceCubit.dataListHistoryCards[index]);
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
