@@ -126,6 +126,7 @@ List<String> placesItems = [
 ];
 
 String selectedservice = 'جامعيين';
+String selectedrole = 'خادم';
 String selectedplace = 'كنيسة مارجرجس';
 
 List<String> currentrolesItems = ['المشرف العام', 'امين الخدمة', 'خادم'];

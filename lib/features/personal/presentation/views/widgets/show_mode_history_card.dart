@@ -1,21 +1,13 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
+import 'package:faithful_servant/features/personal/data/repos/services_history_repo_implementation.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/history_of_service_cubit/history_of_service_cubit.dart';
+import 'package:faithful_servant/features/personal/presentation/views/widgets/bottom_sheet_of_adding_service_history.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoryCard extends StatelessWidget {
   const HistoryCard({super.key, required this.index});
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return FetchHistoryDataSuccessCard(index: index);
-  }
-}
-
-class FetchHistoryDataSuccessCard extends StatelessWidget {
-  const FetchHistoryDataSuccessCard({super.key, required this.index});
 
   final int index;
 
@@ -113,7 +105,20 @@ class FetchHistoryDataSuccessCard extends StatelessWidget {
             ),
             IconButton(
                 color: kPrimaryColor,
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return BlocProvider(
+                        create: (context) => HistoryOfServiceCubit(
+                            ServiceHistoryImplementaion()),
+                        child: BottomSheetOfAddingOrEditingServiceHistory(
+                            data: HistoryOfServiceCubit
+                                .dataListHistoryCards[index]),
+                      );
+                    },
+                  );
+                },
                 icon: const Icon(Icons.edit)),
           ],
         ),
