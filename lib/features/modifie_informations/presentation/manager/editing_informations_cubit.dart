@@ -99,6 +99,7 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
           qualification: qualification,
           currentService: userModel.currentService,
           fatherOfConfession: father,
+          brithDate: userModel.brithDate,
         );
         editingInformationsRepo
             .updateInformationUser(

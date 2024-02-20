@@ -21,6 +21,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
   TextEditingController streetNameController = TextEditingController();
   TextEditingController addressOfAreaController = TextEditingController();
   TextEditingController fatherOfConfessionController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
   GlobalKey<FormState> fromKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           qualificationController: qualificationController,
           streetNameController: streetNameController,
           addressOfAreaController: addressOfAreaController,
+          dateController: dateController,
         ),
       ),
     );
