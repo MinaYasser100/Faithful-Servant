@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/personal/data/Models/services_history_model/service_history_model.dart';
+import 'package:faithful_servant/features/personal/data/controllers/controllers_of_add_history_service.dart';
 import 'package:faithful_servant/features/personal/data/repos/services_history_repos.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
@@ -79,4 +80,19 @@ class HistoryOfServiceCubit extends Cubit<HistoryOfServiceState> {
     }
     EasyLoading.dismiss();
   }
+
+  void editinitdata({required ServiceHistoryModel data}) {
+    selectedservice = data.service;
+    selectedrole = data.role;
+    AddServiceHistoryControllers.historydurationcontroller.text = data.duration;
+    if (data.place == "كنيسة مارجرجس") {
+      selectedplace = data.place;
+      emitini();
+    } else {
+      selectedplace = "اخري";
+      emitelesplace();
+    }
+  }
+
+  submitNewHistory() {}
 }
