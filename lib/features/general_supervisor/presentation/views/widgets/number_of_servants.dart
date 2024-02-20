@@ -25,8 +25,11 @@ class NumberOfServants extends StatelessWidget {
                   builder: (context, state) {
                     if (state is GeneralSupervisorGetNumberOfServantLoading) {
                       return const Center(
-                          child: CircularProgressIndicator(
-                        color: kSecondColor,
+                          child: Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: CircularProgressIndicator(
+                          color: kSecondColor,
+                        ),
                       ));
                     } else if (state
                         is GeneralSupervisorGetNumberOfGeneralServantSuccess) {

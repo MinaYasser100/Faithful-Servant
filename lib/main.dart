@@ -24,7 +24,6 @@ void main() async {
   await CacheHelper.init();
   await Hive.initFlutter();
   Hive.registerAdapter(UserModelAdapter());
-  await Hive.openBox<UserModel>(kUserBox);
   runApp(const MyApp());
 }
 

@@ -33,6 +33,8 @@ class UserModel extends HiveObject {
   final String qualification;
   @HiveField(14)
   final String currentService;
+  @HiveField(15)
+  final String fatherOfConfession;
 
   UserModel({
     required this.userID,
@@ -50,6 +52,7 @@ class UserModel extends HiveObject {
     required this.addressOfArea,
     required this.qualification,
     required this.currentService,
+    required this.fatherOfConfession,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -69,6 +72,7 @@ class UserModel extends HiveObject {
       addressOfArea: json['addressOfArea'] as String,
       qualification: json['qualification'] as String,
       currentService: json['currentService'] as String,
+      fatherOfConfession: json['fatherOfConfession'] as String,
     );
   }
 
@@ -89,6 +93,7 @@ class UserModel extends HiveObject {
       'addressOfArea': addressOfArea,
       'qualification': qualification,
       'currentService': currentService,
+      'fatherOfConfession': fatherOfConfession,
     };
   }
 }

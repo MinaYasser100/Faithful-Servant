@@ -1,5 +1,5 @@
 import 'package:faithful_servant/features/statistics/presentation/manager/pie_chart_gender_count_cubit/pie_chart_cubit.dart';
-import 'package:faithful_servant/features/statistics/presentation/views/widgets/loading_indicator.dart';
+import 'package:faithful_servant/core/widgets/loading_indicator.dart';
 import 'package:faithful_servant/features/statistics/presentation/views/widgets/success_state_pie_count.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

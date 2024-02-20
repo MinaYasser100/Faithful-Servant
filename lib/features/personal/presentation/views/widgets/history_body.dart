@@ -3,7 +3,7 @@ import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/personal/data/repos/services_history_repo_implementation.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/history_of_service_cubit/history_of_service_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/show_mode_history_card.dart';
-import 'package:faithful_servant/features/statistics/presentation/views/widgets/loading_indicator.dart';
+import 'package:faithful_servant/core/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

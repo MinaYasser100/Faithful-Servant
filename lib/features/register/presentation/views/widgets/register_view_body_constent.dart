@@ -24,7 +24,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import '../../../../../core/function/screen_action/successfully_show_dialog.dart';
-import 'profile_imge_widget.dart';
+import '../../../../../core/widgets/profile_imge_widget.dart';
 
 class ReisterViewBodyContent extends StatefulWidget {
   const ReisterViewBodyContent({
@@ -139,6 +139,9 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               context)
                           .imageSelected ??
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
+                  onPressed: () {
+                    BlocProvider.of<RegisterCubit>(context).getProfileImage();
+                  },
                 ),
               ),
               Padding(
@@ -321,6 +324,8 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                               addressOfArea:
                                   widget.addressOfAreaController.text,
                               currentService: selectCurrentService,
+                              fatherOfConfession:
+                                  widget.fatherOfConfessionController.text,
                             );
                           } else {
                             BlocProvider.of<RegisterCubit>(context)

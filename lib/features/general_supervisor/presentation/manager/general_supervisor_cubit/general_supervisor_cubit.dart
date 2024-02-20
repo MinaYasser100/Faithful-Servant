@@ -11,9 +11,9 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
   GeneralSupervisorCubit() : super(GeneralSupervisorInitial());
   int total = 0;
   void getNumberOfServant() async {
-    UserModel? userModel = await getUserData();
+    emit(GeneralSupervisorGetNumberOfServantLoading());
     try {
-      emit(GeneralSupervisorGetNumberOfServantLoading());
+      UserModel? userModel = await getUserData();
       if (userModel != null) {
         await FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
@@ -24,11 +24,9 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
             .then((value) {
           if (value.docs.isNotEmpty) {
             total = value.docs.length;
-            print(value.docs.length);
           } else {
             total = 0;
           }
-          emit(GeneralSupervisorGetNumberOfServantSuccess());
         });
         await FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])

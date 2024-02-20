@@ -56,6 +56,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String addressOfArea,
     required String qualification,
     required String currentService,
+    required String fatherOfConfession,
   }) async {
     emit(RegisterCubitPutUserInformationInFirebaseLoading());
     try {
@@ -75,6 +76,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         addressOfArea: addressOfArea,
         qualification: qualification,
         currentService: currentService,
+        fatherOfConfession: fatherOfConfession,
       );
       registerRepo.putUserInformationInFirebase(
           userModel: userModel, userId: userID, church: church);
@@ -102,6 +104,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String streetName,
     required String addressOfArea,
     required String currentService,
+    required String fatherOfConfession,
   }) async {
     emit(RegisterCubitUserRgistrationLoading());
     try {
@@ -125,6 +128,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         addressOfArea: addressOfArea,
         qualification: qualification,
         currentService: currentService,
+        fatherOfConfession: fatherOfConfession,
       );
       emit(RegisterCubitUserRgistrationSuccess());
     } catch (e) {

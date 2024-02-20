@@ -87,6 +87,12 @@ List<Map> generalServantPage = [
     'routeto': GetPages.attendaceAndOthers,
     'icon': Icons.edit_document,
   },
+  {
+    'text': 'بياناتك',
+    "btntext": 'Open',
+    'routeto': GetPages.kUserInformationsView,
+    'icon': Icons.article_outlined,
+  },
 ];
 
 List<Map> genetalSuperVisorPages = [
@@ -102,15 +108,28 @@ List<Map> genetalSuperVisorPages = [
     'routeto': GetPages.kSupervisorStatisticsView,
     'icon': Icons.line_axis,
   },
+  {
+    'text': 'بياناتك',
+    "btntext": 'Open',
+    'routeto': GetPages.kUserInformationsView,
+    'icon': Icons.article_outlined,
+  },
 ];
 
-List<Map> servantPages = [];
+List<Map> servantPages = [
+  {
+    'text': 'بياناتك',
+    "btntext": 'Open',
+    'routeto': GetPages.kUserInformationsView,
+    'icon': Icons.article_outlined,
+  },
+];
 
 List<Map> personalPages = [
   {
     "title": 'البيانات الشخصية',
     "icon": const Icon(Icons.abc),
-    'routto': GetPages.personaldata
+    'routto': GetPages.kUserInformationsView
   },
   {
     "title": 'تاريخي الخدمي',

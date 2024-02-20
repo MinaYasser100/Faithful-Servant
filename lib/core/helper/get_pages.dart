@@ -5,6 +5,7 @@ import 'package:faithful_servant/features/general_supervisor/presentation/views/
 import 'package:faithful_servant/features/general_supervisor_screens/supervisor_statistic/presentation/views/supervisor_statistics_view.dart';
 import 'package:faithful_servant/features/login/presentation/views/login_view.dart';
 import 'package:faithful_servant/features/mine_servant/presentation/views/mine_servant_screen.dart';
+import 'package:faithful_servant/features/modifie_informations/presentation/views/modifie_informations_view.dart';
 import 'package:faithful_servant/features/notification/presentaion/views/notifications_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/history_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/personal_data_view.dart';
@@ -14,6 +15,7 @@ import 'package:faithful_servant/features/servant/presentation/views/servant_vie
 import 'package:faithful_servant/features/setting_language/presentation/views/setting_language_view.dart';
 import 'package:faithful_servant/features/splash_view/views/presentation/splash_view.dart';
 import 'package:faithful_servant/features/statistics/presentation/views/statistics_screen.dart';
+import 'package:faithful_servant/features/user_informations/presentation/views/user_informations_view.dart';
 import 'package:faithful_servant/features/welcome_view/presentation/views/welcome_view.dart';
 import 'package:get/get.dart';
 
@@ -27,6 +29,8 @@ abstract class GetPages {
   static String kGeneralSupervisor = '/generalSupervisor';
   static String kServantView = '/servantview';
   static String kSupervisorStatisticsView = '/supervisorStatisticsView';
+  static String kUserInformationsView = '/userInformationsView';
+  static String kModifieInformationsView = '/modifieInformationview';
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
@@ -119,6 +123,16 @@ abstract class GetPages {
     GetPage(
       name: notification,
       page: () => const NotificationView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kUserInformationsView,
+      page: () => const UserInformationsView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kModifieInformationsView,
+      page: () => ModifieInformationsView(),
       transition: Transition.circularReveal,
     ),
   ];
