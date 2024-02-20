@@ -1,11 +1,8 @@
-import 'package:faithful_servant/core/helper/constant.dart';
-import 'package:faithful_servant/core/helper/get_pages.dart';
-import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
+import 'package:faithful_servant/features/user_informations/presentation/views/widgets/image_for_user_informations.dart';
+import 'package:faithful_servant/features/user_informations/presentation/views/widgets/modifie_information_button.dart';
+import 'package:faithful_servant/features/user_informations/presentation/views/widgets/show_user_informations.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import 'information_item.dart';
 
 class UserInformationsViewBody extends StatelessWidget {
   const UserInformationsViewBody({
@@ -21,75 +18,15 @@ class UserInformationsViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: CircleAvatar(
-                radius: 86,
-                backgroundColor: kPrimaryLightColor,
-                child: CircleAvatar(
-                  radius: 80,
-                  backgroundImage: NetworkImage(userModel.image),
-                ),
-              ),
-            ),
+            ImageForUserInformations(userModel: userModel),
             const SizedBox(
               height: 10,
             ),
-            InformationItem(
-              itemName: 'Name : '.tr,
-              itemValue: userModel.name,
-            ),
-            InformationItem(
-              itemName: 'Email : '.tr,
-              itemValue: userModel.email,
-            ),
-            InformationItem(
-              itemName: 'phone : '.tr,
-              itemValue: userModel.phoneNum1,
-            ),
-            InformationItem(
-              itemName: 'phone : '.tr,
-              itemValue: userModel.phoneNum2,
-            ),
-            InformationItem(
-              itemName: 'Qualified : '.tr,
-              itemValue: userModel.qualification,
-            ),
-            InformationItem(
-              itemName: 'National ID : '.tr,
-              itemValue: userModel.nationalId,
-            ),
-            InformationItem(
-              itemName: 'Address : '.tr,
-              itemValue: '${userModel.numberOfnumber} ب${userModel.streetName}',
-            ),
-            InformationItem(
-              itemName: 'Name of area : '.tr,
-              itemValue: userModel.addressOfArea,
-            ),
-            InformationItem(
-              itemName: 'Church : '.tr,
-              itemValue: churchNamesBasedOnCode[userModel.church],
-            ),
-            InformationItem(
-              itemName: 'Father: '.tr,
-              itemValue: userModel.fatherOfConfession,
-            ),
-            InformationItem(
-              itemName: 'Service : '.tr,
-              itemValue: userModel.currentService,
-            ),
+            ShowUserInformations(userModel: userModel),
             const SizedBox(
               height: 30,
             ),
-            Center(
-              child: CustomTextButton(
-                textButton: 'Modifie Informaion'.tr,
-                onPressed: () {
-                  Get.toNamed(GetPages.kModifieInformationsView,
-                      arguments: userModel);
-                },
-              ),
-            ),
+            ModifieInformationButton(userModel: userModel),
             const SizedBox(
               height: 30,
             ),

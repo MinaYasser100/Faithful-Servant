@@ -110,7 +110,7 @@ class Applocal implements Translations {
           'Name : ': 'الاسم : ',
           'Email : ': 'الايميل : ',
           'phone : ': 'الهاتف : ',
-          'Qualification : ': 'المؤهل : ',
+          'Qualified : ': 'المؤهل : ',
           'National ID : ': 'الرقم القومي : ',
           'Address : ': 'العنوان : ',
           'Name of area : ': 'اسم المنطقة : ',
@@ -119,6 +119,7 @@ class Applocal implements Translations {
           'Modifie Informaion': 'تعديل البيانات',
           'Editing Informations': 'تعديل البيانات',
           'Father: ': 'اب الاعتراف : ',
+          'birth date : ': 'تاريخ الميلاد : ',
         },
         "en": {
           'email': 'Email',
@@ -230,7 +231,7 @@ class Applocal implements Translations {
           'Name : ': 'Name : ',
           'Email : ': 'Email : ',
           'phone : ': 'phone : ',
-          'Qualification : ': 'Qualification : ',
+          'Qualified : ': 'Qualified : ',
           'National ID : ': 'National ID : ',
           'Address : ': 'Address : ',
           'Name of area : ': 'Name of area : ',
@@ -239,6 +240,7 @@ class Applocal implements Translations {
           'Modifie Informaion': 'Modifie Informaion',
           'Editing Informations': 'Editing Informations',
           'Father: ': 'Father: ',
+          'birth date : ': 'birth date : ',
         },
       };
 }
