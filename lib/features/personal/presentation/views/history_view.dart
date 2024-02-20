@@ -33,7 +33,7 @@ class HistoryView extends StatelessWidget {
               return BlocProvider(
                 create: (context) =>
                     HistoryOfServiceCubit(ServiceHistoryImplementaion()),
-                child: const BottomSheetOfAddingServiceHistory(),
+                child: const BottomSheetOfAddingOrEditingServiceHistory(),
               );
             },
           );
