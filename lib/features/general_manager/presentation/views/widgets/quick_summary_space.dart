@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/general_manager/presentation/manager/general_manager_cubit/general_manager_cubit.dart';
 import 'package:faithful_servant/core/widgets/loading_indicator.dart';
@@ -24,7 +25,8 @@ class QuickSummarySpace extends StatelessWidget {
                 BlocBuilder<GeneralManagerCubit, GeneralManagerState>(
                   builder: (context, state) {
                     if (state is Generalquicksummaryloading) {
-                      return const LoadingIndicator();
+                      return const LoadingIndicator(
+                          indicatorColor: kSecondColor);
                     } else if (state is Generalquicksummarysuccess) {
                       return Text(
                           BlocProvider.of<GeneralManagerCubit>(context)

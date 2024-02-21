@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/function/validator/email_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -25,12 +26,14 @@ class ForgottenPasswordBodyContent extends StatelessWidget {
       listener: (context, state) {
         if (state is ForgetPasswordCheckUserEmailSuccess) {
           successfullyShowDialog(
-            context: context,
-            contentText:
-                'The message is sended to this email to change password'.tr,
-            titleText: 'Successfully'.tr,
-            buttonText: 'Go To Login'.tr,
-          );
+              context: context,
+              contentText:
+                  'The message is sended to this email to change password'.tr,
+              titleText: 'Successfully'.tr,
+              buttonText: 'Go To Login'.tr,
+              onPressed: () {
+                Get.offNamed(GetPages.kLoginView);
+              });
           emailController.clear();
         }
       },

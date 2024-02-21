@@ -8,8 +8,10 @@ class UserInformationsViewBody extends StatelessWidget {
   const UserInformationsViewBody({
     super.key,
     required this.userModel,
+    required this.personal,
   });
   final UserModel userModel;
+  final bool personal;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,7 +28,10 @@ class UserInformationsViewBody extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            ModifieInformationButton(userModel: userModel),
+            ModifieInformationButton(
+              userModel: userModel,
+              personal: personal,
+            ),
             const SizedBox(
               height: 30,
             ),

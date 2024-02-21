@@ -13,15 +13,19 @@ class UserInformationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UserInformationsCubit()..getUserInformations(),
+      create: (context) => UserInformationsCubit()
+        ..getUserInformations(
+            personal: Get.arguments["personal"],
+            id: Get.arguments["id"] ?? "0"),
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         appBar: GeneralAppBar(
-          title: 'Your Informations'.tr,
+          title: 'Informations'.tr,
           appBar: AppBar(),
         ),
-        body: const DesignBody(
-          widget: UserInformationsViewBlocBuilder(),
+        body: DesignBody(
+          widget: UserInformationsViewBlocBuilder(
+              personal: Get.arguments["personal"]),
         ),
       ),
     );

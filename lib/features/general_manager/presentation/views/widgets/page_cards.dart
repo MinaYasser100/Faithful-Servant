@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/widgets/one_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,13 @@ class PageCards extends StatelessWidget {
                 btnText: screensList[index]['btntext'],
                 icon: screensList[index]['icon'],
                 onPressed: () {
-                  Get.toNamed(screensList[index]["routeto"]);
+                  if (screensList[index]["routeto"] ==
+                      GetPages.kUserInformationsView) {
+                    Get.toNamed(screensList[index]["routeto"],
+                        arguments: {"personal": true, "id": "0"});
+                  } else {
+                    Get.toNamed(screensList[index]["routeto"]);
+                  }
                 },
               );
             },

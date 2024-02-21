@@ -1,11 +1,11 @@
 import 'dart:io';
-
-import 'package:faithful_servant/core/function/get_user_data.dart';
+import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
 import 'package:faithful_servant/features/modifie_informations/data/editing_informations_repo/editing_informations_repo.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../views/functions/update_informations_in_hive.dart';
@@ -78,38 +78,49 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
     required String qualification,
     required String father,
     required String birthDate,
+    required UserModel userModel,
+    required bool personal,
+    required BuildContext context,
   }) async {
     emit(EditingInformatinosUpdateInforamtionsUserLoading());
-    UserModel? userModel = await getUserData();
+    //UserModel? userModel = await getUserData();
     try {
-      if (userModel != null) {
-        UserModel userModelUpdate = UserModel(
-          userID: userModel.userID,
-          name: name,
-          email: email,
-          phoneNum1: phoneNum1,
-          phoneNum2: phoneNum2,
-          image: image,
-          nationalId: nationalId,
-          privilage: userModel.privilage,
-          church: userModel.church,
-          gender: userModel.gender,
-          numberOfnumber: homeOfNumber,
-          streetName: streetName,
-          addressOfArea: nameArea,
-          qualification: qualification,
-          currentService: userModel.currentService,
-          fatherOfConfession: father,
-          brithDate: birthDate,
-        );
-        editingInformationsRepo
-            .updateInformationUser(
-                userModel: userModel, userModelUpdate: userModelUpdate)
-            .then((value) async {
+      UserModel userModelUpdate = UserModel(
+        userID: userModel.userID,
+        name: name,
+        email: email,
+        phoneNum1: phoneNum1,
+        phoneNum2: phoneNum2,
+        image: image,
+        nationalId: nationalId,
+        privilage: userModel.privilage,
+        church: userModel.church,
+        gender: userModel.gender,
+        numberOfnumber: homeOfNumber,
+        streetName: streetName,
+        addressOfArea: nameArea,
+        qualification: qualification,
+        currentService: userModel.currentService,
+        fatherOfConfession: father,
+        brithDate: birthDate,
+      );
+      editingInformationsRepo
+          .updateInformationUser(
+              userModel: userModel, userModelUpdate: userModelUpdate)
+          .then((value) async {
+        if (personal) {
           await updateInformationsInHive(userModelUpdate);
-          emit(EditingInformatinosUpdateInforamtionsUserSuccess());
-        });
-      }
+        }
+        emit(EditingInformatinosUpdateInforamtionsUserSuccess());
+        successfullyShowDialog(
+            context: context,
+            titleText: 'تحديث البيانات',
+            contentText: 'تم تحديث البيانات بنجاح',
+            buttonText: 'OK',
+            onPressed: () {
+              Get.back();
+            });
+      });
     } catch (e) {
       emit(EditingInformatinosUpdateInforamtionsUserFailure());
     }

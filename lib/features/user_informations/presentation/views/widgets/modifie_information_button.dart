@@ -8,9 +8,11 @@ class ModifieInformationButton extends StatelessWidget {
   const ModifieInformationButton({
     super.key,
     required this.userModel,
+    required this.personal,
   });
 
   final UserModel userModel;
+  final bool personal;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,8 @@ class ModifieInformationButton extends StatelessWidget {
       child: CustomTextButton(
         textButton: 'Modifie Informaion'.tr,
         onPressed: () {
-          Get.toNamed(GetPages.kModifieInformationsView, arguments: userModel);
+          Get.toNamed(GetPages.kModifieInformationsView,
+              arguments: {"userModel": userModel, "personal": personal});
         },
       ),
     );

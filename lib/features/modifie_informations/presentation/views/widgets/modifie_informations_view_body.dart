@@ -10,8 +10,10 @@ import 'package:get/get.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 
 class ModifieInformationsViewBody extends StatefulWidget {
-  const ModifieInformationsViewBody({super.key, required this.userModel});
+  const ModifieInformationsViewBody(
+      {super.key, required this.userModel, required this.perosnal});
   final UserModel userModel;
+  final bool perosnal;
   @override
   State<ModifieInformationsViewBody> createState() =>
       _ModifieInformationsViewBodyState();
@@ -101,6 +103,9 @@ class _ModifieInformationsViewBodyState
                           qualification: qualificationController.text,
                           father: fatherOfConfessionController.text,
                           birthDate: birthDateController.text,
+                          userModel: widget.userModel,
+                          personal: widget.perosnal,
+                          context: context,
                         );
                       } else {
                         BlocProvider.of<EditingInformationsCubit>(context)

@@ -11,7 +11,8 @@ import 'package:get/get.dart';
 
 class ModifieInformationsView extends StatelessWidget {
   final UserModel userModel;
-  ModifieInformationsView({super.key}) : userModel = Get.arguments as UserModel;
+  ModifieInformationsView({super.key})
+      : userModel = Get.arguments["userModel"] as UserModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class ModifieInformationsView extends StatelessWidget {
         body: DesignBody(
           widget: ModifieInformationsViewBody(
             userModel: userModel,
+            perosnal: Get.arguments["personal"],
           ),
         ),
       ),

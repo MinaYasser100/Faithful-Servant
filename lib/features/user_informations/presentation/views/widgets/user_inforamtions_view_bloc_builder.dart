@@ -7,7 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'user_informations_view_body.dart';
 
 class UserInformationsViewBlocBuilder extends StatelessWidget {
-  const UserInformationsViewBlocBuilder({super.key});
+  const UserInformationsViewBlocBuilder({super.key, required this.personal});
+
+  final bool personal;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class UserInformationsViewBlocBuilder extends StatelessWidget {
         } else if (state is UserInformationsGetUserInformationsSuccess) {
           return UserInformationsViewBody(
             userModel: state.userModel,
+            personal: personal,
           );
         } else {
           return const Text(

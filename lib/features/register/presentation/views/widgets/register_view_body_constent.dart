@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/function/screen_action/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -88,12 +89,14 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
           if (state is RegisterCubitPutUserInformationInFirebaseSuccess) {
             EasyLoading.dismiss();
             successfullyShowDialog(
-              context: context,
-              titleText: 'Successfully Registration'.tr,
-              contentText:
-                  'The registration is successful, now go to the login'.tr,
-              buttonText: 'Go To Login'.tr,
-            );
+                context: context,
+                titleText: 'Successfully Registration'.tr,
+                contentText:
+                    'The registration is successful, now go to the login'.tr,
+                buttonText: 'Go To Login'.tr,
+                onPressed: () {
+                  Get.offNamed(GetPages.kLoginView);
+                });
             clearRegisterTextEditingController();
             BlocProvider.of<RegisterCubit>(context).imageSelected == null;
           }
