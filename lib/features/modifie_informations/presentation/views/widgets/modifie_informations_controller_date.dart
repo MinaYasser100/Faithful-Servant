@@ -65,6 +65,7 @@ class _ModifieInformationsControllerDateState
           labelText: 'email'.tr,
           keyboardType: TextInputType.emailAddress,
           validator: emailValidator,
+          readOnly: true,
         ),
         const SizedBox(height: 15),
         CustomTextFromField(

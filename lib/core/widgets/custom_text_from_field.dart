@@ -12,6 +12,7 @@ class CustomTextFromField extends StatelessWidget {
     this.validator,
     this.keyboardType,
     required this.textEditingController,
+    this.readOnly = false,
   });
   final String labelText;
   final bool obscureText;
@@ -20,6 +21,7 @@ class CustomTextFromField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final TextEditingController textEditingController;
+  final bool readOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -27,6 +29,7 @@ class CustomTextFromField extends StatelessWidget {
       obscureText: obscureText,
       validator: validator,
       keyboardType: keyboardType,
+      readOnly: readOnly,
       decoration: InputDecoration(
         fillColor: kSecondColor,
         filled: true,
