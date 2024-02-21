@@ -8,14 +8,15 @@ import 'package:faithful_servant/features/personal/presentation/manager/validato
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_form_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
 
 class BottomSheetOfAddingOrEditingServiceHistory extends StatefulWidget {
-  const BottomSheetOfAddingOrEditingServiceHistory({super.key, this.data});
+  const BottomSheetOfAddingOrEditingServiceHistory(
+      {super.key, this.data, this.index, required this.edit});
 
   static const double spaces = 10;
   final ServiceHistoryModel? data;
+  final int? index;
+  final bool edit;
 
   @override
   State<BottomSheetOfAddingOrEditingServiceHistory> createState() =>
@@ -118,15 +119,15 @@ class _BottomSheetOfAddingOrEditingServiceHistoryState
                   items: placesItems,
                   selectedItem: selectedplace,
                   onChanged: (value) {
-                    AddServiceHistoryControllers.historyplacecontroller.text =
-                        value!;
                     setState(() {
-                      selectedplace = value;
+                      selectedplace = value!;
                     });
                     if (value == 'اخري') {
                       BlocProvider.of<HistoryOfServiceCubit>(context)
                           .emitelesplace();
                     } else {
+                      AddServiceHistoryControllers.historyplacecontroller.text =
+                          value!;
                       BlocProvider.of<HistoryOfServiceCubit>(context)
                           .emitEditModeCard();
                     }
@@ -167,11 +168,12 @@ class _BottomSheetOfAddingOrEditingServiceHistoryState
                 iconColor: MaterialStatePropertyAll(kSecondColor),
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor)),
             onPressed: () async {
-              EasyLoading.show(status: 'تحميل ...');
-              // add here function of sending data to firebase
-
-              EasyLoading.dismiss();
-              Get.back();
+              await BlocProvider.of<HistoryOfServiceCubit>(context)
+                  .submitHistory(
+                context: context,
+                index: widget.index ?? 0,
+                edit: widget.edit,
+              );
             },
             icon: const Icon(Icons.send),
             label: Text(

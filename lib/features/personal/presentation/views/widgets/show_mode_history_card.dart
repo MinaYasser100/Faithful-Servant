@@ -115,8 +115,11 @@ class HistoryCard extends StatelessWidget {
                         create: (context) => HistoryOfServiceCubit(
                             ServiceHistoryImplementaion()),
                         child: BottomSheetOfAddingOrEditingServiceHistory(
-                            data: HistoryOfServiceCubit
-                                .dataListHistoryCards[index]),
+                          data:
+                              HistoryOfServiceCubit.dataListHistoryCards[index],
+                          index: index,
+                          edit: true,
+                        ),
                       );
                     },
                   );

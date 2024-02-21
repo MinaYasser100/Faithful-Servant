@@ -8,7 +8,6 @@ import 'package:faithful_servant/features/mine_servant/presentation/views/mine_s
 import 'package:faithful_servant/features/modifie_informations/presentation/views/modifie_informations_view.dart';
 import 'package:faithful_servant/features/notification/presentaion/views/notifications_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/history_view.dart';
-import 'package:faithful_servant/features/personal/presentation/views/personal_data_view.dart';
 import 'package:faithful_servant/features/personal/presentation/views/personal_view.dart';
 import 'package:faithful_servant/features/register/presentation/views/register_view.dart';
 import 'package:faithful_servant/features/servant/presentation/views/servant_view.dart';
@@ -37,7 +36,6 @@ abstract class GetPages {
   static String attendaceAndOthers = '/attendanceAndOthers';
   static String personalview = '/personalview';
   static String history = '/history';
-  static String personaldata = '/personaldata';
   static String notification = '/notification';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
@@ -113,11 +111,6 @@ abstract class GetPages {
     GetPage(
       name: history,
       page: () => const HistoryView(),
-      transition: Transition.circularReveal,
-    ),
-    GetPage(
-      name: personaldata,
-      page: () => const PersonalData(),
       transition: Transition.circularReveal,
     ),
     GetPage(

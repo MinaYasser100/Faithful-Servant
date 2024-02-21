@@ -12,12 +12,9 @@ class HistoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-            create: (context) =>
-                HistoryOfServiceCubit(ServiceHistoryImplementaion())..init()),
-      ],
+    return BlocProvider(
+      create: (context) =>
+          HistoryOfServiceCubit(ServiceHistoryImplementaion())..init(),
       child: Column(
         children: [
           const SizedBox(height: 10),
@@ -38,6 +35,8 @@ class HistoryBody extends StatelessWidget {
                   child: ListView.builder(
                     itemCount:
                         HistoryOfServiceCubit.dataListHistoryCards.length,
+                    physics: const AlwaysScrollableScrollPhysics(
+                        parent: BouncingScrollPhysics()),
                     itemBuilder: (context, index) {
                       return HistoryCard(index: index);
                     },

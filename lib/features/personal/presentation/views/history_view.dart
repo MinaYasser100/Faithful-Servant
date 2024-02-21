@@ -18,12 +18,13 @@ class HistoryView extends StatelessWidget {
       appBar: GeneralAppBar(title: 'تاريخي الخدمي', appBar: AppBar()),
       drawer: const GeneralDrawer(),
       body: Container(
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            color: kSecondColor,
-            borderRadius: BorderRadius.circular(bodyRadious),
-          ),
-          child: const HistoryBody()),
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          color: kSecondColor,
+          borderRadius: BorderRadius.circular(bodyRadious),
+        ),
+        child: const HistoryBody(),
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         onPressed: () {
@@ -33,7 +34,8 @@ class HistoryView extends StatelessWidget {
               return BlocProvider(
                 create: (context) =>
                     HistoryOfServiceCubit(ServiceHistoryImplementaion()),
-                child: const BottomSheetOfAddingOrEditingServiceHistory(),
+                child: const BottomSheetOfAddingOrEditingServiceHistory(
+                    edit: false),
               );
             },
           );

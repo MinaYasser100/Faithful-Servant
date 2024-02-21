@@ -1,4 +1,5 @@
 import "package:faithful_servant/core/helper/get_pages.dart";
+import "package:faithful_servant/features/register/data/model/user_model.dart";
 import "package:flutter/material.dart";
 import "package:pdf/pdf.dart";
 
@@ -67,6 +68,8 @@ const languageKey = 'language';
 const kHomeView = 'homeView';
 
 double bodyRadious = 30.0;
+List<UserModel> searchServantList = [];
+List<UserModel> searchServantListSearchResult = [];
 
 List<Map> generalServantPage = [
   {

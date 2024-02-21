@@ -1,9 +1,10 @@
 import 'package:faithful_servant/features/mine_servant/presentation/views/widgets/list_item.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 class ServantList extends StatefulWidget {
   const ServantList({super.key, required this.filteredList});
-  final List filteredList;
+  final List<UserModel> filteredList;
 
   @override
   State<ServantList> createState() => _ServantListState();

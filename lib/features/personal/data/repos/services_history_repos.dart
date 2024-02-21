@@ -3,14 +3,10 @@ import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 abstract class ServicesHistoryRepo {
-  Future<dynamic> fetchhistorydata(
-      {required UserModel userModel, required BuildContext context});
-  Future<void> addNewServiceToHistory(
+  Future<void> addNewOrEditServiceToHistory(
       {required ServiceHistoryModel data,
       required UserModel userModel,
-      required BuildContext context});
-  Future editServiceInHistory(
-      {required ServiceHistoryModel data,
-      required UserModel userModel,
-      required BuildContext context});
+      required BuildContext context,
+      required bool edit,
+      int? index});
 }

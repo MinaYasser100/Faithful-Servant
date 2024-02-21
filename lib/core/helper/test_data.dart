@@ -1,17 +1,17 @@
 class Testdb {
   List<Map> db = [
     {
-      'name': "كيرلس",
-      'address_Area': "ش عبدالله رفاعي",
-      'address_Street_Name': 'ش ابو بكر محمد السيد',
-      'address_Home_Num': 5,
-      'phoneNum1': '01126198158',
-      'phoneNum2': '01200602318',
-      'qualifications': "بكالريوس هندسة كهرباء",
-      'church_code': 1256,
-      'current_service': "اولي ابتدائي",
-      'current_role': 'امين خدمة',
-      'privilege': 'امين خدمة',
+      "name": "كيرلس",
+      "address_Area": "ش عبدالله رفاعي",
+      "address_Street_Name": 'ش ابو بكر محمد السيد',
+      "address_Home_Num": "5",
+      "phoneNum1": '01126198158',
+      "phoneNum2": '01200602318',
+      "qualifications": "بكالريوس هندسة كهرباء",
+      "church_code": "1256",
+      "current_service": "اولي ابتدائي",
+      "current_role": 'امين اسرة',
+      "privilege": 'امين خدمة',
     },
     {
       'name': "ابانوب",
@@ -22,7 +22,7 @@ class Testdb {
       'phoneNum2': '01200602318',
       'qualifications': "بكالريوس هندسة كهرباء",
       'church_code': 1256,
-      'current_service': "ثانوي بنين",
+      'current_service': "ثانوي بنات",
       'current_role': 'مشرف عام',
       'privilege': 'مشرف عام',
     },
@@ -35,7 +35,7 @@ class Testdb {
       'phoneNum2': '01200602318',
       'qualifications': "بكالريوس هندسة كهرباء",
       'church_code': 1256,
-      'current_service': "اعدادي بنين",
+      'current_service': "ثانية ابتدائي",
       'current_role': 'خادم',
       'privilege': 'خادم',
     },
@@ -48,7 +48,7 @@ class Testdb {
       'phoneNum2': '01200602318',
       'qualifications': "بكالريوس هندسة كهرباء",
       'church_code': 1256,
-      'current_service': "اعدادي بنين",
+      'current_service': "سادسة ابتدائي",
       'current_role': 'خادم',
       'privilege': 'خادم', // 1 : abona, 2 : امين الخدمة
     },
@@ -61,12 +61,12 @@ class Testdb {
       'phoneNum2': '01200602318',
       'qualifications': "بكالريوس هندسة كهرباء",
       'church_code': 1256,
-      'current_service': "ثانوي بنات",
-      'current_role': 'خادم',
-      'privilege': 'خادم', // 1 : abona, 2 : امين الخدمة
+      'current_service': "مساعد امين عام",
+      'current_role': 'مساعد امين عام',
+      'privilege': 'مشرف عام', // 1 : abona, 2 : امين الخدمة
     },
     {
-      'name': "مينا",
+      'name': "ابونا استفانوس",
       'address_Area': "ش عبدالله رفاعي",
       'address_Street_Name': 'ش ابو بكر محمد السيد',
       'address_Home_Num': 5,
@@ -74,9 +74,9 @@ class Testdb {
       'phoneNum2': '01200602318',
       'qualifications': "بكالريوس هندسة كهرباء",
       'church_code': 1256,
-      'current_service': "اعدادي بنات",
-      'current_role': 'امين خدمة',
-      'privilege': 'امين خدمة', // 1 : abona, 2 : امين الخدمة
+      'current_service': "كاهن",
+      'current_role': 'مشرف عام',
+      'privilege': 'مشرف عام', // 1 : abona, 2 : امين الخدمة
     },
   ];
 
@@ -89,8 +89,8 @@ class Testdb {
     'phoneNum2': '01200602318',
     'qualifications': "بكالريوس هندسة كهرباء",
     'church_code': 1256,
-    'current_service': "ثانوي بنات",
-    'current_role': 'امين خدمة',
+    'current_service': "كاهن",
+    'current_role': 'مشرف عام',
     'privilege': 'مشرف عام',
   };
 }
