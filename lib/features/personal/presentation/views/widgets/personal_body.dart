@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/my_account_cubit/personal_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/personal_image_name.dart';
@@ -39,9 +40,17 @@ class PersonalBody extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
-                    personalPages[index]['title'] != "تسجيل الخروج"
-                        ? Get.toNamed(personalPages[index]['routto'])
-                        : logoutMethod(context);
+                    if (personalPages[index]['routto'] ==
+                        GetPages.kUserInformationsView) {
+                      personalPages[index]['title'] != "تسجيل الخروج"
+                          ? Get.toNamed(personalPages[index]['routto'],
+                              arguments: {"personal": true, "id": "0"})
+                          : logoutMethod(context);
+                    } else {
+                      personalPages[index]['title'] != "تسجيل الخروج"
+                          ? Get.toNamed(personalPages[index]['routto'])
+                          : logoutMethod(context);
+                    }
                   },
                   title: Text(
                     personalPages[index]['title'],
