@@ -4,6 +4,7 @@ import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 part 'user_informations_state.dart';
 
 class UserInformationsCubit extends Cubit<UserInformationsState> {
@@ -27,5 +28,17 @@ class UserInformationsCubit extends Cubit<UserInformationsState> {
     } catch (e) {
       emit(UserInformationsGetUserInformationsFailure());
     }
+  }
+
+  int calculateAge(String birthDate) {
+    DateTime birthDateFormat = DateFormat('dd/MM/yyyy').parse(birthDate);
+    DateTime toDay = DateTime.now();
+    int age = toDay.year - birthDateFormat.year;
+    if (toDay.month < birthDateFormat.month ||
+        (toDay.month == birthDateFormat.month &&
+            toDay.day < birthDateFormat.day)) {
+      age--;
+    }
+    return age;
   }
 }

@@ -122,6 +122,7 @@ class Applocal implements Translations {
           'birth date : ': 'تاريخ الميلاد : ',
           'Birth date': 'تاريخ الميلاد',
           'Please, enter your brith date': 'ادخل تاريك ميلادك',
+          'Age : ': 'العمر : ',
         },
         "en": {
           'email': 'Email',
@@ -245,6 +246,7 @@ class Applocal implements Translations {
           'birth date : ': 'birth date : ',
           'Birth date': 'Birth date',
           'Please, enter your brith date': 'Please, enter your brith date',
+          'Age : ': 'Age : ',
         },
       };
 }
