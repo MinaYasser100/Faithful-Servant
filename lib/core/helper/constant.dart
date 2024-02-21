@@ -142,6 +142,15 @@ List<Map> personalPages = [
   {"title": 'تسجيل الخروج', "icon": const Icon(Icons.logout), 'routto': ''},
 ];
 
+List<Map> feudalCustodinPages = [
+  {
+    'text': 'بياناتك',
+    "btntext": 'Open',
+    'routeto': GetPages.kUserInformationsView,
+    'icon': Icons.article_outlined,
+  },
+];
+
 List<String> placesItems = [
   'كنيسة مارجرجس',
   'اخري',
