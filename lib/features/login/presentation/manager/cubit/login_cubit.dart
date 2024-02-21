@@ -93,7 +93,6 @@ class LoginCubit extends Cubit<LoginState> {
       }
       saveUserData(UserModel.fromJson(value.data()!));
       emit(LoginCubitGetUserInformationSuccess());
-      print(userModel?.name ?? 'no data');
     } catch (e) {
       print('Error fetching user data: $e');
     }

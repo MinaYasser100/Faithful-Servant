@@ -1,4 +1,5 @@
 import 'package:faithful_servant/features/Attendance&others/presentaion/views/attendance_other_view.dart';
+import 'package:faithful_servant/features/feudal_custodian/feual_custodian_view/presentaion/views/feudal_custodian_view.dart';
 import 'package:faithful_servant/features/forgotten_password/presentation/views/forgotten_password.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/general_manager_screen.dart';
 import 'package:faithful_servant/features/general_supervisor/presentation/views/general_supervisor.dart';
@@ -30,6 +31,7 @@ abstract class GetPages {
   static String kSupervisorStatisticsView = '/supervisorStatisticsView';
   static String kUserInformationsView = '/userInformationsView';
   static String kModifieInformationsView = '/modifieInformationview';
+  static String kFeudalCustodianView = '/feudalCustodianView';
   static String generalManager = '/generalManager';
   static String mineServant = '/MineServant';
   static String statistics = '/statistics';
@@ -126,6 +128,11 @@ abstract class GetPages {
     GetPage(
       name: kModifieInformationsView,
       page: () => ModifieInformationsView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kFeudalCustodianView,
+      page: () => const FeudalCustodianView(),
       transition: Transition.circularReveal,
     ),
   ];

@@ -26,5 +26,12 @@ void determineScreenFromPrivilage(UserModel? userModel, BuildContext context) {
       (route) => false,
     );
     CacheHelper.saveData(key: kHomeView, value: GetPages.kServantView);
+  } else if (userModel.privilage == 'امين قطاع') {
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      GetPages.kFeudalCustodianView,
+      (route) => false,
+    );
+    CacheHelper.saveData(key: kHomeView, value: GetPages.kFeudalCustodianView);
   } else {}
 }

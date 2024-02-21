@@ -58,7 +58,12 @@ class ReisterViewBodyContent extends StatefulWidget {
 }
 
 class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
-  final List<String> items = ['خادم', 'امين الخدمة', 'المشرف العام'];
+  final List<String> items = [
+    'خادم',
+    'امين الخدمة',
+    'امين قطاع',
+    'المشرف العام'
+  ];
   String selectedItem = 'خادم';
   final List<String> churchItems = [
     saintGeorge,
