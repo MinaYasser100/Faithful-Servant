@@ -77,6 +77,7 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
     required String nameArea,
     required String qualification,
     required String father,
+    required String birthDate,
   }) async {
     emit(EditingInformatinosUpdateInforamtionsUserLoading());
     UserModel? userModel = await getUserData();
@@ -99,7 +100,7 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
           qualification: qualification,
           currentService: userModel.currentService,
           fatherOfConfession: father,
-          brithDate: userModel.brithDate,
+          brithDate: birthDate,
         );
         editingInformationsRepo
             .updateInformationUser(
