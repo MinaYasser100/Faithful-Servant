@@ -124,6 +124,7 @@ class Applocal implements Translations {
           'Please, enter your brith date': 'ادخل تاريك ميلادك',
           'Age : ': 'العمر : ',
           'Feudal custodian': 'امين القطاع',
+          'Delete email': 'حذف الايميل',
         },
         "en": {
           'email': 'Email',
@@ -249,6 +250,7 @@ class Applocal implements Translations {
           'Please, enter your brith date': 'Please, enter your brith date',
           'Age : ': 'Age : ',
           'Feudal custodian': 'Feudal custodian',
+          'Delete email': 'Delete email',
         },
       };
 }

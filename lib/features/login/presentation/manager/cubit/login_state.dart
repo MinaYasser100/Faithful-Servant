@@ -32,3 +32,9 @@ final class LoginCubitGetUserInformationFailure extends LoginState {}
 final class LoginCubitFailure extends LoginState {}
 
 final class LoginCubitLogoutThisAccount extends LoginState {}
+
+final class LoginCubitDeleteUserEmailSuccess extends LoginState {}
+
+final class LoginCubitDeleteUserEmailFailure extends LoginState {}
+
+final class LoginCubitDeleteUserEmailLoading extends LoginState {}

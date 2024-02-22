@@ -9,6 +9,7 @@ class LoginRepoImplement implements LoginRepo {
   Future<void> deleteUserEmail() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
+      print(user.email);
       await user.delete();
     }
   }

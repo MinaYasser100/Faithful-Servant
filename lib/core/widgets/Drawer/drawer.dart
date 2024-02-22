@@ -1,4 +1,5 @@
 import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/features/login/data/login_repo/login_repo_implement.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +14,11 @@ class GeneralDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => LoginCubit(LoginRepoImplement()),
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginCubitLogoutThisAccount) {}
+          if (state is LoginCubitDeleteUserEmailSuccess) {}
         },
         builder: (context, state) {
           return Drawer(
@@ -34,14 +36,14 @@ class GeneralDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    BlocProvider.of<LoginCubit>(context).logoutMethod(context);
+                    BlocProvider.of<LoginCubit>(context).logoutMethod();
                   },
                   title: const Text('Log out'),
                   trailing: const Icon(Icons.logout),
                 ),
                 ListTile(
                   onTap: () {
-                    BlocProvider.of<LoginCubit>(context).logoutMethod(context);
+                    BlocProvider.of<LoginCubit>(context).deleteUserEmail();
                   },
                   title: Text('Delete email'.tr),
                   trailing: const Icon(Icons.delete),
