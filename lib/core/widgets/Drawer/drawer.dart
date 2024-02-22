@@ -39,6 +39,13 @@ class GeneralDrawer extends StatelessWidget {
                   title: const Text('Log out'),
                   trailing: const Icon(Icons.logout),
                 ),
+                ListTile(
+                  onTap: () {
+                    BlocProvider.of<LoginCubit>(context).logoutMethod(context);
+                  },
+                  title: Text('Delete email'.tr),
+                  trailing: const Icon(Icons.delete),
+                ),
               ],
             ),
           );
