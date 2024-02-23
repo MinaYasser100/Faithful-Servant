@@ -167,3 +167,12 @@ late String initialrole;
 late String initialduration;
 late String initialplace;
 late String initialplaceelse;
+/*
+Map test = {
+  "2024": {
+    "Jan": {"attendance": 5, "preparing": 2, "visites": 3},
+    "Feb": {"attendance": 5, "preparing": 2, "visites": 3},
+    "Mar": {"attendance": 5, "preparing": 2, "visites": 3}
+  }
+};
+*/
