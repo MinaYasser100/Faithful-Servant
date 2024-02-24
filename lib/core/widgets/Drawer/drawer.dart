@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/function/screen_action/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/features/login/data/login_repo/login_repo_implement.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
@@ -18,7 +19,18 @@ class GeneralDrawer extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginCubitLogoutThisAccount) {}
-          if (state is LoginCubitDeleteUserEmailSuccess) {}
+          if (state is LoginCubitDeleteUserEmailSuccess) {
+            customSnackBar(
+              context,
+              'successfully delete account'.tr,
+            );
+          }
+          if (state is LoginCubitDeleteUserEmailFailure) {
+            customSnackBar(
+              context,
+              'Failure delete account'.tr,
+            );
+          }
         },
         builder: (context, state) {
           return Drawer(
@@ -45,7 +57,7 @@ class GeneralDrawer extends StatelessWidget {
                   onTap: () {
                     BlocProvider.of<LoginCubit>(context).deleteUserEmail();
                   },
-                  title: Text('Delete email'.tr),
+                  title: Text('Delete account'.tr),
                   trailing: const Icon(Icons.delete),
                 ),
               ],

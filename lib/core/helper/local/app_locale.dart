@@ -124,7 +124,9 @@ class Applocal implements Translations {
           'Please, enter your brith date': 'ادخل تاريك ميلادك',
           'Age : ': 'العمر : ',
           'Feudal custodian': 'امين القطاع',
-          'Delete email': 'حذف الايميل',
+          'Delete account': 'حذف الحساب',
+          'successfully delete account': 'نجحت عملية حذف الحساب',
+          'Failure delete account': 'فشلت عملية حذف الحساب',
         },
         "en": {
           'email': 'Email',
@@ -250,7 +252,9 @@ class Applocal implements Translations {
           'Please, enter your brith date': 'Please, enter your brith date',
           'Age : ': 'Age : ',
           'Feudal custodian': 'Feudal custodian',
-          'Delete email': 'Delete email',
+          'Delete account': 'Delete account',
+          'successfully delete account': 'Successfully delete account',
+          'Failure delete account': 'Failure delete account',
         },
       };
 }
