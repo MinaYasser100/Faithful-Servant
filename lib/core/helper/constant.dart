@@ -1,6 +1,7 @@
 import "package:faithful_servant/core/helper/get_pages.dart";
 import "package:faithful_servant/features/register/data/model/user_model.dart";
 import "package:flutter/material.dart";
+import "package:get/get.dart";
 import "package:pdf/pdf.dart";
 
 const kPrimaryColor = Color(0xff042c5c);
@@ -140,6 +141,11 @@ List<Map> personalPages = [
     'routto': GetPages.history
   },
   {"title": 'تسجيل الخروج', "icon": const Icon(Icons.logout), 'routto': ''},
+  {
+    "title": 'Delete account'.tr,
+    "icon": const Icon(Icons.delete_rounded),
+    'routto': '',
+  },
 ];
 
 List<Map> feudalCustodinPages = [
