@@ -19,8 +19,8 @@ class SplashViewBody extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              SizedBox(
-                height: 320,
+              AspectRatio(
+                aspectRatio: 1.9 / 2,
                 child: Image(image: AssetImage(Assets.jesusAndYourSon))
                     .animate()
                     .fadeIn(duration: const Duration(milliseconds: 300))

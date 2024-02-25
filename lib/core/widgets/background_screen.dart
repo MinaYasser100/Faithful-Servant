@@ -11,9 +11,8 @@ class BackgroundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.65,
-          width: double.infinity,
+        AspectRatio(
+          aspectRatio: 1.9 / 3,
           child: Image(
             image: AssetImage(Assets.crossOfJesusImage),
           ),
