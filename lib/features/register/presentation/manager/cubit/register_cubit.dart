@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faithful_servant/core/function/privilage_for_user.dart';
 import 'package:faithful_servant/features/register/data/register_repo/register_reop.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -49,6 +50,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String image,
     required String nationalId,
     required String privilage,
+    required String role,
     required String church,
     required String gender,
     required String numberOfnumber,
@@ -70,6 +72,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         image: image,
         nationalId: nationalId,
         privilage: privilage,
+        role: role,
         church: church,
         gender: gender,
         numberOfnumber: numberOfnumber,
@@ -98,7 +101,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String phoneNum2,
     required String image,
     required String nationalId,
-    required String privilage,
+    required String role,
     required String church,
     required String gender,
     required String numberOfnumber,
@@ -113,8 +116,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       UserCredential userCredential =
           await registerRepo.registerUser(email: email, password: password);
-      // await FirebaseAuth.instance
-      //     .createUserWithEmailAndPassword(email: email, password: password);
       putUserInformationInFirebase(
           userID: userCredential.user!.uid,
           name: name,
@@ -123,7 +124,8 @@ class RegisterCubit extends Cubit<RegisterState> {
           phoneNum2: phoneNum2,
           image: image,
           nationalId: nationalId,
-          privilage: privilage,
+          role: role,
+          privilage: privilageForUser(role: role),
           church: church,
           gender: gender,
           numberOfnumber: numberOfnumber,

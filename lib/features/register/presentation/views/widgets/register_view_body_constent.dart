@@ -58,11 +58,19 @@ class ReisterViewBodyContent extends StatefulWidget {
 }
 
 class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
+  // final List<String> items = [
+  //   'خادم',
+  //   'امين الخدمة',
+  //   'امين قطاع',
+  //   'المشرف العام'
+  // ];
   final List<String> items = [
     'خادم',
-    'امين الخدمة',
+    'امين اسرة',
+    'امين اسرة مساعد',
     'امين قطاع',
-    'المشرف العام'
+    'امين قطاع مساعد',
+    'المشرف العام',
   ];
   String selectedItem = 'خادم';
   final List<String> churchItems = [
@@ -102,7 +110,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                 onPressed: () {
                   Get.offNamed(GetPages.kLoginView);
                 });
-            clearRegisterTextEditingController();
             BlocProvider.of<RegisterCubit>(context).imageSelected == null;
           }
           if (state is RegisterCubitUserRgistrationFailure ||
@@ -226,7 +233,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
       image: BlocProvider.of<RegisterCubit>(context).imageSelected ??
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU',
       nationalId: widget.nationalIDController.text,
-      privilage: selectedItem,
+      role: selectedItem,
       church: determindChurch(
         churchSelectedItem: churchSelectedItem,
       ),
@@ -239,22 +246,6 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
       fatherOfConfession: widget.fatherOfConfessionController.text,
       brithDate: widget.dateController.text,
     );
-  }
-
-  void clearRegisterTextEditingController() {
-    widget.nameController.clear();
-    widget.emailController.clear();
-    widget.phoneNum1Controller.clear();
-    widget.phoneNum2Controller.clear();
-    widget.nationalIDController.clear();
-    widget.passwordController.clear();
-    widget.confirmPasswordController.clear();
-    widget.qualificationController.clear();
-    widget.numberOfHomeController.clear();
-    widget.streetNameController.clear();
-    widget.addressOfAreaController.clear();
-    widget.fatherOfConfessionController.clear();
-    widget.dateController.clear();
   }
 
   Future<void> selectDate(BuildContext context) async {

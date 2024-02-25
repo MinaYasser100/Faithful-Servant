@@ -103,6 +103,7 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
         currentService: userModel.currentService,
         fatherOfConfession: father,
         brithDate: birthDate,
+        role: userModel.role,
       );
       editingInformationsRepo
           .updateInformationUser(
