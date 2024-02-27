@@ -17,9 +17,12 @@ class GeneralAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       iconTheme: const IconThemeData(color: kSecondColor),
-      title: Text(
-        title,
-        style: Styles.textStyle25SecondColor,
+      title: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          title,
+          style: Styles.textStyle25SecondColor,
+        ),
       ),
       backgroundColor: backgroundColor,
       actions: widgets,

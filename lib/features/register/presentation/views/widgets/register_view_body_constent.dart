@@ -264,4 +264,22 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
       });
     }
   }
+
+  @override
+  void dispose() {
+    widget.nameController;
+    widget.emailController;
+    widget.addressOfAreaController;
+    widget.passwordController;
+    widget.phoneNum1Controller;
+    widget.phoneNum2Controller;
+    widget.confirmPasswordController;
+    widget.qualificationController;
+    widget.streetNameController;
+    widget.numberOfHomeController;
+    widget.dateController;
+    widget.fatherOfConfessionController;
+    widget.nationalIDController;
+    super.dispose();
+  }
 }
