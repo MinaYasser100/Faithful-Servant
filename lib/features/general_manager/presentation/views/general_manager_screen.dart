@@ -3,7 +3,6 @@ import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/appbar.dart';
 import 'package:faithful_servant/core/widgets/Drawer/drawer.dart';
 import 'package:faithful_servant/features/general_manager/presentation/views/widgets/general_manager_body.dart';
-import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,14 +14,13 @@ class GeneralManager extends StatefulWidget {
 }
 
 class _GeneralManagerState extends State<GeneralManager> {
-  UserModel userModel = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       body: const GeneralManagerBody(),
       appBar: GeneralAppBar(
-        title: userModel.role,
+        title: 'general',
         appBar: AppBar(),
         widgets: [
           IconButton(

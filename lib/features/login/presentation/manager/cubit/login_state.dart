@@ -38,3 +38,7 @@ final class LoginCubitDeleteUserEmailSuccess extends LoginState {}
 final class LoginCubitDeleteUserEmailFailure extends LoginState {}
 
 final class LoginCubitDeleteUserEmailLoading extends LoginState {}
+
+final class LoginCubitGetUserDataFromHiveLoading extends LoginState {}
+
+final class LoginCubitGetUserDataFromHiveSuccess extends LoginState {}

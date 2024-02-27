@@ -14,8 +14,10 @@ void determineScreenFromPrivilage(UserModel? userModel, BuildContext context) {
     CacheHelper.saveData(key: kHomeView, value: GetPages.kGeneralSupervisor);
   } else if (userModel.privilage == 'امين الخدمة') {
     Navigator.pushNamedAndRemoveUntil(
-        context, GetPages.generalManager, (route) => false,
-        arguments: userModel);
+      context,
+      GetPages.generalManager,
+      (route) => false,
+    );
     CacheHelper.saveData(key: kHomeView, value: GetPages.generalManager);
   } else if (userModel.privilage == 'خادم') {
     Navigator.pushNamedAndRemoveUntil(

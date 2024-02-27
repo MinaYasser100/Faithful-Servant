@@ -130,4 +130,11 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginCubitDeleteUserEmailFailure());
     }
   }
+
+  UserModel? user;
+  Future<void> getUserDataFromHive() async {
+    emit(LoginCubitGetUserDataFromHiveLoading());
+    user = await getUserData();
+    emit(LoginCubitGetUserDataFromHiveSuccess());
+  }
 }

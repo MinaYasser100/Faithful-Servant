@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/function/screen_action/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/core/widgets/Drawer/widgets/custom_requests_icon.dart';
 import 'package:faithful_servant/features/login/data/login_repo/login_repo_implement.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,8 @@ class GeneralDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(LoginRepoImplement()),
+      create: (context) =>
+          LoginCubit(LoginRepoImplement())..getUserDataFromHive(),
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginCubitLogoutThisAccount) {}
@@ -39,6 +41,15 @@ class GeneralDrawer extends StatelessWidget {
               children: [
                 const UserAccountDrawerHeaderFutureBuilder(),
                 const DrawerPagesOptionsFutureBuilder(),
+                if (BlocProvider.of<LoginCubit>(context).user?.privilage ==
+                    'المشرف العام')
+                  ListTile(
+                    onTap: () {
+                      Get.toNamed(GetPages.kSettingLanguageView);
+                    },
+                    title: Text('Requests'.tr),
+                    trailing: const CustomRequestsIcon(),
+                  ),
                 ListTile(
                   onTap: () {
                     Get.toNamed(GetPages.kSettingLanguageView);
