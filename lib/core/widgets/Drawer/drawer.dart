@@ -45,7 +45,7 @@ class GeneralDrawer extends StatelessWidget {
                     'المشرف العام')
                   ListTile(
                     onTap: () {
-                      Get.toNamed(GetPages.kSettingLanguageView);
+                      Get.toNamed(GetPages.kUserRequestsView);
                     },
                     title: Text('Requests'.tr),
                     trailing: const CustomRequestsIcon(),
