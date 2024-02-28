@@ -13,7 +13,11 @@ class UsersRequestsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: GeneralAppBar(title: 'Users Requests'.tr, appBar: AppBar()),
-      body: const DesignBody(widget: UserRequestsViewBady()),
+      body: const DesignBody(
+          widget: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: UserRequestsViewBady(),
+      )),
     );
   }
 }

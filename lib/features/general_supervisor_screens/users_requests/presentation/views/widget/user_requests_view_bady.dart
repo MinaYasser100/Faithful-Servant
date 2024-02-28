@@ -1,5 +1,6 @@
-import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:flutter/material.dart';
+
+import 'user_request_item.dart';
 
 class UserRequestsViewBady extends StatelessWidget {
   const UserRequestsViewBady({super.key});
@@ -7,12 +8,7 @@ class UserRequestsViewBady extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      children: [
-        Text(
-          'User Requests',
-          style: Styles.textStyle30,
-        )
-      ],
+      children: [UserRequestItem()],
     );
   }
 }
