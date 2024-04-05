@@ -104,6 +104,7 @@ class EditingInformationsCubit extends Cubit<EditingInformatinosStates> {
         fatherOfConfession: father,
         brithDate: birthDate,
         role: userModel.role,
+        isActive: userModel.isActive,
       );
       editingInformationsRepo
           .updateInformationUser(
