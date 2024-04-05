@@ -35,7 +35,7 @@ class ListTileWidget extends StatelessWidget {
           onTap: () {
             BlocProvider.of<LoginCubit>(context).logoutMethod();
           },
-          title: const Text('Log out'),
+          title: Text('Log out'.tr),
           trailing: const Icon(Icons.logout),
         ),
         ListTile(

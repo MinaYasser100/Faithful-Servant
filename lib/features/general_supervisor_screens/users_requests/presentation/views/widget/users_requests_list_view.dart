@@ -10,7 +10,7 @@ class UsersRequestsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 20,
+      itemCount: 4,
       itemBuilder: (context, index) => const Padding(
         padding: EdgeInsets.only(bottom: 20),
         child: UserRequestItem(),
