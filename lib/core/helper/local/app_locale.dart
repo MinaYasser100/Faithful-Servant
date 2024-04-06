@@ -131,6 +131,7 @@ class Applocal implements Translations {
           'APPLY': 'قبول',
           'Requests': 'طلبات',
           'Log out': 'تسجيل الخروج',
+          'User Requests': 'طلبات القبول',
         },
         "en": {
           'email': 'Email',
@@ -263,6 +264,7 @@ class Applocal implements Translations {
           'APPLY': 'APPLY',
           'Log out': 'Log out',
           'Requests': 'Requests',
+          'User Requests': 'User Requests',
         },
       };
 }
