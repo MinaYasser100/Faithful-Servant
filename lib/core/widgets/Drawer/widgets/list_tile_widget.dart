@@ -1,5 +1,6 @@
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/Drawer/widgets/custom_requests_icon.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/users_requests/presentation/manager/user_requests_cubit/user_reuests_cubit.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +18,21 @@ class ListTileWidget extends StatelessWidget {
     return Column(
       children: [
         if (userModel?.privilage == 'المشرف العام')
-          ListTile(
-            onTap: () {
-              Get.toNamed(GetPages.kUserRequestsView);
+          BlocBuilder<UserRequestsCubit, UserRequestsState>(
+            builder: (context, state) {
+              return ListTile(
+                onTap: () {
+                  Get.toNamed(GetPages.kUserRequestsView);
+                },
+                title: Text('Requests'.tr),
+                trailing: CustomRequestsIcon(
+                  numberOfUsers: BlocProvider.of<UserRequestsCubit>(context)
+                      .usersRequsets
+                      .length
+                      .toString(),
+                ),
+              );
             },
-            title: Text('Requests'.tr),
-            trailing: const CustomRequestsIcon(),
           ),
         ListTile(
           onTap: () {
