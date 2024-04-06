@@ -8,14 +8,14 @@ import '../functions/put_users_in_list.dart';
 
 part 'user_reuests_state.dart';
 
-class UserRequestsCubit extends Cubit<UserReuestsState> {
+class UserRequestsCubit extends Cubit<UserRequestsState> {
   UserRequestsCubit(this.userRequestRepo) : super(UserReuestsInitial());
   final UserRequestRepo userRequestRepo;
 
   List<UserModel> usersRequsets = [];
 
   Future<List<UserModel>> fetchUsersFromFirebase() async {
-    emit(UserReuestsFetchUsersFromFirebaseLoading());
+    emit(UserRequestsFetchUsersFromFirebaseLoading());
     UserModel? userModel = await getUserData();
     List<UserModel> users = [];
 
@@ -26,21 +26,21 @@ class UserRequestsCubit extends Cubit<UserReuestsState> {
       QuerySnapshot querySnapshot = await usersCollection.get();
 
       putUsersInList(querySnapshot, users);
-      emit(UserReuestsFetchUsersFromFirebaseSuccess());
+      emit(UserRequestsFetchUsersFromFirebaseSuccess());
     } catch (e) {
-      emit(UserReuestsFetchUsersFromFirebaseFailure());
+      emit(UserRequestsFetchUsersFromFirebaseFailure());
     }
     return users;
   }
 
   Future<void> getUserRequestsFromFirebase() async {
-    emit(UserReuestsGetUsersRequestsFromFirebaseLoading());
+    emit(UserRequestsGetUsersRequestsFromFirebaseLoading());
     try {
       List<UserModel> users = await fetchUsersFromFirebase();
       checkOnIsNotActiveUser(users);
-      emit(UserReuestsGetUsersRequestsFromFirebaseSuccess());
+      emit(UserRequestsGetUsersRequestsFromFirebaseSuccess());
     } catch (e) {
-      emit(UserReuestsGetUsersRequestsFromFirebaseFailure());
+      emit(UserRequestsGetUsersRequestsFromFirebaseFailure());
     }
   }
 
@@ -49,6 +49,41 @@ class UserRequestsCubit extends Cubit<UserReuestsState> {
       if (element.isActive == false) {
         usersRequsets.add(element);
       }
+    }
+  }
+
+  Future<void> activeUser({required UserModel userModel}) async {
+    emit(UserRequestsActiveUserLoading());
+    try {
+      UserModel userModelUpdate = UserModel(
+        userID: userModel.userID,
+        name: userModel.name,
+        email: userModel.email,
+        phoneNum1: userModel.phoneNum1,
+        phoneNum2: userModel.phoneNum2,
+        image: userModel.image,
+        nationalId: userModel.nationalId,
+        privilage: userModel.privilage,
+        church: userModel.church,
+        gender: userModel.gender,
+        numberOfnumber: userModel.numberOfnumber,
+        streetName: userModel.streetName,
+        addressOfArea: userModel.addressOfArea,
+        qualification: userModel.qualification,
+        currentService: userModel.currentService,
+        fatherOfConfession: userModel.fatherOfConfession,
+        brithDate: userModel.brithDate,
+        role: userModel.role,
+        isActive: true,
+      );
+      userRequestRepo
+          .updateInformationUser(
+              userModel: userModel, userModelUpdate: userModelUpdate)
+          .then((value) {
+        emit(UserRequestsActiveUserSuccess());
+      });
+    } catch (e) {
+      emit(UserRequestsActiveUserFailure());
     }
   }
 }

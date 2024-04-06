@@ -1,20 +1,29 @@
 part of 'user_reuests_cubit.dart';
 
-sealed class UserReuestsState {}
+sealed class UserRequestsState {}
 
-final class UserReuestsInitial extends UserReuestsState {}
+final class UserReuestsInitial extends UserRequestsState {}
 
-final class UserReuestsGetUsersRequestsFromFirebaseSuccess
-    extends UserReuestsState {}
+final class UserRequestsGetUsersRequestsFromFirebaseSuccess
+    extends UserRequestsState {}
 
-final class UserReuestsGetUsersRequestsFromFirebaseLoading
-    extends UserReuestsState {}
+final class UserRequestsGetUsersRequestsFromFirebaseLoading
+    extends UserRequestsState {}
 
-final class UserReuestsGetUsersRequestsFromFirebaseFailure
-    extends UserReuestsState {}
+final class UserRequestsGetUsersRequestsFromFirebaseFailure
+    extends UserRequestsState {}
 
-final class UserReuestsFetchUsersFromFirebaseLoading extends UserReuestsState {}
+final class UserRequestsFetchUsersFromFirebaseLoading
+    extends UserRequestsState {}
 
-final class UserReuestsFetchUsersFromFirebaseSuccess extends UserReuestsState {}
+final class UserRequestsFetchUsersFromFirebaseSuccess
+    extends UserRequestsState {}
 
-final class UserReuestsFetchUsersFromFirebaseFailure extends UserReuestsState {}
+final class UserRequestsFetchUsersFromFirebaseFailure
+    extends UserRequestsState {}
+
+final class UserRequestsActiveUserLoading extends UserRequestsState {}
+
+final class UserRequestsActiveUserSuccess extends UserRequestsState {}
+
+final class UserRequestsActiveUserFailure extends UserRequestsState {}

@@ -6,15 +6,18 @@ import 'package:get/get.dart';
 class CustomButtonInItem extends StatelessWidget {
   const CustomButtonInItem({
     super.key,
+    required this.onPressed,
   });
-
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: kSecondColor, borderRadius: BorderRadius.circular(30)),
+        color: kSecondColor,
+        borderRadius: BorderRadius.circular(30),
+      ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           'APPLY'.tr,
           style: Styles.textStyle20,

@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/users_requests/presentation/manager/user_requests_cubit/user_reuests_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,11 +10,17 @@ class UserRequestsViewBady extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserRequestsCubit, UserReuestsState>(
+    return BlocBuilder<UserRequestsCubit, UserRequestsState>(
       builder: (context, state) {
-        if (state is UserReuestsGetUsersRequestsFromFirebaseFailure) {
-          return const Text('No requests');
-        } else if (state is UserReuestsGetUsersRequestsFromFirebaseSuccess) {
+        if (state is UserRequestsGetUsersRequestsFromFirebaseFailure) {
+          return const Center(
+            child: Text(
+              'No requests',
+              style: Styles.textStyle20PrimaryColor,
+            ),
+          );
+        } else if (state is UserRequestsGetUsersRequestsFromFirebaseSuccess ||
+            state is UserRequestsActiveUserSuccess) {
           return const Column(
             children: [
               Expanded(
@@ -22,8 +29,7 @@ class UserRequestsViewBady extends StatelessWidget {
             ],
           );
         } else {
-          return const Expanded(
-              child: Center(child: CircularProgressIndicator()));
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

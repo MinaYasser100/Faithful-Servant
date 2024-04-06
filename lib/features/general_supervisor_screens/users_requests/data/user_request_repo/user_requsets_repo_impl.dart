@@ -12,4 +12,18 @@ class UserRequestsRepoImplement implements UserRequestRepo {
         .doc(userModel.church)
         .collection('users');
   }
+
+  @override
+  Future<void> updateInformationUser(
+      {required UserModel userModel,
+      required UserModel userModelUpdate}) async {
+    await FirebaseFirestore.instance
+        .collection(churchNamesBasedOnCode[userModel.church])
+        .doc(userModel.church)
+        .collection('users')
+        .doc(userModel.userID)
+        .update(
+          userModelUpdate.toJson(),
+        );
+  }
 }
