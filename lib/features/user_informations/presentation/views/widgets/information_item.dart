@@ -1,6 +1,7 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class InformationItem extends StatelessWidget {
   const InformationItem({
@@ -29,10 +30,12 @@ class InformationItem extends StatelessWidget {
                 itemName,
                 style: Styles.textStyle20PrimaryColor,
               ),
-              Text(
-                itemValue,
-                style: Styles.textStyle16,
-                overflow: TextOverflow.ellipsis,
+              Expanded(
+                child: Text(
+                  itemValue,
+                  style: Styles.textStyle16,
+                  overflow: TextOverflow.ellipsis,
+                ),
               )
             ],
           ),
