@@ -14,7 +14,7 @@ class UsersRequestsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UserReuestsCubit(UserRequestsRepoImplement())
+      create: (context) => UserRequestsCubit(UserRequestsRepoImplement())
         ..getUserRequestsFromFirebase(),
       child: Scaffold(
         backgroundColor: kPrimaryColor,

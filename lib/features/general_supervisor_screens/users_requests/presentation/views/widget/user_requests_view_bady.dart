@@ -9,22 +9,15 @@ class UserRequestsViewBady extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserReuestsCubit, UserReuestsState>(
+    return BlocBuilder<UserRequestsCubit, UserReuestsState>(
       builder: (context, state) {
         if (state is UserReuestsGetUsersRequestsFromFirebaseFailure) {
           return const Text('No requests');
         } else if (state is UserReuestsGetUsersRequestsFromFirebaseSuccess) {
-          return Column(
+          return const Column(
             children: [
-              const Expanded(
+              Expanded(
                 child: UsersRequestsListView(),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  BlocProvider.of<UserReuestsCubit>(context)
-                      .getUserRequestsFromFirebase();
-                },
-                child: const Text('Button'),
               ),
             ],
           );

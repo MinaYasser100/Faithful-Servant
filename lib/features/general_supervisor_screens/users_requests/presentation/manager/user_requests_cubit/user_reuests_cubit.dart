@@ -8,8 +8,8 @@ import '../functions/put_users_in_list.dart';
 
 part 'user_reuests_state.dart';
 
-class UserReuestsCubit extends Cubit<UserReuestsState> {
-  UserReuestsCubit(this.userRequestRepo) : super(UserReuestsInitial());
+class UserRequestsCubit extends Cubit<UserReuestsState> {
+  UserRequestsCubit(this.userRequestRepo) : super(UserReuestsInitial());
   final UserRequestRepo userRequestRepo;
 
   List<UserModel> usersRequsets = [];
