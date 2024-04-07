@@ -1,7 +1,6 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class InformationItem extends StatelessWidget {
   const InformationItem({

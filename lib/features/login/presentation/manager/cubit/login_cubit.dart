@@ -126,7 +126,6 @@ class LoginCubit extends Cubit<LoginState> {
       }
       emit(LoginCubitDeleteUserEmailSuccess());
     } catch (e) {
-      print('the error is : ${e.toString()}');
       emit(LoginCubitDeleteUserEmailFailure());
     }
   }

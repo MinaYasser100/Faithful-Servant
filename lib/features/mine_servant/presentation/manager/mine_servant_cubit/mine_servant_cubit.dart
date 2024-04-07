@@ -1,9 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'mine_servant_state.dart';
 
 class MineServantCubit extends Cubit<MineServantState> {
