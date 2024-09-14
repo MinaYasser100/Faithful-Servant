@@ -144,7 +144,7 @@ List<Map> personalPages = [
   {
     "title": 'Delete account'.tr,
     "icon": const Icon(Icons.delete_rounded),
-    'routto': '',
+    'routto': 'Delete account',
   },
 ];
 
