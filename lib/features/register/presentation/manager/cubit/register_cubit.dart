@@ -13,6 +13,7 @@ part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.registerRepo) : super(RegisterInitial());
+
   IconData suffixIcon = Icons.visibility_off_outlined;
   bool obscurePassword = true;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -20,6 +21,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool obscureConfirmPassword = true;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   final RegisterRepo registerRepo;
+
   void changeShowPassword() {
     obscurePassword = !obscurePassword;
     suffixIcon = obscurePassword == true
@@ -60,6 +62,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String currentService,
     required String fatherOfConfession,
     required String brithDate,
+    required bool isActive,
   }) async {
     emit(RegisterCubitPutUserInformationInFirebaseLoading());
     try {
@@ -73,6 +76,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         nationalId: nationalId,
         privilage: privilage,
         role: role,
+        isActive: isActive,
         church: church,
         gender: gender,
         numberOfnumber: numberOfnumber,
@@ -126,6 +130,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           nationalId: nationalId,
           role: role,
           privilage: privilageForUser(role: role),
+          isActive: role == 'المشرف العام' ? true : false,
           church: church,
           gender: gender,
           numberOfnumber: numberOfnumber,

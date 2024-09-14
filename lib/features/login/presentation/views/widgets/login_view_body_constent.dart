@@ -1,3 +1,5 @@
+import 'package:faithful_servant/core/function/get_user_data.dart';
+import 'package:faithful_servant/core/function/logout_method.dart';
 import 'package:faithful_servant/core/function/screen_action/determine_screen_from_privilage.dart';
 import 'package:faithful_servant/core/function/validator/email_validator.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
@@ -36,12 +38,21 @@ class LoginViewBodyContent extends StatelessWidget {
           );
         }
         if (state is LoginCubitLoginUserSuccess) {
-          Future.delayed(const Duration(milliseconds: 400));
-          EasyLoading.dismiss();
-          UserModel? userModel = BlocProvider.of<LoginCubit>(context).userModel;
-          determineScreenFromPrivilage(userModel, context);
-          await CacheHelper.saveData(key: kUserId, value: state.userId);
-          userToken = state.userId;
+          UserModel? userModelToCheck = await getUserData();
+          if (userModelToCheck!.isActive == true) {
+            Future.delayed(const Duration(milliseconds: 400));
+            EasyLoading.dismiss();
+            UserModel? userModel =
+                BlocProvider.of<LoginCubit>(context).userModel;
+            determineScreenFromPrivilage(userModel, context);
+            await CacheHelper.saveData(key: kUserId, value: state.userId);
+            userToken = state.userId;
+          } else {
+            EasyLoading.showError('برجاء الانتظار حتي يوافق المسئول');
+            logoutMethod(context);
+            Future.delayed(const Duration(seconds: 5));
+            EasyLoading.dismiss();
+          }
         }
         if (state is LoginCubitLoginUserfailure) {
           EasyLoading.showError('من فضلك تاكد من معلوماتك');

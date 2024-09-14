@@ -39,27 +39,29 @@ class UserModel extends HiveObject {
   final String brithDate;
   @HiveField(17)
   final String role;
+  @HiveField(18)
+  final bool isActive;
 
-  UserModel({
-    required this.userID,
-    required this.name,
-    required this.email,
-    required this.phoneNum1,
-    required this.phoneNum2,
-    required this.image,
-    required this.nationalId,
-    required this.privilage,
-    required this.church,
-    required this.gender,
-    required this.numberOfnumber,
-    required this.streetName,
-    required this.addressOfArea,
-    required this.qualification,
-    required this.currentService,
-    required this.fatherOfConfession,
-    required this.brithDate,
-    required this.role,
-  });
+  UserModel(
+      {required this.userID,
+      required this.name,
+      required this.email,
+      required this.phoneNum1,
+      required this.phoneNum2,
+      required this.image,
+      required this.nationalId,
+      required this.privilage,
+      required this.church,
+      required this.gender,
+      required this.numberOfnumber,
+      required this.streetName,
+      required this.addressOfArea,
+      required this.qualification,
+      required this.currentService,
+      required this.fatherOfConfession,
+      required this.brithDate,
+      required this.role,
+      required this.isActive});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
@@ -81,6 +83,7 @@ class UserModel extends HiveObject {
       fatherOfConfession: json['fatherOfConfession'] as String,
       brithDate: json['brithDate'] as String,
       role: json['role'] as String,
+      isActive: json['isActive'] as bool,
     );
   }
 
@@ -104,6 +107,7 @@ class UserModel extends HiveObject {
       'fatherOfConfession': fatherOfConfession,
       'brithDate': brithDate,
       'role': role,
+      'isActive': isActive,
     };
   }
 }

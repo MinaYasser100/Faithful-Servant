@@ -128,6 +128,10 @@ class Applocal implements Translations {
           'successfully delete account': 'نجحت عملية حذف الحساب',
           'Failure delete account': 'فشلت عملية حذف الحساب',
           'No data': 'لا يوجد بيانات',
+          'APPLY': 'قبول',
+          'Requests': 'طلبات',
+          'Log out': 'تسجيل الخروج',
+          'User Requests': 'طلبات القبول',
         },
         "en": {
           'email': 'Email',
@@ -257,6 +261,10 @@ class Applocal implements Translations {
           'successfully delete account': 'Successfully delete account',
           'Failure delete account': 'Failure delete account',
           'No data': 'No data',
+          'APPLY': 'APPLY',
+          'Log out': 'Log out',
+          'Requests': 'Requests',
+          'User Requests': 'User Requests',
         },
       };
 }

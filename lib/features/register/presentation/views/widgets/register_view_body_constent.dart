@@ -5,11 +5,11 @@ import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
+import 'package:faithful_servant/core/widgets/profile_imge_widget.dart';
 import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:faithful_servant/features/register/presentation/views/function/determind_church.dart';
 import 'package:faithful_servant/features/register/presentation/views/function/register_failure_show_dialog.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/choose_form_items.dart';
-import 'package:faithful_servant/features/register/presentation/views/widgets/image_register_widget.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/section_one_in_register.dart';
 import 'package:faithful_servant/features/register/presentation/views/widgets/section_two_in_register.dart';
 import 'package:flutter/material.dart';
@@ -132,7 +132,17 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                 ),
               ),
               const SizedBox(height: 30),
-              const ImgeRegisterWidget(),
+              Center(
+                child: ProfileImageWidget(
+                  backgroundImage: NetworkImage(BlocProvider.of<RegisterCubit>(
+                              context)
+                          .imageSelected ??
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
+                  onPressed: () {
+                    BlocProvider.of<RegisterCubit>(context).getProfileImage();
+                  },
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Form(

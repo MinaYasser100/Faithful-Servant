@@ -46,4 +46,9 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: kPrimaryColor,
   );
+
+  static const TextStyle textStyle22SecondColor = TextStyle(
+    fontSize: 22.0,
+    color: kSecondColor,
+  );
 }

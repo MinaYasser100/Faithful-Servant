@@ -29,10 +29,12 @@ class InformationItem extends StatelessWidget {
                 itemName,
                 style: Styles.textStyle20PrimaryColor,
               ),
-              Text(
-                itemValue,
-                style: Styles.textStyle16,
-                overflow: TextOverflow.ellipsis,
+              Expanded(
+                child: Text(
+                  itemValue,
+                  style: Styles.textStyle16,
+                  overflow: TextOverflow.ellipsis,
+                ),
               )
             ],
           ),

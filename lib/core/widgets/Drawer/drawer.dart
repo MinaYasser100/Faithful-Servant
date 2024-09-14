@@ -1,5 +1,7 @@
 import 'package:faithful_servant/core/function/screen_action/custom_sanck_bar.dart';
 import 'package:faithful_servant/core/widgets/Drawer/widgets/list_tile_widget.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/users_requests/data/user_request_repo/user_requsets_repo_impl.dart';
+import 'package:faithful_servant/features/general_supervisor_screens/users_requests/presentation/manager/user_requests_cubit/user_reuests_cubit.dart';
 import 'package:faithful_servant/features/login/data/login_repo/login_repo_implement.dart';
 import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +16,17 @@ class GeneralDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          LoginCubit(LoginRepoImplement())..getUserDataFromHive(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              LoginCubit(LoginRepoImplement())..getUserDataFromHive(),
+        ),
+        BlocProvider(
+          create: (context) => UserRequestsCubit(UserRequestsRepoImplement())
+            ..getUserRequestsFromFirebase(),
+        ),
+      ],
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginCubitLogoutThisAccount) {}
