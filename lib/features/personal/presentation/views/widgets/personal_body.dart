@@ -1,6 +1,8 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
+import 'package:faithful_servant/features/login/data/login_repo/login_repo_implement.dart';
+import 'package:faithful_servant/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/manager/my_account_cubit/personal_cubit.dart';
 import 'package:faithful_servant/features/personal/presentation/views/widgets/personal_image_name.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +16,15 @@ class PersonalBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => PersonalCubit()..init(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => PersonalCubit()..init(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(LoginRepoImplement()),
+        ),
+      ],
       child: Column(
         children: [
           const SizedBox(height: 30),
@@ -40,16 +49,20 @@ class PersonalBody extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
-                    if (personalPages[index]['routto'] ==
-                        GetPages.kUserInformationsView) {
-                      personalPages[index]['title'] != "تسجيل الخروج"
-                          ? Get.toNamed(personalPages[index]['routto'],
-                              arguments: {"personal": true, "id": "0"})
-                          : logoutMethod(context);
+                    if (personalPages[index]['routto'] != "Delete account") {
+                      if (personalPages[index]['routto'] ==
+                          GetPages.kUserInformationsView) {
+                        personalPages[index]['title'] != "تسجيل الخروج"
+                            ? Get.toNamed(personalPages[index]['routto'],
+                                arguments: {"personal": true, "id": "0"})
+                            : logoutMethod(context);
+                      } else {
+                        personalPages[index]['title'] != "تسجيل الخروج"
+                            ? Get.toNamed(personalPages[index]['routto'])
+                            : logoutMethod(context);
+                      }
                     } else {
-                      personalPages[index]['title'] != "تسجيل الخروج"
-                          ? Get.toNamed(personalPages[index]['routto'])
-                          : logoutMethod(context);
+                      BlocProvider.of<LoginCubit>(context).deleteUserEmail();
                     }
                   },
                   title: Text(
