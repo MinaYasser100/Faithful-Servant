@@ -11,8 +11,8 @@ class SelectStagebody extends StatelessWidget{
     return ListView.builder(itemCount: currentServiceItems.length-1,
     itemBuilder: (context, index) {
       return  InkWell(onTap: () {
-        stageName=currentServiceItems[index];
-        Get.toNamed(GetPages.ma5domeenView);
+        Get.toNamed(GetPages.ma5domeenView , arguments:currentServiceItems[index] );
+        
       },
         child: Card (
         margin: const EdgeInsets.all(20),child: Text(currentServiceItems[index],textAlign: TextAlign.center,style: const TextStyle(fontSize: 20),),

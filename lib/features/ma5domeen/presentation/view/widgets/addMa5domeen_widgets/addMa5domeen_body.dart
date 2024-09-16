@@ -2,8 +2,8 @@ import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ad
 import 'package:flutter/material.dart';
 
 class Addma5domeenBody extends StatefulWidget {
-  const Addma5domeenBody({super.key});
-
+  const Addma5domeenBody({super.key, required this.namestage});
+final String namestage;
   @override
   State<Addma5domeenBody> createState() => _Addma5domeenBody();
 }
@@ -20,18 +20,15 @@ class _Addma5domeenBody extends State<Addma5domeenBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Addma5domeenviewbodyContent(
-          fromKey: fromKey,
-          nameController: nameController,
-          phoneNumber1Controller: phoneNumber1Controller,
-          phoneNumber2Controller: phoneNumber2Controller,
-          fatherOfConfessionController: fatherOfConfessionController,
-          qualificationController: qualificationController,
-          addressController: addressController,
-          dateController: dateController,
-        ),
+      child: Addma5domeenviewbodyContent(
+        fromKey: fromKey,
+        nameController: nameController,
+        phoneNumber1Controller: phoneNumber1Controller,
+        phoneNumber2Controller: phoneNumber2Controller,
+        fatherOfConfessionController: fatherOfConfessionController,
+        qualificationController: qualificationController,
+        addressController: addressController,
+        dateController: dateController, namestage:widget.namestage ,
       ),
     );
   }

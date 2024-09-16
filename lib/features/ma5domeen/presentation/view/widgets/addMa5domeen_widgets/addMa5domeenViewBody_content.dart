@@ -24,7 +24,7 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
     required this.fatherOfConfessionController,
     required this.addressController,
     required this.phoneNumber2Controller,
-    required this.dateController,
+    required this.dateController, required this.namestage,
   });
 
   final GlobalKey<FormState> fromKey;
@@ -35,14 +35,14 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
   final TextEditingController addressController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController dateController;
-
+final String namestage;
   @override
   State<Addma5domeenviewbodyContent> createState() => _Addma5domeenviewbodyContent();
 }
 
 class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
  
-  
+
   DateTime? selectedDate;
   @override
   Widget build(BuildContext context) {
@@ -69,72 +69,76 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
          
         },
         builder: (context, state) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const NavigationBackButton(),
-              const SizedBox(height: 50),
-              const Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text(
-                  "add ma5doom",
-                  style: Styles.textStyle30,
-                ),
-              ),
-              const SizedBox(height: 30),
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Form(
-                  key: widget.fromKey,
-                  autovalidateMode:
-                      BlocProvider.of<Ma5domeenCubit>(context).autovalidateMode,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 20),
-                      Section1addma5domeen(widget: widget),
-                      const SizedBox(height: 15),
-                      CustomTextFromField(
-                        textEditingController: widget.dateController,
-                        labelText: 'MM/dd/yyyy'.tr,
-                       validator: (p0) {
-                         return null;
-                        },
-                        iconData: Icons.date_range_outlined,
-                        suffixOnPressed: () {
-                          selectDate(context);
-                        },
-                        keyboardType: TextInputType.datetime,
-                      ),
-                      const SizedBox(height: 15),
-                      Section2ma5domeen(widget: widget),
-                      const SizedBox(height: 50),
-                      CustomTextButton(
-                        textButton: 'Add',
-                        onPressed: () {
-                          if (widget.fromKey.currentState!.validate()) {
-                            implementAddMa5doomButtton(context);
-                          } else {
-                            BlocProvider.of<RegisterCubit>(context)
-                                .changeAutovalidateMode();
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 50),
-                    ],
+          return 
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const NavigationBackButton(),
+                const SizedBox(height: 50),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "add ma5doom",
+                    style: Styles.textStyle30,
                   ),
                 ),
-              )
-            ],
+                const SizedBox(height: 30),
+            
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Form(
+                    key: widget.fromKey,
+                    autovalidateMode:
+                        BlocProvider.of<Ma5domeenCubit>(context).autovalidateMode,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        Section1addma5domeen(widget: widget),
+                        const SizedBox(height: 15),
+                        CustomTextFromField(
+                          textEditingController: widget.dateController,
+                          labelText: 'MM/dd/yyyy'.tr,
+                         validator: (p0) {
+                           return null;
+                          },
+                          iconData: Icons.date_range_outlined,
+                          suffixOnPressed: () {
+                            selectDate(context);
+                          },
+                          keyboardType: TextInputType.datetime,
+                        ),
+                        const SizedBox(height: 15),
+                        Section2ma5domeen(widget: widget),
+                        const SizedBox(height: 50),
+                        CustomTextButton(
+                          textButton: 'Add',
+                          onPressed: () {
+                            if (widget.fromKey.currentState!.validate()) {
+                              implementAddMa5doomButtton(context, widget.namestage);
+                            } else {
+                              BlocProvider.of<RegisterCubit>(context)
+                                  .changeAutovalidateMode();
+                            }
+                          },
+                        ),
+                        const SizedBox(height: 50),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),
     );
   }
 
-  void implementAddMa5doomButtton(BuildContext context) {
-    BlocProvider.of<Ma5domeenCubit>(context).putMa5domeenDataInFirebase(name: widget.nameController.text, phoneNumber1:widget.phoneNumber1Controller.text, phoneNumber2: widget.phoneNumber2Controller.text, birthdate:widget.dateController.text, address: widget.addressController.text, qualification: widget.qualificationController.text, fatherOfConfession:widget.fatherOfConfessionController.text);
+  void implementAddMa5doomButtton(BuildContext context , String namestage) {
+    BlocProvider.of<Ma5domeenCubit>(context).putMa5domeenDataInFirebase(name: widget.nameController.text, phoneNumber1:widget.phoneNumber1Controller.text, phoneNumber2: widget.phoneNumber2Controller.text, birthdate:widget.dateController.text, address: widget.addressController.text, qualification: widget.qualificationController.text, fatherOfConfession:widget.fatherOfConfessionController.text, namestage: namestage);
   }
 
   Future<void> selectDate(BuildContext context) async {

@@ -17,7 +17,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
     autovalidateMode = AutovalidateMode.always;
   }
   //store data in firebase
-  void putMa5domeenDataInFirebase({required String name,required String phoneNumber1,required String phoneNumber2,required String birthdate , required String address ,required String qualification ,required String fatherOfConfession} ) async {
+  void putMa5domeenDataInFirebase({required String name,required String phoneNumber1,required String phoneNumber2,required String birthdate , required String address ,required String qualification ,required String fatherOfConfession , required String namestage} ) async {
     emit(Loading());
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
@@ -26,7 +26,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
      await FirebaseFirestore.instance
         .collection("ma5domeen")
         .doc(church)
-        .collection(stageName)
+        .collection(namestage)
         .doc()
         .set(ma5domeenModel.toJson());
         emit(PutMa5domeenDataSuccess());
