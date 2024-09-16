@@ -1,4 +1,5 @@
 import "package:faithful_servant/core/helper/get_pages.dart";
+import "package:faithful_servant/features/ma5domeen/data/model/ma5domeen_model.dart";
 import "package:faithful_servant/features/register/data/model/user_model.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
@@ -15,6 +16,11 @@ const virginMary = 'العدراء و مار مينا العجايبي';
 const saintMark = 'مار مرقس و ابو سيفين';
 const saintMain = 'مار مينا و البابا كيرلس';
 const kUserBox = 'user_box';
+String stageName = '';
+String church= '';
+String adderName= '';
+
+  List<Ma5domeenModel>  ma5domeenData= [];
 Map<String, dynamic> selectChurch = {
   saintGeorge: 'G&B123marg',
   virginMary: 'M&M455marg',
@@ -47,7 +53,7 @@ final List<String> currentServiceItems = [
   'اجتماع الرجال',
   'اجتماع الخدام',
   'مدارس احد يوم الاحد',
-  'عداد خدام',
+  'اعداد خدام',
   'الام دولاجي',
   'الحكيمات',
   'المسرح',
@@ -116,6 +122,12 @@ List<Map> genetalSuperVisorPages = [
     'text': 'بياناتك',
     "btntext": 'Open',
     'routeto': GetPages.kUserInformationsView,
+    'icon': Icons.article_outlined,
+  },
+  {
+    'text': "متابعه مخدومين",
+    "btntext": 'Open',
+    'routeto': GetPages.selectStageview,
     'icon': Icons.article_outlined,
   },
 ];

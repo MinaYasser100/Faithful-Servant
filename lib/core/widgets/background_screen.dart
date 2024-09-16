@@ -12,7 +12,7 @@ class BackgroundScreen extends StatelessWidget {
     return Column(
       children: [
         AspectRatio(
-          aspectRatio: 1.9 / 3,
+          aspectRatio: 2 / 3,
           child: Image(
             image: AssetImage(Assets.crossOfJesusImage),
           ),
