@@ -32,19 +32,30 @@ class _Ma5domeenView extends State<Ma5domeenView> {
         backgroundColor: kPrimaryColor,
         appBar: AppBar(
           backgroundColor: kPrimaryColor,
+          foregroundColor: kSecondColor,
           leading: IconButton(
             onPressed: () {
               Get.offAndToNamed(GetPages.selectStageview);
             },
             icon: const Icon(
               Icons.arrow_back_rounded,
-              color: kSecondColor,
             ),
           ),
           title: Text(
-             namestage,
+            namestage,
             style: Styles.textStyle25SecondColor,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Get.toNamed(GetPages.kMa5domeenSearchView);
+              },
+              icon: const Icon(
+                Icons.search_rounded,
+                size: 30,
+              ),
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -53,12 +64,12 @@ class _Ma5domeenView extends State<Ma5domeenView> {
           backgroundColor: kPrimaryLightColor,
           child: const Icon(Icons.add),
         ),
-        body:  DesignBody(
+        body: DesignBody(
             widget: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Ma5domeenBody(
-          nameStage: namestage,
-        ),
+            nameStage: namestage,
+          ),
         )),
       ),
     );

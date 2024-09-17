@@ -66,20 +66,22 @@ class Ma5domeenBodyContent extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {
                             successfullyShowDialog(
-                                context: context,
-                                titleText: 'Alert'.tr,
-                                contentText:
-                                    'Are you sure you want to delete this served ?'
-                                        .tr,
-                                buttonText: 'Delete'.tr,
-                                onPressed: () {
-                                  BlocProvider.of<Ma5domeenCubit>(context)
-                                      .deleteMa5doom(
-                                          stageName: stageName,
-                                          servedId: servedId);
-                                  BlocProvider.of<Ma5domeenCubit>(context)
-                                      .gettingMa5domeenData(stageName);
-                                });
+                              context: context,
+                              titleText: 'Alert'.tr,
+                              contentText:
+                                  'Are you sure you want to delete this served ?'
+                                      .tr,
+                              buttonText: 'Delete'.tr,
+                              onPressed: () {
+                                BlocProvider.of<Ma5domeenCubit>(context)
+                                    .deleteMa5doom(
+                                  stageName: stageName,
+                                  servedId: servedId,
+                                );
+                                BlocProvider.of<Ma5domeenCubit>(context)
+                                    .gettingMa5domeenData(stageName);
+                              },
+                            );
                           },
                           child: Text(
                             'Delete'.tr,
