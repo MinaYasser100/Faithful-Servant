@@ -8,10 +8,8 @@ import 'package:intl/intl.dart';
 
 class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   Ma5domeenCubit() : super(Ma5domeenStatesInitial());
-
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String result = "";
-
   void changeAutovalidateMode() {
     autovalidateMode = AutovalidateMode.always;
   }
@@ -56,14 +54,18 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   }
 
   //getting data from firebase
-  void gettingMa5domeenData(String stageName) async {
-    var docments = await FirebaseFirestore.instance
+ Stream<Future<Stream<List<Ma5domeenModel>?>>> gettingMa5domeenData(String stageName) async* {
+    
+    emit(Loading());
+   var docments= (await FirebaseFirestore.instance
         .collection("ma5domeen")
         .doc(church)
         .collection(stageName)
-        .get();
+        .get())   ;
+        List<Ma5domeenModel> ma5domeenData1=[];
     for (var element in docments.docs) {
-      ma5domeenData.add(Ma5domeenModel.fromJson(element.data()));
+      ma5domeenData1.add(Ma5domeenModel.fromJson(element.data()) );
+      emit(GetMa5domeenDataSuccess(ma5domeenData1: ma5domeenData1));
+      }
     }
-  }
 }

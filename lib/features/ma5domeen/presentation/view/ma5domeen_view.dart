@@ -16,6 +16,7 @@ class Ma5domeenView extends StatefulWidget {
 
 class _Ma5domeenView extends State<Ma5domeenView> {
   late String namestage;
+
   @override
   void initState() {
     namestage = Get.arguments;
