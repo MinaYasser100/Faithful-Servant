@@ -21,6 +21,7 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
       adderName:fields[2] as String,
       registerDate: fields[5] as String,
       updateRegisterDate: fields[6] as String,
+      id: fields[7] as String,
       church: fields[8] as String,
       address: fields[12] as String,
       qualification: fields[13] as String,
@@ -49,6 +50,8 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
       ..write(obj.registerDate)
       ..writeByte(6)
       ..write(obj.updateRegisterDate)
+      ..writeByte(7)
+      ..write(obj.id)
       ..writeByte(8)
       ..write(obj.church)
       ..writeByte(10)

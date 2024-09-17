@@ -10,6 +10,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   Ma5domeenCubit() : super(Ma5domeenStatesInitial());
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String result = "";
+  String id = DateTime.now().millisecondsSinceEpoch.toString();
   void changeAutovalidateMode() {
     autovalidateMode = AutovalidateMode.always;
   }
@@ -40,12 +41,14 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
           fatherOfConfession: fatherOfConfession,
           birthDate: birthdate,
           phoneNumber1: phoneNumber1,
-          phoneNumber2: phoneNumber2);
+          phoneNumber2: phoneNumber2,
+          id:id
+          );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
           .doc(church)
           .collection(namestage)
-          .doc()
+          .doc(id)
           .set(ma5domeenModel.toJson());
       emit(PutMa5domeenDataSuccess());
     } catch (e) {
@@ -71,5 +74,11 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
     } catch (e) {
       emit(Ma5domeenCubitGetMa5domeenDataFailure(errorMessage: e.toString()));
     }
+  }
+
+  deleteMa5doom({required String stageName, required String servedId})async{
+    await FirebaseFirestore.instance .collection("ma5domeen")
+          .doc(church)
+          .collection(stageName).doc(servedId).delete();
   }
 }

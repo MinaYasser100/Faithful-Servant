@@ -1,4 +1,4 @@
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/addMa5domeenViewBody_content.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/add_ma5domeen_viewBody_content.dart';
 import 'package:flutter/material.dart';
 
 class Addma5domeenBody extends StatefulWidget {

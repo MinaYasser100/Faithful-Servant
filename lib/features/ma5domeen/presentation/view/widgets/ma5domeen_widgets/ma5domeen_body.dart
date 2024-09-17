@@ -1,5 +1,6 @@
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ma5domeen_widgets/ma5domeen_body_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,9 +31,11 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
             return ListView.builder(
               itemCount: state.ma5domeenData.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(state.ma5domeenData[index].name),
-                );
+                return  Ma5domeenBodyContent(ma5doomName:state.ma5domeenData[index].name ,
+                 editDate:state.ma5domeenData[index].updateRegisterDate,
+                  stageName:widget.nameStage,
+                  servedId:state.ma5domeenData[index].id, ma5domeenModel:state.ma5domeenData[index]  ,
+                 );
               },
             );
           } else {
@@ -45,3 +48,27 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
     );
   }
 }
+/*Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                widget.user.name,
+                style: Styles.textStyle18.copyWith(color: kSecondColor),
+              ),
+            ),
+            CustomButtonInItem(
+              onPressed: () {
+                BlocProvider.of<UserRequestsCubit>(context)
+                    .activeUser(userModel: widget.user);
+                BlocProvider.of<UserRequestsCubit>(context).usersRequsets = [];
+                BlocProvider.of<UserRequestsCubit>(context)
+                    .getUserRequestsFromFirebase();
+              },
+            ),
+          ],
+        ),*/
+/*ListTile(
+                  title: Text(state.ma5domeenData[index].name),
+                );*/

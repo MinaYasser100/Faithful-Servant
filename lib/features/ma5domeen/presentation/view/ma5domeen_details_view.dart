@@ -2,34 +2,23 @@ import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/design_body.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ma5domeen_widgets/ma5domeen_body.dart';
+import 'package:faithful_servant/features/ma5domeen/data/model/ma5domeen_model.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ma5domeen_details_widgets/ma5domeen_details_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-class Ma5domeenView extends StatefulWidget {
-  const Ma5domeenView({super.key});
+class Ma5domeenDetailsView extends StatefulWidget{
+  const Ma5domeenDetailsView({super.key});
 
   @override
-  State<Ma5domeenView> createState() => _Ma5domeenView();
-}
-
-class _Ma5domeenView extends State<Ma5domeenView> {
-  late String namestage;
-
-  @override
-  void initState() {
-    namestage = Get.arguments;
-    super.initState();
+  State<Ma5domeenDetailsView> createState()=> _Ma5domeenDetailsView();
   }
-
+  
+class _Ma5domeenDetailsView extends State<Ma5domeenDetailsView>{
+  Ma5domeenModel ma5domeenModel=Get.arguments;
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => Ma5domeenCubit()..gettingMa5domeenData(namestage),
-      child: Scaffold(
-        backgroundColor: kPrimaryColor,
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: kPrimaryColor,
           leading: IconButton(
@@ -42,25 +31,23 @@ class _Ma5domeenView extends State<Ma5domeenView> {
             ),
           ),
           title: Text(
-             namestage,
+            'Informations'.tr,
             style: Styles.textStyle25SecondColor,
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Get.toNamed(GetPages.addMa5domeenview, arguments: namestage);
+            //Get.toNamed(GetPages.addMa5domeenview, arguments: namestage);
           },
           backgroundColor: kPrimaryLightColor,
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.edit),
         ),
         body:  DesignBody(
             widget: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Ma5domeenBody(
-          nameStage: namestage,
-        ),
+          child:Ma5domeenDetailsBody(ma5domeenModel: ma5domeenModel)
         )),
-      ),
-    );
+      );
   }
+  
 }

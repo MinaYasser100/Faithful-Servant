@@ -1,5 +1,6 @@
-import 'package:faithful_servant/features/general_supervisor/presentation/views/select_stageView.dart';
+import 'package:faithful_servant/features/general_supervisor/presentation/views/select_stage_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/add_ma5domeenView.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_details_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view.dart';
 import 'package:get/get.dart';
 
@@ -48,6 +49,8 @@ abstract class GetPages {
    static String selectStageview = '/selectStageview';
    static String ma5domeenView = '/sMa5domeenView';
    static String addMa5domeenview = '/addMa5domeenview';
+   static String ma5domeenDetailsView = '/ma5domeenDetailsView';
+   
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -164,5 +167,11 @@ abstract class GetPages {
       page: () => const AddMa5domeenview(),
       transition: Transition.circularReveal,
     ),
+     GetPage(
+      name:ma5domeenDetailsView,
+      page: () => const Ma5domeenDetailsView(),
+      transition: Transition.circularReveal,
+    ),
+    
   ];
 }

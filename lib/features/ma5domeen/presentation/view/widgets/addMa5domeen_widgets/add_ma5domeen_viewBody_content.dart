@@ -1,4 +1,3 @@
-import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -54,15 +53,11 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         }
         if (state is PutMa5domeenDataSuccess) {
           EasyLoading.dismiss();
-          successfullyShowDialog(
-              context: context,
-              titleText: 'Successfully added'.tr,
-              contentText:
-                  'The registration is successful, now go to the login'.tr,
-              buttonText: 'Go To Login'.tr,
-              onPressed: () {
-                // Get.offNamed(GetPages.kLoginView);
-              });
+           ScaffoldMessenger.of(context).showSnackBar(
+               SnackBar(
+                content: Text('The served has been added successfully'.tr),
+              ),
+            );
         }
       },
       builder: (context, state) {
@@ -74,10 +69,10 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
               children: [
                 const NavigationBackButton(),
                 const SizedBox(height: 50),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 20),
                   child: Text(
-                    "add ma5doom",
+                    'Add served'.tr,
                     style: Styles.textStyle30,
                   ),
                 ),
@@ -145,6 +140,7 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         qualification: widget.qualificationController.text,
         fatherOfConfession: widget.fatherOfConfessionController.text,
         namestage: namestage);
+        controllerDelete();
   }
 
   Future<void> selectDate(BuildContext context) async {
@@ -162,6 +158,15 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
             : '';
       });
     }
+  }
+  void controllerDelete(){
+    widget.addressController.clear();
+    widget.dateController.clear();
+    widget.fatherOfConfessionController.clear();
+    widget.nameController.clear();
+    widget.phoneNumber1Controller.clear();
+    widget.phoneNumber2Controller.clear();
+    widget.qualificationController.clear();
   }
 
   @override

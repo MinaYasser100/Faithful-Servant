@@ -1,7 +1,7 @@
 import 'package:faithful_servant/core/function/validator/name_validator.dart';
 import 'package:faithful_servant/core/function/validator/phone_validator.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/addMa5domeenViewBody_content.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/add_ma5domeen_viewBody_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
