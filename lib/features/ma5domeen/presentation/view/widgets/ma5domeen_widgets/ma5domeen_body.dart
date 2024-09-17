@@ -31,11 +31,13 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
             return ListView.builder(
               itemCount: state.ma5domeenData.length,
               itemBuilder: (context, index) {
-                return  Ma5domeenBodyContent(ma5doomName:state.ma5domeenData[index].name ,
-                 editDate:state.ma5domeenData[index].updateRegisterDate,
-                  stageName:widget.nameStage,
-                  servedId:state.ma5domeenData[index].id, ma5domeenModel:state.ma5domeenData[index]  ,
-                 );
+                return Ma5domeenBodyContent(
+                  ma5doomName: state.ma5domeenData[index].name,
+                  editDate: state.ma5domeenData[index].updateRegisterDate,
+                  stageName: widget.nameStage,
+                  servedId: state.ma5domeenData[index].id,
+                  ma5domeenModel: state.ma5domeenData[index],
+                );
               },
             );
           } else {
@@ -48,27 +50,3 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
     );
   }
 }
-/*Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                widget.user.name,
-                style: Styles.textStyle18.copyWith(color: kSecondColor),
-              ),
-            ),
-            CustomButtonInItem(
-              onPressed: () {
-                BlocProvider.of<UserRequestsCubit>(context)
-                    .activeUser(userModel: widget.user);
-                BlocProvider.of<UserRequestsCubit>(context).usersRequsets = [];
-                BlocProvider.of<UserRequestsCubit>(context)
-                    .getUserRequestsFromFirebase();
-              },
-            ),
-          ],
-        ),*/
-/*ListTile(
-                  title: Text(state.ma5domeenData[index].name),
-                );*/

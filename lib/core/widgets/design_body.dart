@@ -12,11 +12,12 @@ class DesignBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: MediaQuery.sizeOf(context).width,
-        decoration: BoxDecoration(
-          color: kSecondColor,
-          borderRadius: BorderRadius.circular(bodyRadious),
-        ),
-        child: widget);
+      width: MediaQuery.sizeOf(context).width,
+      decoration: BoxDecoration(
+        color: kSecondColor,
+        borderRadius: BorderRadius.circular(bodyRadious),
+      ),
+      child: widget,
+    );
   }
 }
