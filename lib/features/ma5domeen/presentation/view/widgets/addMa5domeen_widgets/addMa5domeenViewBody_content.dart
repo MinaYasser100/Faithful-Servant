@@ -7,7 +7,6 @@ import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5dome
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section1AddMa5domeen.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section2Ma5domeen.dart';
-import 'package:faithful_servant/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -24,7 +23,8 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
     required this.fatherOfConfessionController,
     required this.addressController,
     required this.phoneNumber2Controller,
-    required this.dateController, required this.namestage,
+    required this.dateController,
+    required this.namestage,
   });
 
   final GlobalKey<FormState> fromKey;
@@ -35,42 +35,39 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
   final TextEditingController addressController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController dateController;
-final String namestage;
+  final String namestage;
   @override
-  State<Addma5domeenviewbodyContent> createState() => _Addma5domeenviewbodyContent();
+  State<Addma5domeenviewbodyContent> createState() =>
+      _Addma5domeenviewbodyContent();
 }
 
 class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
- 
-
   DateTime? selectedDate;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: BlocConsumer<Ma5domeenCubit, Ma5domeenStates>(
-        listener: (context, state) {
-          if (state is Loading ) {
-            EasyLoading.show(
-              status: 'Loading...'.tr,
-            );
-          }
-          if (state is PutMa5domeenDataSuccess) {
-            EasyLoading.dismiss();
-            successfullyShowDialog(
-                context: context,
-                titleText: 'Successfully added'.tr,
-                contentText:
-                    'The registration is successful, now go to the login'.tr,
-                buttonText: 'Go To Login'.tr,
-                onPressed: () {
-                 // Get.offNamed(GetPages.kLoginView);
-                });
-          }
-         
-        },
-        builder: (context, state) {
-          return 
-          Padding(
+    return BlocConsumer<Ma5domeenCubit, Ma5domeenStates>(
+      listener: (context, state) {
+        if (state is PutMa5domeenDataLoading) {
+          EasyLoading.show(
+            status: 'Loading...'.tr,
+          );
+        }
+        if (state is PutMa5domeenDataSuccess) {
+          EasyLoading.dismiss();
+          successfullyShowDialog(
+              context: context,
+              titleText: 'Successfully added'.tr,
+              contentText:
+                  'The registration is successful, now go to the login'.tr,
+              buttonText: 'Go To Login'.tr,
+              onPressed: () {
+                // Get.offNamed(GetPages.kLoginView);
+              });
+        }
+      },
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,13 +82,12 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                   ),
                 ),
                 const SizedBox(height: 30),
-            
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Form(
                     key: widget.fromKey,
-                    autovalidateMode:
-                        BlocProvider.of<Ma5domeenCubit>(context).autovalidateMode,
+                    autovalidateMode: BlocProvider.of<Ma5domeenCubit>(context)
+                        .autovalidateMode,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -101,8 +97,9 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                         CustomTextFromField(
                           textEditingController: widget.dateController,
                           labelText: 'MM/dd/yyyy'.tr,
-                         validator: (p0) {
-                           return null;
+                          readOnly: true,
+                          validator: (p0) {
+                            return null;
                           },
                           iconData: Icons.date_range_outlined,
                           suffixOnPressed: () {
@@ -117,9 +114,10 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                           textButton: 'Add',
                           onPressed: () {
                             if (widget.fromKey.currentState!.validate()) {
-                              implementAddMa5doomButtton(context, widget.namestage);
+                              implementAddMa5doomButtton(
+                                  context, widget.namestage);
                             } else {
-                              BlocProvider.of<RegisterCubit>(context)
+                              BlocProvider.of<Ma5domeenCubit>(context)
                                   .changeAutovalidateMode();
                             }
                           },
@@ -131,14 +129,22 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                 )
               ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 
-  void implementAddMa5doomButtton(BuildContext context , String namestage) {
-    BlocProvider.of<Ma5domeenCubit>(context).putMa5domeenDataInFirebase(name: widget.nameController.text, phoneNumber1:widget.phoneNumber1Controller.text, phoneNumber2: widget.phoneNumber2Controller.text, birthdate:widget.dateController.text, address: widget.addressController.text, qualification: widget.qualificationController.text, fatherOfConfession:widget.fatherOfConfessionController.text, namestage: namestage);
+  void implementAddMa5doomButtton(BuildContext context, String namestage) {
+    BlocProvider.of<Ma5domeenCubit>(context).putMa5domeenDataInFirebase(
+        name: widget.nameController.text,
+        phoneNumber1: widget.phoneNumber1Controller.text,
+        phoneNumber2: widget.phoneNumber2Controller.text,
+        birthdate: widget.dateController.text,
+        address: widget.addressController.text,
+        qualification: widget.qualificationController.text,
+        fatherOfConfession: widget.fatherOfConfessionController.text,
+        namestage: namestage);
   }
 
   Future<void> selectDate(BuildContext context) async {

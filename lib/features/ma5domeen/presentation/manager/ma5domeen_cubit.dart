@@ -24,7 +24,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
       required String qualification,
       required String fatherOfConfession,
       required String namestage}) async {
-    emit(Loading());
+    emit(PutMa5domeenDataLoading());
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
@@ -54,18 +54,22 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   }
 
   //getting data from firebase
- Stream<Future<Stream<List<Ma5domeenModel>?>>> gettingMa5domeenData(String stageName) async* {
-    
-    emit(Loading());
-   var docments= (await FirebaseFirestore.instance
-        .collection("ma5domeen")
-        .doc(church)
-        .collection(stageName)
-        .get())   ;
-        List<Ma5domeenModel> ma5domeenData1=[];
-    for (var element in docments.docs) {
-      ma5domeenData1.add(Ma5domeenModel.fromJson(element.data()) );
-      emit(GetMa5domeenDataSuccess(ma5domeenData1: ma5domeenData1));
+  Future<void> gettingMa5domeenData(String stageName) async {
+    emit(Ma5domeenCubitGetMa5domeenDataLoading());
+    try {
+      var docments = (await FirebaseFirestore.instance
+          .collection("ma5domeen")
+          .doc(church)
+          .collection(stageName)
+          .get());
+      List<Ma5domeenModel> ma5domeenData1 = [];
+      for (var element in docments.docs) {
+        ma5domeenData1.add(Ma5domeenModel.fromJson(element.data()));
       }
+      emit(
+          Ma5domeenCubitGetMa5domeenDataSuccess(ma5domeenData: ma5domeenData1));
+    } catch (e) {
+      emit(Ma5domeenCubitGetMa5domeenDataFailure(errorMessage: e.toString()));
     }
+  }
 }
