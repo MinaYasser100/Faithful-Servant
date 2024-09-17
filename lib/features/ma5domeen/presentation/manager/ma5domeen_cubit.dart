@@ -6,43 +6,64 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-
 class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   Ma5domeenCubit() : super(Ma5domeenStatesInitial());
-  
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String result="";
-  
+  String result = "";
+
   void changeAutovalidateMode() {
     autovalidateMode = AutovalidateMode.always;
   }
+
   //store data in firebase
-  void putMa5domeenDataInFirebase({required String name,required String phoneNumber1,required String phoneNumber2,required String birthdate , required String address ,required String qualification ,required String fatherOfConfession , required String namestage} ) async {
+  void putMa5domeenDataInFirebase(
+      {required String name,
+      required String phoneNumber1,
+      required String phoneNumber2,
+      required String birthdate,
+      required String address,
+      required String qualification,
+      required String fatherOfConfession,
+      required String namestage}) async {
     emit(Loading());
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
-     try{ Ma5domeenModel ma5domeenModel=Ma5domeenModel(updateRegisterDate: result,registerDate:result,adderName: adderName, name: name, church: church, address: address, qualification: qualification, fatherOfConfession: fatherOfConfession, birthDate: birthdate, phoneNumber1: phoneNumber1, phoneNumber2: phoneNumber2);
-     await FirebaseFirestore.instance
-        .collection("ma5domeen")
-        .doc(church)
-        .collection(namestage)
-        .doc()
-        .set(ma5domeenModel.toJson());
-        emit(PutMa5domeenDataSuccess());
-     }catch (e) {
+    try {
+      Ma5domeenModel ma5domeenModel = Ma5domeenModel(
+          updateRegisterDate: result,
+          registerDate: result,
+          adderName: adderName,
+          name: name,
+          church: church,
+          address: address,
+          qualification: qualification,
+          fatherOfConfession: fatherOfConfession,
+          birthDate: birthdate,
+          phoneNumber1: phoneNumber1,
+          phoneNumber2: phoneNumber2);
+      await FirebaseFirestore.instance
+          .collection("ma5domeen")
+          .doc(church)
+          .collection(namestage)
+          .doc()
+          .set(ma5domeenModel.toJson());
+      emit(PutMa5domeenDataSuccess());
+    } catch (e) {
       emit(PutMa5domeenDataFaild());
     }
   }
-  
+
   //getting data from firebase
-  void gettingMa5domeenData()async{
-      var docments = await FirebaseFirestore.instance
-          .collection("ma5domeen")
-          .doc(church)
-          .collection(stageName)
-          .get();
-       for (var element in docments.docs) {
-        ma5domeenData.add(Ma5domeenModel.fromJson(element.data()));
-      }
-    } }
+  void gettingMa5domeenData(String stageName) async {
+    var docments = await FirebaseFirestore.instance
+        .collection("ma5domeen")
+        .doc(church)
+        .collection(stageName)
+        .get();
+    for (var element in docments.docs) {
+      ma5domeenData.add(Ma5domeenModel.fromJson(element.data()));
+    }
+  }
+}

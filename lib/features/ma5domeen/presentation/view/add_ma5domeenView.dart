@@ -9,11 +9,13 @@ class AddMa5domeenview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String stageName = Get.arguments as String ;
+    String stageName = Get.arguments;
     return Scaffold(
       body: BlocProvider(
         create: (context) => Ma5domeenCubit(),
-        child: Addma5domeenBody(namestage:stageName ,),
+        child: Addma5domeenBody(
+          namestage: stageName,
+        ),
       ),
     );
   }

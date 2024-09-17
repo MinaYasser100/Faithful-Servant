@@ -17,10 +17,10 @@ const saintMark = 'مار مرقس و ابو سيفين';
 const saintMain = 'مار مينا و البابا كيرلس';
 const kUserBox = 'user_box';
 String stageName = '';
-String church= '';
-String adderName= '';
+String church = '';
+String adderName = '';
 
-  List<Ma5domeenModel>  ma5domeenData= [];
+List<Ma5domeenModel> ma5domeenData = [];
 Map<String, dynamic> selectChurch = {
   saintGeorge: 'G&B123marg',
   virginMary: 'M&M455marg',
