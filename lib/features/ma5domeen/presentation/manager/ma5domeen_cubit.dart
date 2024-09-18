@@ -53,7 +53,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
           .set(ma5domeenModel.toJson());
       emit(PutMa5domeenDataSuccess());
     } catch (e) {
-      emit(PutMa5domeenDataFaild());
+      emit(PutMa5domeenDataFaild(e.toString()));
     }
   }
 
@@ -122,7 +122,7 @@ void editMa5domeenData({required String name,
           .update(ma5domeenModel.toJson());
       emit(EditMa5domeenDataSuccess());
     } catch (e) {
-      emit(EditMa5domeenDataFailure());
+      emit(EditMa5domeenDataFailure(e.toString()));
     }
 
 }

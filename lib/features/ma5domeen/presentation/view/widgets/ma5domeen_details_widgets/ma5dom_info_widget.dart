@@ -13,7 +13,7 @@ class Ma5damInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Content(title: 'الاسم :', data: ma5domeenModel.name),
         const SizedBox(

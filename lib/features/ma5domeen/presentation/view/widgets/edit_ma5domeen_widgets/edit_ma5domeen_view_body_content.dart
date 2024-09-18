@@ -52,6 +52,11 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
             status: 'Loading...'.tr,
           );
         }
+         if (state is EditMa5domeenDataFailure) {
+          EasyLoading.show(
+            status: state.errorMessage,
+          );
+        }
         if (state is EditMa5domeenDataSuccess) {
           EasyLoading.dismiss();
            ScaffoldMessenger.of(context).showSnackBar(

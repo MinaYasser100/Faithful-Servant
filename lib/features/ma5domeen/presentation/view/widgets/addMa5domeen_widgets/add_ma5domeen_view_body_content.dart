@@ -4,8 +4,8 @@ import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section1_add_ma5domeen.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section2_ma5domeen.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section1AddMa5domeen.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section2Ma5domeen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -49,6 +49,11 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         if (state is PutMa5domeenDataLoading) {
           EasyLoading.show(
             status: 'Loading...'.tr,
+          );
+        }
+        if (state is PutMa5domeenDataFaild) {
+          EasyLoading.show(
+            status: state.errorMessage,
           );
         }
         if (state is PutMa5domeenDataSuccess) {

@@ -14,25 +14,27 @@ class Ma5domeenDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Ma5damInfoWidget(ma5domeenModel: ma5domeenModel),
-        Column(
-          children: [
-            ServantInfoWidget(ma5domeenModel: ma5domeenModel),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomTextButton(
-              textButton: 'Modifie Informaion'.tr,
-              onPressed: () {
-                Get.toNamed(GetPages.kEditMa5domeenDataView, arguments:ma5domeenModel);
-              },
-            ),
-          ],
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Ma5damInfoWidget(ma5domeenModel: ma5domeenModel),
+          Column(
+            children: [
+              ServantInfoWidget(ma5domeenModel: ma5domeenModel),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomTextButton(
+                textButton: 'Modifie Informaion'.tr,
+                onPressed: () {
+                  Get.toNamed(GetPages.kEditMa5domeenDataView, arguments:ma5domeenModel);
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
