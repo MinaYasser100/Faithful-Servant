@@ -13,9 +13,10 @@ class Ma5domeenSearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String stateName = Get.arguments as String;
+    final String stageName = Get.arguments as String;
     return BlocProvider(
-      create: (context) => Ma5domeenSearchCubit(Ma5domeenSearchRepoImplement()),
+      create: (context) => Ma5domeenSearchCubit(Ma5domeenSearchRepoImplement())
+        ..gettingMa5domeenData(stageName),
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         appBar: AppBar(
@@ -27,7 +28,7 @@ class Ma5domeenSearchView extends StatelessWidget {
         ),
         body: DesignBody(
             widget: Ma5domeenSearchBodyView(
-          stageName: stateName,
+          stageName: stageName,
         )),
       ),
     );
