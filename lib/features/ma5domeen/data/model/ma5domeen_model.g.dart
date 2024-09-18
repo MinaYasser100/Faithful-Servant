@@ -18,6 +18,7 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
     };
     return Ma5domeenModel(
       name: fields[1] as String,
+      stagename: fields[9] as String,
       adderName:fields[2] as String,
       registerDate: fields[5] as String,
       updateRegisterDate: fields[6] as String,
@@ -54,6 +55,8 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
       ..write(obj.id)
       ..writeByte(8)
       ..write(obj.church)
+      ..writeByte(9)
+      ..write(obj.stagename)
       ..writeByte(10)
       ..write(obj.birthDate)
       ..writeByte(12)

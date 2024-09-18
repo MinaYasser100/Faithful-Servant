@@ -42,7 +42,8 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
           birthDate: birthdate,
           phoneNumber1: phoneNumber1,
           phoneNumber2: phoneNumber2,
-          id:id
+          id:id,
+           stagename: namestage,
           );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
@@ -81,4 +82,48 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
           .doc(church)
           .collection(stageName).doc(servedId).delete();
   }
+
+
+void editMa5domeenData({required String name,
+      required String phoneNumber1,
+      required String phoneNumber2,
+      required String birthdate,
+      required String address,
+      required String qualification,
+      required String fatherOfConfession,
+      required String namestage,
+      required Ma5domeenModel ma5domeenModel1,
+     } )async{
+         emit(EditMa5domeenDataLoading());
+    String dateOBDCommand = DateTime.now().toString();
+    DateTime date = DateTime.parse(dateOBDCommand);
+    String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
+        try {
+      Ma5domeenModel ma5domeenModel = Ma5domeenModel(
+          updateRegisterDate: result,
+          registerDate:ma5domeenModel1.registerDate ,
+          adderName: adderName,
+          name: name,
+          church: church,
+          address: address,
+          qualification: qualification,
+          fatherOfConfession: fatherOfConfession,
+          birthDate: birthdate,
+          phoneNumber1: phoneNumber1,
+          phoneNumber2: phoneNumber2,
+          id:ma5domeenModel1.id,
+           stagename: namestage,
+          );
+      await FirebaseFirestore.instance
+          .collection("ma5domeen")
+          .doc(church)
+          .collection(namestage)
+          .doc(ma5domeenModel1.id)
+          .update(ma5domeenModel.toJson());
+      emit(EditMa5domeenDataSuccess());
+    } catch (e) {
+      emit(EditMa5domeenDataFailure());
+    }
+
+}
 }

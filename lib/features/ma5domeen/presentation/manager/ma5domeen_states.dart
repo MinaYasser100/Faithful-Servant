@@ -23,3 +23,6 @@ final class Ma5domeenCubitGetMa5domeenDataFailure extends Ma5domeenStates {
 
   Ma5domeenCubitGetMa5domeenDataFailure({required this.errorMessage});
 }
+final class EditMa5domeenDataLoading extends Ma5domeenStates {}
+final class EditMa5domeenDataSuccess extends Ma5domeenStates {}
+final class EditMa5domeenDataFailure extends Ma5domeenStates {}

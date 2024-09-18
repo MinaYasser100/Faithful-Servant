@@ -38,7 +38,7 @@ class _Ma5domeenDetailsView extends State<Ma5domeenDetailsView> {
       body: DesignBody(
         widget: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Ma5domeenDetailsBody(ma5domeenModel: ma5domeenModel),
+          child: Ma5domeenDetailsBody(ma5domeenModel: ma5domeenModel, namestage: '',),
         ),
       ),
     );

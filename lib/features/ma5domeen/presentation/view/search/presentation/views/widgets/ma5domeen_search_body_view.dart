@@ -46,7 +46,7 @@ class _Ma5domeenSearchBodyViewState extends State<Ma5domeenSearchBodyView> {
                   fatherOfConfession: 'fatherOfConfession',
                   birthDate: 'birthDate',
                   phoneNumber1: 'phoneNumber1',
-                  phoneNumber2: 'phoneNumber2',
+                  phoneNumber2: 'phoneNumber2', stagename: '',
                 ),
               );
             },
