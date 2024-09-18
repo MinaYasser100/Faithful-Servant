@@ -9,3 +9,9 @@ final class Ma5domeenSearchCubitGetMa5domeenDataSuccess
 
 final class Ma5domeenSearchCubitGetMa5domeenDataFailure
     extends Ma5domeenSearchState {}
+
+final class Ma5domeenSearchCubitSuccess extends Ma5domeenSearchState {
+  final List<Ma5domeenModel> resultList;
+
+  Ma5domeenSearchCubitSuccess({required this.resultList});
+}

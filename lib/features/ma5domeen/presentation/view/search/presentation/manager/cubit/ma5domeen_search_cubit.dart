@@ -13,7 +13,7 @@ class Ma5domeenSearchCubit extends Cubit<Ma5domeenSearchState> {
 
   final Ma5domeenSearchRepo ma5domeenSearchRepo;
 
-  List<Ma5domeenModel> ma5domeenData1 = [];
+  List<Ma5domeenModel> allMa5domeenData = [];
 
   Future<void> gettingMa5domeenData(String stageName) async {
     try {
@@ -21,11 +21,18 @@ class Ma5domeenSearchCubit extends Cubit<Ma5domeenSearchState> {
       QuerySnapshot<Map<String, dynamic>> docments = await ma5domeenSearchRepo
           .getAllMa5domeenData(stageName, user!.church);
       for (var element in docments.docs) {
-        ma5domeenData1.add(Ma5domeenModel.fromJson(element.data()));
+        allMa5domeenData.add(Ma5domeenModel.fromJson(element.data()));
       }
       emit(Ma5domeenSearchCubitGetMa5domeenDataSuccess());
     } catch (e) {
       emit(Ma5domeenSearchCubitGetMa5domeenDataFailure());
     }
+  }
+
+  void searchInMa5domeen({required String query}) {
+    List<Ma5domeenModel> resultList = allMa5domeenData
+        .where((ma5dom) => ma5dom.name.contains(query))
+        .toList();
+    emit(Ma5domeenSearchCubitSuccess(resultList: resultList));
   }
 }
