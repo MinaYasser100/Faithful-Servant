@@ -1,7 +1,9 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/design_body.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/manager/cubit/ma5domeen_search_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/views/widgets/ma5domeen_search_body_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class Ma5domeenSearchView extends StatelessWidget {
@@ -10,19 +12,22 @@ class Ma5domeenSearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String stateName = Get.arguments as String;
-    return Scaffold(
-      backgroundColor: kPrimaryColor,
-      appBar: AppBar(
+    return BlocProvider(
+      create: (context) => Ma5domeenSearchCubit(),
+      child: Scaffold(
         backgroundColor: kPrimaryColor,
-        foregroundColor: kSecondColor,
-        titleSpacing: 0,
-        title: Text('Ma5domeen Search'.tr),
-        centerTitle: true,
+        appBar: AppBar(
+          backgroundColor: kPrimaryColor,
+          foregroundColor: kSecondColor,
+          titleSpacing: 0,
+          title: Text('Ma5domeen Search'.tr),
+          centerTitle: true,
+        ),
+        body: DesignBody(
+            widget: Ma5domeenSearchBodyView(
+          stageName: stateName,
+        )),
       ),
-      body: DesignBody(
-          widget: Ma5domeenSearchBodyView(
-        stateName: stateName,
-      )),
     );
   }
 }
