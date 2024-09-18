@@ -8,7 +8,11 @@ final class PutMa5domeenDataSuccess extends Ma5domeenStates {}
 
 final class PutMa5domeenDataLoading extends Ma5domeenStates {}
 
-final class PutMa5domeenDataFaild extends Ma5domeenStates {}
+final class PutMa5domeenDataFaild extends Ma5domeenStates {
+  final String errorMessage;
+
+  PutMa5domeenDataFaild(this.errorMessage);
+}
 
 final class Ma5domeenCubitGetMa5domeenDataLoading extends Ma5domeenStates {}
 
@@ -22,4 +26,11 @@ final class Ma5domeenCubitGetMa5domeenDataFailure extends Ma5domeenStates {
   final String errorMessage;
 
   Ma5domeenCubitGetMa5domeenDataFailure({required this.errorMessage});
+}
+final class EditMa5domeenDataLoading extends Ma5domeenStates {}
+final class EditMa5domeenDataSuccess extends Ma5domeenStates {}
+final class EditMa5domeenDataFailure extends Ma5domeenStates {
+  final String errorMessage;
+
+  EditMa5domeenDataFailure(this.errorMessage);
 }

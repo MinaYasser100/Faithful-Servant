@@ -20,6 +20,8 @@ class Ma5domeenModel extends HiveObject {
   final String id;
   @HiveField(8)
   final String church;
+  @HiveField(9)
+  final String stagename;
   @HiveField(10)
   final String birthDate;
   @HiveField(12)
@@ -33,6 +35,7 @@ class Ma5domeenModel extends HiveObject {
   Ma5domeenModel(
       {
       required this.name,
+      required this.stagename,
       required this.registerDate,
       required this.updateRegisterDate,
       required this.id,
@@ -48,6 +51,7 @@ class Ma5domeenModel extends HiveObject {
   factory Ma5domeenModel.fromJson(Map<String, dynamic> json) {
     return Ma5domeenModel(
       name: json['name'] as String,
+      stagename: json['stagename'] as String,
       id: json['id'] as String,
       registerDate: json['registerDate'] as String,
       updateRegisterDate: json['updateRegisterDate'] as String,
@@ -65,6 +69,7 @@ class Ma5domeenModel extends HiveObject {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
+      'stagename':stagename,
       'adderName':adderName,
       'updateRegisterDate':updateRegisterDate,
       'registerDate':registerDate,

@@ -2,18 +2,19 @@ import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
 import 'package:faithful_servant/core/widgets/navigation_back_button.dart';
+import 'package:faithful_servant/features/ma5domeen/data/model/ma5domeen_model.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section1AddMa5domeen.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/section2Ma5domeen.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/edit_ma5domeen_widgets/section1_edit_ma5domeen_data.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/edit_ma5domeen_widgets/section2_edit_ma5domeen_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class Addma5domeenviewbodyContent extends StatefulWidget {
-  const Addma5domeenviewbodyContent({
+class EditMa5domeenViewBodyContent extends StatefulWidget {
+  const EditMa5domeenViewBodyContent({
     super.key,
     required this.fromKey,
     required this.nameController,
@@ -23,7 +24,7 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
     required this.addressController,
     required this.phoneNumber2Controller,
     required this.dateController,
-    required this.namestage,
+     required this.ma5domeenModel,
   });
 
   final GlobalKey<FormState> fromKey;
@@ -34,28 +35,33 @@ class Addma5domeenviewbodyContent extends StatefulWidget {
   final TextEditingController addressController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController dateController;
-  final String namestage;
+ final Ma5domeenModel ma5domeenModel;
   @override
-  State<Addma5domeenviewbodyContent> createState() =>
-      _Addma5domeenviewbodyContent();
+  State<EditMa5domeenViewBodyContent> createState() =>
+      _EditMa5domeenViewBodyContent();
 }
 
-class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
+class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> {
   DateTime? selectedDate;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<Ma5domeenCubit, Ma5domeenStates>(
       listener: (context, state) {
-        if (state is PutMa5domeenDataLoading) {
+        if (state is EditMa5domeenDataLoading) {
           EasyLoading.show(
             status: 'Loading...'.tr,
           );
         }
-        if (state is PutMa5domeenDataSuccess) {
+         if (state is EditMa5domeenDataFailure) {
+          EasyLoading.show(
+            status: state.errorMessage,
+          );
+        }
+        if (state is EditMa5domeenDataSuccess) {
           EasyLoading.dismiss();
            ScaffoldMessenger.of(context).showSnackBar(
                SnackBar(
-                content: Text('The served has been added successfully'.tr),
+                content: Text('The data has been updated successfully'.tr),
               ),
             );
         }
@@ -72,7 +78,7 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                  Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
-                    'Add served'.tr,
+                    'Modifie Informaion'.tr,
                     style: Styles.textStyle30,
                   ),
                 ),
@@ -87,7 +93,7 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 20),
-                        Section1addma5domeen(widget: widget),
+                        Section1EditMa5domeenData(widget: widget),
                         const SizedBox(height: 15),
                         CustomTextFromField(
                           textEditingController: widget.dateController,
@@ -103,14 +109,14 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                           keyboardType: TextInputType.datetime,
                         ),
                         const SizedBox(height: 15),
-                        Section2ma5domeen(widget: widget),
+                        Section2EditMa5domeenData(widget: widget),
                         const SizedBox(height: 50),
                         CustomTextButton(
-                          textButton: 'Add',
+                          textButton:  'Edit'.tr,
                           onPressed: () {
                             if (widget.fromKey.currentState!.validate()) {
-                              implementAddMa5doomButtton(
-                                  context, widget.namestage);
+                              implementEditMa5doomButtton(
+                                  context, widget.ma5domeenModel.stagename);
                             } else {
                               BlocProvider.of<Ma5domeenCubit>(context)
                                   .changeAutovalidateMode();
@@ -130,8 +136,8 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
     );
   }
 
-  void implementAddMa5doomButtton(BuildContext context, String namestage) {
-    BlocProvider.of<Ma5domeenCubit>(context).putMa5domeenDataInFirebase(
+  void implementEditMa5doomButtton(BuildContext context, String namestage) {
+    BlocProvider.of<Ma5domeenCubit>(context).editMa5domeenData(
         name: widget.nameController.text,
         phoneNumber1: widget.phoneNumber1Controller.text,
         phoneNumber2: widget.phoneNumber2Controller.text,
@@ -139,7 +145,7 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         address: widget.addressController.text,
         qualification: widget.qualificationController.text,
         fatherOfConfession: widget.fatherOfConfessionController.text,
-        namestage: namestage);
+        namestage: namestage, ma5domeenModel1: widget.ma5domeenModel);
         controllerDelete();
   }
 

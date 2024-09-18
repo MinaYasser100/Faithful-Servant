@@ -2,17 +2,17 @@ import 'package:faithful_servant/core/function/validator/address_of_area_validat
 import 'package:faithful_servant/core/function/validator/educational_qualification_validator.dart';
 import 'package:faithful_servant/core/function/validator/father_of_conession_validator.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/addMa5domeen_widgets/add_ma5domeen_view_body_content.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/edit_ma5domeen_widgets/edit_ma5domeen_view_body_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Section2ma5domeen extends StatelessWidget {
-  const Section2ma5domeen({
+class Section2EditMa5domeenData extends StatelessWidget {
+  const Section2EditMa5domeenData({
     super.key,
     required this.widget,
   });
 
-  final Addma5domeenviewbodyContent widget;
+  final EditMa5domeenViewBodyContent widget;
 
   @override
   Widget build(BuildContext context) {

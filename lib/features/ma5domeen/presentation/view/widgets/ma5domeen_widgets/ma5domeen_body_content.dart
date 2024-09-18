@@ -36,7 +36,7 @@ class Ma5domeenBodyContent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10),
+                  padding: const EdgeInsets.only(top: 2, bottom: 10, left: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
