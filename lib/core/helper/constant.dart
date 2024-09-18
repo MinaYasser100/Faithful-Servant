@@ -15,8 +15,6 @@ const virginMary = 'العدراء و مار مينا العجايبي';
 const saintMark = 'مار مرقس و ابو سيفين';
 const saintMain = 'مار مينا و البابا كيرلس';
 const kUserBox = 'user_box';
-String church = '';
-String adderName = '';
 
 Map<String, dynamic> selectChurch = {
   saintGeorge: 'G&B123marg',
@@ -100,6 +98,12 @@ List<Map> generalServantPage = [
     'routeto': GetPages.kUserInformationsView,
     'icon': Icons.article_outlined,
   },
+  {
+    'text': "بيانات المخدومين",
+    "btntext": 'Open',
+    'routeto': GetPages.selectStageview ,
+    'icon': Icons.article_outlined,
+  },
 ];
 
 List<Map> genetalSuperVisorPages = [
@@ -122,7 +126,7 @@ List<Map> genetalSuperVisorPages = [
     'icon': Icons.article_outlined,
   },
   {
-    'text': "متابعه مخدومين",
+    'text': "بيانات المخدومين",
     "btntext": 'Open',
     'routeto': GetPages.selectStageview,
     'icon': Icons.article_outlined,

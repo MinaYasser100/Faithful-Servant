@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/features/ma5domeen/data/model/ma5domeen_model.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
+import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -26,6 +27,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
       required String fatherOfConfession,
       required String namestage}) async {
     emit(PutMa5domeenDataLoading());
+     UserModel? user = await getUserData();
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
@@ -33,9 +35,9 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
       Ma5domeenModel ma5domeenModel = Ma5domeenModel(
           updateRegisterDate: result,
           registerDate: result,
-          adderName: adderName,
+          adderName: user!.name,
           name: name,
-          church: church,
+          church: user.church,
           address: address,
           qualification: qualification,
           fatherOfConfession: fatherOfConfession,
@@ -47,7 +49,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
           );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
-          .doc(church)
+          .doc(user.church)
           .collection(namestage)
           .doc(id)
           .set(ma5domeenModel.toJson());
@@ -60,10 +62,11 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   //getting data from firebase
   Future<void> gettingMa5domeenData(String stageName) async {
     emit(Ma5domeenCubitGetMa5domeenDataLoading());
+    UserModel? user = await getUserData();
     try {
       var docments = (await FirebaseFirestore.instance
           .collection("ma5domeen")
-          .doc(church)
+          .doc(user!.church)
           .collection(stageName)
           .get());
       List<Ma5domeenModel> ma5domeenData1 = [];
@@ -78,8 +81,9 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   }
 
   deleteMa5doom({required String stageName, required String servedId})async{
+    UserModel? user = await getUserData();
     await FirebaseFirestore.instance .collection("ma5domeen")
-          .doc(church)
+          .doc(user!.church)
           .collection(stageName).doc(servedId).delete();
   }
 
@@ -95,6 +99,7 @@ void editMa5domeenData({required String name,
       required Ma5domeenModel ma5domeenModel1,
      } )async{
          emit(EditMa5domeenDataLoading());
+         UserModel? user = await getUserData();
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
@@ -102,9 +107,9 @@ void editMa5domeenData({required String name,
       Ma5domeenModel ma5domeenModel = Ma5domeenModel(
           updateRegisterDate: result,
           registerDate:ma5domeenModel1.registerDate ,
-          adderName: adderName,
+          adderName: user!.name,
           name: name,
-          church: church,
+          church:user.church,
           address: address,
           qualification: qualification,
           fatherOfConfession: fatherOfConfession,
@@ -116,7 +121,7 @@ void editMa5domeenData({required String name,
           );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
-          .doc(church)
+          .doc(user.church)
           .collection(namestage)
           .doc(ma5domeenModel1.id)
           .update(ma5domeenModel.toJson());
