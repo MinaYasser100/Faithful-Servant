@@ -13,16 +13,18 @@ class ServantInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(),
+        const Divider(),
         Row(
           children: [
             const Text(
               'من قام بأضافه هذا المخدوم :',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-            Text(ma5domeenModel.adderName,
-                style: const TextStyle(fontSize: 12),
-                overflow: TextOverflow.ellipsis)
+            Flexible(
+              child: Text(ma5domeenModel.adderName,
+                  style: const TextStyle(fontSize: 12),
+                  overflow: TextOverflow.visible),
+            )
           ],
         ),
         const SizedBox(
@@ -34,9 +36,11 @@ class ServantInfoWidget extends StatelessWidget {
               'تاريخ اضافه المخدوم :',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-            Text(ma5domeenModel.registerDate,
-                style: const TextStyle(fontSize: 12),
-                overflow: TextOverflow.ellipsis)
+            Flexible(
+              child: Text(ma5domeenModel.registerDate,
+                  style: const TextStyle(fontSize: 12),
+                  overflow: TextOverflow.visible),
+            )
           ],
         ),
         const SizedBox(
@@ -48,9 +52,11 @@ class ServantInfoWidget extends StatelessWidget {
               'تاريخ اخر تعديل للبيانات :',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-            Text(ma5domeenModel.updateRegisterDate,
-                style: const TextStyle(fontSize: 12),
-                overflow: TextOverflow.ellipsis)
+            Flexible(
+              child: Text(ma5domeenModel.updateRegisterDate,
+                  style: const TextStyle(fontSize: 12),
+                  overflow: TextOverflow.visible),
+            )
           ],
         ),
       ],

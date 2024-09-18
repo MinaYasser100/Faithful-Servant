@@ -13,9 +13,11 @@ class Content extends StatelessWidget {
           title,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
-        Text(data,
-            style: const TextStyle(fontSize: 17),
-            overflow: TextOverflow.ellipsis)
+        Flexible(
+          child: Text(data,
+              style: const TextStyle(fontSize: 17),
+              overflow: TextOverflow.visible),
+        )
       ],
     );
   }
