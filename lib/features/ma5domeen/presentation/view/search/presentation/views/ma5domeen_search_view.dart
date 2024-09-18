@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import '../data/ma5domeen_search_repo/ma5domeen_search_repo_implement.dart';
+
 class Ma5domeenSearchView extends StatelessWidget {
   const Ma5domeenSearchView({super.key});
 
@@ -13,7 +15,7 @@ class Ma5domeenSearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     final String stateName = Get.arguments as String;
     return BlocProvider(
-      create: (context) => Ma5domeenSearchCubit(),
+      create: (context) => Ma5domeenSearchCubit(Ma5domeenSearchRepoImplement()),
       child: Scaffold(
         backgroundColor: kPrimaryColor,
         appBar: AppBar(
