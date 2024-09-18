@@ -48,7 +48,10 @@ class _Ma5domeenView extends State<Ma5domeenView> {
           actions: [
             IconButton(
               onPressed: () {
-                Get.toNamed(GetPages.kMa5domeenSearchView);
+                Get.toNamed(
+                  GetPages.kMa5domeenSearchView,
+                  arguments: namestage,
+                );
               },
               icon: const Icon(
                 Icons.search_rounded,

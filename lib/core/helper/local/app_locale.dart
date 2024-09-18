@@ -132,13 +132,16 @@ class Applocal implements Translations {
           'Requests': 'طلبات',
           'Log out': 'تسجيل الخروج',
           'User Requests': 'طلبات القبول',
-          'Delete':'حذف',
-          'Alert':'تنبيه',
-          'Are you sure you want to delete this served ?':'هل انت متأكد من أنك تريد حذف هذا المخدوم ؟',
-          'Add served':'إضافه مخدوم',
-          'Successfully added':'تمت الاضافه بنجاح',
-          'The served has been added successfully':'تمت إضافه المخدوم بنجاح',
-          'Ok':'تم'
+          'Delete': 'حذف',
+          'Alert': 'تنبيه',
+          'Are you sure you want to delete this served ?':
+              'هل انت متأكد من أنك تريد حذف هذا المخدوم ؟',
+          'Add served': 'إضافه مخدوم',
+          'Successfully added': 'تمت الاضافه بنجاح',
+          'The served has been added successfully': 'تمت إضافه المخدوم بنجاح',
+          'Ok': 'تم',
+          'Ma5domeen Search': 'بحث المخدميين',
+          'Search here...': 'ابحث هنا...',
         },
         "en": {
           'email': 'Email',
@@ -272,14 +275,17 @@ class Applocal implements Translations {
           'Log out': 'Log out',
           'Requests': 'Requests',
           'User Requests': 'User Requests',
-          'Delete':'Delete',
-          'Alert':'Alert',
-           'Are you sure you want to delete this served ?':'Are you sure you want to delete this served ?',
-           'Add served':'Add served',
-           'Successfully added':'Successfully added',
-           'The served has been added successfully':'The served has been added successfully',
-           'Ok':'Ok'
-
+          'Delete': 'Delete',
+          'Alert': 'Alert',
+          'Are you sure you want to delete this served ?':
+              'Are you sure you want to delete this served ?',
+          'Add served': 'Add served',
+          'Successfully added': 'Successfully added',
+          'The served has been added successfully':
+              'The served has been added successfully',
+          'Ok': 'Ok',
+          'Ma5domeen Search': 'Ma5domeen Search',
+          'Search here...': 'Search here...',
         },
       };
 }

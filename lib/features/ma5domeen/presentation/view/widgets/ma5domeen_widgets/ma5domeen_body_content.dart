@@ -10,17 +10,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 class Ma5domeenBodyContent extends StatelessWidget {
-  const Ma5domeenBodyContent(
-      {super.key,
-      required this.ma5doomName,
-      required this.editDate,
-      required this.stageName,
-      required this.servedId,
-      required this.ma5domeenModel});
-  final String ma5doomName;
-  final String editDate;
+  const Ma5domeenBodyContent({
+    super.key,
+    required this.stageName,
+    required this.ma5domeenModel,
+  });
+
   final String stageName;
-  final String servedId;
   final Ma5domeenModel ma5domeenModel;
   @override
   Widget build(BuildContext context) {
@@ -47,12 +43,12 @@ class Ma5domeenBodyContent extends StatelessWidget {
                       Expanded(
                         child: ListTile(
                           title: Text(
-                            ma5doomName,
+                            ma5domeenModel.name,
                             style: Styles.textStyle18
                                 .copyWith(color: kSecondColor),
                           ),
                           subtitle: Text(
-                            editDate,
+                            ma5domeenModel.updateRegisterDate,
                             style: TextStyle(color: Colors.grey[400]),
                           ),
                         ),
@@ -76,7 +72,7 @@ class Ma5domeenBodyContent extends StatelessWidget {
                                 BlocProvider.of<Ma5domeenCubit>(context)
                                     .deleteMa5doom(
                                   stageName: stageName,
-                                  servedId: servedId,
+                                  servedId: ma5domeenModel.id,
                                 );
                                 BlocProvider.of<Ma5domeenCubit>(context)
                                     .gettingMa5domeenData(stageName);
