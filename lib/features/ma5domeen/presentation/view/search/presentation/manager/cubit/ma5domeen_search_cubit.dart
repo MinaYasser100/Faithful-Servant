@@ -30,9 +30,26 @@ class Ma5domeenSearchCubit extends Cubit<Ma5domeenSearchState> {
   }
 
   void searchInMa5domeen({required String query}) {
-    List<Ma5domeenModel> resultList = allMa5domeenData
+    List<Ma5domeenModel> resultList = [];
+    resultList = allMa5domeenData
         .where((ma5dom) => ma5dom.name.contains(query))
         .toList();
     emit(Ma5domeenSearchCubitSuccess(resultList: resultList));
+  }
+
+  deleteMa5doom(
+      {required String stageName,
+      required String ma5domId,
+      required String query}) async {
+    UserModel? user = await getUserData();
+    await FirebaseFirestore.instance
+        .collection("ma5domeen")
+        .doc(user!.church)
+        .collection(stageName)
+        .doc(ma5domId)
+        .delete();
+    allMa5domeenData = [];
+    await gettingMa5domeenData(stageName);
+    searchInMa5domeen(query: query);
   }
 }

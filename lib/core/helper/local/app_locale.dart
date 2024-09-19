@@ -142,8 +142,9 @@ class Applocal implements Translations {
           'Ok': 'تم',
           'Ma5domeen Search': 'بحث المخدميين',
           'Search here...': 'ابحث هنا...',
-          'The data has been updated successfully':'تم تعديل البيانات بنجاح',
-          'Edit':'تعديل',
+          'The data has been updated successfully': 'تم تعديل البيانات بنجاح',
+          'Edit': 'تعديل',
+          'There no one have this name': 'لا يوجد احد بهذا الاسم',
         },
         "en": {
           'email': 'Email',
@@ -288,8 +289,10 @@ class Applocal implements Translations {
           'Ok': 'Ok',
           'Ma5domeen Search': 'Ma5domeen Search',
           'Search here...': 'Search here...',
-          'The data has been updated successfully':'The data has been updated successfully',
-          'Edit':'Edit',
+          'The data has been updated successfully':
+              'The data has been updated successfully',
+          'Edit': 'Edit',
+          'There no one have this name': 'There no one have this name',
         },
       };
 }

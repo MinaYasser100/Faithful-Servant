@@ -9,11 +9,11 @@ import 'package:intl/intl.dart';
 
 class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   Ma5domeenCubit() : super(Ma5domeenStatesInitial());
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  AutovalidateMode autovalidateMode = AutovalidateMode.always;
   String result = "";
   String id = DateTime.now().millisecondsSinceEpoch.toString();
   void changeAutovalidateMode() {
-    autovalidateMode = AutovalidateMode.always;
+    autovalidateMode = AutovalidateMode.disabled;
   }
 
   //store data in firebase
@@ -27,26 +27,26 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
       required String fatherOfConfession,
       required String namestage}) async {
     emit(PutMa5domeenDataLoading());
-     UserModel? user = await getUserData();
+    UserModel? user = await getUserData();
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
     try {
       Ma5domeenModel ma5domeenModel = Ma5domeenModel(
-          updateRegisterDate: result,
-          registerDate: result,
-          adderName: user!.name,
-          name: name,
-          church: user.church,
-          address: address,
-          qualification: qualification,
-          fatherOfConfession: fatherOfConfession,
-          birthDate: birthdate,
-          phoneNumber1: phoneNumber1,
-          phoneNumber2: phoneNumber2,
-          id:id,
-           stagename: namestage,
-          );
+        updateRegisterDate: result,
+        registerDate: result,
+        adderName: user!.name,
+        name: name,
+        church: user.church,
+        address: address,
+        qualification: qualification,
+        fatherOfConfession: fatherOfConfession,
+        birthDate: birthdate,
+        phoneNumber1: phoneNumber1,
+        phoneNumber2: phoneNumber2,
+        id: id,
+        stagename: namestage,
+      );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
           .doc(user.church)
@@ -80,45 +80,48 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
     }
   }
 
-  deleteMa5doom({required String stageName, required String servedId})async{
+  deleteMa5doom({required String stageName, required String servedId}) async {
     UserModel? user = await getUserData();
-    await FirebaseFirestore.instance .collection("ma5domeen")
-          .doc(user!.church)
-          .collection(stageName).doc(servedId).delete();
+    await FirebaseFirestore.instance
+        .collection("ma5domeen")
+        .doc(user!.church)
+        .collection(stageName)
+        .doc(servedId)
+        .delete();
   }
 
-
-void editMa5domeenData({required String name,
-      required String phoneNumber1,
-      required String phoneNumber2,
-      required String birthdate,
-      required String address,
-      required String qualification,
-      required String fatherOfConfession,
-      required String namestage,
-      required Ma5domeenModel ma5domeenModel1,
-     } )async{
-         emit(EditMa5domeenDataLoading());
-         UserModel? user = await getUserData();
+  void editMa5domeenData({
+    required String name,
+    required String phoneNumber1,
+    required String phoneNumber2,
+    required String birthdate,
+    required String address,
+    required String qualification,
+    required String fatherOfConfession,
+    required String namestage,
+    required Ma5domeenModel ma5domeenModel1,
+  }) async {
+    emit(EditMa5domeenDataLoading());
+    UserModel? user = await getUserData();
     String dateOBDCommand = DateTime.now().toString();
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
-        try {
+    try {
       Ma5domeenModel ma5domeenModel = Ma5domeenModel(
-          updateRegisterDate: result,
-          registerDate:ma5domeenModel1.registerDate ,
-          adderName: user!.name,
-          name: name,
-          church:user.church,
-          address: address,
-          qualification: qualification,
-          fatherOfConfession: fatherOfConfession,
-          birthDate: birthdate,
-          phoneNumber1: phoneNumber1,
-          phoneNumber2: phoneNumber2,
-          id:ma5domeenModel1.id,
-           stagename: namestage,
-          );
+        updateRegisterDate: result,
+        registerDate: ma5domeenModel1.registerDate,
+        adderName: user!.name,
+        name: name,
+        church: user.church,
+        address: address,
+        qualification: qualification,
+        fatherOfConfession: fatherOfConfession,
+        birthDate: birthdate,
+        phoneNumber1: phoneNumber1,
+        phoneNumber2: phoneNumber2,
+        id: ma5domeenModel1.id,
+        stagename: namestage,
+      );
       await FirebaseFirestore.instance
           .collection("ma5domeen")
           .doc(user.church)
@@ -129,6 +132,5 @@ void editMa5domeenData({required String name,
     } catch (e) {
       emit(EditMa5domeenDataFailure(e.toString()));
     }
-
-}
+  }
 }

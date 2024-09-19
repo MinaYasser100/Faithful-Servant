@@ -1,9 +1,9 @@
-import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/manager/cubit/ma5domeen_search_cubit.dart';
-import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/views/widgets/ma5domeen_search_content_bady.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+
+import 'ma5domeen_seach_body_bloc_builder.dart';
 
 class Ma5domeenSearchBodyView extends StatefulWidget {
   const Ma5domeenSearchBodyView({super.key, required this.stageName});
@@ -35,37 +35,10 @@ class _Ma5domeenSearchBodyViewState extends State<Ma5domeenSearchBodyView> {
             ),
           ),
         ),
-        BlocBuilder<Ma5domeenSearchCubit, Ma5domeenSearchState>(
-            builder: (context, state) {
-          if (state is Ma5domeenSearchCubitSuccess &&
-              searchController.text == '' &&
-              state.resultList.isNotEmpty) {
-            return const SizedBox();
-          } else if (state is Ma5domeenSearchCubitSuccess &&
-              state.resultList.isNotEmpty) {
-            return Expanded(
-              child: ListView.builder(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                itemCount: state.resultList.length,
-                itemBuilder: (context, index) {
-                  return Ma5domeenSearchContentBady(
-                    stageName: widget.stageName,
-                    ma5domeenModel: state.resultList[index],
-                  );
-                },
-              ),
-            );
-          } else if (state is Ma5domeenSearchCubitSuccess &&
-              state.resultList.isEmpty) {
-            return const Text(
-              'There no one have this name',
-              style: Styles.textStyle20PrimaryColor,
-            );
-          } else {
-            return const SizedBox();
-          }
-        }),
+        Ma5domeenSearchBodyBlocBuilder(
+          searchController: searchController,
+          widget: widget,
+        ),
       ],
     );
   }
