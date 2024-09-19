@@ -10,13 +10,12 @@ class EditMa5domeenDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Ma5domeenModel ma5domeenModel = Get.arguments;
+    Ma5domeenModel ma5domeenModel = Get.arguments;
     return Scaffold(
       body: BlocProvider(
         create: (context) => Ma5domeenCubit(),
         child: EditMa5domeenDataBody(
           ma5domeenModel: ma5domeenModel,
-          
         ),
       ),
     );

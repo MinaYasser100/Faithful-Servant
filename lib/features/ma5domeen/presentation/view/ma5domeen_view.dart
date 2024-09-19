@@ -35,7 +35,7 @@ class _Ma5domeenView extends State<Ma5domeenView> {
           foregroundColor: kSecondColor,
           leading: IconButton(
             onPressed: () {
-              Get.offAndToNamed(GetPages.selectStageview);
+              Get.back();
             },
             icon: const Icon(
               Icons.arrow_back_rounded,

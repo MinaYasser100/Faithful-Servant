@@ -1,5 +1,4 @@
 import 'package:faithful_servant/core/helper/constant.dart';
-import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/design_body.dart';
 import 'package:faithful_servant/features/ma5domeen/data/model/ma5domeen_model.dart';
@@ -19,11 +18,12 @@ class _Ma5domeenDetailsView extends State<Ma5domeenDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kPrimaryColor,
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         leading: IconButton(
           onPressed: () {
-            Get.offAndToNamed(GetPages.selectStageview);
+            Get.back();
           },
           icon: const Icon(
             Icons.arrow_back_rounded,
@@ -38,7 +38,10 @@ class _Ma5domeenDetailsView extends State<Ma5domeenDetailsView> {
       body: DesignBody(
         widget: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 2),
-          child: Ma5domeenDetailsBody(ma5domeenModel: ma5domeenModel, namestage: '',),
+          child: Ma5domeenDetailsBody(
+            ma5domeenModel: ma5domeenModel,
+            namestage: ma5domeenModel.stagename,
+          ),
         ),
       ),
     );

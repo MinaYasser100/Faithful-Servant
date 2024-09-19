@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -24,7 +25,7 @@ class EditMa5domeenViewBodyContent extends StatefulWidget {
     required this.addressController,
     required this.phoneNumber2Controller,
     required this.dateController,
-     required this.ma5domeenModel,
+    required this.ma5domeenModel,
   });
 
   final GlobalKey<FormState> fromKey;
@@ -35,13 +36,14 @@ class EditMa5domeenViewBodyContent extends StatefulWidget {
   final TextEditingController addressController;
   final TextEditingController fatherOfConfessionController;
   final TextEditingController dateController;
- final Ma5domeenModel ma5domeenModel;
+  final Ma5domeenModel ma5domeenModel;
   @override
   State<EditMa5domeenViewBodyContent> createState() =>
       _EditMa5domeenViewBodyContent();
 }
 
-class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> {
+class _EditMa5domeenViewBodyContent
+    extends State<EditMa5domeenViewBodyContent> {
   DateTime? selectedDate;
   @override
   Widget build(BuildContext context) {
@@ -52,18 +54,22 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
             status: 'Loading...'.tr,
           );
         }
-         if (state is EditMa5domeenDataFailure) {
+        if (state is EditMa5domeenDataFailure) {
           EasyLoading.show(
             status: state.errorMessage,
           );
         }
         if (state is EditMa5domeenDataSuccess) {
           EasyLoading.dismiss();
-           ScaffoldMessenger.of(context).showSnackBar(
-               SnackBar(
-                content: Text('The data has been updated successfully'.tr),
-              ),
-            );
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('The data has been updated successfully'.tr),
+            ),
+          );
+          Get.offNamed(
+            GetPages.ma5domeenView,
+            arguments: widget.ma5domeenModel.stagename,
+          );
         }
       },
       builder: (context, state) {
@@ -75,7 +81,7 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
               children: [
                 const NavigationBackButton(),
                 const SizedBox(height: 50),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
                     'Modifie Informaion'.tr,
@@ -112,7 +118,7 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
                         Section2EditMa5domeenData(widget: widget),
                         const SizedBox(height: 50),
                         CustomTextButton(
-                          textButton:  'Edit'.tr,
+                          textButton: 'Edit'.tr,
                           onPressed: () {
                             if (widget.fromKey.currentState!.validate()) {
                               implementEditMa5doomButtton(
@@ -145,8 +151,9 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
         address: widget.addressController.text,
         qualification: widget.qualificationController.text,
         fatherOfConfession: widget.fatherOfConfessionController.text,
-        namestage: namestage, ma5domeenModel1: widget.ma5domeenModel);
-        controllerDelete();
+        namestage: namestage,
+        ma5domeenModel1: widget.ma5domeenModel);
+    controllerDelete();
   }
 
   Future<void> selectDate(BuildContext context) async {
@@ -165,7 +172,8 @@ class _EditMa5domeenViewBodyContent extends State<EditMa5domeenViewBodyContent> 
       });
     }
   }
-  void controllerDelete(){
+
+  void controllerDelete() {
     widget.addressController.clear();
     widget.dateController.clear();
     widget.fatherOfConfessionController.clear();
