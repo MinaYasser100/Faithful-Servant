@@ -101,7 +101,7 @@ List<Map> generalServantPage = [
   {
     'text': "بيانات المخدومين",
     "btntext": 'Open',
-    'routeto': GetPages.selectStageview ,
+    'routeto': GetPages.kMa5domeenViewForGeneral,
     'icon': Icons.article_outlined,
   },
 ];
