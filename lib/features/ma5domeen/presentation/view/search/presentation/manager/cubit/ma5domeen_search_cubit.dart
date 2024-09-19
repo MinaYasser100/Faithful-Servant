@@ -32,7 +32,9 @@ class Ma5domeenSearchCubit extends Cubit<Ma5domeenSearchState> {
   void searchInMa5domeen({required String query}) {
     List<Ma5domeenModel> resultList = [];
     resultList = allMa5domeenData
-        .where((ma5dom) => ma5dom.name.contains(query))
+        .where(
+          (ma5dom) => ma5dom.name.toLowerCase().contains(query.toLowerCase()),
+        )
         .toList();
     emit(Ma5domeenSearchCubitSuccess(resultList: resultList));
   }

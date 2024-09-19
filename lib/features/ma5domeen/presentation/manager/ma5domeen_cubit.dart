@@ -9,11 +9,12 @@ import 'package:intl/intl.dart';
 
 class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
   Ma5domeenCubit() : super(Ma5domeenStatesInitial());
-  AutovalidateMode autovalidateMode = AutovalidateMode.always;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String result = "";
-  String id = DateTime.now().millisecondsSinceEpoch.toString();
+
   void changeAutovalidateMode() {
-    autovalidateMode = AutovalidateMode.disabled;
+    autovalidateMode = AutovalidateMode.always;
+    emit(Ma5domeenCubitChangeAutovalidateMode());
   }
 
   //store data in firebase
@@ -32,6 +33,7 @@ class Ma5domeenCubit extends Cubit<Ma5domeenStates> {
     DateTime date = DateTime.parse(dateOBDCommand);
     String result = DateFormat('yyyy-MM-dd | HH:mm').format(date);
     try {
+      String id = DateTime.now().millisecondsSinceEpoch.toString();
       Ma5domeenModel ma5domeenModel = Ma5domeenModel(
         updateRegisterDate: result,
         registerDate: result,
