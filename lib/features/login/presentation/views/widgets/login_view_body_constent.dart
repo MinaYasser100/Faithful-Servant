@@ -2,7 +2,6 @@ import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/core/function/logout_method.dart';
 import 'package:faithful_servant/core/function/screen_action/determine_screen_from_privilage.dart';
 import 'package:faithful_servant/core/function/validator/email_validator.dart';
-import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
@@ -45,8 +44,6 @@ class LoginViewBodyContent extends StatelessWidget {
             UserModel? userModel =
                 BlocProvider.of<LoginCubit>(context).userModel;
             determineScreenFromPrivilage(userModel, context);
-            await CacheHelper.saveData(key: kUserId, value: state.userId);
-            userToken = state.userId;
           } else {
             EasyLoading.showError('برجاء الانتظار حتي يوافق المسئول');
             logoutMethod(context);

@@ -1,4 +1,5 @@
 import 'package:faithful_servant/features/general_supervisor/presentation/views/select_stage_view.dart';
+import 'package:faithful_servant/features/login/confirm_validity/presentation/views/confirm_validity_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/add_ma5domeen_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/edit_ma5domeen_data_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_details_view.dart';
@@ -56,6 +57,7 @@ abstract class GetPages {
   static String kMa5domeenSearchView = '/MadomeenSearchView';
   static String kEditMa5domeenDataView = '/EditMa5domeenDataView';
   static String kMa5domeenViewForGeneral = '/Ma5domeenViewForGeneral';
+  static String kConfirmValidityView = '/ConfirmValidityView';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -190,6 +192,11 @@ abstract class GetPages {
     GetPage(
       name: kMa5domeenViewForGeneral,
       page: () => const Ma5domeenViewForGeneral(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kConfirmValidityView,
+      page: () => const ConfirmValidityView(),
       transition: Transition.circularReveal,
     ),
   ];

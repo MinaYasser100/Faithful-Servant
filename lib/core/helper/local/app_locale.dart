@@ -145,6 +145,14 @@ class Applocal implements Translations {
           'The data has been updated successfully': 'تم تعديل البيانات بنجاح',
           'Edit': 'تعديل',
           'There no one have this name': 'لا يوجد احد بهذا الاسم',
+          'Confirm Validity': 'تاكيد الصلاحية',
+          'Confirm': 'تاكيد',
+          "Confirm word": 'كلمة التاكيد',
+          'Confirm Failure': 'فشل التاكيد',
+          'this is not the confirm word for supervisor general authority':
+              'هذة ليست كلمة التاكيد لصلاحية المشرف العام',
+          'Write the confirm word to take the supervisor general authority':
+              'اكتب كلمة التاكيد لكي تستطيع تنال صلاحية المشرف العام',
         },
         "en": {
           'email': 'Email',
@@ -293,6 +301,14 @@ class Applocal implements Translations {
               'The data has been updated successfully',
           'Edit': 'Edit',
           'There no one have this name': 'There no one have this name',
+          'Confirm Validity': 'Confirm Validity',
+          'Confirm': 'Confirm',
+          "Confirm word": "Confirm word",
+          'Confirm Failure': 'Confirm Failure',
+          'this is not the confirm word for supervisor general authority':
+              'this is not the confirm word for supervisor general authority',
+          'Write the confirm word to take the supervisor general authority':
+              'Write the confirm word to take the supervisor general authority',
         },
       };
 }
