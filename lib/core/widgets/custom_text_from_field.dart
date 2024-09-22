@@ -13,6 +13,7 @@ class CustomTextFromField extends StatelessWidget {
     this.keyboardType,
     required this.textEditingController,
     this.readOnly = false,
+    this.onTap,
   });
   final String labelText;
   final bool obscureText;
@@ -22,12 +23,14 @@ class CustomTextFromField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController textEditingController;
   final bool readOnly;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textEditingController,
       obscureText: obscureText,
       validator: validator,
+      onTap: onTap,
       keyboardType: keyboardType,
       readOnly: readOnly,
       decoration: InputDecoration(

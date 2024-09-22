@@ -58,12 +58,6 @@ class ReisterViewBodyContent extends StatefulWidget {
 }
 
 class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
-  // final List<String> items = [
-  //   'خادم',
-  //   'امين الخدمة',
-  //   'امين قطاع',
-  //   'المشرف العام'
-  // ];
   final List<String> items = [
     'خادم',
     'امين اسرة',
@@ -119,114 +113,121 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
           }
         },
         builder: (context, state) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const NavigationBackButton(),
-              const SizedBox(height: 50),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Create Account'.tr,
-                  style: Styles.textStyle30,
-                ),
-              ),
-              const SizedBox(height: 30),
-              Center(
-                child: ProfileImageWidget(
-                  backgroundImage: NetworkImage(BlocProvider.of<RegisterCubit>(
-                              context)
-                          .imageSelected ??
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
-                  onPressed: () {
-                    BlocProvider.of<RegisterCubit>(context).getProfileImage();
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Form(
-                  key: widget.fromKey,
-                  autovalidateMode:
-                      BlocProvider.of<RegisterCubit>(context).autovalidateMode,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 20),
-                      SectionOneInRegister(widget: widget),
-                      const SizedBox(height: 15),
-                      CustomTextFromField(
-                        textEditingController: widget.dateController,
-                        labelText: 'MM/dd/yyyy'.tr,
-                        validator: (p0) {
-                          return null;
-                        },
-                        iconData: Icons.date_range_outlined,
-                        suffixOnPressed: () {
-                          selectDate(context);
-                        },
-                        keyboardType: TextInputType.datetime,
-                      ),
-                      const SizedBox(height: 15),
-                      ChooseFromItems(
-                        items: items,
-                        selectedItem: selectedItem,
-                        onChanged: (newValue) {
-                          setState(() {
-                            selectedItem = newValue!;
-                          });
-                        },
-                      ),
-                      const SizedBox(height: 15),
-                      ChooseFromItems(
-                        items: churchItems,
-                        selectedItem: churchSelectedItem,
-                        onChanged: (newValue) {
-                          setState(() {
-                            churchSelectedItem = newValue!;
-                          });
-                        },
-                      ),
-                      const SizedBox(height: 15),
-                      ChooseFromItems(
-                        items: genderItems,
-                        selectedItem: selectGenderItem,
-                        onChanged: (newValue) {
-                          setState(() {
-                            selectGenderItem = newValue!;
-                          });
-                        },
-                      ),
-                      const SizedBox(height: 15),
-                      ChooseFromItems(
-                        items: currentServiceItems,
-                        selectedItem: selectCurrentService,
-                        onChanged: (newValue) {
-                          setState(() {
-                            selectCurrentService = newValue!;
-                          });
-                        },
-                      ),
-                      const SizedBox(height: 15),
-                      SectionTwoInRegister(widget: widget),
-                      const SizedBox(height: 50),
-                      CustomTextButton(
-                        textButton: 'Create Account'.tr,
-                        onPressed: () {
-                          if (widget.fromKey.currentState!.validate()) {
-                            implementCreateNewAccountButtton(context);
-                          } else {
-                            BlocProvider.of<RegisterCubit>(context)
-                                .changeAutovalidateMode();
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 50),
-                    ],
+          return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const NavigationBackButton(),
+                const SizedBox(height: 50),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    'Create Account'.tr,
+                    style: Styles.textStyle30,
                   ),
                 ),
-              )
-            ],
+                const SizedBox(height: 30),
+                Center(
+                  child: ProfileImageWidget(
+                    backgroundImage: NetworkImage(BlocProvider.of<
+                                RegisterCubit>(context)
+                            .imageSelected ??
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzb62jTDtJjG9KgljxtM0vPyWOq_16WOkIgA&usqp=CAU'),
+                    onPressed: () {
+                      BlocProvider.of<RegisterCubit>(context).getProfileImage();
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Form(
+                    key: widget.fromKey,
+                    autovalidateMode: BlocProvider.of<RegisterCubit>(context)
+                        .autovalidateMode,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        SectionOneInRegister(widget: widget),
+                        const SizedBox(height: 15),
+                        CustomTextFromField(
+                          textEditingController: widget.dateController,
+                          labelText: 'MM/dd/yyyy'.tr,
+                          validator: (p0) {
+                            return null;
+                          },
+                          readOnly: true,
+                          onTap: () {
+                            selectDate(context);
+                          },
+                          iconData: Icons.date_range_outlined,
+                          suffixOnPressed: () {
+                            selectDate(context);
+                          },
+                          keyboardType: TextInputType.datetime,
+                        ),
+                        const SizedBox(height: 15),
+                        ChooseFromItems(
+                          items: items,
+                          selectedItem: selectedItem,
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectedItem = newValue!;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 15),
+                        ChooseFromItems(
+                          items: churchItems,
+                          selectedItem: churchSelectedItem,
+                          onChanged: (newValue) {
+                            setState(() {
+                              churchSelectedItem = newValue!;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 15),
+                        ChooseFromItems(
+                          items: genderItems,
+                          selectedItem: selectGenderItem,
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectGenderItem = newValue!;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 15),
+                        ChooseFromItems(
+                          items: currentServiceItems,
+                          selectedItem: selectCurrentService,
+                          onChanged: (newValue) {
+                            setState(() {
+                              selectCurrentService = newValue!;
+                            });
+                          },
+                        ),
+                        const SizedBox(height: 15),
+                        SectionTwoInRegister(widget: widget),
+                        const SizedBox(height: 50),
+                        CustomTextButton(
+                          textButton: 'Create Account'.tr,
+                          onPressed: () {
+                            if (widget.fromKey.currentState!.validate()) {
+                              implementCreateNewAccountButtton(context);
+                            } else {
+                              BlocProvider.of<RegisterCubit>(context)
+                                  .changeAutovalidateMode();
+                            }
+                          },
+                        ),
+                        const SizedBox(height: 50),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),

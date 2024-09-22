@@ -5,7 +5,7 @@ String? nameValidator(value) {
     return 'Please enter your full name'.tr;
   }
   List<String> names = value.split(' ');
-  if (names.length != 4) {
+  if (names.length < 4) {
     return 'Please enter your full name'.tr;
   }
   return null;

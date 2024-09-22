@@ -42,7 +42,6 @@ class SectionOneInRegister extends StatelessWidget {
         CustomTextFromField(
           textEditingController: widget.phoneNum2Controller,
           labelText: 'Phone number 2'.tr,
-          validator: phoneValidator,
           keyboardType: TextInputType.phone,
         ),
       ],

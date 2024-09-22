@@ -26,24 +26,21 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ReisterViewBodyContent(
-          fromKey: fromKey,
-          nameController: nameController,
-          emailController: emailController,
-          phoneNum1Controller: phoneNum1Controller,
-          phoneNum2Controller: phoneNum2Controller,
-          nationalIDController: nationalIDController,
-          passwordController: passwordController,
-          confirmPasswordController: confirmPasswordController,
-          numberOfHomeController: numberOfHomeController,
-          fatherOfConfessionController: fatherOfConfessionController,
-          qualificationController: qualificationController,
-          streetNameController: streetNameController,
-          addressOfAreaController: addressOfAreaController,
-          dateController: dateController,
-        ),
+      child: ReisterViewBodyContent(
+        fromKey: fromKey,
+        nameController: nameController,
+        emailController: emailController,
+        phoneNum1Controller: phoneNum1Controller,
+        phoneNum2Controller: phoneNum2Controller,
+        nationalIDController: nationalIDController,
+        passwordController: passwordController,
+        confirmPasswordController: confirmPasswordController,
+        numberOfHomeController: numberOfHomeController,
+        fatherOfConfessionController: fatherOfConfessionController,
+        qualificationController: qualificationController,
+        streetNameController: streetNameController,
+        addressOfAreaController: addressOfAreaController,
+        dateController: dateController,
       ),
     );
   }
