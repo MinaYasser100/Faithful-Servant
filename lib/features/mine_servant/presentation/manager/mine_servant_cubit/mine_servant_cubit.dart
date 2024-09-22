@@ -4,6 +4,7 @@ import 'package:faithful_servant/core/function/get_user_data.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 part 'mine_servant_state.dart';
 
 class MineServantCubit extends Cubit<MineServantState> {
@@ -23,7 +24,7 @@ class MineServantCubit extends Cubit<MineServantState> {
               .collection('users')
               .where('privilage', isEqualTo: 'خادم')
               .where('currentService', isEqualTo: userdata.currentService)
-              .where("name", isNotEqualTo: userdata.name)
+              //.where("name", isNotEqualTo: userdata.name)
               .get()
               .then((value) {
             for (var element in value.docs) {
@@ -36,30 +37,31 @@ class MineServantCubit extends Cubit<MineServantState> {
               .collection(churchNamesBasedOnCode[userdata.church])
               .doc(userdata.church)
               .collection('users')
-              .where('privilage', isNotEqualTo: 'مشرف عام')
+              .where('privilage', isNotEqualTo: 'المشرف العام')
               .where('currentService', arrayContains: userdata.currentService)
-              .where("name", isNotEqualTo: userdata.name)
+              //.where("name", isNotEqualTo: userdata.name)
               .get()
               .then((value) {
             for (var element in value.docs) {
               searchServantList.add(UserModel.fromJson(element.data()));
             }
           });
-        } else if (userdata.privilage == "مشرف عام") {
+        } else if (userdata.privilage == "المشرف العام") {
           // the current user is مشرف عام
-          if (userdata.currentService == "كاهن") {
+          if (userdata.currentService == 'كاهن') {
             // ايميل كاهن
             await FirebaseFirestore.instance
                 .collection(churchNamesBasedOnCode[userdata.church])
                 .doc(userdata.church)
                 .collection('users')
-                .where('currentService', isNotEqualTo: 'كاهن')
-                .where("name", isNotEqualTo: userdata.name)
+                .where("currentService", isNotEqualTo: 'كاهن')
+               // .where("name", isNotEqualTo: userdata.name)
                 .get()
                 .then((value) {
               for (var element in value.docs) {
                 searchServantList.add(UserModel.fromJson(element.data()));
               }
+              
             });
           } else {
             // ايميل امين الخدمة او المساعد
@@ -68,7 +70,7 @@ class MineServantCubit extends Cubit<MineServantState> {
                 .doc(userdata.church)
                 .collection('users')
                 .where('currentService', isNotEqualTo: 'كاهن')
-                .where("name", isNotEqualTo: userdata.name)
+               // .where("name", isNotEqualTo: userdata.name)
                 .get()
                 .then((value) {
               for (var element in value.docs) {
