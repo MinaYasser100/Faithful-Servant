@@ -1,4 +1,4 @@
-import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
+import 'package:faithful_servant/core/function/show_dialog/successfully_show_dialog.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
@@ -14,10 +14,12 @@ class Ma5domeenBodyContent extends StatelessWidget {
     super.key,
     required this.stageName,
     required this.ma5domeenModel,
+    this.isServant = false,
   });
 
   final String stageName;
   final Ma5domeenModel ma5domeenModel;
+  final bool isServant;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<Ma5domeenCubit, Ma5domeenStates>(
@@ -26,8 +28,10 @@ class Ma5domeenBodyContent extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Get.toNamed(GetPages.ma5domeenDetailsView,
-                    arguments: ma5domeenModel);
+                Get.toNamed(
+                  GetPages.ma5domeenDetailsView,
+                  arguments: ma5domeenModel,
+                );
               },
               child: Container(
                 height: 70,
@@ -53,39 +57,41 @@ class Ma5domeenBodyContent extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: kSecondColor,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            successfullyShowDialog(
-                              context: context,
-                              titleText: 'Alert'.tr,
-                              contentText:
-                                  'Are you sure you want to delete this served ?'
-                                      .tr,
-                              buttonText: 'Delete'.tr,
-                              onPressed: () {
-                                BlocProvider.of<Ma5domeenCubit>(context)
-                                    .deleteMa5doom(
-                                  stageName: stageName,
-                                  servedId: ma5domeenModel.id,
-                                );
-                                BlocProvider.of<Ma5domeenCubit>(context)
-                                    .gettingMa5domeenData(stageName);
-                              },
-                            );
-                          },
-                          child: Text(
-                            'Delete'.tr,
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.bold),
+                      if (!isServant)
+                        Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: kSecondColor,
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                        ),
-                      )
+                          child: TextButton(
+                            onPressed: () {
+                              successfullyShowDialog(
+                                context: context,
+                                titleText: 'Alert'.tr,
+                                contentText:
+                                    'Are you sure you want to delete this served ?'
+                                        .tr,
+                                buttonText: 'Delete'.tr,
+                                onPressed: () {
+                                  BlocProvider.of<Ma5domeenCubit>(context)
+                                      .deleteMa5doom(
+                                    stageName: stageName,
+                                    servedId: ma5domeenModel.id,
+                                  );
+                                  BlocProvider.of<Ma5domeenCubit>(context)
+                                      .gettingMa5domeenData(stageName);
+                                  Get.back();
+                                },
+                              );
+                            },
+                            child: Text(
+                              'Delete'.tr,
+                              style: const TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        )
                     ],
                   ),
                 ),

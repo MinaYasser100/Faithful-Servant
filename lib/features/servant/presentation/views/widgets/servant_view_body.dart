@@ -1,3 +1,5 @@
+import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/features/general_manager/presentation/views/widgets/page_cards.dart';
 import 'package:flutter/material.dart';
 
 class ServantViewBody extends StatelessWidget {
@@ -5,8 +7,10 @@ class ServantViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [],
+    return Column(
+      children: [
+        PageCards(screensList: servantPages),
+      ],
     );
   }
 }

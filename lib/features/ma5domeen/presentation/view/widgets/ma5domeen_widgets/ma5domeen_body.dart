@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Ma5domeenBody extends StatefulWidget {
-  const Ma5domeenBody({super.key, required this.nameStage});
+  const Ma5domeenBody({
+    super.key,
+    required this.nameStage,
+    this.isServant = false,
+  });
   final String nameStage;
+  final bool isServant;
   @override
   State<Ma5domeenBody> createState() => _Ma5domeenBodyState();
 }
@@ -34,6 +39,7 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
                 return Ma5domeenBodyContent(
                   stageName: widget.nameStage,
                   ma5domeenModel: state.ma5domeenData[index],
+                  isServant: widget.isServant,
                 );
               },
             );

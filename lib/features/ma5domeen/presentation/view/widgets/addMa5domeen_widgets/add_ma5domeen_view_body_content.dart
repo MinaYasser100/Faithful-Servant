@@ -58,11 +58,18 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         }
         if (state is PutMa5domeenDataSuccess) {
           EasyLoading.dismiss();
-           ScaffoldMessenger.of(context).showSnackBar(
-               SnackBar(
-                content: Text('The served has been added successfully'.tr),
-              ),
-            );
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('The served has been added successfully'.tr),
+            ),
+          );
+          widget.nameController.clear();
+          widget.addressController.clear();
+          widget.dateController.clear();
+          widget.fatherOfConfessionController.clear();
+          widget.phoneNumber1Controller.clear();
+          widget.phoneNumber2Controller.clear();
+          widget.qualificationController.clear();
         }
       },
       builder: (context, state) {
@@ -74,7 +81,7 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
               children: [
                 const NavigationBackButton(),
                 const SizedBox(height: 50),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: Text(
                     'Add served'.tr,
@@ -103,6 +110,9 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
                           },
                           iconData: Icons.date_range_outlined,
                           suffixOnPressed: () {
+                            selectDate(context);
+                          },
+                          onTap: () {
                             selectDate(context);
                           },
                           keyboardType: TextInputType.datetime,
@@ -145,7 +155,6 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
         qualification: widget.qualificationController.text,
         fatherOfConfession: widget.fatherOfConfessionController.text,
         namestage: namestage);
-        controllerDelete();
   }
 
   Future<void> selectDate(BuildContext context) async {
@@ -163,15 +172,6 @@ class _Addma5domeenviewbodyContent extends State<Addma5domeenviewbodyContent> {
             : '';
       });
     }
-  }
-  void controllerDelete(){
-    widget.addressController.clear();
-    widget.dateController.clear();
-    widget.fatherOfConfessionController.clear();
-    widget.nameController.clear();
-    widget.phoneNumber1Controller.clear();
-    widget.phoneNumber2Controller.clear();
-    widget.qualificationController.clear();
   }
 
   @override

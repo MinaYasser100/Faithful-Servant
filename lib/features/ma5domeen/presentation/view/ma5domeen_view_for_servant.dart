@@ -10,14 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
-class Ma5domeenViewForGeneral extends StatefulWidget {
-  const Ma5domeenViewForGeneral({super.key});
+class Ma5domeenViewForServant extends StatefulWidget {
+  const Ma5domeenViewForServant({super.key});
 
   @override
-  State<Ma5domeenViewForGeneral> createState() => _Ma5domeenView();
+  State<Ma5domeenViewForServant> createState() => _Ma5domeenView();
 }
 
-class _Ma5domeenView extends State<Ma5domeenViewForGeneral> {
+class _Ma5domeenView extends State<Ma5domeenViewForServant> {
   late Future<UserModel?> userModelFuture;
 
   @override
@@ -73,19 +73,12 @@ class _Ma5domeenView extends State<Ma5domeenViewForGeneral> {
                   ),
                 ],
               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () {
-                  Get.toNamed(GetPages.addMa5domeenview,
-                      arguments: userModel.currentService);
-                },
-                backgroundColor: kPrimaryLightColor,
-                child: const Icon(Icons.add),
-              ),
               body: DesignBody(
                 widget: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Ma5domeenBody(
                     nameStage: userModel.currentService,
+                    isServant: true,
                   ),
                 ),
               ),
