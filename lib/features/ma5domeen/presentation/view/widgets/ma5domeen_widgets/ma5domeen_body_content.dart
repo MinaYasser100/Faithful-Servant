@@ -1,4 +1,4 @@
-import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
+import 'package:faithful_servant/core/function/show_dialog/successfully_show_dialog.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/helper/styles.dart';

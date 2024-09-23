@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/function/show_dialog/successfully_show_dialog.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/Drawer/widgets/custom_requests_icon.dart';
 import 'package:faithful_servant/features/general_supervisor_screens/users_requests/presentation/manager/user_requests_cubit/user_reuests_cubit.dart';
@@ -43,7 +44,16 @@ class ListTileWidget extends StatelessWidget {
         ),
         ListTile(
           onTap: () {
-            BlocProvider.of<LoginCubit>(context).logoutMethod();
+            successfullyShowDialog(
+              context: context,
+              contentText:
+                  'Are you sure you want to log out of this application'.tr,
+              titleText: 'Log out'.tr,
+              buttonText: 'OK'.tr,
+              onPressed: () {
+                BlocProvider.of<LoginCubit>(context).logoutMethod();
+              },
+            );
           },
           title: Text('Log out'.tr),
           trailing: const Icon(Icons.logout),

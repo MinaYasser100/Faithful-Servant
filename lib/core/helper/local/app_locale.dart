@@ -153,6 +153,8 @@ class Applocal implements Translations {
               'هذة ليست كلمة التاكيد لصلاحية المشرف العام',
           'Write the confirm word to take the supervisor general authority':
               'اكتب كلمة التاكيد لكي تستطيع تنال صلاحية المشرف العام',
+          'Are you sure you want to log out of this application':
+              'هل انت متاكد من انك تريد تسجيل الخروج من هذا البرنامج',
         },
         "en": {
           'email': 'Email',
@@ -309,6 +311,8 @@ class Applocal implements Translations {
               'this is not the confirm word for supervisor general authority',
           'Write the confirm word to take the supervisor general authority':
               'Write the confirm word to take the supervisor general authority',
+          'Are you sure you want to log out of this application':
+              'Are you sure you want to log out of this application',
         },
       };
 }

@@ -17,7 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import '../../../../../core/function/screen_action/successfully_show_dialog.dart';
+import '../../../../../core/function/show_dialog/successfully_show_dialog.dart';
 
 class ReisterViewBodyContent extends StatefulWidget {
   const ReisterViewBodyContent({

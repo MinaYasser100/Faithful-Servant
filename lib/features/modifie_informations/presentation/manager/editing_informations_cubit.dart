@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:faithful_servant/core/function/screen_action/successfully_show_dialog.dart';
+import 'package:faithful_servant/core/function/show_dialog/successfully_show_dialog.dart';
 import 'package:faithful_servant/features/modifie_informations/data/editing_informations_repo/editing_informations_repo.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
