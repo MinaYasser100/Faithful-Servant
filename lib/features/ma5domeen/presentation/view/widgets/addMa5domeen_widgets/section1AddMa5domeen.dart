@@ -23,7 +23,6 @@ class Section1addma5domeen extends StatelessWidget {
           keyboardType: TextInputType.name,
           validator: nameValidator,
         ),
-        
         const SizedBox(height: 15),
         CustomTextFromField(
           textEditingController: widget.phoneNumber1Controller,
@@ -35,7 +34,6 @@ class Section1addma5domeen extends StatelessWidget {
         CustomTextFromField(
           textEditingController: widget.phoneNumber2Controller,
           labelText: 'Phone number 2'.tr,
-          validator: phoneValidator,
           keyboardType: TextInputType.phone,
         ),
       ],

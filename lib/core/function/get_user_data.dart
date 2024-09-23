@@ -6,5 +6,4 @@ Future<UserModel?> getUserData() async {
   var userBox = await Hive.openBox<UserModel>(kUserBox);
   UserModel? user = userBox.values.first;
   return user;
-  
 }

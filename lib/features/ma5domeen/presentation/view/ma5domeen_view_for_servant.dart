@@ -78,6 +78,7 @@ class _Ma5domeenView extends State<Ma5domeenViewForServant> {
                   padding: const EdgeInsets.all(20.0),
                   child: Ma5domeenBody(
                     nameStage: userModel.currentService,
+                    isServant: true,
                   ),
                 ),
               ),
