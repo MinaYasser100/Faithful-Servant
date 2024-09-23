@@ -155,6 +155,8 @@ class Applocal implements Translations {
               'اكتب كلمة التاكيد لكي تستطيع تنال صلاحية المشرف العام',
           'Are you sure you want to log out of this application':
               'هل انت متاكد من انك تريد تسجيل الخروج من هذا البرنامج',
+          'Are you sure you want to delete this account':
+              'هل انت متاكد من انك تريد حذف هذا الحساب',
         },
         "en": {
           'email': 'Email',
@@ -313,6 +315,8 @@ class Applocal implements Translations {
               'Write the confirm word to take the supervisor general authority',
           'Are you sure you want to log out of this application':
               'Are you sure you want to log out of this application',
+          'Are you sure you want to delete this account':
+              'Are you sure you want to delete this account',
         },
       };
 }

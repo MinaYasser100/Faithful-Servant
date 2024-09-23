@@ -50,7 +50,7 @@ class ListTileWidget extends StatelessWidget {
                   'Are you sure you want to log out of this application'.tr,
               titleText: 'Log out'.tr,
               buttonText: 'OK'.tr,
-              onPressed: () {
+              onPressed: () async {
                 BlocProvider.of<LoginCubit>(context).logoutMethod();
               },
             );
@@ -60,7 +60,15 @@ class ListTileWidget extends StatelessWidget {
         ),
         ListTile(
           onTap: () {
-            BlocProvider.of<LoginCubit>(context).deleteUserEmail();
+            successfullyShowDialog(
+              context: context,
+              contentText: 'Are you sure you want to delete this account'.tr,
+              titleText: 'Delete account'.tr,
+              buttonText: 'OK'.tr,
+              onPressed: () async {
+                await BlocProvider.of<LoginCubit>(context).deleteUserEmail();
+              },
+            );
           },
           title: Text('Delete account'.tr),
           trailing: const Icon(Icons.delete),
