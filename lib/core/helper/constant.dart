@@ -192,3 +192,15 @@ late String initialrole;
 late String initialduration;
 late String initialplace;
 late String initialplaceelse;
+
+List<String> sectors = [
+  'ابتدائي',
+  'اعدادي و ثانوي',
+  'خدام و اعداد خدام',
+  'شباب',
+  'الشمامسة',
+  'الشعب',
+  'الأنشطة',
+  'خدمات خاصة',
+  'التطوير',
+];

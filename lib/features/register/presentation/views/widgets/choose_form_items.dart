@@ -15,8 +15,6 @@ class ChooseFromItems extends StatefulWidget {
 }
 
 class _ChooseFromItemsState extends State<ChooseFromItems> {
-  // final List<String> items = ['المشرف العام', 'امين الخدمة', 'خادم'];
-  // String selectedItem = 'المشرف العام';
   @override
   Widget build(BuildContext context) {
     return Column(

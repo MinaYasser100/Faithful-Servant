@@ -77,6 +77,7 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
   final List<String> genderItems = ['ذكر', 'انثي'];
   String selectGenderItem = 'ذكر';
   String selectCurrentService = 'حضانة كيجي 1';
+  String selectCurrentService2 = 'ابتدائي';
   DateTime? selectedDate;
   @override
   Widget build(BuildContext context) {
@@ -198,15 +199,28 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
                           },
                         ),
                         const SizedBox(height: 15),
-                        ChooseFromItems(
-                          items: currentServiceItems,
-                          selectedItem: selectCurrentService,
-                          onChanged: (newValue) {
-                            setState(() {
-                              selectCurrentService = newValue!;
-                            });
-                          },
-                        ),
+                        if (selectedItem != 'امين قطاع' &&
+                            selectedItem != 'امين قطاع مساعد')
+                          ChooseFromItems(
+                            items: currentServiceItems,
+                            selectedItem: selectCurrentService,
+                            onChanged: (newValue) {
+                              setState(() {
+                                selectCurrentService = newValue!;
+                              });
+                            },
+                          ),
+                        if (selectedItem == 'امين قطاع' ||
+                            selectedItem == 'امين قطاع مساعد')
+                          ChooseFromItems(
+                            items: sectors,
+                            selectedItem: selectCurrentService2,
+                            onChanged: (newValue) {
+                              setState(() {
+                                selectCurrentService2 = newValue!;
+                              });
+                            },
+                          ),
                         const SizedBox(height: 15),
                         SectionTwoInRegister(widget: widget),
                         const SizedBox(height: 50),
@@ -253,7 +267,10 @@ class _ReisterViewBodyContentState extends State<ReisterViewBodyContent> {
       qualification: widget.qualificationController.text,
       streetName: widget.streetNameController.text,
       addressOfArea: widget.addressOfAreaController.text,
-      currentService: selectCurrentService,
+      currentService:
+          (selectedItem == 'امين قطاع' || selectedItem == 'امين قطاع مساعد')
+              ? selectCurrentService2
+              : selectCurrentService,
       fatherOfConfession: widget.fatherOfConfessionController.text,
       brithDate: widget.dateController.text,
     );

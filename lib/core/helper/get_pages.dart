@@ -6,6 +6,7 @@ import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view_for_ameen_el2etaa3.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view_for_general.dart';
+import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view_for_servant.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/views/ma5domeen_search_view.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +60,9 @@ abstract class GetPages {
   static String kEditMa5domeenDataView = '/EditMa5domeenDataView';
   static String kMa5domeenViewForGeneral = '/Ma5domeenViewForGeneral';
   static String kConfirmValidityView = '/ConfirmValidityView';
-  static String kMa5domeenViewForAmeenEl2etaa3 = '/Ma5domeenViewForAmeenEl2etaa3';
+  static String kMa5domeenViewForAmeenEl2etaa3 =
+      '/Ma5domeenViewForAmeenEl2etaa3';
+  static String kMa5domeenViewForServant = '/Ma5domeenViewForServant';
   static List<GetPage<dynamic>> getPages = [
     GetPage(
       name: kSplashView,
@@ -204,6 +207,11 @@ abstract class GetPages {
     GetPage(
       name: kMa5domeenViewForAmeenEl2etaa3,
       page: () => const Ma5domeenViewForAmeenEl2etaa3(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kMa5domeenViewForServant,
+      page: () => const Ma5domeenViewForServant(),
       transition: Transition.circularReveal,
     ),
   ];
