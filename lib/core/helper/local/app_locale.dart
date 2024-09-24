@@ -157,6 +157,7 @@ class Applocal implements Translations {
               'هل انت متاكد من انك تريد تسجيل الخروج من هذا البرنامج',
           'Are you sure you want to delete this account':
               'هل انت متاكد من انك تريد حذف هذا الحساب',
+          'All servant': 'كل الخدام',
         },
         "en": {
           'email': 'Email',
@@ -317,6 +318,7 @@ class Applocal implements Translations {
               'Are you sure you want to log out of this application',
           'Are you sure you want to delete this account':
               'Are you sure you want to delete this account',
+          'All servant': 'All servant',
         },
       };
 }

@@ -131,6 +131,12 @@ List<Map> genetalSuperVisorPages = [
     'routeto': GetPages.selectStageview,
     'icon': Icons.article_outlined,
   },
+  {
+    'text': "بيانات الخدام",
+    "btntext": 'Open',
+    'routeto': GetPages.kAllServantsView,
+    'icon': Icons.article_outlined,
+  },
 ];
 
 List<Map> servantPages = [
