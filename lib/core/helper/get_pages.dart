@@ -1,4 +1,5 @@
 import 'package:faithful_servant/features/all_servants/presentation/views/all_servants_views.dart';
+import 'package:faithful_servant/features/all_servants/presentation/views/widgets/all_servants_for_state.dart';
 import 'package:faithful_servant/features/general_supervisor/presentation/views/select_stage_view.dart';
 import 'package:faithful_servant/features/login/confirm_validity/presentation/views/confirm_validity_view.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/add_ma5domeen_view.dart';
@@ -65,6 +66,7 @@ abstract class GetPages {
       '/Ma5domeenViewForAmeenEl2etaa3';
   static String kMa5domeenViewForServant = '/Ma5domeenViewForServant';
   static String kAllServantsView = '/kAllServantsView';
+  static String kAllServantsForStage = '/AllServantsForStage';
 
   static List<GetPage<dynamic>> getPages = [
     GetPage(
@@ -220,6 +222,11 @@ abstract class GetPages {
     GetPage(
       name: kAllServantsView,
       page: () => const AllServantsViews(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kAllServantsForStage,
+      page: () => const AllServantsForStage(),
       transition: Transition.circularReveal,
     ),
   ];
