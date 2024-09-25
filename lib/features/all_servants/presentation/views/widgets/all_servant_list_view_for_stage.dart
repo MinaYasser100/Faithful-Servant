@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:faithful_servant/core/function/get_first_three_words.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
-import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/features/all_servants/servant_details/presentation/views/servant_details_view.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AllServantListViewForStage extends StatelessWidget {
   const AllServantListViewForStage({
@@ -31,10 +31,13 @@ class AllServantListViewForStage extends StatelessWidget {
               curve: Curves.easeInOut,
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed(
-                    GetPages.kServantDetailsView,
-                    arguments: serviceUsers[index],
-                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ServantDetailsView(
+                          userModel: serviceUsers[index],
+                        ),
+                      ));
                 },
                 child: Card(
                   child: Padding(
@@ -52,7 +55,7 @@ class AllServantListViewForStage extends StatelessWidget {
                         ),
                       ),
                       title: Text(
-                        serviceUsers[index].name,
+                        getFirstThreeWords(serviceUsers[index].name),
                       ),
                       subtitle: Text(serviceUsers[index].privilage),
                       trailing: GestureDetector(

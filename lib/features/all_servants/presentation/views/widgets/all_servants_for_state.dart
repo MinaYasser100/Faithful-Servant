@@ -13,7 +13,8 @@ class AllServantsForStage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentService = Get.arguments as String;
+    final currentService =
+        Get.arguments != null ? Get.arguments as String : "Unknown Service";
     return BlocProvider(
       create: (context) => AllServantsCubit(AllServantsRepoImplement())
         ..getAllServantForStage(currentService: currentService),
