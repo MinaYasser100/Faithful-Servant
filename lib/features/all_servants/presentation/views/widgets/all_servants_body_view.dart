@@ -9,7 +9,7 @@ class AllServantsBodyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: currentServiceItems.length,
+        itemCount: currentServiceItems.length - 1,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
