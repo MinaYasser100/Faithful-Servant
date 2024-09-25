@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ma5domeen_widgets/ma5domeen_body_content.dart';
@@ -36,10 +37,15 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
             return ListView.builder(
               itemCount: state.ma5domeenData.length,
               itemBuilder: (context, index) {
-                return Ma5domeenBodyContent(
-                  stageName: widget.nameStage,
-                  ma5domeenModel: state.ma5domeenData[index],
-                  isServant: widget.isServant,
+                return FadeInDown(
+                  duration: const Duration(milliseconds: 400),
+                  animate: true,
+                  curve: Curves.easeInOut,
+                  child: Ma5domeenBodyContent(
+                    stageName: widget.nameStage,
+                    ma5domeenModel: state.ma5domeenData[index],
+                    isServant: widget.isServant,
+                  ),
                 );
               },
             );

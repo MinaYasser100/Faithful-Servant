@@ -158,6 +158,8 @@ class Applocal implements Translations {
           'Are you sure you want to delete this account':
               'هل انت متاكد من انك تريد حذف هذا الحساب',
           'All servant': 'كل الخدام',
+          'There are no servants yet at this stage':
+              'لا يوجد خدام حتي الان في هذة المرحلة',
         },
         "en": {
           'email': 'Email',
@@ -319,6 +321,8 @@ class Applocal implements Translations {
           'Are you sure you want to delete this account':
               'Are you sure you want to delete this account',
           'All servant': 'All servant',
+          'There are no servants yet at this stage':
+              'There are no servants yet at this stage',
         },
       };
 }

@@ -12,30 +12,31 @@ class SelectStageview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kPrimaryColor,
+      appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        appBar: AppBar(
-          backgroundColor: kPrimaryColor,
-          leading: IconButton(
-            onPressed: () {
-              Get.offAndToNamed(GetPages.kGeneralSupervisor);
-            },
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: kSecondColor,
-            ),
-          ),
-          title: const Text(
-            "متابعه مخدومين",
-            style: Styles.textStyle25SecondColor,
+        leading: IconButton(
+          onPressed: () {
+            Get.offAndToNamed(GetPages.kGeneralSupervisor);
+          },
+          icon: const Icon(
+            Icons.arrow_back_rounded,
+            color: kSecondColor,
           ),
         ),
-        body:  DesignBody(
-            widget: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: SelectStagebody(itemCount: currentServiceItems.length-1,numToStart: 0,),
-        )),
-      );
+        title: const Text(
+          "متابعه مخدومين",
+          style: Styles.textStyle25SecondColor,
+        ),
+      ),
+      body: DesignBody(
+          widget: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: SelectStagebody(
+          itemCount: currentServiceItems.length - 1,
+          numToStart: 0,
+        ),
+      )),
+    );
   }
-  
 }
-
