@@ -1,9 +1,12 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_cubit.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/manager/ma5domeen_states.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/widgets/ma5domeen_widgets/ma5domeen_body_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class Ma5domeenBody extends StatefulWidget {
   const Ma5domeenBody({
@@ -33,7 +36,20 @@ class _Ma5domeenBodyState extends State<Ma5domeenBody> {
                 textAlign: TextAlign.center,
               ),
             );
-          } else if (state is Ma5domeenCubitGetMa5domeenDataSuccess) {
+          } else if (state is Ma5domeenCubitGetMa5domeenDataSuccess &&
+              state.ma5domeenData.isEmpty) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'There are no ma5domeen yet at this stage'.tr,
+                  style: Styles.textStyle18.copyWith(color: kPrimaryColor),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            );
+          } else if (state is Ma5domeenCubitGetMa5domeenDataSuccess &&
+              state.ma5domeenData.isNotEmpty) {
             return ListView.builder(
               itemCount: state.ma5domeenData.length,
               itemBuilder: (context, index) {

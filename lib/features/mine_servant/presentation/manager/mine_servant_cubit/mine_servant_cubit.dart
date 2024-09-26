@@ -55,13 +55,12 @@ class MineServantCubit extends Cubit<MineServantState> {
                 .doc(userdata.church)
                 .collection('users')
                 .where("currentService", isNotEqualTo: 'كاهن')
-               // .where("name", isNotEqualTo: userdata.name)
+                // .where("name", isNotEqualTo: userdata.name)
                 .get()
                 .then((value) {
               for (var element in value.docs) {
                 searchServantList.add(UserModel.fromJson(element.data()));
               }
-              
             });
           } else {
             // ايميل امين الخدمة او المساعد
@@ -70,7 +69,7 @@ class MineServantCubit extends Cubit<MineServantState> {
                 .doc(userdata.church)
                 .collection('users')
                 .where('currentService', isNotEqualTo: 'كاهن')
-               // .where("name", isNotEqualTo: userdata.name)
+                // .where("name", isNotEqualTo: userdata.name)
                 .get()
                 .then((value) {
               for (var element in value.docs) {
@@ -79,6 +78,9 @@ class MineServantCubit extends Cubit<MineServantState> {
             });
           }
         }
+        searchServantList = searchServantList
+            .where((servnat) => servnat.isActive == true)
+            .toList();
         searchServantList
             .sort((a, b) => a.privilage.length.compareTo(b.privilage.length));
         emit(MineServantFetchDataSuccess());

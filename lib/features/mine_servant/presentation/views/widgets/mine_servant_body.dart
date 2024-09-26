@@ -6,6 +6,7 @@ import 'package:faithful_servant/features/mine_servant/presentation/views/widget
 import 'package:faithful_servant/features/mine_servant/presentation/views/widgets/servant_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 
 class MineServantBody extends StatelessWidget {
   const MineServantBody({super.key});
@@ -33,7 +34,23 @@ class MineServantBody extends StatelessWidget {
                 if (state is MineServantFetchDataLoading ||
                     state is MineServantSearchDataLoading) {
                   return const LoadingIndicator();
-                } else if (state is MineServantFetchDataSuccess) {
+                } else if (state is MineServantFetchDataSuccess &&
+                    searchServantList.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'There are no servant yet'.tr,
+                          style:
+                              Styles.textStyle18.copyWith(color: kPrimaryColor),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  );
+                } else if (state is MineServantFetchDataSuccess &&
+                    searchServantList.isNotEmpty) {
                   return ServantList(filteredList: searchServantList);
                 } else if (state is MineServantFetchDataFalure) {
                   return Center(

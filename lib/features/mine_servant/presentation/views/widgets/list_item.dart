@@ -20,9 +20,14 @@ class ListItem extends StatelessWidget {
     return Column(
       children: [
         Card(
-          elevation: 1.5,
           shape: ContinuousRectangleBorder(
-              borderRadius: BorderRadius.circular(40)),
+            borderRadius: BorderRadius.circular(40), // Card border radius
+            side: const BorderSide(
+              color: kPrimaryColor,
+              width: 1.2,
+            ),
+          ),
+          elevation: 4,
           child: ListTile(
             onTap: () {
               //open full data
@@ -31,28 +36,31 @@ class ListItem extends StatelessWidget {
             },
             title: Text(
               dbData[index].name,
-              style: Styles.textStyle16,
+              style: Styles.textStyle18,
             ),
             subtitle: Row(
               children: [
-                Text(dbData[index].currentService,
-                    style: Styles.textStyle13SecondColor
-                        .copyWith(color: Colors.grey[800])),
+                Text(
+                  dbData[index].currentService,
+                  style: Styles.textStyle13SecondColor
+                      .copyWith(color: Colors.grey[800]),
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: Text('/',
                       style: Styles.textStyle13SecondColor
                           .copyWith(color: Colors.grey[800])),
                 ),
-                /*Text(dbData[index].currentrole,
-                    style: Styles.textStyle13SecondColor
-                        .copyWith(color: Colors.grey[800])),*/
               ],
             ),
             leading: CircleAvatar(
-              radius: 25,
+              radius: 26,
               backgroundColor: kPrimaryColor,
-              backgroundImage: NetworkImage(dbData[index].image),
+              child: CircleAvatar(
+                radius: 25,
+                backgroundColor: kPrimaryColor,
+                backgroundImage: NetworkImage(dbData[index].image),
+              ),
             ),
           ),
         ),

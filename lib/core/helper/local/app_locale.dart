@@ -160,6 +160,9 @@ class Applocal implements Translations {
           'All servant': 'كل الخدام',
           'There are no servants yet at this stage':
               'لا يوجد خدام حتي الان في هذة المرحلة',
+          'There are no ma5domeen yet at this stage':
+              'لا يوجد مخدومين حتي الان في هذة المرحلة',
+          'There are no servant yet': 'لا يوجد خدام حتي الان',
         },
         "en": {
           'email': 'Email',
@@ -323,6 +326,9 @@ class Applocal implements Translations {
           'All servant': 'All servant',
           'There are no servants yet at this stage':
               'There are no servants yet at this stage',
+          'There are no ma5domeen yet at this stage':
+              'There are no ma5domeen yet at this stage',
+          'There are no servant yet': 'There are no servant yet',
         },
       };
 }
