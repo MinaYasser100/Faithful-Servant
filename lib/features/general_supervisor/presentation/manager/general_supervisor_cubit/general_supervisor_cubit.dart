@@ -15,15 +15,22 @@ class GeneralSupervisorCubit extends Cubit<GeneralSupervisorState> {
     try {
       UserModel? userModel = await getUserData();
       if (userModel != null) {
+        List<UserModel> allServant = [];
         await FirebaseFirestore.instance
             .collection(churchNamesBasedOnCode[userModel.church])
             .doc(userModel.church)
             .collection('users')
-            .where('privilage', isEqualTo: 'خادم')
+            .where('privilage', isNotEqualTo: "المشرف العام")
             .get()
             .then((value) {
           if (value.docs.isNotEmpty) {
-            total = value.docs.length;
+            allServant.addAll(value.docs
+                .map((element) => UserModel.fromJson(element.data()))
+                .toList());
+            allServant = allServant
+                .where((servant) => servant.isActive == true)
+                .toList();
+            total = allServant.length;
           } else {
             total = 0;
           }

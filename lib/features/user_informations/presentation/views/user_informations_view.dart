@@ -15,7 +15,7 @@ class UserInformationsView extends StatelessWidget {
     return BlocProvider(
       create: (context) => UserInformationsCubit()
         ..getUserInformations(
-            personal: Get.arguments["personal"],
+            personal: Get.arguments["persoanl"],
             id: Get.arguments["id"] ?? "0"),
       child: Scaffold(
         backgroundColor: kPrimaryColor,

@@ -1,3 +1,4 @@
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/features/modifie_informations/presentation/manager/editing_informations_cubit.dart';
 import 'package:faithful_servant/features/modifie_informations/presentation/views/widgets/image_profile_for_modifie_user.dart';
 import 'package:faithful_servant/features/modifie_informations/presentation/views/widgets/modifie_informations_controller_date.dart';
@@ -10,8 +11,11 @@ import 'package:get/get.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 
 class ModifieInformationsViewBody extends StatefulWidget {
-  const ModifieInformationsViewBody(
-      {super.key, required this.userModel, required this.perosnal});
+  const ModifieInformationsViewBody({
+    super.key,
+    required this.userModel,
+    required this.perosnal,
+  });
   final UserModel userModel;
   final bool perosnal;
   @override
@@ -55,6 +59,24 @@ class _ModifieInformationsViewBodyState
           if (state is EditingInformatinosUpdateInforamtionsUserSuccess ||
               state is EditingInformatinosImageUploadingSuccess) {
             EasyLoading.dismiss();
+            if (widget.perosnal) {
+              Get.back();
+              Get.offAndToNamed(
+                GetPages.kUserInformationsView,
+                arguments: {
+                  "personal": widget.perosnal,
+                  "id": widget.userModel.userID
+                },
+              );
+            } else {
+              Get.back();
+              Get.back();
+              Get.back();
+              Get.offAndToNamed(
+                GetPages.kAllServantsForStage,
+                arguments: widget.userModel.currentService,
+              );
+            }
           }
         },
         builder: (context, state) {

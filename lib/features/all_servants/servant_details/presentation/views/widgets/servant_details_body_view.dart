@@ -1,7 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'servant_info_item_widget.dart';
 
@@ -38,18 +41,17 @@ class ServantDetailsBodyView extends StatelessWidget {
     ];
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: RawScrollbar(
-              interactive: true,
-              thickness: 5,
-              radius: const Radius.circular(20),
-              minThumbLength: 40,
-              minOverscrollLength: 40,
-              thumbColor: kPrimaryColor,
-              child: ListView.separated(
+      child: RawScrollbar(
+        interactive: true,
+        thickness: 5,
+        radius: const Radius.circular(20),
+        thumbColor: kPrimaryColor,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(10),
                 itemCount: servantDetails.length,
                 itemBuilder: (context, index) => FadeInDown(
@@ -63,9 +65,19 @@ class ServantDetailsBodyView extends StatelessWidget {
                 ),
                 separatorBuilder: (context, index) => const Divider(),
               ),
-            ),
-          )
-        ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                child: CustomTextButton(
+                  textButton: 'Editing Informations'.tr,
+                  onPressed: () {
+                    Get.toNamed(GetPages.kModifieInformationsView,
+                        arguments: {"userModel": userModel, "personal": false});
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
