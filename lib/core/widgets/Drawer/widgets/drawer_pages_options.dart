@@ -1,4 +1,5 @@
-import 'package:faithful_servant/core/function/screen_action/determine_screen_from_privilage.dart';
+import 'package:faithful_servant/core/helper/cache_helper.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/core/widgets/Drawer/function/determined_pages_options.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
@@ -20,9 +21,9 @@ class DrawerPagesOptions extends StatelessWidget {
         child: Column(
           children: [
             ListTile(
-              onTap: () {
-                Get.back();
-                determineScreenFromPrivilage(userModel, context);
+              onTap: () async {
+                String value = await CacheHelper.getData(key: kHomeView);
+                Get.offAllNamed(value);
               },
               title: const Text('الصفحة الرئيسية'),
               leading: const Icon(Icons.home_rounded),

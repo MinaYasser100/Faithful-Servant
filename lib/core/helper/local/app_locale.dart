@@ -163,6 +163,8 @@ class Applocal implements Translations {
           'There are no ma5domeen yet at this stage':
               'لا يوجد مخدومين حتي الان في هذة المرحلة',
           'There are no servant yet': 'لا يوجد خدام حتي الان',
+          'Failure when get the requests': 'فشل عند جاب الطلبات',
+          'There are no requests now': 'لا يوجد طلبات الان',
         },
         "en": {
           'email': 'Email',
@@ -329,6 +331,8 @@ class Applocal implements Translations {
           'There are no ma5domeen yet at this stage':
               'There are no ma5domeen yet at this stage',
           'There are no servant yet': 'There are no servant yet',
+          'Failure when get the requests': 'Failure when get the requests',
+          'There are no requests now': 'There are no requests now',
         },
       };
 }

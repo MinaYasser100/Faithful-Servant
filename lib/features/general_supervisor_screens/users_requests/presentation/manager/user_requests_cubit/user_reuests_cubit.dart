@@ -9,8 +9,8 @@ import '../functions/put_users_in_list.dart';
 part 'user_reuests_state.dart';
 
 class UserRequestsCubit extends Cubit<UserRequestsState> {
-  UserRequestsCubit(this.userRequestRepo) : super(UserReuestsInitial());
-  final UserRequestRepo userRequestRepo;
+  UserRequestsCubit(this._userRequestRepo) : super(UserReuestsInitial());
+  final UserRequestRepo _userRequestRepo;
 
   List<UserModel> usersRequsets = [];
 
@@ -21,7 +21,7 @@ class UserRequestsCubit extends Cubit<UserRequestsState> {
 
     try {
       CollectionReference usersCollection =
-          userRequestRepo.fetchUsersFromFirebase(userModel: userModel!);
+          _userRequestRepo.fetchUsersFromFirebase(userModel: userModel!);
 
       QuerySnapshot querySnapshot = await usersCollection.get();
 
@@ -76,7 +76,7 @@ class UserRequestsCubit extends Cubit<UserRequestsState> {
         role: userModel.role,
         isActive: true,
       );
-      userRequestRepo
+      _userRequestRepo
           .updateInformationUser(
               userModel: userModel, userModelUpdate: userModelUpdate)
           .then((value) {
