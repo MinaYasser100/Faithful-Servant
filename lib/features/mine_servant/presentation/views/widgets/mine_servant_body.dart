@@ -15,7 +15,7 @@ class MineServantBody extends StatelessWidget {
     return BlocProvider(
       create: (context) => MineServantCubit()..init(),
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           color: kSecondColor,
           borderRadius: BorderRadius.only(

@@ -46,7 +46,6 @@ class AllServantsBodyForStage extends StatelessWidget {
                 state.serviceUsers.isNotEmpty) {
               return AllServantListViewForStage(
                 serviceUsers: state.serviceUsers,
-                deleteOnTap: () {},
               );
             } else {
               return const Center(

@@ -9,10 +9,8 @@ class AllServantListViewForStage extends StatelessWidget {
   const AllServantListViewForStage({
     super.key,
     required this.serviceUsers,
-    this.deleteOnTap,
   });
   final List<UserModel> serviceUsers;
-  final void Function()? deleteOnTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +56,6 @@ class AllServantListViewForStage extends StatelessWidget {
                         getFirstThreeWords(serviceUsers[index].name),
                       ),
                       subtitle: Text(serviceUsers[index].privilage),
-                      trailing: GestureDetector(
-                        onTap: deleteOnTap,
-                        child: const Icon(
-                          Icons.delete,
-                          color: kPrimaryColor,
-                        ),
-                      ),
                     ),
                   ),
                 ),

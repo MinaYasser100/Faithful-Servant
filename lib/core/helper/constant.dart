@@ -104,6 +104,12 @@ List<Map> generalServantPage = [
     'routeto': GetPages.kMa5domeenViewForGeneral,
     'icon': Icons.article_outlined,
   },
+  {
+    'text': "بيانات الخدام",
+    "btntext": 'Open',
+    'routeto': GetPages.kAllServantForGeneralServant,
+    'icon': Icons.article_outlined,
+  },
 ];
 
 List<Map> genetalSuperVisorPages = [

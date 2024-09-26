@@ -95,6 +95,14 @@ class _ModifieInformationsControllerDateState
               birthDateController: widget.birthDateController,
             );
           },
+          readOnly: true,
+          onTap: () {
+            selectDate(
+              context,
+              selectedDate: selectedDate,
+              birthDateController: widget.birthDateController,
+            );
+          },
         ),
         const SizedBox(height: 15),
         CustomTextFromField(
