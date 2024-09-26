@@ -16,6 +16,8 @@ class AllServantsCubit extends Cubit<AllServantsStates> {
       List<UserModel> serviceUsers = users
           .where((user) => user.currentService.contains(currentService))
           .toList();
+      serviceUsers =
+          serviceUsers.where((user) => user.isActive == true).toList();
       emit(AllServantsCubitGetAllServantForStageSuccess(
           serviceUsers: serviceUsers));
     } catch (e) {
