@@ -25,13 +25,14 @@ class PrintingPieCountChart extends StatelessWidget {
                 style: Styles.textStyle18,
               ),
               ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(kPrimaryColor)),
-                  onPressed: piechartCountPrint,
-                  child: Text(
-                    'Print',
-                    style: Styles.textStyle16SecondColor,
-                  ))
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(kPrimaryColor)),
+                onPressed: piechartCountPrint,
+                child: Text(
+                  'Print',
+                  style: Styles.textStyle16SecondColor,
+                ),
+              ),
             ],
           ),
         ),
