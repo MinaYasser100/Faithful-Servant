@@ -25,7 +25,7 @@ class UserInformationsView extends StatelessWidget {
         ),
         body: DesignBody(
           widget: UserInformationsViewBlocBuilder(
-              personal: Get.arguments["personal"]),
+              personal: Get.arguments["personal"], userModel: Get.arguments['userModel'],),
         ),
       ),
     );
