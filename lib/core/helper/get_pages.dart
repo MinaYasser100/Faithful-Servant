@@ -11,6 +11,7 @@ import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view_for_general.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_view_for_servant.dart';
 import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/views/ma5domeen_search_view.dart';
+import 'package:faithful_servant/features/notification/presentation/views/notifications_view.dart';
 import 'package:get/get.dart';
 
 import '../../features/Attendance&others/presentaion/views/attendance_other_view.dart';
@@ -23,7 +24,6 @@ import '../../features/general_supervisor_screens/users_requests/presentation/vi
 import '../../features/login/presentation/views/login_view.dart';
 import '../../features/mine_servant/presentation/views/mine_servant_screen.dart';
 import '../../features/modifie_informations/presentation/views/modifie_informations_view.dart';
-import '../../features/notification/presentaion/views/notifications_view.dart';
 import '../../features/personal/presentation/views/history_view.dart';
 import '../../features/personal/presentation/views/personal_view.dart';
 import '../../features/register/presentation/views/register_view.dart';

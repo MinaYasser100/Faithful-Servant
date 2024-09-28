@@ -1,9 +1,9 @@
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/Drawer/drawer.dart';
-import 'package:faithful_servant/features/notification/presentaion/views/widgets/notification_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/appbar.dart';
+import 'widgets/notification_body.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
