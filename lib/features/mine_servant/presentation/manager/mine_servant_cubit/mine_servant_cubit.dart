@@ -31,21 +31,34 @@ class MineServantCubit extends Cubit<MineServantState> {
               searchServantList.add(UserModel.fromJson(element.data()));
             }
           });
-        } else if (userdata.privilage == 'امين قطاع') {
+        } else if (userdata.privilage == 'امين قطاع' &&
+            userdata.currentService == "ابتدائي") {
           // the current user is امين قطاع
           await FirebaseFirestore.instance
               .collection(churchNamesBasedOnCode[userdata.church])
               .doc(userdata.church)
               .collection('users')
-              .where('privilage', isNotEqualTo: 'المشرف العام')
-              .where('currentService', arrayContains: userdata.currentService)
-              //.where("name", isNotEqualTo: userdata.name)
+              .where('currentService', whereIn: ['ابتدائي', 'كيجي'])
               .get()
               .then((value) {
-            for (var element in value.docs) {
-              searchServantList.add(UserModel.fromJson(element.data()));
-            }
-          });
+                for (var element in value.docs) {
+                  searchServantList.add(UserModel.fromJson(element.data()));
+                }
+              });
+        } else if (userdata.privilage == 'امين قطاع' &&
+            userdata.currentService == 'اعدادي و ثانوي') {
+          // the current user is امين قطاع
+          await FirebaseFirestore.instance
+              .collection(churchNamesBasedOnCode[userdata.church])
+              .doc(userdata.church)
+              .collection('users')
+              .where('currentService', whereIn: ['اعدادي', 'ثانوي'])
+              .get()
+              .then((value) {
+                for (var element in value.docs) {
+                  searchServantList.add(UserModel.fromJson(element.data()));
+                }
+              });
         } else if (userdata.privilage == "المشرف العام") {
           // the current user is مشرف عام
           if (userdata.currentService == 'كاهن') {

@@ -192,6 +192,24 @@ List<Map> feudalCustodinPages = [
     'routeto': GetPages.kUserInformationsView,
     'icon': Icons.article_outlined,
   },
+  {
+    'text': 'خدام المرحلة',
+    "btntext": 'Open',
+    'routeto': GetPages.mineServant,
+    'icon': Icons.abc_outlined,
+  },
+  {
+    'text': "بيانات الخدام",
+    "btntext": 'Open',
+    'routeto': GetPages.kAllServantForGeneralServant,
+    'icon': Icons.article_outlined,
+  },
+  {
+    'text': "بيانات المخدومين",
+    "btntext": 'Open',
+    'routeto': GetPages.kMa5domeenViewForAmeenEl2etaa3,
+    'icon': Icons.article_outlined,
+  },
 ];
 
 List<String> placesItems = [
@@ -221,4 +239,14 @@ List<String> sectors = [
   'الأنشطة',
   'خدمات خاصة',
   'التطوير',
+];
+final List<String> current = [
+  'حضانة كيجي 1',
+  'حضانة كيجي 2',
+  'اولي ابتدائي',
+  'ثانية ابتدائي',
+  'ثالثة ابتدائي',
+  'رابعة ابتدائي',
+  'خامسة ابتدائي',
+  'سادسة ابتدائي',
 ];

@@ -13,7 +13,6 @@ import 'package:faithful_servant/features/ma5domeen/presentation/view/ma5domeen_
 import 'package:faithful_servant/features/ma5domeen/presentation/view/search/presentation/views/ma5domeen_search_view.dart';
 import 'package:faithful_servant/features/notification/presentation/views/notifications_view.dart';
 import 'package:get/get.dart';
-
 import '../../features/Attendance&others/presentaion/views/attendance_other_view.dart';
 import '../../features/feudal_custodian/feual_custodian_view/presentaion/views/feudal_custodian_view.dart';
 import '../../features/forgotten_password/presentation/views/forgotten_password.dart';
@@ -69,6 +68,7 @@ abstract class GetPages {
   static String kAllServantsView = '/kAllServantsView';
   static String kAllServantsForStage = '/AllServantsForStage';
   static String kAllServantForGeneralServant = '/AllServantForGeneralServant';
+  static String kPersonalInformationsView = '/PersonalInformationsView';
 
   static List<GetPage<dynamic>> getPages = [
     GetPage(

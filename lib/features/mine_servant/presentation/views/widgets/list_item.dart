@@ -31,8 +31,11 @@ class ListItem extends StatelessWidget {
           child: ListTile(
             onTap: () {
               //open full data
-              Get.toNamed(GetPages.kUserInformationsView,
-                  arguments: {"personal": false, "id": dbData[index].userID});
+              Get.toNamed(GetPages.kUserInformationsView, arguments: {
+                "personal": false,
+                "id": dbData[index].userID,
+                'userModel': dbData[index]
+              });
             },
             title: Text(
               dbData[index].name,
