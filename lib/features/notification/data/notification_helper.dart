@@ -12,7 +12,7 @@ class NotificationHelper {
     try {
       final String? serverToken = await getAccessToken();
       await _dio.post(
-        'https://fcm.googleapis.com/v1/projects/han-hos-6fee2/messages:send',
+        'https://fcm.googleapis.com/v1/projects/faithful-servant-759bd/messages:send',
         options: Options(
           headers: <String, String>{
             'Authorization': 'Bearer $serverToken',

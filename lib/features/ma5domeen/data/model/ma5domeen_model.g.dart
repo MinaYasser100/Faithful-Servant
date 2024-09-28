@@ -19,10 +19,10 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
     return Ma5domeenModel(
       name: fields[1] as String,
       stagename: fields[9] as String,
-      adderName:fields[2] as String,
       registerDate: fields[5] as String,
       updateRegisterDate: fields[6] as String,
       id: fields[7] as String,
+      adderName: fields[2] as String,
       church: fields[8] as String,
       address: fields[12] as String,
       qualification: fields[13] as String,
@@ -36,9 +36,7 @@ class Ma5domeenModelAdapter extends TypeAdapter<Ma5domeenModel> {
   @override
   void write(BinaryWriter writer, Ma5domeenModel obj) {
     writer
-      ..writeByte(10)
-      ..writeByte(0)
-      
+      ..writeByte(13)
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
