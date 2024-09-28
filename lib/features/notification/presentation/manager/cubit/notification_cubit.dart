@@ -5,4 +5,11 @@ part 'notification_state.dart';
 
 class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit() : super(NotificationInitial());
+
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  void changeAutovalidateMode() {
+    autovalidateMode = AutovalidateMode.always;
+    emit(NotificationChangeAutovalidateMode());
+  }
 }
