@@ -3,7 +3,9 @@ import 'package:faithful_servant/features/notification/data/notification_helper.
 import 'package:faithful_servant/features/notification/presentation/manager/cubit/notification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:googleapis/appengine/v1.dart';
 
 import 'custom_natification_text_form_field.dart';
 
@@ -59,12 +61,18 @@ class _NotificationBodyState extends State<NotificationBody> {
               ),
               CustomTextButton(
                 textButton: 'Send'.tr,
-                onPressed: () {
+                onPressed: () async {
                   if (notificationKey.currentState!.validate()) {
-                    NotificationHelper().sendNotification(
-                      title: titleController.text,
-                      body: contentController.text,
-                    );
+                    try {
+                      EasyLoading.show(status: 'Sending...'.tr);
+                      await NotificationHelper().sendNotification(
+                        title: titleController.text,
+                        body: contentController.text,
+                      );
+                      EasyLoading.showSuccess('Notification Sent'.tr);
+                    } on Exception catch (e) {
+                      ErrorHandler(errorCode: e.toString());
+                    }
                   } else {
                     context.read<NotificationCubit>().changeAutovalidateMode();
                   }
