@@ -86,6 +86,8 @@ class _NotificationBodyState extends State<NotificationBody> {
                         topic: selectedItem,
                       );
                       EasyLoading.showSuccess('Notification Sent'.tr);
+                      titleController.clear();
+                      contentController.clear();
                     } on Exception catch (e) {
                       ErrorHandler(errorCode: e.toString());
                     }

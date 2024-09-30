@@ -111,6 +111,12 @@ List<Map> generalServantPage = [
     'routeto': GetPages.kAllServantForGeneralServant,
     'icon': Icons.article_outlined,
   },
+  {
+    'text': "اشعاراتي",
+    "btntext": 'Open',
+    'routeto': GetPages.kShowNotificationView,
+    'icon': Icons.notifications_active,
+  },
 ];
 
 List<Map> genetalSuperVisorPages = [

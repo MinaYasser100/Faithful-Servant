@@ -106,9 +106,5 @@ void _saveNotificationToHive(RemoteMessage message, Box box) async {
     readed: false,
     key: message.messageId,
   );
-  print('-----------------------------------------');
-  print(notification.title);
-  print(notification.body);
-  print(notification.key);
   box.put(notification.key, notification);
 }
