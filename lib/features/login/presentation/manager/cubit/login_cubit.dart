@@ -4,6 +4,7 @@ import 'package:faithful_servant/core/function/save_user_data.dart';
 import 'package:faithful_servant/core/helper/cache_helper.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/core/helper/notification/notification_subscribe.dart';
 import 'package:faithful_servant/features/login/data/login_repo/login_repo.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -104,6 +105,8 @@ class LoginCubit extends Cubit<LoginState> {
   void logoutMethod() async {
     CacheHelper.removeData(key: kUserId).then((value) async {
       CacheHelper.removeData(key: kHomeView);
+      UserModel? userModel = await getUserData();
+      doNotificationUnsubscribe(userModel);
       var box = await Hive.openBox<UserModel>(kUserBox);
       await box.clear();
       await box.close();

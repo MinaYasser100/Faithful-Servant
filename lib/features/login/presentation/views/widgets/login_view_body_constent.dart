@@ -4,6 +4,7 @@ import 'package:faithful_servant/core/function/screen_action/determine_screen_fr
 import 'package:faithful_servant/core/function/validator/email_validator.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/helper/get_pages.dart';
+import 'package:faithful_servant/core/helper/notification/notification_subscribe.dart';
 import 'package:faithful_servant/core/helper/styles.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/core/widgets/custom_text_from_field.dart';
@@ -43,6 +44,7 @@ class LoginViewBodyContent extends StatelessWidget {
             EasyLoading.dismiss();
             UserModel? userModel =
                 BlocProvider.of<LoginCubit>(context).userModel;
+            await doNotificationSubscribe(userModel);
             determineScreenFromPrivilage(userModel, context);
           } else {
             EasyLoading.showError('برجاء الانتظار حتي يوافق المسئول');

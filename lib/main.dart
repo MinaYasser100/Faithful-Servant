@@ -29,8 +29,15 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserModelAdapter());
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    var box = Hive.box(kNotificationBoxKey);
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+    await Firebase.initializeApp();
+    // Register the adapter if not already registered
+    if (!Hive.isAdapterRegistered(NotificationModelAdapter().typeId)) {
+      Hive.registerAdapter(NotificationModelAdapter());
+    }
+    var box = Hive.isBoxOpen(kNotificationBoxKey)
+        ? Hive.box(kNotificationBoxKey)
+        : await Hive.openBox(kNotificationBoxKey);
     _saveNotificationToHive(message, box);
   });
 
@@ -99,5 +106,9 @@ void _saveNotificationToHive(RemoteMessage message, Box box) async {
     readed: false,
     key: message.messageId,
   );
+  print('-----------------------------------------');
+  print(notification.title);
+  print(notification.body);
+  print(notification.key);
   box.put(notification.key, notification);
 }

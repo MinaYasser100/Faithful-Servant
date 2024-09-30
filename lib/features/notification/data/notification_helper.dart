@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:faithful_servant/core/helper/constant.dart';
 
 import 'get_access_token.dart';
 
@@ -20,7 +21,7 @@ class NotificationHelper {
         ),
         data: {
           "message": {
-            "topic": notificationPublicTopic,
+            "topic": userTopics['الكل'],
             "notification": {"title": title, "body": body},
             "android": {
               "notification": {
