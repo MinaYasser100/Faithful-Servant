@@ -26,7 +26,7 @@ class _ChooseFromItemsState extends State<ChooseFromItems> {
               color: kPrimaryColor,
               width: 1,
             ),
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(15),
             color: kSecondColor,
           ),
           child: Padding(
@@ -45,7 +45,7 @@ class _ChooseFromItemsState extends State<ChooseFromItems> {
                 color: kPrimaryLightColor,
                 fontSize: 20,
               ),
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(15),
               onChanged: widget.onChanged,
               items: widget.items.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(

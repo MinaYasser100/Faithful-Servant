@@ -4,11 +4,11 @@ import 'package:faithful_servant/core/helper/constant.dart';
 import 'get_access_token.dart';
 
 class NotificationHelper {
-  final String notificationPublicTopic = 'notificationPublicTopic';
   final Dio _dio = Dio();
   Future<bool> sendNotification({
     required String title,
     required String body,
+    required String topic,
   }) async {
     try {
       final String? serverToken = await getAccessToken();
@@ -21,7 +21,7 @@ class NotificationHelper {
         ),
         data: {
           "message": {
-            "topic": userTopics['الكل'],
+            "topic": userTopics[topic],
             "notification": {"title": title, "body": body},
             "android": {
               "notification": {

@@ -253,6 +253,7 @@ final List<String> current = [
 ];
 
 final Map<String, String> userTopics = {
+  'الكل': 'all',
   'حضانة كيجي 1': 'KG1',
   'حضانة كيجي 2': 'KG2',
   'اولي ابتدائي': 'firstPrimary',
@@ -283,7 +284,6 @@ final Map<String, String> userTopics = {
   'مركز المشورة': 'counselingCneter',
   'مدرسة الشمامسة': 'deaconsSchool',
   'كاهن': 'priest',
-  'الكل': 'all',
   'ابتدائي': 'primary',
   'أعدادي': 'preparatory',
   'ثانوي': 'secondary',

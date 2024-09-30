@@ -1,6 +1,8 @@
+import 'package:faithful_servant/core/helper/constant.dart';
 import 'package:faithful_servant/core/widgets/custom_text_button.dart';
 import 'package:faithful_servant/features/notification/data/notification_helper.dart';
 import 'package:faithful_servant/features/notification/presentation/manager/cubit/notification_cubit.dart';
+import 'package:faithful_servant/features/register/presentation/views/widgets/choose_form_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -20,6 +22,7 @@ class _NotificationBodyState extends State<NotificationBody> {
   TextEditingController titleController = TextEditingController();
   TextEditingController contentController = TextEditingController();
   GlobalKey<FormState> notificationKey = GlobalKey<FormState>();
+  String selectedItem = 'الكل';
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotificationCubit, NotificationState>(
@@ -59,6 +62,18 @@ class _NotificationBodyState extends State<NotificationBody> {
               const SizedBox(
                 height: 20,
               ),
+              ChooseFromItems(
+                items: userTopics.keys.toList(),
+                selectedItem: selectedItem,
+                onChanged: (newValue) {
+                  setState(() {
+                    selectedItem = newValue!;
+                  });
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               CustomTextButton(
                 textButton: 'Send'.tr,
                 onPressed: () async {
@@ -68,6 +83,7 @@ class _NotificationBodyState extends State<NotificationBody> {
                       await NotificationHelper().sendNotification(
                         title: titleController.text,
                         body: contentController.text,
+                        topic: selectedItem,
                       );
                       EasyLoading.showSuccess('Notification Sent'.tr);
                     } on Exception catch (e) {
