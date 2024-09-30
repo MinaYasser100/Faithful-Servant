@@ -28,6 +28,9 @@ void main() async {
   await CacheHelper.init();
   await Hive.initFlutter();
   Hive.registerAdapter(UserModelAdapter());
+  // handel notificaions
+  Hive.registerAdapter(NotificationModelAdapter());
+  await Hive.openBox(kNotificationBoxKey);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
     await Firebase.initializeApp();

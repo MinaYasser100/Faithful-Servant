@@ -173,6 +173,8 @@ class Applocal implements Translations {
           'please enter the content of the notification':
               'من فضلك ادخل المحتوي لأرسال الأشعار',
           'My Notifications': 'أشعاراتي',
+          'readed': 'مقروة',
+          'unreaded': 'غير مقروة',
         },
         "en": {
           'email': 'Email',
@@ -349,6 +351,8 @@ class Applocal implements Translations {
           'please enter the content of the notification':
               'please enter the content of the notification',
           'My Notifications': 'My Notifications',
+          'readed': 'readed',
+          'unreaded': 'unreaded',
         },
       };
 }
