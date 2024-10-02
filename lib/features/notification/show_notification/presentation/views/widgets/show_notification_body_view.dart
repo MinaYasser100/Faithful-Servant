@@ -32,37 +32,43 @@ class ShowNotificationBodyView extends StatelessWidget {
                 ),
                 const Divider(color: kPrimaryColor),
                 Expanded(
-                  child: ListView.separated(
-                    padding: EdgeInsets.zero,
-                    itemCount: state.allNotifications.length,
-                    separatorBuilder: (context, index) => const Divider(),
-                    itemBuilder: (context, index) => ShowNotificationItem(
-                      notificationModel: state.allNotifications[index],
-                      deleteOnTap: () {
-                        NotificationHelper()
-                            .deleteNotification(state.allNotifications[index]);
-                        context
-                            .read<NotificationCubit>()
-                            .showNotificationsForUser();
-                      },
-                      itemOnTap: () {
-                        customShowNotificationBottomSheet(
-                          context: context,
-                          notificationModel: state.allNotifications[index],
-                        );
-                        NotificationHelper().makeNotificationAsReaded(
-                            state.allNotifications[index]);
-                        context
-                            .read<NotificationCubit>()
-                            .showNotificationsForUser();
-                      },
-                      onDismissed: (p0) {
-                        NotificationHelper()
-                            .deleteNotification(state.allNotifications[index]);
-                        context
-                            .read<NotificationCubit>()
-                            .showNotificationsForUser();
-                      },
+                  child: RawScrollbar(
+                    interactive: true,
+                    thickness: 5,
+                    radius: const Radius.circular(20),
+                    thumbColor: kPrimaryColor,
+                    child: ListView.separated(
+                      padding: EdgeInsets.zero,
+                      itemCount: state.allNotifications.length,
+                      separatorBuilder: (context, index) => const Divider(),
+                      itemBuilder: (context, index) => ShowNotificationItem(
+                        notificationModel: state.allNotifications[index],
+                        deleteOnTap: () {
+                          NotificationHelper().deleteNotification(
+                              state.allNotifications[index]);
+                          context
+                              .read<NotificationCubit>()
+                              .showNotificationsForUser();
+                        },
+                        itemOnTap: () {
+                          customShowNotificationBottomSheet(
+                            context: context,
+                            notificationModel: state.allNotifications[index],
+                          );
+                          NotificationHelper().makeNotificationAsReaded(
+                              state.allNotifications[index]);
+                          context
+                              .read<NotificationCubit>()
+                              .showNotificationsForUser();
+                        },
+                        onDismissed: (p0) {
+                          NotificationHelper().deleteNotification(
+                              state.allNotifications[index]);
+                          context
+                              .read<NotificationCubit>()
+                              .showNotificationsForUser();
+                        },
+                      ),
                     ),
                   ),
                 )
