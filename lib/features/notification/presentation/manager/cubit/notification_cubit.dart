@@ -27,4 +27,23 @@ class NotificationCubit extends Cubit<NotificationState> {
       numberOfUnReadedNotification: numberOfUnReadedNotification,
     ));
   }
+
+  String selectedItem = 'الكل';
+  String selectedItem2 = 'اعدادي و ثانوي';
+  String selectedItem3 = 'خدام و اعداد خدام';
+
+  void changeSelectedItem(String value) {
+    selectedItem = value;
+    emit(NotificationSelectedItem());
+  }
+
+  void changeSelectedItem2(String value) {
+    selectedItem2 = value;
+    emit(NotificationSelectedItem());
+  }
+
+  void changeSelectedItem3(String value) {
+    selectedItem3 = value;
+    emit(NotificationSelectedItem());
+  }
 }

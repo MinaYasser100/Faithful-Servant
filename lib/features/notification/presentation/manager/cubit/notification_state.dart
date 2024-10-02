@@ -22,3 +22,5 @@ final class NotificationCubitShowNotificationLoading
 
 final class NotificationCubitShowNotificationFailure
     extends NotificationState {}
+
+final class NotificationSelectedItem extends NotificationState {}

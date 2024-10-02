@@ -24,7 +24,7 @@ class _NotificationBodyState extends State<NotificationBody> {
   TextEditingController titleController = TextEditingController();
   TextEditingController contentController = TextEditingController();
   GlobalKey<FormState> notificationKey = GlobalKey<FormState>();
-  String selectedItem = 'الكل';
+
   Future<UserModel?> getUserModel() async {
     return await getUserData();
   }
@@ -41,12 +41,7 @@ class _NotificationBodyState extends State<NotificationBody> {
           return Center(child: Text('Error: ${snapshot.error}'));
         }
         final userModel = snapshot.data;
-        if (userModel!.privilage == 'امين قطاع' &&
-            userModel.role == 'اعدادي و ثانوي') selectedItem = 'اعدادي و ثانوي';
-        if (userModel.privilage == 'امين قطاع' &&
-            userModel.role == 'خدام و اعداد خدام') {
-          selectedItem = 'خدام و اعداد خدام';
-        }
+        var cubit = context.read<NotificationCubit>();
         return BlocBuilder<NotificationCubit, NotificationState>(
           builder: (context, state) {
             return Padding(
@@ -87,36 +82,30 @@ class _NotificationBodyState extends State<NotificationBody> {
                     const SizedBox(
                       height: 20,
                     ),
-                    if (userModel.privilage == 'المشرف العام')
+                    if (userModel!.privilage == 'المشرف العام')
                       ChooseFromItems(
                         items: userTopics.keys.toList(),
-                        selectedItem: selectedItem,
+                        selectedItem: cubit.selectedItem,
                         onChanged: (newValue) {
-                          setState(() {
-                            selectedItem = newValue!;
-                          });
+                          cubit.changeSelectedItem(newValue!);
                         },
                       ),
                     if (userModel.privilage == 'امين قطاع' &&
-                        userModel.role == 'اعدادي و ثانوي')
+                        userModel.currentService == 'اعدادي و ثانوي')
                       ChooseFromItems(
                         items: firstList,
-                        selectedItem: selectedItem,
+                        selectedItem: cubit.selectedItem2,
                         onChanged: (newValue) {
-                          setState(() {
-                            selectedItem = newValue!;
-                          });
+                          cubit.changeSelectedItem2(newValue!);
                         },
                       ),
                     if (userModel.privilage == 'امين قطاع' &&
-                        userModel.role == 'خدام و اعداد خدام')
+                        userModel.currentService == 'خدام و اعداد خدام')
                       ChooseFromItems(
                         items: secondList,
-                        selectedItem: selectedItem,
+                        selectedItem: cubit.selectedItem3,
                         onChanged: (newValue) {
-                          setState(() {
-                            selectedItem = newValue!;
-                          });
+                          cubit.changeSelectedItem3(newValue!);
                         },
                       ),
                     const SizedBox(
@@ -131,13 +120,17 @@ class _NotificationBodyState extends State<NotificationBody> {
                             await NotificationHelper().sendNotification(
                               title: titleController.text,
                               body: contentController.text,
-                              topic: userModel.privilage == 'المشرف العام' ||
-                                      (userModel.privilage == 'امين قطاع' &&
-                                          userModel.role == 'اعدادي و ثانوي') ||
-                                      (userModel.privilage == 'امين قطاع' &&
-                                          userModel.role == 'خدام و اعداد خدام')
-                                  ? selectedItem
-                                  : userModel.currentService,
+                              topic: userModel.privilage == 'المشرف العام'
+                                  ? cubit.selectedItem
+                                  : (userModel.privilage == 'امين قطاع' &&
+                                          userModel.currentService ==
+                                              'اعدادي و ثانوي')
+                                      ? cubit.selectedItem2
+                                      : (userModel.privilage == 'امين قطاع' &&
+                                              userModel.currentService ==
+                                                  'خدام و اعداد خدام')
+                                          ? cubit.selectedItem3
+                                          : userModel.currentService,
                             );
                             EasyLoading.showSuccess('Notification Sent'.tr);
                             titleController.clear();
