@@ -12,13 +12,8 @@ class ServantView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
-      appBar:
-          GeneralAppBar(title: 'Servant'.tr, appBar: AppBar(), widgets: const [
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Icon(Icons.notifications_on, size: 30),
-        )
-      ]),
+      appBar: GeneralAppBar(
+          title: 'Servant'.tr, appBar: AppBar(), widgets: const []),
       body: const ServantViewBody(),
       drawer: const GeneralDrawer(),
     );

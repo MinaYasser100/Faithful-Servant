@@ -175,6 +175,7 @@ class Applocal implements Translations {
           'My Notifications': 'أشعاراتي',
           'readed': 'مقروة',
           'unreaded': 'غير مقروة',
+          'Servant': 'خادم',
         },
         "en": {
           'email': 'Email',
@@ -353,6 +354,7 @@ class Applocal implements Translations {
           'My Notifications': 'My Notifications',
           'readed': 'readed',
           'unreaded': 'unreaded',
+          'Servant': 'Servant',
         },
       };
 }

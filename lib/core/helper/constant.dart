@@ -76,6 +76,12 @@ List<UserModel> searchServantListSearchResult = [];
 
 List<Map> generalServantPage = [
   {
+    'text': "اشعاراتي",
+    "btntext": 'Open',
+    'routeto': GetPages.kShowNotificationView,
+    'icon': Icons.notifications_active,
+  },
+  {
     'text': 'خدام المرحلة',
     "btntext": 'Open',
     'routeto': GetPages.mineServant,
@@ -111,15 +117,15 @@ List<Map> generalServantPage = [
     'routeto': GetPages.kAllServantForGeneralServant,
     'icon': Icons.article_outlined,
   },
+];
+
+List<Map> genetalSuperVisorPages = [
   {
     'text': "اشعاراتي",
     "btntext": 'Open',
     'routeto': GetPages.kShowNotificationView,
     'icon': Icons.notifications_active,
   },
-];
-
-List<Map> genetalSuperVisorPages = [
   {
     'text': 'خدام المرحلة',
     "btntext": 'Open',
@@ -160,6 +166,12 @@ List<Map> genetalSuperVisorPages = [
 
 List<Map> servantPages = [
   {
+    'text': "اشعاراتي",
+    "btntext": 'Open',
+    'routeto': GetPages.kShowNotificationView,
+    'icon': Icons.notifications_active,
+  },
+  {
     'text': 'بياناتك',
     "btntext": 'Open',
     'routeto': GetPages.kUserInformationsView,
@@ -193,6 +205,12 @@ List<Map> personalPages = [
 ];
 
 List<Map> feudalCustodinPages = [
+  {
+    'text': "اشعاراتي",
+    "btntext": 'Open',
+    'routeto': GetPages.kShowNotificationView,
+    'icon': Icons.notifications_active,
+  },
   {
     'text': 'بياناتك',
     "btntext": 'Open',
@@ -241,12 +259,11 @@ List<String> sectors = [
   'اعدادي و ثانوي',
   'خدام و اعداد خدام',
   'شباب',
-  'الشمامسة',
+  'مدرسة الشمامسة',
   'الشعب',
   'الأنشطة',
-  'خدمات خاصة',
-  'التطوير',
 ];
+
 final List<String> current = [
   'حضانة كيجي 1',
   'حضانة كيجي 2',
@@ -293,6 +310,9 @@ final Map<String, String> userTopics = {
   'ابتدائي': 'primary',
   'أعدادي': 'preparatory',
   'ثانوي': 'secondary',
+  'اعدادي و ثانوي': 'perpartory&secondary',
   'شباب': 'youths',
+  'خدام و اعداد خدام': 'servant&preparationServant',
   'مرحلة كيجي': "KG",
+  'الأنشطة': 'activities',
 };

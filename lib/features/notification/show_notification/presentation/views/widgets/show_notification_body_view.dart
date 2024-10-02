@@ -32,9 +32,10 @@ class ShowNotificationBodyView extends StatelessWidget {
                 ),
                 const Divider(color: kPrimaryColor),
                 Expanded(
-                  child: ListView.builder(
+                  child: ListView.separated(
                     padding: EdgeInsets.zero,
                     itemCount: state.allNotifications.length,
+                    separatorBuilder: (context, index) => const Divider(),
                     itemBuilder: (context, index) => ShowNotificationItem(
                       notificationModel: state.allNotifications[index],
                       deleteOnTap: () {
@@ -51,6 +52,13 @@ class ShowNotificationBodyView extends StatelessWidget {
                         );
                         NotificationHelper().makeNotificationAsReaded(
                             state.allNotifications[index]);
+                        context
+                            .read<NotificationCubit>()
+                            .showNotificationsForUser();
+                      },
+                      onDismissed: (p0) {
+                        NotificationHelper()
+                            .deleteNotification(state.allNotifications[index]);
                         context
                             .read<NotificationCubit>()
                             .showNotificationsForUser();

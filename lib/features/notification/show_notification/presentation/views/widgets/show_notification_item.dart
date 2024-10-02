@@ -12,18 +12,18 @@ class ShowNotificationItem extends StatelessWidget {
     required this.notificationModel,
     this.deleteOnTap,
     this.itemOnTap,
+    this.onDismissed,
   });
   final NotificationModel notificationModel;
   final void Function()? deleteOnTap;
   final void Function()? itemOnTap;
+  final void Function(DismissDirection)? onDismissed;
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: Key(notificationModel.key!),
       direction: DismissDirection.endToStart,
-      onDismissed: (direction) {
-        deleteOnTap;
-      },
+      onDismissed: onDismissed,
       background: deleteBackground(),
       child: GestureDetector(
         onTap: itemOnTap,

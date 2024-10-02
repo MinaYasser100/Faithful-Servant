@@ -50,20 +50,28 @@ Future<void> doNotificationSubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['اعدادي بنين']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['أعدادي']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'اعدادي بنات') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['اعدادي بنات']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['أعدادي']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'ثانوي بنين') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['ثانوي بنين']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['ثانوي']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'ثانوي بنات') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['ثانوي بنات']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['اعدادي و ثانوي']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['ثانوي']!);
   } else if (userModel.currentService == 'جامعيين') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
@@ -84,6 +92,8 @@ Future<void> doNotificationSubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['اجتماع الخدام']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['خدام و اعداد خدام']!);
   } else if (userModel.currentService == 'مدارس احد يوم الاحد') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -92,6 +102,8 @@ Future<void> doNotificationSubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['اعداد خدام']!);
+    await FirebaseMessaging.instance
+        .subscribeToTopic(userTopics['خدام و اعداد خدام']!);
   } else if (userModel.currentService == 'الام دولاجي') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -102,16 +114,19 @@ Future<void> doNotificationSubscribe(UserModel? userModel) async {
   } else if (userModel.currentService == 'المسرح') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['المسرح']!);
+    await FirebaseMessaging.instance.subscribeToTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'وسائل الايضاح') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .subscribeToTopic(userTopics['وسائل الايضاح']!);
+    await FirebaseMessaging.instance.subscribeToTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'اخوة الرب') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['اخوة الرب']!);
   } else if (userModel.currentService == 'الكورالات') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكورالات']!);
+    await FirebaseMessaging.instance.subscribeToTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'منسقين المهرجان') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -119,6 +134,7 @@ Future<void> doNotificationSubscribe(UserModel? userModel) async {
   } else if (userModel.currentService == 'الكشافة') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكشافة']!);
+    await FirebaseMessaging.instance.subscribeToTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'مركز المشورة') {
     await FirebaseMessaging.instance.subscribeToTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -188,22 +204,30 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
         .unsubscribeFromTopic(userTopics['اعدادي بنين']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['أعدادي']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'اعدادي بنات') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['اعدادي بنات']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['أعدادي']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'ثانوي بنين') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['ثانوي بنين']!);
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['ثانوي']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'ثانوي بنات') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['ثانوي بنات']!);
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['ثانوي']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['اعدادي و ثانوي']!);
   } else if (userModel.currentService == 'جامعيين') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -225,6 +249,8 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['اجتماع الخدام']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['خدام و اعداد خدام']!);
   } else if (userModel.currentService == 'مدارس احد يوم الاحد') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -233,6 +259,8 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['اعداد خدام']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['خدام و اعداد خدام']!);
   } else if (userModel.currentService == 'الام دولاجي') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -245,10 +273,14 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['المسرح']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'وسائل الايضاح') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['وسائل الايضاح']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'اخوة الرب') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -257,6 +289,8 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['الكورالات']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'منسقين المهرجان') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
@@ -265,6 +299,8 @@ Future<void> doNotificationUnsubscribe(UserModel? userModel) async {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
         .unsubscribeFromTopic(userTopics['الكشافة']!);
+    await FirebaseMessaging.instance
+        .unsubscribeFromTopic(userTopics['الأنشطة']!);
   } else if (userModel.currentService == 'مركز المشورة') {
     await FirebaseMessaging.instance.unsubscribeFromTopic(userTopics['الكل']!);
     await FirebaseMessaging.instance
