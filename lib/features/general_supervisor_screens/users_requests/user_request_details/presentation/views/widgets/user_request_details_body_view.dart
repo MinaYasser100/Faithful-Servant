@@ -1,8 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:faithful_servant/core/function/calculate_age.dart';
 import 'package:faithful_servant/core/helper/constant.dart';
+import 'package:faithful_servant/core/helper/get_pages.dart';
 import 'package:faithful_servant/features/register/data/model/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../../all_servants/servant_details/presentation/views/widgets/servant_info_item_widget.dart';
 
@@ -65,6 +67,18 @@ class UserRequestDetailsBodyView extends StatelessWidget {
                 ),
                 separatorBuilder: (context, index) => const Divider(),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20.0),
+                child: TextButton(
+                  child: Text('Change Privilage or Service'.tr),
+                  onPressed: () {
+                    Get.toNamed(
+                      GetPages.kChangePrivilageOrServiceView,
+                      arguments: userModel,
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),
