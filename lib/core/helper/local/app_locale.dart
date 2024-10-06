@@ -176,6 +176,7 @@ class Applocal implements Translations {
           'readed': 'مقروة',
           'unreaded': 'غير مقروة',
           'Servant': 'خادم',
+          'Change Privilage or Service': 'تغيير الصلاحية أو الخدمة',
         },
         "en": {
           'email': 'Email',
@@ -355,6 +356,7 @@ class Applocal implements Translations {
           'readed': 'readed',
           'unreaded': 'unreaded',
           'Servant': 'Servant',
+          'Change Privilage or Service': 'Change Privilage or Service',
         },
       };
 }

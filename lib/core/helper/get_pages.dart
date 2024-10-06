@@ -21,6 +21,7 @@ import '../../features/general_manager/presentation/views/general_manager_screen
 import '../../features/general_supervisor/presentation/views/general_supervisor.dart';
 import '../../features/general_supervisor_screens/supervisor_statistic/presentation/views/supervisor_statistics_view.dart';
 import '../../features/general_supervisor_screens/users_requests/presentation/views/users_requests_view.dart';
+import '../../features/general_supervisor_screens/users_requests/user_request_details/change_privilage_or_service/presentation/views/change_privilage_or_service_view.dart';
 import '../../features/general_supervisor_screens/users_requests/user_request_details/presentation/views/user_request_details_view.dart';
 import '../../features/login/presentation/views/login_view.dart';
 import '../../features/mine_servant/presentation/views/mine_servant_screen.dart';
@@ -73,6 +74,7 @@ abstract class GetPages {
   static String kPersonalInformationsView = '/PersonalInformationsView';
   static String kShowNotificationView = '/ShowNotificationView';
   static String kUserRequestDetailsView = '/UserRequestDetailsView';
+  static String kChangePrivilageOrServiceView = '/ChangePrivilageOrServiceView';
 
   static List<GetPage<dynamic>> getPages = [
     GetPage(
@@ -248,6 +250,11 @@ abstract class GetPages {
     GetPage(
       name: kUserRequestDetailsView,
       page: () => const UserRequestDetailsView(),
+      transition: Transition.circularReveal,
+    ),
+    GetPage(
+      name: kChangePrivilageOrServiceView,
+      page: () => const ChangePrivilageOrServiceView(),
       transition: Transition.circularReveal,
     ),
   ];
