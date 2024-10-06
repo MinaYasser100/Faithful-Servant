@@ -32,13 +32,13 @@ class ChangePrivilageOrServiceCubit
         phoneNum2: userModel.phoneNum2,
         image: userModel.image,
         nationalId: userModel.nationalId,
-        privilage: userModel.privilage,
+        qualification: userModel.qualification,
         church: userModel.church,
         gender: userModel.gender,
         numberOfnumber: userModel.numberOfnumber,
         streetName: userModel.streetName,
         addressOfArea: userModel.addressOfArea,
-        qualification: privilageForUser(role: userModel.role),
+        privilage: privilageForUser(role: userModel.role),
         currentService: userModel.currentService,
         fatherOfConfession: userModel.fatherOfConfession,
         brithDate: userModel.brithDate,
@@ -56,6 +56,7 @@ class ChangePrivilageOrServiceCubit
           contentText: 'تم تحديث البيانات بنجاح',
           buttonText: 'OK',
           onPressed: () {
+            Get.back();
             Get.back();
           });
     } catch (e) {
